@@ -1,0 +1,5 @@
+export const DEFAULT_SAT_RANGE_LOW = 600
+export const DEFAULT_SAT_RANGE_HIGH = 1600
+export const DEFAULT_TOEFL_RANGE = 60
+export const DEFAULT_TUITION_RANGE_LOW = 0
+export const DEFAULT_TUITION_RANGE_HIGH = 600
