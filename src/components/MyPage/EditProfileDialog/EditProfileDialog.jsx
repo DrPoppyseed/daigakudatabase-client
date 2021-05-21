@@ -19,7 +19,7 @@ type Props = {
 
 const EditProfileDialog = (props: Props): React.Node => {
   const c = useStyles()
-  const [isPageLoading, setIsPageLoading] = React.useState(true)
+  const [isPageLoading] = React.useState(true)
   const [userSchool, setUserSchool] = React.useState('')
   const [userProfileText, setUserProfileText] = React.useState('')
   const [userName, setUserName] = React.useState({

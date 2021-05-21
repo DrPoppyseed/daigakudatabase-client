@@ -8,8 +8,8 @@ import SchoolCardSmall from '../../SchoolCards/SchoolCardSmall/SchoolCardSmall.j
 
 const LikedSchoolsContainer = (): React.Element<any> => {
   const c = useStyles()
-  const [likedSchools, setLikedSchools] = React.useState([])
-  const [isPageLoading, setIsPageLoading] = React.useState(true)
+  const [likedSchools] = React.useState([])
+  const [isPageLoading] = React.useState(true)
 
   const renderLikedSchools = likedSchools.map((school): React.Node => {
     return (

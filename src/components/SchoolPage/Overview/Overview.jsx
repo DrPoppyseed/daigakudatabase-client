@@ -4,7 +4,7 @@ import clsx from 'clsx'
 import { Typography, Paper } from '@material-ui/core'
 import Students from './Students/Students'
 import StatsTable from './StatsTable/StatsTable'
-import Location from './Location/Location'
+// import Location from './Location/Location'
 import useStyles from './styles'
 
 const Overview = ({ data }: { data: Object }): React.Element<any> => {

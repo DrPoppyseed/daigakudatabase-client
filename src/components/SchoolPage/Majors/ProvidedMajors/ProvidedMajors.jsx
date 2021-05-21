@@ -1,7 +1,7 @@
 //@flow
 import * as React from 'react'
 import useStyles from './styles'
-import { Paper, Typography, Grid } from '@material-ui/core'
+import { Paper, Grid } from '@material-ui/core'
 import { MajorsConsumer } from '../MajorsProvider'
 import ProvidedMajor from './ProvidedMajor/ProvidedMajor'
 

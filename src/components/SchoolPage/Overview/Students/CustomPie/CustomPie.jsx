@@ -2,10 +2,10 @@
 import * as React from 'react'
 import { ResponsivePie } from '@nivo/pie'
 
-import useStyles from './styles'
+// import useStyles from './styles'
 
 const CustomPie = ({ data }: { data: any }): React.Element<any> => {
-  const c = useStyles()
+  // const c = useStyles()
 
   return (
     <ResponsivePie

@@ -6,7 +6,7 @@ import { Typography, IconButton, Card, Tooltip } from '@material-ui/core'
 
 import BasicStatsBreadcrumb from '../BasicStatsBreadcrumb/BasicStatsBreacrumb.jsx'
 import TestStatsBreadcrumb from '../TestStatsBreadcrumb/TestStatsBreadcrumb.jsx'
-import ChipGroup from '../ChipGroup/ChipGroup.jsx'
+// import ChipGroup from '../ChipGroup/ChipGroup.jsx'
 import useStyles from './styles'
 
 import { likeSchoolById, unlikeSchoolById } from '../../../hooks/useAuth'
@@ -25,14 +25,14 @@ const SchoolCardLarge = (props: Props): React.Element<any> => {
     card_img_src,
     card_img_alt,
     name_en,
-    name_jp,
+    // name_jp,
     summary,
     rating_score,
     ratings,
     year_type,
     school_type,
     state_jp,
-    state_en,
+    // state_en,
     cost,
     sat,
     isLiked,

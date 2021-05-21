@@ -13,8 +13,8 @@ type Props = {
 
 const ProfileSummaryContainer = (props: Props): React.Element<any> => {
   const c = useStyles()
-  const [isPageLoading, setIsPageLoading] = React.useState(true)
-  const [userProfile, setUserProfile] = React.useState({
+  const [isPageLoading] = React.useState(true)
+  const [userProfile] = React.useState({
     userId: '',
     userFirebaseId: '',
     profileStatus: 0,
@@ -25,7 +25,7 @@ const ProfileSummaryContainer = (props: Props): React.Element<any> => {
     profileText: '',
     belongsTo: {},
   })
-  const [userBelongsTo, setUserBelongsTo] = React.useState({
+  const [userBelongsTo] = React.useState({
     _id: '',
     userId: '',
     name: '',

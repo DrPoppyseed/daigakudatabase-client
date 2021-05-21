@@ -17,7 +17,7 @@ export const signUpWithEmail = async ({
     )
     const token = await user.getIdToken(true)
     const { data } = await api.put(
-      'http://localhost:3080/api/v1/users/',
+      'http://localhost:5000/api/v1/users/',
       {
         headers: { Authorization: `Bearer ${token}` },
       },
@@ -42,7 +42,7 @@ export const signInWithEmail = async ({
       password
     )
     const token = await user.getIdToken(true)
-    const { data } = await axios.get(`http://localhost:3080/api/v1/users/`, {
+    const { data } = await axios.get(`http://localhost:5000/api/v1/users/`, {
       headers: { Authorization: `Bearer ${token}` },
     })
     return data.user
@@ -55,7 +55,7 @@ export const signInWithGoogle = async (): Promise<any> => {
   try {
     const { user } = await firebaseAuth.signInWithPopup(googleProvider)
     const token = await user.getIdToken(true)
-    const { data } = await axios.get(`http://localhost:3080/api/v1/users/`, {
+    const { data } = await axios.get(`http://localhost:5000/api/v1/users/`, {
       headers: { Authorization: `Bearer ${token}` },
     })
     return data
@@ -77,7 +77,7 @@ export const likeSchoolById = async (schoolId: string): any => {
     const user = await firebaseAuth.currentUser
     const token = await user.getIdToken(true)
     const { data } = await axios.get(
-      `http://localhost:3080/api/v1/users/like/?schoolId=${schoolId}`,
+      `http://localhost:5000/api/v1/users/like/?schoolId=${schoolId}`,
       {
         headers: { Authorization: `Bearer ${token}` },
       }
@@ -96,7 +96,7 @@ export const unlikeSchoolById = async (schoolId: string): any => {
     const user = await firebaseAuth.currentUser
     const token = await user.getIdToken()
     const { data } = await axios.get(
-      `http://localhost:3080/api/v1/users/unlike?schoolId=${schoolId}`,
+      `http://localhost:5000/api/v1/users/unlike?schoolId=${schoolId}`,
       {
         headers: { Authorization: `Bearer ${token}` },
       }

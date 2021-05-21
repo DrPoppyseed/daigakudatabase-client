@@ -5,7 +5,7 @@ import { Card, Typography, IconButton } from '@material-ui/core'
 
 import TurnedIn from '@material-ui/icons/TurnedIn'
 import useStyles from './styles'
-import { likeSchoolById, unlikeSchoolById } from '../../../hooks/useAuth'
+import { unlikeSchoolById } from '../../../hooks/useAuth'
 import { useMutation } from 'react-query'
 
 import BasicStatsBreacrumb from '../BasicStatsBreadcrumb/BasicStatsBreacrumb.jsx'
