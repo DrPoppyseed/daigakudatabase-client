@@ -83,7 +83,7 @@ export const getSchools = async (
       return data
     } else {
       const { data } = await axios.get(
-        `${process.env.REACT_APP_BASE_URL}/api/v1/schools/?page=${pageNumber}&${params}`
+        `${process.env.REACT_APP_BASE_URL}/api/v1/schools/?page=${pageNumber}&${params}`,
         {
           headers: { Authorization: `Bearer` },
         }

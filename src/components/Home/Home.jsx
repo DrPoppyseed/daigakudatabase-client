@@ -3,7 +3,6 @@ import * as React from 'react'
 import clsx from 'clsx'
 import useStyles from './styles'
 import { Fab, Typography, Container } from '@material-ui/core'
-import { Ripple } from 'react-spinners-css'
 import Pagination from '@material-ui/lab/Pagination'
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp'
 import { Helmet } from 'react-helmet'
@@ -11,9 +10,7 @@ import { useQueryClient } from 'react-query'
 
 import ScrollTop from '../Common/ScrollTop/ScrollTop.jsx'
 import SchoolCardLarge from '../SchoolCards/SchoolCardLarge/SchoolCardLarge.jsx'
-/** TEST: Starts */
 import SchoolCardLargeSkeleton from '../SchoolCards/SchoolCardLargeSkeleton/SchoolCardLargeSkeleton.jsx'
-/** TEST: Ends */
 import FilterBox from './FilterBox/FilterBox'
 import {
   DEFAULT_SAT_RANGE_LOW,
