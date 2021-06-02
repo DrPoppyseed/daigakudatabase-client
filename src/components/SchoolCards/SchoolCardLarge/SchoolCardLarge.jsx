@@ -1,12 +1,19 @@
 // @flow
 import * as React from 'react'
 import { Link } from 'react-router-dom'
-import { TurnedInNot, TurnedIn } from '@material-ui/icons'
-import { Typography, IconButton, Card, Tooltip } from '@material-ui/core'
+import { Typography, Card, IconButton, Tooltip } from '@material-ui/core'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import {
+  StarBorder as StarBorderIcon,
+  Star as StarIcon,
+} from '@material-ui/icons'
+import 'swiper/swiper.min.css'
+import 'swiper/components/pagination/pagination.min.css'
+import 'swiper/components/navigation/navigation.min.css'
+import SwiperCore, { Pagination, Navigation } from 'swiper/core'
 
 import BasicStatsBreadcrumb from '../BasicStatsBreadcrumb/BasicStatsBreacrumb.jsx'
 import TestStatsBreadcrumb from '../TestStatsBreadcrumb/TestStatsBreadcrumb.jsx'
-// import ChipGroup from '../ChipGroup/ChipGroup.jsx'
 import useStyles from './styles'
 
 import { likeSchoolById, unlikeSchoolById } from '../../../hooks/useAuth'
@@ -17,22 +24,24 @@ type Props = {
   school: any,
 }
 
+SwiperCore.use([Pagination, Navigation])
+
 const SchoolCardLarge = (props: Props): React.Element<any> => {
   const c = useStyles()
   const {
     url,
     uuid,
-    card_img_src,
-    card_img_alt,
+    card_img_srcs_jpeg,
+    card_img_srcs_webp,
+    card_img_alts,
     name_en,
-    // name_jp,
+    name_jp,
     summary,
     rating_score,
     ratings,
     year_type,
     school_type,
     state_jp,
-    // state_en,
     cost,
     sat,
     isLiked,
@@ -52,7 +61,6 @@ const SchoolCardLarge = (props: Props): React.Element<any> => {
     },
   })
   const authContext = React.useContext(AuthContext)
-
   const handleLikeClick = () => {
     setIsCardLiked(!isCardLiked)
     !isCardLiked ? onClickLike.mutate(uuid) : onClickUnlike.mutate(uuid)
@@ -60,57 +68,95 @@ const SchoolCardLarge = (props: Props): React.Element<any> => {
 
   return (
     <Card className={c.cardContainer}>
-      <div className={c.imgContainer}>
-        <img className={c.img} src={card_img_src} alt={card_img_alt} />
-      </div>
-      <div className={c.cardTextContainer}>
-        <Link
-          to={`/schools/${url}`}
-          style={{ textDecoration: 'none', color: 'black' }}>
-          <div className={c.cardTextArea}>
-            <Typography variant="h6">{name_en}</Typography>
-            <BasicStatsBreadcrumb
-              ratingScore={rating_score}
-              ratings={ratings}
-              yearType={year_type}
-              schoolType={school_type}
-              state={state_jp}
+      <div className={c.swiperContainer}>
+        <div className={c.tagContainer}>
+          <IconButton className={c.tag} onClick={() => handleLikeClick()}>
+            {!!authContext.user.uid ? (
+              isCardLiked ? (
+                <StarIcon style={{ color: '#ffa726' }} />
+              ) : (
+                <StarBorderIcon />
+              )
+            ) : (
+              <Tooltip title="ログインして学校をお気に入り登録しよう！">
+                <StarBorderIcon />
+              </Tooltip>
+            )}
+          </IconButton>
+        </div>
+        {card_img_srcs_jpeg.length > 0 ? (
+          <Swiper
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+            navigation={true}
+            spaceBetween={30}
+            className={c.swiper}>
+            {card_img_srcs_jpeg.map((img, index) => {
+              return (
+                <SwiperSlide>
+                  <picture>
+                    <source
+                      type="image/webp"
+                      src={card_img_srcs_webp[index]}
+                      srcSet={card_img_srcs_webp[index]}
+                      className={c.img}
+                    />
+                    <source
+                      type="image/jpeg"
+                      src={card_img_srcs_jpeg[index]}
+                      srcSet={card_img_srcs_jpeg[index]}
+                      className={c.img}
+                    />
+                    <img
+                      src={card_img_srcs_jpeg[index]}
+                      alt={`${card_img_alts[index]}`}
+                      className={c.img}
+                    />
+                  </picture>
+                </SwiperSlide>
+              )
+            })}
+          </Swiper>
+        ) : (
+          <div className={c.imgContainer}>
+            <img
+              alt="画像がありません"
+              src="./assets/image_not_found__size__300x300.jpeg"
+              className={c.imgNotFound}
             />
-            <Typography variant="caption" className={c.shortSummary}>
-              {summary}
-            </Typography>
           </div>
-        </Link>
-        <div className={c.bottomGroup}>
+        )}
+      </div>
+      <Link to={`/schools/${url}`} className={c.linkContainer}>
+        <div className={c.cardTitle}>
+          <Typography variant="h6">{name_jp}</Typography>
+          <Typography variant="outline">{name_en}</Typography>
+        </div>
+        <div className={c.cardText}>
+          <Typography variant="caption" className={c.shortSummary}>
+            {summary.length > 100 ? (
+              summary.slice(0, 100) + ' ...続きを見る'
+            ) : (
+              <div style={{ height: 56 }}></div>
+            )}
+          </Typography>
+        </div>
+        <div className={c.stats}>
+          <BasicStatsBreadcrumb
+            ratingScore={rating_score}
+            ratings={ratings}
+            yearType={year_type}
+            schoolType={school_type}
+            state={state_jp}
+          />
           <TestStatsBreadcrumb
             tuitionHigh={cost.in_state_tuition}
             tuitionLow={cost.out_of_state_tuition}
-            // toeflRange={0}
             SATHigh={sat.high}
             SATLow={sat.low}
           />
-          <div className={c.actionGroup}>
-            {/** TODO: Add chips (uniqueflags) for each school */}
-            {/* <ChipGroup chips={[{ label: '', link: '', chipId: '1' }]} /> */}
-            <div style={{ flex: 'grow' }}></div>
-            {!!authContext.user.uid ? (
-              <IconButton onClick={handleLikeClick}>
-                {isCardLiked ? (
-                  <TurnedIn fontSize="small" />
-                ) : (
-                  <TurnedInNot fontSize="small" />
-                )}
-              </IconButton>
-            ) : (
-              <Tooltip title="ログインして学校をお気に入り登録しよう！">
-                <IconButton>
-                  <TurnedInNot fontSize="small" />
-                </IconButton>
-              </Tooltip>
-            )}
-          </div>
         </div>
-      </div>
+      </Link>
     </Card>
   )
 }

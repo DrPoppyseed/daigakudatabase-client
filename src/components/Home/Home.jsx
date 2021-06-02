@@ -11,6 +11,9 @@ import { useQueryClient } from 'react-query'
 
 import ScrollTop from '../Common/ScrollTop/ScrollTop.jsx'
 import SchoolCardLarge from '../SchoolCards/SchoolCardLarge/SchoolCardLarge.jsx'
+/** TEST: Starts */
+import SchoolCardLargeSkeleton from '../SchoolCards/SchoolCardLargeSkeleton/SchoolCardLargeSkeleton.jsx'
+/** TEST: Ends */
 import FilterBox from './FilterBox/FilterBox'
 import {
   DEFAULT_SAT_RANGE_LOW,
@@ -159,9 +162,15 @@ const Home = (props: any): React.Element<any> => {
         )}>
         {/** TODO: add chips for different university rankings and lists */}
         {status === 'loading' || isFetching ? (
-          <div className={c.loadingContainer}>
-            <Typography className={c.loadingText}>ロード中...</Typography>
-            <Ripple color="#2196f3" />
+          <div>
+            <SchoolCardLargeSkeleton />
+            <SchoolCardLargeSkeleton />
+            <SchoolCardLargeSkeleton />
+            <SchoolCardLargeSkeleton />
+            <SchoolCardLargeSkeleton />
+            <SchoolCardLargeSkeleton />
+            <SchoolCardLargeSkeleton />
+            <SchoolCardLargeSkeleton />
           </div>
         ) : status === 'error' ? (
           'エラー発生'

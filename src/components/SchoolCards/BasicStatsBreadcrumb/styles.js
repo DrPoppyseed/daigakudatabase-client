@@ -5,7 +5,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
   },
   breadcrumbContainer: {
-    paddingBottom: '.5rem',
+    // paddingBottom: '.5rem',
   },
   ratingContainer: {
     display: 'flex',

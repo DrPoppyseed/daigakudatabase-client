@@ -75,7 +75,8 @@ export const getSchools = async (
     if (!!user) {
       const token = await user.getIdToken(true)
       const { data } = await axios.get(
-        `https://foris-uscolleges-api.herokuapp.com/api/v1/schools/?page=${pageNumber}&${params}`,
+        // `https://foris-uscolleges-api.herokuapp.com/api/v1/schools/?page=${pageNumber}&${params}`
+        `http://localhost:5000/api/v1/schools/?page=${pageNumber}&${params}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -83,7 +84,8 @@ export const getSchools = async (
       return data
     } else {
       const { data } = await axios.get(
-        `https://foris-uscolleges-api.herokuapp.com/api/v1/schools/?page=${pageNumber}&${params}`,
+        // `https://foris-uscolleges-api.herokuapp.com/api/v1/schools/?page=${pageNumber}&${params}`
+        `http://localhost:5000/api/v1/schools/?page=${pageNumber}&${params}`,
         {
           headers: { Authorization: `Bearer` },
         }
@@ -113,7 +115,8 @@ const getSchoolById = async (id: any): any => {
       console.log(user, 'from useSchools')
       const token = await user.getIdToken(true)
       const { data } = await axios.get(
-        `https://foris-uscolleges-api.herokuapp.com/api/v1/schools/${id}`,
+        // `https://foris-uscolleges-api.herokuapp.com/api/v1/schools/${id}`
+        `http://localhost:5000/api/v1/schools/${id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -125,7 +128,8 @@ const getSchoolById = async (id: any): any => {
       return merged
     } else {
       const { data } = await axios.get(
-        `https://foris-uscolleges-api.herokuapp.com/api/v1/schools/${id}`,
+        // `https://foris-uscolleges-api.herokuapp.com/api/v1/schools/${id}`
+        `http://localhost:5000/api/v1/schools/${id}`,
         {
           headers: { Authorization: `Bearer null` },
         }
