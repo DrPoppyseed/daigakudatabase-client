@@ -32,7 +32,7 @@ const Home = (props: any): React.Element<any> => {
   const [toeflRange, setToeflRange] = React.useState(DEFAULT_TOEFL_RANGE || 60)
   const [tuitionRange, setTuitionRange] = React.useState([
     DEFAULT_TUITION_RANGE_LOW || 0,
-    DEFAULT_TUITION_RANGE_HIGH || 600,
+    DEFAULT_TUITION_RANGE_HIGH || 60000,
   ])
   const [stateLocation, setStateLocation] = React.useState('')
   const [selectMajor, setSelectMajor] = React.useState('')
@@ -58,7 +58,6 @@ const Home = (props: any): React.Element<any> => {
   const { status, data, isFetching } = useGetSchools(pageNumber, searchCriteria)
 
   React.useEffect(() => {
-    console.log(searchCriteria)
     if (data?.hasMore) {
       queryClient.prefetchQuery(['projects', pageNumber + 1], () =>
         getSchools(pageNumber + 1)

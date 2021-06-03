@@ -157,16 +157,21 @@ const FilterBox = (props: any): React.Element<any> => {
           <ListItem className={c.listItem}>
             <div className={c.tuitionRangeSlider}>
               <Typography variant="body2" className={c.tuitionRangeText}>
-                学費の範囲：
+                １年間の平均学費の範囲：
                 <br />
-                {`${
-                  props.states.tuitionRange[0] !== 0
-                    ? `${props.states.tuitionRange[0]}万円`
-                    : `${props.states.tuitionRange[0]}円`
-                } ~ ${
-                  props.states.tuitionRange[1] !== 600
-                    ? `${props.states.tuitionRange[1]}万円 / 年`
-                    : `${props.states.tuitionRange[1]}万円以上 / 年`
+                {`${`$ ${new Intl.NumberFormat('en-US', {
+                  style: 'decimal',
+                  currency: 'USD',
+                }).format(props.states.tuitionRange[0])}`} ~ ${
+                  props.states.tuitionRange[1] !== 60000
+                    ? `$ ${new Intl.NumberFormat('en-US', {
+                        style: 'decimal',
+                        currency: 'USD',
+                      }).format(props.states.tuitionRange[1])} / 年`
+                    : `$ ${new Intl.NumberFormat('en-US', {
+                        style: 'decimal',
+                        currency: 'USD',
+                      }).format(props.states.tuitionRange[1])} 以上 / 年`
                 }`}
               </Typography>
               <Slider
@@ -174,8 +179,8 @@ const FilterBox = (props: any): React.Element<any> => {
                 onChange={props.handleTuitionRange}
                 aria-labelledby="tuition range slider"
                 min={0}
-                step={10}
-                max={600}
+                step={100}
+                max={60000}
               />
             </div>
           </ListItem>

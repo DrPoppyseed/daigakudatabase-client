@@ -93,7 +93,7 @@ const SchoolCardLarge = (props: Props): React.Element<any> => {
             className={c.swiper}>
             {card_img_srcs_jpeg.map((img, index) => {
               return (
-                <SwiperSlide>
+                <SwiperSlide key={index}>
                   <picture>
                     <source
                       type="image/webp"
@@ -152,6 +152,7 @@ const SchoolCardLarge = (props: Props): React.Element<any> => {
           <TestStatsBreadcrumb
             tuitionHigh={cost.in_state_tuition}
             tuitionLow={cost.out_of_state_tuition}
+            tuitionAvg={cost.academic_year_avg}
             SATHigh={sat.high}
             SATLow={sat.low}
           />

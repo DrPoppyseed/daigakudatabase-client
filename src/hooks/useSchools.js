@@ -44,21 +44,21 @@ export const getSchools = async (
   ) {
     params += `sat=${satRange[0]},${satRange[1]}&`
   }
-  if (
-    tuitionRange[0] !== DEFAULT_TUITION_RANGE_LOW ||
-    tuitionRange[1] !== DEFAULT_TUITION_RANGE_HIGH
-  ) {
-    params += `tuition=${satRange[0]},${satRange[1]}&`
-  }
+  // if (
+  //   tuitionRange[0] !== DEFAULT_TUITION_RANGE_LOW ||
+  //   tuitionRange[1] !== DEFAULT_TUITION_RANGE_HIGH
+  // ) {
+  //   params += `=${satRange[0]},${satRange[1]}&`
+  // }
   if (toeflRange !== DEFAULT_TOEFL_RANGE) {
     params += `toefl=${toeflRange}&`
   }
-  if (
-    tuitionRange[0] !== DEFAULT_TUITION_RANGE_LOW ||
-    tuitionRange[1] !== DEFAULT_TUITION_RANGE_HIGH
-  ) {
-    params += `tuition=${tuitionRange[0]},${tuitionRange[1]}&`
-  }
+  // if (
+  //   tuitionRange[0] !== DEFAULT_TUITION_RANGE_LOW ||
+  //   tuitionRange[1] !== DEFAULT_TUITION_RANGE_HIGH
+  // ) {
+  params += `tuition=${tuitionRange[0]},${tuitionRange[1]}&`
+  // }
   if (stateLocation) {
     params += `state=${stateLocation}&`
   }
@@ -66,9 +66,9 @@ export const getSchools = async (
     params += `major=${selectMajor}&`
   }
 
-  if (params) {
-    params = '?' + params.slice(0, params.length - 1)
-  }
+  // if (params) {
+  //   params = '?' + params.slice(0, params.length - 1)
+  // }
 
   try {
     const user = await firebaseAuth.currentUser

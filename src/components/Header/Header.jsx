@@ -164,7 +164,7 @@ const Header = (): React.Element<any> => {
                 <IconButton
                   edge="end"
                   aria-label="account of current user"
-                  color="black"
+                  color="default"
                   ref={anchorRef}
                   aria-controls={open ? 'menu-list-grow' : undefined}
                   aria-haspopup="true"
