@@ -40,7 +40,7 @@ const SchoolPage = (props: Props): React.Element<any> => {
             ? 'ロード中...'
             : status === 'error'
             ? 'エラー...'
-            : data.name_jp
+            : data.institutionData.name_jp
         }`}</title>
       </Helmet>
       <div className={c.reportContainer}>

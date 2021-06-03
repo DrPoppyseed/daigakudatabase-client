@@ -21,7 +21,9 @@ const Overview = ({ data }: { data: Object }): React.Element<any> => {
             大学のサマリー
           </Typography>
           <Typography variant="body2" className={c.textAreaContent}>
-            {data.summary}
+            {data.summary.length > 0
+              ? data.summary
+              : 'この大学に関するサマリーはまだありません。質問等は peaske16180@gmail.com まで連絡をどうぞ。'}
           </Typography>
         </div>
       </Paper>

@@ -39,6 +39,13 @@ const StatsTable = ({
     cost,
   } = basicInfo
 
+  const formatMoney = num => {
+    return new Intl.NumberFormat('en-US', {
+      style: 'decimal',
+      currency: 'USD',
+    }).format(num)
+  }
+
   return (
     <TableContainer>
       <Table className={c.table} aria-label="学校の基本情報">
@@ -78,7 +85,9 @@ const StatsTable = ({
           </TableNode>
           <TableNode
             title="学費"
-            content={`${cost.in_state_tuition} ~ ${cost.out_of_state_tuition}`}>
+            content={`$${formatMoney(cost.in_state_tuition)} ~ $${formatMoney(
+              cost.out_of_state_tuition
+            )}`}>
             <AttachMoneyIcon
               fontSize="small"
               style={{ marginRight: 10, color: 'yellow' }}

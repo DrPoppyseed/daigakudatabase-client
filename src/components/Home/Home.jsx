@@ -10,7 +10,7 @@ import { useQueryClient } from 'react-query'
 
 import ScrollTop from '../Common/ScrollTop/ScrollTop.jsx'
 import SchoolCardLarge from '../SchoolCards/SchoolCardLarge/SchoolCardLarge.jsx'
-import SchoolCardLargeSkeleton from '../SchoolCards/SchoolCardLargeSkeleton/SchoolCardLargeSkeleton.jsx'
+import SchoolCardLargeSkeleton from '../SchoolCards/SchoolCardLarge/SchoolCardLargeSkeleton.jsx'
 import FilterBox from './FilterBox/FilterBox'
 import {
   DEFAULT_SAT_RANGE_LOW,

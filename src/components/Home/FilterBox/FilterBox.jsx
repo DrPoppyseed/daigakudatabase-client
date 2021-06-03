@@ -24,6 +24,13 @@ import CheckboxChild from '../../Common/CheckboxChild/CheckboxChild'
 const FilterBox = (props: any): React.Element<any> => {
   const c = useStyles()
 
+  const formatMoney = num => {
+    return new Intl.NumberFormat('en-US', {
+      style: 'decimal',
+      currency: 'USD',
+    }).format(num)
+  }
+
   const {
     fourYear,
     twoYear,
@@ -136,22 +143,6 @@ const FilterBox = (props: any): React.Element<any> => {
                 max={1600}
               />
             </div>
-            {/* <div className={c.toeflRangeSlider}>
-              <Typography variant="body2" className={c.toeflRangeText}>
-                TOEFL iBTの点数範囲：
-                {props.states.toeflRange !== 120
-                  ? `${props.states.toeflRange}+`
-                  : `${props.states.toeflRange}`}
-              </Typography>
-              <Slider
-                value={props.states.toeflRange}
-                onChange={props.handleToeflRange}
-                aria-labelledby="toefl range slider"
-                min={60}
-                step={5}
-                max={120}
-              />
-            </div> */}
           </ListItem>
           <Divider />
           <ListItem className={c.listItem}>
@@ -159,19 +150,10 @@ const FilterBox = (props: any): React.Element<any> => {
               <Typography variant="body2" className={c.tuitionRangeText}>
                 １年間の平均学費の範囲：
                 <br />
-                {`${`$ ${new Intl.NumberFormat('en-US', {
-                  style: 'decimal',
-                  currency: 'USD',
-                }).format(props.states.tuitionRange[0])}`} ~ ${
+                {`${`$ ${formatMoney(props.states.tuitionRange[0])}`} ~ ${
                   props.states.tuitionRange[1] !== 60000
-                    ? `$ ${new Intl.NumberFormat('en-US', {
-                        style: 'decimal',
-                        currency: 'USD',
-                      }).format(props.states.tuitionRange[1])} / 年`
-                    : `$ ${new Intl.NumberFormat('en-US', {
-                        style: 'decimal',
-                        currency: 'USD',
-                      }).format(props.states.tuitionRange[1])} 以上 / 年`
+                    ? `$ ${formatMoney(props.states.tuitionRange[1])} / 年`
+                    : `$ ${formatMoney(props.states.tuitionRange[1])} 以上 / 年`
                 }`}
               </Typography>
               <Slider

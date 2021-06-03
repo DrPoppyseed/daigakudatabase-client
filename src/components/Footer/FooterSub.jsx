@@ -18,7 +18,9 @@ const FooterSub = (): React.Element<any> => {
   const c = useStyles()
   return (
     <div className={c.root}>
-      <Typography variant="overline">Made with ❤️ from FORIS</Typography>
+      <Typography variant="overline">
+        質問・フィードバックは <strong>peaske16180@gmail.com</strong> へ
+      </Typography>
     </div>
   )
 }
