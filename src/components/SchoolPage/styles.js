@@ -31,13 +31,7 @@ const useStyles = makeStyles(theme => ({
   fabIcon: {
     color: 'inherit',
   },
-  loadingContainer: {
-    marginTop: 100,
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
+  loadingContainer: {},
   loadingText: {
     marginBottom: 20,
   },

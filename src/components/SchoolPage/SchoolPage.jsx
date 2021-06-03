@@ -4,14 +4,15 @@ import * as React from 'react'
 import useStyles from './styles'
 import { Helmet } from 'react-helmet'
 import ScrollTop from '../Common/ScrollTop/ScrollTop.jsx'
-import { Fab, Typography } from '@material-ui/core'
+import { Fab, Card } from '@material-ui/core'
+import Skeleton from '@material-ui/lab/Skeleton'
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp'
 import { useGetSchoolById } from '../../hooks/useSchools'
 import { useLocation } from 'react-router-dom'
-import { Ripple } from 'react-spinners-css'
 
 import Overview from './Overview/Overview'
 import RecommendedSchools from './RecommendedSchools/RecommendedSchools'
+import SchoolCardMiniSkeleton from '../SchoolCards/SchoolCardMini/SchoolCardMiniSkeleton'
 import PageTop from './PageTop/PageTop'
 import Majors from './Majors/Majors'
 import Apply from './Apply/Apply'
@@ -49,8 +50,19 @@ const SchoolPage = (props: Props): React.Element<any> => {
       <div className={c.reportContainer}>
         {status === 'loading' ? (
           <div className={c.loadingContainer}>
-            <Typography className={c.loadingText}>ロード中...</Typography>
-            <Ripple color="#2196f3" />
+            <Skeleton
+              animation="wave"
+              variant="rect"
+              height={475}
+              width={700}
+            />
+            <Skeleton
+              animation="wave"
+              variant="rect"
+              height={325}
+              width={700}
+              style={{ marginTop: 24 }}
+            />
           </div>
         ) : status === 'error' ? (
           'エラー...'
@@ -79,7 +91,24 @@ const SchoolPage = (props: Props): React.Element<any> => {
       </div>
       <div className={c.recommendationContainer}>
         {status === 'loading' ? (
-          ''
+          <div>
+            <Card style={{ marginBottom: 16, borderRadius: 0 }}>
+              <Skeleton
+                animation="wave"
+                variant="rect"
+                height={58}
+                width={300}
+              />
+            </Card>
+            <SchoolCardMiniSkeleton />
+            <SchoolCardMiniSkeleton />
+            <SchoolCardMiniSkeleton />
+            <SchoolCardMiniSkeleton />
+            <SchoolCardMiniSkeleton />
+            <SchoolCardMiniSkeleton />
+            <SchoolCardMiniSkeleton />
+            <SchoolCardMiniSkeleton />
+          </div>
         ) : status === 'error' ? (
           'エラー'
         ) : (

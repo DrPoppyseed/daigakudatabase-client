@@ -4,6 +4,7 @@ import useStyles from './styles'
 import { Typography, Card, ButtonBase } from '@material-ui/core'
 
 import SchoolCardMini from '../../SchoolCards/SchoolCardMini/SchoolCardMini'
+import SchoolCardMiniSkeleton from '../../SchoolCards/SchoolCardMini/SchoolCardMiniSkeleton'
 import { useGetSchools } from '../../../hooks/useSchools'
 
 const RecommendedSchools = ({
@@ -25,15 +26,24 @@ const RecommendedSchools = ({
         <Typography variant="body1">他の大学も見る</Typography>
       </Card>
       <div className={c.schoolCardList}>
-        {status === 'loading'
-          ? ''
-          : status === 'error'
-          ? 'エラー'
-          : data.schools
-              .filter(school => school.uuid !== currentSchoolUuid)
-              .map(school => (
-                <SchoolCardMini key={school.uuid} school={school} />
-              ))}
+        {status === 'loading' ? (
+          <div>
+            <SchoolCardMiniSkeleton />
+            <SchoolCardMiniSkeleton />
+            <SchoolCardMiniSkeleton />
+            <SchoolCardMiniSkeleton />
+            <SchoolCardMiniSkeleton />
+            <SchoolCardMiniSkeleton />
+            <SchoolCardMiniSkeleton />
+            <SchoolCardMiniSkeleton />
+          </div>
+        ) : status === 'error' ? (
+          'エラー'
+        ) : (
+          data.schools
+            .filter(school => school.uuid !== currentSchoolUuid)
+            .map(school => <SchoolCardMini key={school.uuid} school={school} />)
+        )}
       </div>
       {status === 'success' && (
         <Card className={c.seeMoreCardContainer}>

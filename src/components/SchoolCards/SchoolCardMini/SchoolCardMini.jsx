@@ -23,12 +23,6 @@ const SchoolCardMini = ({ school }: { school: Object }): React.Element<any> => {
   return (
     <Card className={c.cardRoot}>
       <ButtonBase href={`${school.url}`} className={c.buttonBaseRoot}>
-        {/* <img
-          src={`${school.page_img_src}`}
-          thumb={`${school.page_img_src}`}
-          alt={`${school.card_img_alt}`}
-          className={c.img}
-        /> */}
         {school.mini_img_srcs_jpeg.length > 0 ? (
           <Swiper
             slidesPerView={1}
