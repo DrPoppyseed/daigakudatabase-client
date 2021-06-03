@@ -146,3 +146,27 @@ export const useGetSchoolById = (schoolId: any): any => {
     enabled: !!schoolId,
   })
 }
+
+const getMajorsOfSchoolById = async (uuid: String): any => {
+  try {
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_BASE_URL}/api/v1/schools/${uuid}/majors`
+    )
+    const majors = {
+      ...data,
+    }
+    console.log(majors)
+    return majors
+  } catch (err) {
+    console.log(
+      '🚀 ~ file: useSchools.js ~ getMajorsOfSchoolById() try-catch ~ err',
+      err
+    )
+  }
+}
+
+export const useGetMajorsOfSchoolById = (uuid: String): any => {
+  return useQuery(['majors', uuid], () => getMajorsOfSchoolById(uuid), {
+    enabled: !!uuid,
+  })
+}

@@ -32,10 +32,6 @@ const SchoolPage = (props: Props): React.Element<any> => {
     setTabIndex(newValue)
   }
 
-  React.useEffect(() => {
-    console.log(data)
-  })
-
   return (
     <div className={c.root}>
       <Helmet>
@@ -78,10 +74,7 @@ const SchoolPage = (props: Props): React.Element<any> => {
               {tabIndex === 0 ? (
                 <Overview data={data.institutionData} />
               ) : tabIndex === 1 ? (
-                <Majors
-                  majors={data.majors}
-                  programsPerCredLev={data.programsPerCredLev}
-                />
+                <Majors uuid={data.uuid} />
               ) : (
                 <Apply />
               )}
