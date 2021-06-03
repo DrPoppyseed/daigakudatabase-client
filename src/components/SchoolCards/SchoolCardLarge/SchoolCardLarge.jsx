@@ -120,7 +120,7 @@ const SchoolCardLarge = (props: Props): React.Element<any> => {
         ) : (
           <div className={c.imgContainer}>
             <img
-              alt="画像がありません"
+              alt="大学の画像がありません。フリー素材のhttps://www.freepik.com/vectors/school、pch.vector - www.freepik.comのフリー素材を使用してます。"
               src="./assets/image_not_found__size__300x300.jpeg"
               className={c.imgNotFound}
             />
