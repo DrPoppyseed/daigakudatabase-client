@@ -15,6 +15,11 @@ import {
   TurnedInNot,
 } from '@material-ui/icons'
 import { useMutation } from 'react-query'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/swiper.min.css'
+import 'swiper/components/pagination/pagination.min.css'
+import 'swiper/components/navigation/navigation.min.css'
+import SwiperCore, { Pagination, Navigation } from 'swiper/core'
 
 import { AuthContext } from '../../../AuthContext'
 import { likeSchoolById, unlikeSchoolById } from '../../../hooks/useAuth'
@@ -99,12 +104,48 @@ const PageTop = ({
           )}
         </div>
         <div className={c.imgContainer}>
-          <img
-            src={`${school.page_img_src}`}
-            thumb={`${school.page_img_src}`}
-            alt={`${school.card_img_alt}`}
-            className={c.primaryImage}
-          />
+          {school.page_img_srcs_jpeg.length > 0 ? (
+            <Swiper
+              slidesPerView={1}
+              pagination={{ clickable: true }}
+              navigation={true}
+              spaceBetween={30}
+              className={c.swiper}>
+              {school.page_img_srcs_jpeg.map((img, index) => {
+                return (
+                  <SwiperSlide>
+                    <picture>
+                      <source
+                        type="image/webp"
+                        src={school.page_img_srcs_webp[index]}
+                        srcSet={school.page_img_srcs_webp[index]}
+                        className={c.img}
+                      />
+                      <source
+                        type="image/jpeg"
+                        src={school.page_img_srcs_jpeg[index]}
+                        srcSet={school.page_img_srcs_jpeg[index]}
+                        className={c.img}
+                      />
+                      <img
+                        src={school.page_img_srcs_jpeg[index]}
+                        alt={`${school.page_img_alts[index]}`}
+                        className={c.img}
+                      />
+                    </picture>
+                  </SwiperSlide>
+                )
+              })}
+            </Swiper>
+          ) : (
+            <div className={c.imgNotFoundContainer}>
+              <img
+                alt="画像がありません"
+                src="../assets/image_not_found__size__800x400.jpeg"
+                className={c.imgNotFound}
+              />
+            </div>
+          )}
         </div>
       </div>
       <div className={c.summaryTextContainer}>

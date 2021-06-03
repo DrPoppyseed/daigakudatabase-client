@@ -12,13 +12,37 @@ const useStyles = makeStyles(theme => ({
   },
   imgContainer: {
     borderRadius: '0 !important',
+    // height: 300,
+    // width: 700,
+  },
+  swiper: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     height: 300,
     width: 700,
+  },
+  imgNotFoundContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 300,
+    width: 700,
+  },
+  img: {
+    width: '100%',
+    height: '100%',
+    objectFit: 'contain',
+  },
+  imgNotFound: {
+    width: '100%',
+    height: '100%',
+    objectFit: 'contain',
   },
   primaryImage: {
     width: '100%',
     height: '100%',
-    objectFit: 'cover',
+    objectFit: 'contain',
   },
   basicStatsBreadcrumb: {},
   summaryTextContainer: {
@@ -32,7 +56,8 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     alignItems: 'center',
     right: theme.spacing(2),
-    bottom: theme.spacing(2),
+    top: theme.spacing(2),
+    zIndex: 9,
   },
   likeButton: {
     marginLeft: theme.spacing(2),
