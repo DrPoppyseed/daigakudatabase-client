@@ -141,6 +141,7 @@ const Header = (): React.Element<any> => {
   }
 
   const CustomHits = connectHits(Hits)
+
   return (
     <div className={c.grow} id="back-to-top-anchor">
       <AppBar position="static" className={c.headerRoot}>

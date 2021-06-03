@@ -38,7 +38,7 @@ const TestStatsBreadcrumb = (props: Props): React.Node => {
         />
         <Typography variant="caption">
           {/* {`${props.tuitionLow}万円 ~ ${props.tuitionHigh}万円 / 年`} */}
-          {`$${props.tuitionLow} ~ $${props.tuitionHigh} / 年`}
+          {`$${props.tuitionHigh} ~ $${props.tuitionLow} / 年`}
         </Typography>
       </div>
     </Breadcrumbs>
