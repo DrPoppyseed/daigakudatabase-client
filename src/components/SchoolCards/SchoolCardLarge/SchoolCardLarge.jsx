@@ -130,14 +130,19 @@ const SchoolCardLarge = (props: Props): React.Element<any> => {
       <Link to={`/schools/${url}`} className={c.linkContainer}>
         <div className={c.cardTitle}>
           <Typography variant="h6">{name_jp}</Typography>
+          <Typography
+            style={{ overflow: 'auto', whiteSpace: 'nowrap' }}></Typography>
           <Typography variant="outline">{name_en}</Typography>
         </div>
-        <div className={c.cardText}>
+        <div className={c.cardText} style={{ flexGrow: 1 }}>
           <Typography variant="caption" className={c.shortSummary}>
-            {summary.length > 100 ? (
-              summary.slice(0, 100) + ' ...続きを見る'
+            {summary.length > 80 ? (
+              summary.slice(0, 80) + ' ...続きを見る'
             ) : (
-              <div style={{ height: 56 }}></div>
+              <Typography variant="caption">
+                この大学に関するサマリーはまだありません。質問等は
+                peaske16180@gmail.com まで連絡をどうぞ。
+              </Typography>
             )}
           </Typography>
         </div>

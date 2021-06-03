@@ -16,6 +16,7 @@ const _INITIAL_SEARCH_STATE = {
   tuitionRange: [DEFAULT_TUITION_RANGE_LOW, DEFAULT_TUITION_RANGE_HIGH],
   stateLocation: '',
   selectMajor: '',
+  sortSelection: 'default',
   filterState: {},
 }
 
@@ -26,11 +27,11 @@ export const getSchools = async (
   /** TODO: refactor if statements and make function readable and compact */
   const {
     satRange,
-    toeflRange,
     tuitionRange,
     stateLocation,
     selectMajor,
     filterState,
+    sortSelection,
   } = searchCriteria
   let params = ''
 
@@ -44,31 +45,14 @@ export const getSchools = async (
   ) {
     params += `sat=${satRange[0]},${satRange[1]}&`
   }
-  // if (
-  //   tuitionRange[0] !== DEFAULT_TUITION_RANGE_LOW ||
-  //   tuitionRange[1] !== DEFAULT_TUITION_RANGE_HIGH
-  // ) {
-  //   params += `=${satRange[0]},${satRange[1]}&`
-  // }
-  if (toeflRange !== DEFAULT_TOEFL_RANGE) {
-    params += `toefl=${toeflRange}&`
-  }
-  // if (
-  //   tuitionRange[0] !== DEFAULT_TUITION_RANGE_LOW ||
-  //   tuitionRange[1] !== DEFAULT_TUITION_RANGE_HIGH
-  // ) {
   params += `tuition=${tuitionRange[0]},${tuitionRange[1]}&`
-  // }
   if (stateLocation) {
     params += `state=${stateLocation}&`
   }
   if (selectMajor) {
     params += `major=${selectMajor}&`
   }
-
-  // if (params) {
-  //   params = '?' + params.slice(0, params.length - 1)
-  // }
+  params += `sortby=${sortSelection}`
 
   try {
     const user = await firebaseAuth.currentUser

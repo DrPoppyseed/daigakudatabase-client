@@ -26,8 +26,8 @@ const App = (): React.Element<any> => {
   const { globalLoading, currentPath } = React.useContext(AuthContext)
 
   const searchClient = algoliasearch(
-    process.env.REACT_APP_ALGOLIA_1,
-    process.env.REACT_APP_ALGOLIA_2
+    'SMKYORP5ZT',
+    'c4fc6d06ee25a8e7c90de66a12e97804'
   )
 
   const isNotAuth = !currentPath.match(/(auth\/signin|auth\/signup)/)
