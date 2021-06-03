@@ -26,8 +26,8 @@ const App = (): React.Element<any> => {
   const { globalLoading, currentPath } = React.useContext(AuthContext)
 
   const searchClient = algoliasearch(
-    'SMKYORP5ZT',
-    'c4fc6d06ee25a8e7c90de66a12e97804'
+    process.env.REACT_APP_ALGOLIA_1,
+    process.env.REACT_APP_ALGOLIA_2
   )
 
   const isNotAuth = !currentPath.match(/(auth\/signin|auth\/signup)/)
@@ -44,7 +44,7 @@ const App = (): React.Element<any> => {
                 <Route exact path="/mypage" component={MyPage} />
                 <Route exact path="/auth/signin" component={SignIn} />
                 <Route exact path="/auth/signup" component={SignUp} />
-                <Route path="/:schoolId" component={SchoolPage} />
+                <Route path="/schools/:schoolId" component={SchoolPage} />
                 <Route component={NoMatch} />
               </Switch>
             </Container>
