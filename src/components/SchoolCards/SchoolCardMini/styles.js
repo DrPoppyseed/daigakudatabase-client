@@ -7,10 +7,29 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
     alignItems: 'center',
   },
-  img: {
-    height: 90,
+  swiper: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 100,
     width: 300,
-    objectFit: 'cover',
+  },
+  imgNotFoundContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 100,
+    width: 300,
+  },
+  img: {
+    width: '100%',
+    height: '100%',
+    objectFit: 'contain',
+  },
+  imgNotFound: {
+    width: '100%',
+    height: '100%',
+    objectFit: 'contain',
   },
   textContainer: {
     width: '100%',

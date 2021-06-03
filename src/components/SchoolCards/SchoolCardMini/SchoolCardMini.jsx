@@ -9,6 +9,10 @@ import {
   ButtonBase,
 } from '@material-ui/core'
 import { TurnedIn, TurnedInNot } from '@material-ui/icons'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/swiper.min.css'
+import 'swiper/components/pagination/pagination.min.css'
+import 'swiper/components/navigation/navigation.min.css'
 
 import { AuthContext } from '../../../AuthContext'
 
@@ -19,12 +23,54 @@ const SchoolCardMini = ({ school }: { school: Object }): React.Element<any> => {
   return (
     <Card className={c.cardRoot}>
       <ButtonBase href={`${school.url}`} className={c.buttonBaseRoot}>
-        <img
+        {/* <img
           src={`${school.page_img_src}`}
           thumb={`${school.page_img_src}`}
           alt={`${school.card_img_alt}`}
           className={c.img}
-        />
+        /> */}
+        {school.mini_img_srcs_jpeg.length > 0 ? (
+          <Swiper
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+            navigation={true}
+            spaceBetween={30}
+            className={c.swiper}>
+            {school.mini_img_srcs_jpeg.map((img, index) => {
+              return (
+                <SwiperSlide>
+                  <picture>
+                    <source
+                      type="image/webp"
+                      src={school.mini_img_srcs_webp[index]}
+                      srcSet={school.mini_img_srcs_webp[index]}
+                      className={c.img}
+                    />
+                    <source
+                      type="image/jpeg"
+                      src={school.mini_img_srcs_jpeg[index]}
+                      srcSet={school.mini_img_srcs_jpeg[index]}
+                      className={c.img}
+                    />
+                    <img
+                      src={school.mini_img_srcs_jpeg[index]}
+                      alt={`${school.mini_img_alts[index]}`}
+                      className={c.img}
+                    />
+                  </picture>
+                </SwiperSlide>
+              )
+            })}
+          </Swiper>
+        ) : (
+          <div className={c.imgNotFoundContainer}>
+            <img
+              alt="画像がありません"
+              src="../assets/image_not_found__size__300x100.jpeg"
+              className={c.imgNotFound}
+            />
+          </div>
+        )}
         <div className={c.textContainer}>
           <Typography variant="body2">{school.name_en}</Typography>
           <div className={c.infoContainer}>
