@@ -2,7 +2,6 @@
 import { useQuery } from 'react-query'
 import axios from 'axios'
 import { firebaseAuth } from '../util/firebase'
-import localForage from 'localforage'
 import {
   DEFAULT_SAT_RANGE_LOW,
   DEFAULT_SAT_RANGE_HIGH,
