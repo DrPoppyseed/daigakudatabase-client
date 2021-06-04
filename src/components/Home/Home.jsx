@@ -206,6 +206,7 @@ const Home = (props: any): React.Element<any> => {
           </Typography>
         ) : (
           <div>
+            {console.log('rerendering...')}
             <SortByBox
               hits={data.totalSchoolsFound}
               pageNumber={pageNumber}

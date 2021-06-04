@@ -2,6 +2,7 @@
 import { useQuery } from 'react-query'
 import axios from 'axios'
 import { firebaseAuth } from '../util/firebase'
+import localForage from 'localforage'
 import {
   DEFAULT_SAT_RANGE_LOW,
   DEFAULT_SAT_RANGE_HIGH,
@@ -64,6 +65,7 @@ export const getSchools = async (
           headers: { Authorization: `Bearer ${token}` },
         }
       )
+
       return data
     } else {
       const { data } = await axios.get(
@@ -94,7 +96,6 @@ const getSchoolById = async (id: any): any => {
   try {
     const user = await firebaseAuth.currentUser
     if (!!user) {
-      console.log(user, 'from useSchools')
       const token = await user.getIdToken(true)
       const { data } = await axios.get(
         `${process.env.REACT_APP_BASE_URL}/api/v1/schools/${id}`,
