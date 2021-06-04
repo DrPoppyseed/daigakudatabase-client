@@ -1,5 +1,6 @@
 import firebase from 'firebase/app'
 import 'firebase/auth'
+import 'firebase/analytics'
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -13,6 +14,9 @@ const firebaseConfig = {
 }
 
 firebase.initializeApp(firebaseConfig)
+
+const analytics = firebase.analytics()
+analytics.logEvent('notification_received')
 
 export const googleProvider = new firebase.auth.GoogleAuthProvider()
 export const firebaseAuth = firebase.auth()
