@@ -5,7 +5,13 @@ import { Paper, Typography } from '@material-ui/core'
 
 import useStyles from './styles'
 
-const Location = (): React.Element<any> => {
+const Location = ({
+  lat,
+  lon,
+}: {
+  lat: String,
+  lon: String,
+}): React.Element<any> => {
   const c = useStyles()
 
   return (
@@ -23,17 +29,14 @@ const Location = (): React.Element<any> => {
           allowfullscreen=""
           aria-hidden="false"
           tabIndex="0"
-        />
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!4v1588829200171!6m8!1m7!1sBSGO6DAhJcdM03jfVaXISg!2m2!1d47.65389204532318!2d-122.3071892454694!3f270!4f0!5f0.7820865974627469"
-          width="100%"
-          height="350"
-          frameborder="0"
-          style={{ border: 0 }}
-          allowfullscreen=""
-          aria-hidden="false"
-          tabIndex="0"
         /> */}
+        <iframe
+          width="100%"
+          height="450"
+          style={{ border: 0 }}
+          loading="lazy"
+          allowfullscreen
+          src={`https://www.google.com/maps/embed/v1/view?key=AIzaSyCd_GHnmWwBIrlIDh7pbzFbBQzw7VA166g&center=${lat},${lon}&maptype=satellite&zoom=17`}></iframe>
       </div>
     </Paper>
   )
