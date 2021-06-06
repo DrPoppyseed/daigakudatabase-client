@@ -143,6 +143,15 @@ const Home = (props: any): React.Element<any> => {
       sortSelection: `${e.target.value}`,
     })
   }
+  const mapSchools = (schools: Array): Array<React.Node> => {
+    return schools.map(school => (
+      <SchoolCardLarge key={school.uuid} school={school} />
+    ))
+  }
+  const renderSchools = React.useMemo(
+    () => !!data && mapSchools(data.schools),
+    [data]
+  )
 
   return (
     <div className={c.root}>
@@ -186,7 +195,6 @@ const Home = (props: any): React.Element<any> => {
                 height={85}
               />
             </Card>
-
             <SchoolCardLargeSkeleton />
             <SchoolCardLargeSkeleton />
             <SchoolCardLargeSkeleton />
@@ -206,16 +214,13 @@ const Home = (props: any): React.Element<any> => {
           </Typography>
         ) : (
           <div>
-            {console.log('rerendering...')}
             <SortByBox
               hits={data.totalSchoolsFound}
               pageNumber={pageNumber}
               sortSelection={sortSelection}
               handleSortSelectionChange={handleSortSelectionChange}
             />
-            {data.schools.map(school => (
-              <SchoolCardLarge key={school.uuid} school={school} />
-            ))}
+            {renderSchools}
           </div>
         )}
         {status === 'success' && !isFetching && (
