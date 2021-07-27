@@ -60,87 +60,90 @@ const Header = (): React.Element<any> => {
   }
 
   const SearchBox = ({ currentRefinement, refine }) => {
-    return (
-      <ClickAwayListener onClickAway={() => setHitsOpen(false)}>
-        <TextField
-          className={c.searchInputBase}
-          placeholder="大学名で検索する..."
-          variant="outlined"
-          type="search"
-          value={currentRefinement}
-          onFocus={() => {
-            setHitsOpen(true)
-          }}
-          onChange={event => refine(event.currentTarget.value)}
-          InputProps={{
-            endAdornment: (
-              <IconButton
-                type="submit"
-                className={c.searchIcon}
-                aria-label="search">
-                <SearchIcon />
-              </IconButton>
-            ),
-          }}
-        />
-      </ClickAwayListener>
-    )
+    // return (
+    //   <ClickAwayListener onClickAway={() => setHitsOpen(false)}>
+    //     <TextField
+    //       className={c.searchInputBase}
+    //       placeholder="大学名で検索する..."
+    //       variant="outlined"
+    //       type="search"
+    //       value={currentRefinement}
+    //       onFocus={() => {
+    //         setHitsOpen(true)
+    //       }}
+    //       onChange={event => refine(event.currentTarget.value)}
+    //       InputProps={{
+    //         endAdornment: (
+    //           <IconButton
+    //             type="submit"
+    //             className={c.searchIcon}
+    //             aria-label="search">
+    //             <SearchIcon />
+    //           </IconButton>
+    //         ),
+    //       }}
+    //     />
+    //   </ClickAwayListener>
+    // )
+
+    // TODO: Move away from algolia search & implement own text search
+    return <div/>
   }
+  //
+  // const CustomSearchBox = connectSearchBox(SearchBox)
+  //
+  // const Hits = ({ hits }) => {
+  //   return (
+  //     <Paper>
+  //       <List
+  //         component="nav"
+  //         className={`c.hitsList ${hitsOpen ? c.hitsOpen : c.hitsClosed}`}>
+  //         {hits.length ? (
+  //           hits.length > 5 ? (
+  //             hits.slice(0, 6).map((hit, index) =>
+  //               index === 5 ? (
+  //                 <ListItem
+  //                   key="000000"
+  //                   button
+  //                   component="a"
+  //                   className={c.hitItem}
+  //                   href="/schools">
+  //                   <ListItemText>もっと見る</ListItemText>
+  //                 </ListItem>
+  //               ) : (
+  //                 <ListItem
+  //                   key={hit.opeid}
+  //                   button
+  //                   component="a"
+  //                   className={c.hitItem}
+  //                   href={`/schools/${hit.institutionData.url}`}>
+  //                   <ListItemText>{hit.name_en}</ListItemText>
+  //                 </ListItem>
+  //               )
+  //             )
+  //           ) : (
+  //             hits.slice(0, 5).map(hit => (
+  //               <ListItem
+  //                 key={hit.opeid}
+  //                 button
+  //                 component="a"
+  //                 className={c.hitItem}
+  //                 href={`schools/${hit.institutionData.url}`}>
+  //                 <ListItemText>{hit.name_en}</ListItemText>
+  //               </ListItem>
+  //             ))
+  //           )
+  //         ) : (
+  //           <ListItem>
+  //             <ListItemText>条件に合う大学が見つかりません。</ListItemText>
+  //           </ListItem>
+  //         )}
+  //       </List>
+  //     </Paper>
+  //   )
+  // }
 
-  const CustomSearchBox = connectSearchBox(SearchBox)
-
-  const Hits = ({ hits }) => {
-    return (
-      <Paper>
-        <List
-          component="nav"
-          className={`c.hitsList ${hitsOpen ? c.hitsOpen : c.hitsClosed}`}>
-          {hits.length ? (
-            hits.length > 5 ? (
-              hits.slice(0, 6).map((hit, index) =>
-                index === 5 ? (
-                  <ListItem
-                    key="000000"
-                    button
-                    component="a"
-                    className={c.hitItem}
-                    href="/schools">
-                    <ListItemText>もっと見る</ListItemText>
-                  </ListItem>
-                ) : (
-                  <ListItem
-                    key={hit.opeid}
-                    button
-                    component="a"
-                    className={c.hitItem}
-                    href={`/schools/${hit.institutionData.url}`}>
-                    <ListItemText>{hit.name_en}</ListItemText>
-                  </ListItem>
-                )
-              )
-            ) : (
-              hits.slice(0, 5).map(hit => (
-                <ListItem
-                  key={hit.opeid}
-                  button
-                  component="a"
-                  className={c.hitItem}
-                  href={`schools/${hit.institutionData.url}`}>
-                  <ListItemText>{hit.name_en}</ListItemText>
-                </ListItem>
-              ))
-            )
-          ) : (
-            <ListItem>
-              <ListItemText>条件に合う大学が見つかりません。</ListItemText>
-            </ListItem>
-          )}
-        </List>
-      </Paper>
-    )
-  }
-
-  const CustomHits = connectHits(Hits)
+  // const CustomHits = connectHits(Hits)
 
   return (
     <div className={c.grow} id="back-to-top-anchor">
@@ -148,16 +151,16 @@ const Header = (): React.Element<any> => {
         <Toolbar className={c.toolbarRoot}>
           <Typography className={c.title} variant="h6" noWrap>
             <a href="/" className={c.titleLink}>
-              FORIS
+              アメリカ大学 DB
             </a>
           </Typography>
           <div className={c.grow} />
-          <div className={c.algoliaContainer}>
-            <CustomSearchBox />
-            <div className={c.hitsContainer}>
-              <CustomHits />
-            </div>
-          </div>
+          {/*<div className={c.algoliaContainer}>*/}
+          {/*  <CustomSearchBox />*/}
+          {/*  <div className={c.hitsContainer}>*/}
+          {/*    <CustomHits />*/}
+          {/*  </div>*/}
+          {/*</div>*/}
           <div className={c.profileMenu}>
             {user.uid ? (
               <React.Fragment>

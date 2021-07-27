@@ -7,7 +7,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(4),
     display: 'grid',
     gridSpacing: theme.spacing(4),
-    gridTemplateColumns: '1fr 300px 20px 700px 1fr',
+    gridTemplateColumns: '1fr 300px 20px 900px 1fr',
   },
   rootLoading: { height: '100vh' },
   fab: {
@@ -29,6 +29,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    width: '900px'
   },
   pagination: {
     marginTop: theme.spacing(2),

@@ -2,15 +2,15 @@
 import * as React from 'react'
 import clsx from 'clsx'
 import useStyles from './styles'
-import { Fab, Typography, Container, Card } from '@material-ui/core'
+import {Fab, Typography, Container, Card} from '@material-ui/core'
 import Pagination from '@material-ui/lab/Pagination'
 import Skeleton from '@material-ui/lab/Skeleton'
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp'
-import { Helmet } from 'react-helmet'
-import { useQueryClient } from 'react-query'
+import {Helmet} from 'react-helmet'
+import {useQueryClient} from 'react-query'
 
 import ScrollTop from '../Common/ScrollTop/ScrollTop.jsx'
-import SchoolCardLarge from '../SchoolCards/SchoolCardLarge/SchoolCardLarge.jsx'
+// import SchoolCardLarge from '../SchoolCards/SchoolCardLarge/SchoolCardLarge.jsx'
 import SchoolCardLargeSkeleton from '../SchoolCards/SchoolCardLarge/SchoolCardLargeSkeleton.jsx'
 import FilterBox from './FilterBox/FilterBox'
 import SortByBox from './SortByBox/SortByBox'
@@ -21,7 +21,9 @@ import {
   DEFAULT_TUITION_RANGE_HIGH,
   DEFAULT_TUITION_RANGE_LOW,
 } from '../../util/final'
-import { getSchools, useGetSchools } from '../../hooks/useSchools'
+import {getSchools, useGetSchools} from '../../hooks/useSchools'
+
+import HomeSchoolCard from '../HomeSchoolCard'
 
 const Home = (props: any): React.Element<any> => {
   const c = useStyles()
@@ -59,7 +61,7 @@ const Home = (props: any): React.Element<any> => {
     sortSelection,
   })
 
-  const { status, data, isFetching } = useGetSchools(pageNumber, searchCriteria)
+  const {status, data, isFetching} = useGetSchools(pageNumber, searchCriteria)
 
   React.useEffect(() => {
     if (data?.hasMore) {
@@ -72,7 +74,7 @@ const Home = (props: any): React.Element<any> => {
   const handlePageChange = (e, num) => {
     ;(e.target.ownerDocument || document)
       .querySelector('#back-to-top-anchor')
-      .scrollIntoView({ behavior: 'instant', block: 'start' })
+      .scrollIntoView({behavior: 'instant', block: 'start'})
     setPageNumber(num)
   }
 
@@ -108,7 +110,7 @@ const Home = (props: any): React.Element<any> => {
   }
 
   const handleFilterChange = e => {
-    setFilterState({ ...filterState, [e.target.name]: e.target.checked })
+    setFilterState({...filterState, [e.target.name]: e.target.checked})
   }
 
   const handleSatRange = (e, newValue) => {
@@ -143,11 +145,16 @@ const Home = (props: any): React.Element<any> => {
       sortSelection: `${e.target.value}`,
     })
   }
+  // const mapSchools = (schools: Array): Array<React.Node> => {
+  //   return schools.map(school => (
+  //       // <SchoolCardLarge key={school.uuid} school={school} />
+  //     ))
+  // }
+
   const mapSchools = (schools: Array): Array<React.Node> => {
-    return schools.map(school => (
-      <SchoolCardLarge key={school.uuid} school={school} />
-    ))
+    return schools.map(school => <HomeSchoolCard general={school.general}/>)
   }
+
   const renderSchools = React.useMemo(
     () => !!data && mapSchools(data.schools),
     [data]
@@ -157,7 +164,7 @@ const Home = (props: any): React.Element<any> => {
     <div className={c.root}>
       <Helmet>
         <title>アメリカ大学を検索しよう</title>
-        <meta name="description" content="アメリカ大学のデータベース。" />
+        <meta name="description" content="アメリカ大学のデータベース。"/>
       </Helmet>
       <div className={c.filterContainer}>
         <FilterBox
@@ -187,29 +194,29 @@ const Home = (props: any): React.Element<any> => {
         {/** TODO: add chips for different university rankings and lists */}
         {status === 'loading' || isFetching ? (
           <div>
-            <Card style={{ marginBottom: 16 }}>
+            <Card style={{marginBottom: 16}}>
               <Skeleton
                 animation="wave"
                 variant="rect"
-                width={700}
+                width={900}
                 height={85}
               />
             </Card>
-            <SchoolCardLargeSkeleton />
-            <SchoolCardLargeSkeleton />
-            <SchoolCardLargeSkeleton />
-            <SchoolCardLargeSkeleton />
-            <SchoolCardLargeSkeleton />
-            <SchoolCardLargeSkeleton />
-            <SchoolCardLargeSkeleton />
-            <SchoolCardLargeSkeleton />
+            {/*<SchoolCardLargeSkeleton/>*/}
+            {/*<SchoolCardLargeSkeleton/>*/}
+            {/*<SchoolCardLargeSkeleton/>*/}
+            {/*<SchoolCardLargeSkeleton/>*/}
+            {/*<SchoolCardLargeSkeleton/>*/}
+            {/*<SchoolCardLargeSkeleton/>*/}
+            {/*<SchoolCardLargeSkeleton/>*/}
+            {/*<SchoolCardLargeSkeleton/>*/}
           </div>
         ) : status === 'error' ? (
           'エラー発生'
         ) : data.totalSchoolsFound === 0 ? (
           <Typography
             variant="caption"
-            style={{ textAlign: 'center', marginTop: 20 }}>
+            style={{textAlign: 'center', marginTop: 20}}>
             条件にあった学校は見つかりませんでした。
           </Typography>
         ) : (
@@ -234,7 +241,7 @@ const Home = (props: any): React.Element<any> => {
       </Container>
       <ScrollTop {...props}>
         <Fab aria-label="key arrow up" className={c.fab}>
-          <KeyboardArrowUpIcon className={c.fabIcon} />
+          <KeyboardArrowUpIcon className={c.fabIcon}/>
         </Fab>
       </ScrollTop>
     </div>

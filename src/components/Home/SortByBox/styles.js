@@ -6,7 +6,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     display: 'flex',
     alignItems: 'center',
-    width: 700,
+    width: 900,
   },
   divider: {
     flexGrow: 1,
