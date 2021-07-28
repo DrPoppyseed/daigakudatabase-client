@@ -8,7 +8,7 @@ export const useD3 = (renderChartFn, deps) => {
   React.useEffect(() => {
     renderChartFn(d3.select(ref.current))
     return () => {}
-  }, deps)
+  }, [ deps ])
 
   return ref
 }

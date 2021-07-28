@@ -44,6 +44,7 @@ const useStyles = makeStyles(theme => ({
   loadingText: {
     marginBottom: 20,
   },
+
 }))
 
 export default useStyles
