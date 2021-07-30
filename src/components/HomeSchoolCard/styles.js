@@ -4,13 +4,19 @@ const useStyles = makeStyles(theme => ({
   cardContainer: {
     width: '900px',
     marginBottom: theme.spacing(1),
-    padding: theme.spacing(2),
+    padding: theme.spacing(3),
   },
   titleBlock: {
     display: 'flex',
     alignItems: 'center',
-    marginBottom: theme.spacing(1),
-
+    marginBottom: theme.spacing(2),
+    justifyContent: 'space-between'
+  },
+  button: {
+  },
+  buttonLink: {
+    textDecoration: 'None',
+    color: 'white'
   },
   bodyBlock: {
     display: 'flex',
@@ -37,7 +43,8 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
-    padding: theme.spacing(0.5)
+    padding: theme.spacing(0.5),
+    width: 350
   },
   datacardTitleContainer: {},
   datacardBodyContainer: {
@@ -47,34 +54,10 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'flex-start'
   },
   datacardSummaryItem: {
-    // backgroundColor: 'grey',
     width: '350px',
-    // padding: theme.spacing(0.5)
   },
   graphsBlock: {
-
   },
-  programsContainer: {
-
-  },
-  programsGraphContainer: {
-    display: 'flex',
-    padding: theme.spacing(0.5),
-  },
-  programsNamesBlock: {
-  },
-  programsTitleContainer: {
-  },
-  programsNamesContainer: {
-    maxHeight: 200,
-    width: 300,
-    overflow: 'auto',
-    postition: 'relative',
-  },
-  active: {
-    backgroundColor: 'yellow',
-    color: 'yellow'
-  }
 }))
 
 export default useStyles

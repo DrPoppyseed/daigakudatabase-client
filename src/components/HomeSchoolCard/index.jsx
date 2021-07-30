@@ -1,10 +1,17 @@
 // @flow
 import * as React from 'react'
 import {Link} from 'react-router-dom'
-import {Typography, Card, IconButton, List, ListItem, ListItemText} from '@material-ui/core'
-import D3ProgramsViz from './D3ProgramsViz'
+import {Typography, Card, Button, IconButton, List, ListItem, Tooltip, Tabs, Tab} from '@material-ui/core'
+import {
+  StarBorder as StarBorderIcon,
+  Star as StarIcon,
+} from '@material-ui/icons'
 import useStyles from './styles'
-import './styles.css'
+import D3GraphsContainer from './D3GraphsContainer'
+
+import {likeSchoolById, unlikeSchoolById} from '../../hooks/useAuth'
+import {useMutation} from 'react-query'
+import {AuthContext} from '../../AuthContext'
 
 type Props = {
   general: any
@@ -19,20 +26,68 @@ const HomeSchoolCard = (props: Props): React.Node => {
     classifications,
     tuition,
     admissions,
-    ipeds_unitid
+    ipeds_unitid,
+    isLiked
   } = props.general
-  const [highlighted, setHighlighted] = React.useState('')
+
+  const [isCardLiked, setIsCardLiked] = React.useState(isLiked)
+
+  console.log(ipeds_unitid, tuition)
+
+  const onClickLike = useMutation(likeSchoolById, {
+    onSuccess: () => {
+      setIsCardLiked(true)
+      console.log('success!')
+    },
+  })
+  const onClickUnlike = useMutation(unlikeSchoolById, {
+    onSuccess: () => {
+      setIsCardLiked(false)
+      console.log('unlike success!')
+    },
+  })
+  const authContext = React.useContext(AuthContext)
+  const handleLikeClick = () => {
+    setIsCardLiked(!isCardLiked)
+    // TODO: handle liking by unitid or ffname (=> backend solution required)
+    // !isCardLiked ? onClickLike.mutate(uuid) : onClickUnlike.mutate(uuid)
+  }
+
 
   return (
     <Card className={c.cardContainer}>
       <div className={c.titleBlock}>
         <div className={c.titleContainer}>
+          <IconButton onClick={() => handleLikeClick()}>
+            {!!authContext.user.uid ? (
+              isCardLiked ? (
+                <StarIcon style={{color: '#ffa726'}}/>
+              ) : (
+                <StarBorderIcon/>
+              )
+            ) : (
+              <Tooltip title="ログインして学校をお気に入り登録しよう！">
+                <StarBorderIcon/>
+              </Tooltip>
+            )}
+          </IconButton>
           <div className={c.logoContainer}>
           </div>
           <Typography variant='h6'>
-            {name_en} - {ipeds_unitid}
+            {name_en}
           </Typography>
         </div>
+        <Button
+          variant="contained"
+          color="primary"
+          disableElevation
+          className={c.button}>
+          <Link
+            to="#"
+            className={c.buttonLink}>
+            もっと詳しく
+          </Link>
+        </Button>
       </div>
       <div className={c.bodyBlock}>
         <div className={c.datacardsBlock}>
@@ -73,7 +128,7 @@ const HomeSchoolCard = (props: Props): React.Node => {
               </div>
               <div className={c.datacardBodyContainer}>
                 {
-                  tuition !== undefined ? (
+                  tuition !== undefined && tuition['out_of_state'][2019]['tuition'] !== '-' ? (
                     <Typography variant='caption'>
                       州外生徒の平均学費： ${new Intl.NumberFormat().format(tuition['out_of_state'][2019]['tuition'])}
                     </Typography>
@@ -104,7 +159,7 @@ const HomeSchoolCard = (props: Props): React.Node => {
                           {admissions.sat.eng_75th_percentile + admissions.sat.math_75th_percentile}
                         </Typography>
                       </React.Fragment>
-                      )
+                    )
                   ) : (
                     <React.Fragment>
                       <Typography variant='caption'>
@@ -120,48 +175,13 @@ const HomeSchoolCard = (props: Props): React.Node => {
             </div>
           </div>
         </div>
-        {/* TODO: graphsContainer
-        + highlight data point according to filtering criteria
-        1. 学校の概要 - School Summary
-        2. テストと学費　- Scores & tuition
-        3. ランキング - school rankings
-        4. 人気のプログラム - popular programs
-       */}
         <div className={c.graphsBlock}>
-          <div className={c.programsGraphContainer}>
-            <div className={c.programsNamesBlock}>
-              <div className={c.programsTitleContainer}>
-                <Typography variant='button'>人気のプログラム</Typography>
-              </div>
-              <div className={`programsVizContainer programsViz-${ipeds_unitid}`} style={{display: 'relative'}}>
-                <D3ProgramsViz
-                  width={200}
-                  height={150}
-                  data={education.program_sizes_ja}
-                  unitid={ipeds_unitid}
-                  highlighted={highlighted}
-                />
-              </div>
-            </div>
-            <List
-              className={c.programsNamesContainer}>
-              {education.program_sizes_ja.map((program, index) => {
-                const itemId = `circle-${ipeds_unitid}-${program.cip}`
-                return (
-                  <ListItem
-                    key={`${itemId}`}
-                    className={c.programNameContainer}
-                    button
-                    onMouseEnter={() => setHighlighted(itemId)}
-                    onMouseLeave={() => setHighlighted('')}
-                  >
-                    <Typography variant='caption'>{index + 1}位
-                      - {parseFloat(program.percentage * 100).toFixed(1)}%: {program.program_ja}</Typography>
-                  </ListItem>
-                )
-              })}
-            </List>
-          </div>
+          <D3GraphsContainer
+            admissionsData={admissions}
+            tuitionData={tuition}
+            educationData={education}
+            ipeds_unitid={ipeds_unitid}
+          />
         </div>
       </div>
     </Card>
