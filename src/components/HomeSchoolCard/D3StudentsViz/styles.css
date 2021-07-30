@@ -1,4 +1,4 @@
-.tooltip {
+.studentsVizTooltip {
     position: absolute;
     z-index: 999;
     display: none;
@@ -12,6 +12,6 @@
     border-radius: 5px;
 }
 
-.circle:hover {
+.arcSlice:hover {
     opacity: 1;
 }

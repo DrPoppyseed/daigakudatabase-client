@@ -35,9 +35,26 @@ const useStyles = makeStyles(theme => ({
   },
   programsTitleContainer: {
   },
+  programNameColorBox: {
+    height: 10,
+    width: 10,
+    minWidth: 10,
+    marginRight: 5,
+    opacity: 0.5,
+    display: 'inline-block',
+    transform: 'translate(0, -1px)',
+    transition: '0.5s'
+  },
   programsNamesContainer: {
     overflow: 'auto',
-    postition: 'relative',
+  },
+  programNameContainer: {
+    display: 'flex',
+    alignItems: 'center'
+  },
+  squareActive: {
+    opacity: 1,
+    transition: '0.5s'
   },
   nullProgramsContainer: {
     display: 'flex',
@@ -53,7 +70,42 @@ const useStyles = makeStyles(theme => ({
     width: 220,
     height: 200
   },
-
+  studentsGraphContainer: {
+    display: 'flex',
+    alignItems: 'flex-start',
+    height: '100%',
+    width: '100%'
+  },
+  studentsTextBlock: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    paddingTop: theme.spacing(1)
+  },
+  nullStudentsGraphContainer: {
+    height: 200,
+    width: 450,
+    display: 'flex',
+    justifyContent: 'center'
+  },
+  raceNamesContainer: {
+    overflow: 'auto',
+    height: 160,
+    width: 238
+  },
+  raceNameContainer: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  raceIndicatorColorBox: {
+    height: 10,
+    width: 10,
+    borderRadius: 10,
+    marginRight: 5,
+    opacity: 0.6,
+    transition: '0.5s',
+    transform: 'translate(0, -2px)'
+  }
 }))
 
 export default useStyles

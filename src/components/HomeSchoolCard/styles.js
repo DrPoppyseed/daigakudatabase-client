@@ -58,6 +58,7 @@ const useStyles = makeStyles(theme => ({
   },
   graphsBlock: {
   },
+
 }))
 
 export default useStyles

@@ -26,6 +26,7 @@ const HomeSchoolCard = (props: Props): React.Node => {
     classifications,
     tuition,
     admissions,
+    students,
     ipeds_unitid,
     isLiked
   } = props.general
@@ -152,11 +153,11 @@ const HomeSchoolCard = (props: Props): React.Node => {
                     ) : (
                       <React.Fragment>
                         <Typography variant='caption'>
-                          入学者のACT点数の範囲： {admissions.act.comp_25th_percentile} ~ {admissions.act.comp_75th_percentile}
+                          入学者のACT点数の範囲： {admissions.act.comp_25th_percentile}点 ~ {admissions.act.comp_75th_percentile}点
                         </Typography>
                         <Typography variant='caption'>
-                          入学者のSAT点数の範囲： {admissions.sat.eng_25th_percentile + admissions.sat.math_25th_percentile} ~
-                          {admissions.sat.eng_75th_percentile + admissions.sat.math_75th_percentile}
+                          入学者のSAT点数の範囲： {admissions.sat.eng_25th_percentile + admissions.sat.math_25th_percentile}点 ~
+                          {admissions.sat.eng_75th_percentile + admissions.sat.math_75th_percentile}点
                         </Typography>
                       </React.Fragment>
                     )
@@ -180,6 +181,7 @@ const HomeSchoolCard = (props: Props): React.Node => {
             admissionsData={admissions}
             tuitionData={tuition}
             educationData={education}
+            studentsData={students}
             ipeds_unitid={ipeds_unitid}
           />
         </div>
