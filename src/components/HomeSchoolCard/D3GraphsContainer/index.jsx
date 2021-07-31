@@ -44,7 +44,7 @@ const D3GraphsContainer = (props: Props) => {
     let ja_lookup = {
       white: '白人',
       black: '黒人',
-      hispanic: 'ヒスパニック系',
+      hispanic: 'ヒスパニック',
       asian: 'アジア系',
       other: 'その他',
       international: '留学生など'
@@ -58,7 +58,6 @@ const D3GraphsContainer = (props: Props) => {
         'ja': ja_lookup[key]
       })
     }
-    console.log(resData)
     return resData
   }
 
@@ -75,7 +74,6 @@ const D3GraphsContainer = (props: Props) => {
   }
 
   const handleSatPercentileChange = newValue => {
-    console.log('from handleSatPercentileChange')
     if (newValue !== highlightedRace) {
       setHighlightedRace(newValue)
     }
@@ -162,6 +160,7 @@ const D3GraphsContainer = (props: Props) => {
                       score={score}
                       identifier={`D3GraphContainer-${ipeds_unitid}`}
                       percentile={satPercentile}
+                      ipeds_unitid={ipeds_unitid}
                     />
                   )
                 }
@@ -181,6 +180,7 @@ const D3GraphsContainer = (props: Props) => {
                       height={200}
                       identifier={`D3GraphContainer-${ipeds_unitid}`}
                       tuition={tuition.out_of_state['2019'].tuition}
+                      ipeds_unitid={ipeds_unitid}
                     />
                   )
                 }
@@ -194,7 +194,7 @@ const D3GraphsContainer = (props: Props) => {
                     <div className={`${c.d3GraphContainer} D3StudentsGraphContainer-${ipeds_unitid}`}>
                       <D3StudentsViz
                         height={200}
-                        width={200}
+                        width={250}
                         sex={cleanSexData(students.enrollment.men, students.enrollment.women)}
                         demographics={cleanDemographicsData(students.enrollment.demographics)}
                         identifier={`D3StudentsGraphContainer-${ipeds_unitid}`}

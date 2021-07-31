@@ -91,7 +91,7 @@ const useStyles = makeStyles(theme => ({
   raceNamesContainer: {
     overflow: 'auto',
     height: 160,
-    width: 238
+    width: 188
   },
   raceNameContainer: {
     display: 'flex',

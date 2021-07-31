@@ -25,11 +25,14 @@ const D3StudentsViz = (props: Props): React.Node => {
 
   const ref = useD3(svg => {
       const margin = {
-        top: 10, right: 10, bottom: 10, left: 10
+        top: 11, right: 11, bottom: 11, left: 11
       }
       const width = _width - margin.left - margin.right
       const height = _height - margin.top - margin.bottom
       const radius = Math.min(width, height) / 2 - margin.top - margin.bottom
+
+      const xTranslation = width / 2 + 25
+      const yTranslation = height / 2 + 15
 
       svg.selectAll('*').remove()
 
@@ -49,14 +52,18 @@ const D3StudentsViz = (props: Props): React.Node => {
       let sexData = pie(sex)
 
       let arc = d3.arc()
-        .innerRadius(radius * 0.7)
-        .outerRadius(radius)
+        .innerRadius(radius * 0.6)
+        .outerRadius(radius * 0.9)
         .cornerRadius(3)
 
       let innerArc = d3.arc()
-        .innerRadius(radius * 0.4)
-        .outerRadius(radius * 0.7)
+        .innerRadius(radius * 0.3)
+        .outerRadius(radius * 0.6)
         .cornerRadius(3)
+
+      let labelArc = d3.arc()
+        .innerRadius(radius * 0.9)
+        .outerRadius(radius * 0.9)
 
       svg.selectAll('allSlices')
         .data(demographicsData)
@@ -68,7 +75,7 @@ const D3StudentsViz = (props: Props): React.Node => {
         .attr('stroke-width', '2px')
         .attr('class', 'arcSlice')
         .attr('id', d => `slice-${identifier}-${d.data.race}`)
-        .attr('transform', `translate(${width / 2}, ${height / 2})`)
+        .attr('transform', `translate(${xTranslation}, ${yTranslation})`)
         .attr('opacity', d => `slice-${identifier}-${d.data.race}` === highlightedRace ? 0.9 : 0.6)
         .on('mouseover', d => {
           Tooltip.style('display', 'block')
@@ -94,7 +101,7 @@ const D3StudentsViz = (props: Props): React.Node => {
         .attr('stroke-width', '2px')
         .attr('class', 'arcSlice')
         .attr('id', d => `slice-${identifier}-${d.data.sex}`)
-        .attr('transform', `translate(${width / 2}, ${height / 2})`)
+        .attr('transform', `translate(${xTranslation}, ${yTranslation})`)
         .attr('opacity', 0.7)
         .on('mouseover', d => {
           Tooltip.style('display', 'block')
@@ -117,13 +124,44 @@ const D3StudentsViz = (props: Props): React.Node => {
         .selectAll('text')
         .data(sexData)
         .join('text')
-        .attr('transform', d => {
-          console.log(innerArc.centroid(d))
-          return (`translate(${innerArc.centroid(d)[0] + width / 2}, ${innerArc.centroid(d)[1] + height / 2})`)
-        })
+        .attr('transform', d => `translate(${innerArc.centroid(d)[0] + xTranslation}, ${innerArc.centroid(d)[1] + yTranslation})`)
         .call(text => text.append('tspan'))
         .attr('y', '.4em')
         .text(d => d.data.ja === '男性' ? '男' : '女')
+
+      svg.selectAll('allPolylines')
+        .data(demographicsData)
+        .enter()
+        .append('polyline')
+        .attr('stroke', 'black')
+        .style('fill', 'none')
+        .attr('stroke-width', d => d.data.percentage > 5 ? 1 : 0)
+        .attr('points', d => {
+          const posA = arc.centroid(d)
+          const posB = labelArc.centroid(d)
+          const posC = labelArc.centroid(d)
+          const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
+          posC[0] = radius * 0.93 * (midangle < Math.PI ? 1 : -1)
+          return [posA, posB, posC].map(pos => [pos[0] + xTranslation, pos[1] + yTranslation])
+        })
+
+      svg.selectAll('allLabels')
+        .data(demographicsData)
+        .enter()
+        .append('text')
+        .attr('font-family', 'sans-serif')
+        .attr('font-size', 10)
+        .text(d => d.data.percentage > 5 ? d.data.ja : '')
+        .attr('transform', d => {
+          let pos = labelArc.centroid(d)
+          const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
+          pos[0] = radius * 0.94 * (midangle < Math.PI ? 1 : -1)
+          return `translate(${pos[0] + xTranslation}, ${pos[1] + yTranslation})`
+        })
+        .style('text-anchor', d => {
+          const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
+          return (midangle < Math.PI ? 'start' : 'end')
+        })
 
     }, [demographics, highlightedRace]
   )

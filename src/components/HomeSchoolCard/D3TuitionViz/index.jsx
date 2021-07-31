@@ -8,7 +8,8 @@ type Props = {
   width: number,
   identifier: string,
   tuition: number,
-  ticks?: number
+  ticks?: number,
+  ipeds_unitid: string
 }
 
 const D3HistogramViz = (props: Props) => {
@@ -17,7 +18,8 @@ const D3HistogramViz = (props: Props) => {
     width: _width,
     identifier,
     tuition,
-    ticks = 10
+    ticks = 10,
+    ipeds_unitid
   } = props
   const ref = useD3(svg => {
     const margin = {
@@ -136,7 +138,7 @@ const D3HistogramViz = (props: Props) => {
       .attr('transform', `translate(${margin.left}, ${margin.top})`)
 
     svg.on('mousemove', e => {
-      let xPos = e.pageX - 1125
+      let xPos = e.pageX - document.getElementById(`${ipeds_unitid}-tuitionVizSvg`).getBoundingClientRect().x - 40
       let currentRangeText = '-'
       if (xPos >= 0 && xPos < width) {
         d3.select(`.${identifier}-verticalLine`)
@@ -166,7 +168,7 @@ const D3HistogramViz = (props: Props) => {
     })
   }, [])
 
-  return <svg ref={ref} height={_height} width={_width}/>
+  return <svg ref={ref} height={_height} width={_width} id={`${ipeds_unitid}-tuitionVizSvg`}/>
 }
 
 export default D3HistogramViz

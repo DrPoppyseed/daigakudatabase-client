@@ -23,7 +23,6 @@ const D3ProgramsViz = (props: Props) => {
   const ref = useD3(
     svg => {
       svg.selectAll('*').remove()
-      // d3.select(`.programsViz-${unitid}`).remove()
 
       const Tooltip = d3.select(`.programsViz-${unitid}`)
         .append('div')
@@ -33,8 +32,6 @@ const D3ProgramsViz = (props: Props) => {
         .append('svg')
         .attr('width', width)
         .attr('height', height)
-
-      console.log(data)
 
       let simulation = d3.forceSimulation()
         .force("forceX", d3.forceX().strength(.1).x(width * .5))

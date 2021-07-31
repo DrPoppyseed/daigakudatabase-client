@@ -9,7 +9,8 @@ type Props = {
   width: number,
   score: number,
   percentile?: string,
-  identifier: string
+  identifier: string,
+  ipeds_unitid: string
 }
 
 const D3TestscoresViz = (props: Props) => {
@@ -18,7 +19,8 @@ const D3TestscoresViz = (props: Props) => {
     width: _width,
     score,
     percentile = 'sat_75th',
-    identifier
+    identifier,
+    ipeds_unitid
   } = props
   const ref = useD3(svg => {
     const margin = {
@@ -135,7 +137,7 @@ const D3TestscoresViz = (props: Props) => {
       .attr('transform', `translate(${margin.left}, ${margin.top})`)
 
     svg.on('mousemove', e => {
-      let xPos = e.pageX - 920
+      let xPos = e.pageX - document.getElementById(`${ipeds_unitid}-testscoresVizSvg`).getBoundingClientRect().x - 40
       let currentNumSchoolsText = ''
 
       if (xPos >= 0 && xPos < width) {
@@ -166,7 +168,7 @@ const D3TestscoresViz = (props: Props) => {
     })
   }, [])
 
-  return <svg ref={ref} height={_height} width={_width}/>
+  return <svg ref={ref} height={_height} width={_width} id={`${ipeds_unitid}-testscoresVizSvg`}/>
 }
 
 export default D3TestscoresViz
