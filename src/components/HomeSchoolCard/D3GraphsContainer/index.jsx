@@ -29,8 +29,6 @@ const D3GraphsContainer = (props: Props) => {
   const [activeGraph, setActiveGraph] = React.useState(0)
   const [highlighted, setHighlighted] = React.useState('')
   const [highlightedRace, setHighlightedRace] = React.useState('')
-  const [highlightedSex, setHighlightedSex] = React.useState('')
-  const [satPercentile, setSatPercentile] = React.useState('sat_75th')
 
   const cleanDemographicsData = (rawData: Object): Array => {
     let colorsLookup = {
@@ -73,12 +71,6 @@ const D3GraphsContainer = (props: Props) => {
       setActiveGraph(newValue)
   }
 
-  const handleSatPercentileChange = newValue => {
-    if (newValue !== highlightedRace) {
-      setHighlightedRace(newValue)
-    }
-  }
-
   return (
     <React.Fragment>
       <div className={c.tabs}>
@@ -99,12 +91,12 @@ const D3GraphsContainer = (props: Props) => {
         activeGraph === 0 ? (
           education.program_sizes_ja.length ? (
             <div className={c.graphContainer}>
-              <div className={c.programsNamesBlock}>
+              <div>
                 <div className={`programsVizContainer programsViz-${ipeds_unitid}`}
                      style={{display: 'relative'}}>
                   <D3ProgramsViz
                     width={200}
-                    height={150}
+                    height={160}
                     data={education.program_sizes_ja}
                     unitid={ipeds_unitid}
                     highlighted={highlighted}
@@ -144,8 +136,8 @@ const D3GraphsContainer = (props: Props) => {
         ) : (
           activeGraph === 1 ? (
             <div className={`${c.graphContainer} D3GraphContainer-${ipeds_unitid}`}>
-              <div className={c.d3GraphContainer}>
-                <Typography variant='caption'>SATの点数 - 合格者上位{satPercentile === 'sat_75th' ? '25' : '75'}%</Typography>
+              <div>
+                <Typography variant='caption'>SATの点数 - 合格者上位25%</Typography>
                 {
                   admissions.sat.eng_25th_percentile === null ? (
                     <div className={c.nullGraphContainer}>
@@ -156,16 +148,16 @@ const D3GraphsContainer = (props: Props) => {
                   ) : (
                     <D3TestscoresViz
                       width={220}
-                      height={200}
+                      height={210}
                       score={score}
                       identifier={`D3GraphContainer-${ipeds_unitid}`}
-                      percentile={satPercentile}
+                      percentile={'sat_75th'}
                       ipeds_unitid={ipeds_unitid}
                     />
                   )
                 }
               </div>
-              <div className={c.d3GraphContainer}>
+              <div>
                 <Typography variant='caption'>学費</Typography>
                 {
                   tuition.out_of_state['2019'].tuition === '-' || tuition.out_of_state['2019'].tuition === null ? (
@@ -177,7 +169,7 @@ const D3GraphsContainer = (props: Props) => {
                   ) : (
                     <D3TuitionViz
                       width={220}
-                      height={200}
+                      height={210}
                       identifier={`D3GraphContainer-${ipeds_unitid}`}
                       tuition={tuition.out_of_state['2019'].tuition}
                       ipeds_unitid={ipeds_unitid}
@@ -191,9 +183,9 @@ const D3GraphsContainer = (props: Props) => {
               {
                 students.enrollment.men !== null || students.enrollment.demographics.white !== null ? (
                   <div className={c.studentsGraphContainer}>
-                    <div className={`${c.d3GraphContainer} D3StudentsGraphContainer-${ipeds_unitid}`}>
+                    <div className={`D3StudentsGraphContainer-${ipeds_unitid}`}>
                       <D3StudentsViz
-                        height={200}
+                        height={210}
                         width={250}
                         sex={cleanSexData(students.enrollment.men, students.enrollment.women)}
                         demographics={cleanDemographicsData(students.enrollment.demographics)}
@@ -215,8 +207,8 @@ const D3GraphsContainer = (props: Props) => {
                                 variant='caption'
                                 className={c.raceNameContainer}
                                 key={`${ipeds_unitid}-${d.race}`}
-                                onMouseEnter={() => handleSatPercentileChange(itemId)}
-                                onMouseLeave={() => handleSatPercentileChange('')}
+                                onMouseEnter={() => setHighlightedRace(itemId)}
+                                onMouseLeave={() => setHighlightedRace('')}
                               >
                                 <div
                                   className={c.raceIndicatorColorBox}

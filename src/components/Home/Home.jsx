@@ -2,18 +2,18 @@
 import * as React from 'react'
 import clsx from 'clsx'
 import useStyles from './styles'
-import {Fab, Typography, Container, Card} from '@material-ui/core'
+import {Fab, Typography, Container} from '@material-ui/core'
 import Pagination from '@material-ui/lab/Pagination'
-import Skeleton from '@material-ui/lab/Skeleton'
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp'
 import {Helmet} from 'react-helmet'
 import {useQueryClient} from 'react-query'
 
 import ScrollTop from '../Common/ScrollTop/ScrollTop.jsx'
 // import SchoolCardLarge from '../SchoolCards/SchoolCardLarge/SchoolCardLarge.jsx'
-import SchoolCardLargeSkeleton from '../SchoolCards/SchoolCardLarge/SchoolCardLargeSkeleton.jsx'
+import HomeSchoolCardSkeleton from '../HomeSchoolCard/HomeSchoolCardSkeleton'
+import SortByBoxSkeleton from "./SortByBox/SortByBoxSkeleton";
 import FilterBox from './FilterBox/FilterBox'
-import SortByBox from './SortByBox/SortByBox'
+import SortByBox from './SortByBox'
 import {
   DEFAULT_SAT_RANGE_LOW,
   DEFAULT_SAT_RANGE_HIGH,
@@ -194,22 +194,15 @@ const Home = (props: any): React.Element<any> => {
         {/** TODO: add chips for different university rankings and lists */}
         {status === 'loading' || isFetching ? (
           <div>
-            <Card style={{marginBottom: 16}}>
-              <Skeleton
-                animation="wave"
-                variant="rect"
-                width={900}
-                height={85}
-              />
-            </Card>
-            {/*<SchoolCardLargeSkeleton/>*/}
-            {/*<SchoolCardLargeSkeleton/>*/}
-            {/*<SchoolCardLargeSkeleton/>*/}
-            {/*<SchoolCardLargeSkeleton/>*/}
-            {/*<SchoolCardLargeSkeleton/>*/}
-            {/*<SchoolCardLargeSkeleton/>*/}
-            {/*<SchoolCardLargeSkeleton/>*/}
-            {/*<SchoolCardLargeSkeleton/>*/}
+            <SortByBoxSkeleton />
+            <HomeSchoolCardSkeleton />
+            <HomeSchoolCardSkeleton />
+            <HomeSchoolCardSkeleton />
+            <HomeSchoolCardSkeleton />
+            <HomeSchoolCardSkeleton />
+            <HomeSchoolCardSkeleton />
+            <HomeSchoolCardSkeleton />
+            <HomeSchoolCardSkeleton />
           </div>
         ) : status === 'error' ? (
           'エラー発生'

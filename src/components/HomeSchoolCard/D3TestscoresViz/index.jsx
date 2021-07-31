@@ -3,6 +3,7 @@ import * as React from 'react'
 import * as d3 from 'd3'
 import {useD3} from '../../../hooks/useD3'
 import data from '../../../data/admissionScores.json'
+import './styles.css'
 
 type Props = {
   height: number,
@@ -88,17 +89,12 @@ const D3TestscoresViz = (props: Props) => {
       .attr("x2", scoreXPos)
       .attr("y1", 0)
       .attr("y2", height)
-      .attr("stroke", "green")
-      .attr('stroke-width', 3)
-      .attr('class', `${identifier}-testscoresPermVLine`)
+      .attr('class', `permVLine ${identifier}-testscoresPermVLine`)
       .attr('transform', `translate(${margin.left}, ${margin.top})`)
 
     let pathLine = svg.append('path')
       .datum(bins)
-      .attr('fill', 'none')
-      .attr('opacity', 0.5)
-      .attr('stroke', 'steelblue')
-      .attr('stroke-width', 1.5)
+      .attr('class', 'curveLine')
       .attr('d', d3.line().curve(d3.curveBasis).x(d => x(d.x0) + (x(d.x1) - x(d.x0)) / 2).y(d => y(d.length)))
       .attr('transform', `translate(${margin.left}, ${margin.top - 5})`)
 
@@ -108,15 +104,11 @@ const D3TestscoresViz = (props: Props) => {
       .attr('x2', 0)
       .attr('y1', 0)
       .attr('y2', height)
-      .attr('stroke', 'brown')
-      .attr('class', `${identifier}-testscoresVerticalLine`)
-      .attr('z-index', 999)
-
+      .attr('class', `dynamicVLine ${identifier}-testscoresVerticalLine`)
       .attr('transform', `translate(${margin.left}, ${margin.top})`)
 
     svg.append('text')
-      .attr('text-anchor', 'start')
-      .attr('font-size', 10)
+      .attr('class', 'schoolScoreText')
       .attr('x', 50)
       .attr('y', 20)
       .text(`当校：${score}点`)
@@ -129,11 +121,8 @@ const D3TestscoresViz = (props: Props) => {
       .attr('class', `${identifier}-currentNumSchoolsText`)
 
     circle = svg.append('circle')
-      .attr('opacity', 0)
+      .attr('class', 'dynamicCircle')
       .attr('r', 4)
-      .attr('opacity', 0.6)
-      .attr('fill', 'darkred')
-      .attr('z-index', 999)
       .attr('transform', `translate(${margin.left}, ${margin.top})`)
 
     svg.on('mousemove', e => {

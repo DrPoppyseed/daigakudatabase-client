@@ -12,6 +12,22 @@
     border-radius: 5px;
 }
 
+.arcSlice {
+    stroke: white;
+    stroke-width: 2px;
+}
+
 .arcSlice:hover {
     opacity: 1;
+}
+
+.sexLabelText {
+    font-family: sans-serif;
+    font-size: 12px;
+    text-anchor: middle;
+}
+
+.demographicsLabelText {
+    font-family: sans-serif;
+    font-size: 10px;
 }

@@ -12,8 +12,6 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(2),
     justifyContent: 'space-between'
   },
-  button: {
-  },
   buttonLink: {
     textDecoration: 'None',
     color: 'white'
@@ -31,34 +29,9 @@ const useStyles = makeStyles(theme => ({
     width: theme.spacing(3),
     height: theme.spacing(3),
     marginRight: theme.spacing(2),
-    backgroundColor: 'grey'
+    backgroundColor: 'grey',
+    marginLeft: theme.spacing(1)
   },
-  datacardsBlock: {
-    display: 'flex',
-    alignItems: 'flex-start'
-
-  },
-  datacardsContainer: {},
-  datacardContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    padding: theme.spacing(0.5),
-    width: 350
-  },
-  datacardTitleContainer: {},
-  datacardBodyContainer: {
-    padding: theme.spacing(0.5),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start'
-  },
-  datacardSummaryItem: {
-    width: '350px',
-  },
-  graphsBlock: {
-  },
-
 }))
 
 export default useStyles

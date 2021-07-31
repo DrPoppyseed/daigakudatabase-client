@@ -23,17 +23,11 @@ const useStyles = makeStyles(theme => ({
   active: {
     color: '#2196f3'
   },
-  programsContainer: {
-  },
   graphContainer: {
     display: 'flex',
     padding: theme.spacing(0.5),
     width: 450,
-    height: 200
-  },
-  programsNamesBlock: {
-  },
-  programsTitleContainer: {
+    height: 210
   },
   programNameColorBox: {
     height: 10,
@@ -61,14 +55,14 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
     paddingTop: 60,
     width: 450,
-    height: 200
+    height: 210
   },
   nullGraphContainer: {
     display: 'flex',
     justifyContent: 'center',
     paddingTop: 60,
     width: 220,
-    height: 200
+    height: 210
   },
   studentsGraphContainer: {
     display: 'flex',
@@ -83,14 +77,14 @@ const useStyles = makeStyles(theme => ({
     paddingTop: theme.spacing(1)
   },
   nullStudentsGraphContainer: {
-    height: 200,
+    height: 210,
     width: 450,
     display: 'flex',
     justifyContent: 'center'
   },
   raceNamesContainer: {
     overflow: 'auto',
-    height: 160,
+    height: 170,
     width: 188
   },
   raceNameContainer: {

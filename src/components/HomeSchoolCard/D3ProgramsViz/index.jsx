@@ -57,8 +57,6 @@ const D3ProgramsViz = (props: Props) => {
         .attr('r', d => d.radius * 80)
         .attr('cx', d => d.x)
         .attr('cy', d => d.y)
-        .attr("stroke", "black")
-        .style("stroke-width", 1)
         .attr('fill', d => d.color)
         .attr('opacity', d => `circle-${unitid}-${d.cip}` === highlighted ? 0.7 : 0.3)
         .on("mouseover", (d) => {

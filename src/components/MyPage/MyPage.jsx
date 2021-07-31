@@ -2,7 +2,7 @@
 import * as React from 'react'
 import loadable from '@loadable/component'
 import { Container } from '@material-ui/core'
-// import { Skeleton } from '@material-ui/lab'
+// import { Index } from '@material-ui/lab'
 // import { Link } from 'react-router-dom'
 import useStyles from './styles'
 

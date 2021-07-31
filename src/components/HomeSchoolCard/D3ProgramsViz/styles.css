@@ -12,6 +12,11 @@
     border-radius: 5px;
 }
 
+.circle {
+    stroke: black;
+    stroke-width: 1;
+}
+
 .circle:hover {
     opacity: 1;
 }
