@@ -1,7 +1,13 @@
 // @flow
 import * as React from 'react'
-import {Link} from 'react-router-dom'
-import {Typography, Card, Button, IconButton, Tooltip} from '@material-ui/core'
+import { Link } from 'react-router-dom'
+import {
+  Typography,
+  Card,
+  Button,
+  IconButton,
+  Tooltip,
+} from '@material-ui/core'
 import {
   StarBorder as StarBorderIcon,
   Star as StarIcon,
@@ -10,12 +16,12 @@ import useStyles from './styles'
 import D3GraphsContainer from './D3GraphsContainer'
 import DatacardsContainer from './DatacardsContainer'
 
-import {likeSchoolById, unlikeSchoolById} from '../../hooks/useAuth'
-import {useMutation} from 'react-query'
-import {AuthContext} from '../../AuthContext'
+import { likeSchoolById, unlikeSchoolById } from '../../hooks/useAuth'
+import { useMutation } from 'react-query'
+import { AuthContext } from '../../AuthContext'
 
 type Props = {
-  general: any
+  general: any,
 }
 
 const HomeSchoolCard = (props: Props): React.Node => {
@@ -29,7 +35,7 @@ const HomeSchoolCard = (props: Props): React.Node => {
     admissions,
     students,
     ipeds_unitid,
-    isLiked
+    isLiked,
   } = props.general
 
   const [isCardLiked, setIsCardLiked] = React.useState(isLiked)
@@ -49,44 +55,34 @@ const HomeSchoolCard = (props: Props): React.Node => {
   const authContext = React.useContext(AuthContext)
   const handleLikeClick = () => {
     setIsCardLiked(!isCardLiked)
-    // TODO: handle liking by unitid or ff_name (=> backend solution required)
-    // !isCardLiked ? onClickLike.mutate(uuid) : onClickUnlike.mutate(uuid)
+    console.log(ipeds_unitid)
+    !isCardLiked
+      ? onClickLike.mutate(ipeds_unitid)
+      : onClickUnlike.mutate(ipeds_unitid)
   }
-
 
   return (
     <Card className={c.cardContainer}>
       <div className={c.titleBlock}>
         <div className={c.titleContainer}>
-          <IconButton
-            onClick={() => handleLikeClick()}
-          >
+          <IconButton onClick={() => handleLikeClick()}>
             {!!authContext.user.uid ? (
               isCardLiked ? (
-                <StarIcon style={{color: '#ffa726'}}/>
+                <StarIcon style={{ color: '#ffa726' }} />
               ) : (
-                <StarBorderIcon/>
+                <StarBorderIcon />
               )
             ) : (
               <Tooltip title="ログインして学校をお気に入り登録しよう！">
-                <StarBorderIcon/>
+                <StarBorderIcon />
               </Tooltip>
             )}
           </IconButton>
-          <div className={c.logoContainer}>
-          </div>
-          <Typography variant='h6'>
-            {name_en}
-          </Typography>
+          <div className={c.logoContainer} />
+          <Typography variant="h6">{name_en}</Typography>
         </div>
-        <Button
-          variant="contained"
-          color="primary"
-          disableElevation
-        >
-          <Link
-            to="#"
-            className={c.buttonLink}>
+        <Button variant="contained" color="primary" disableElevation>
+          <Link to="#" className={c.buttonLink}>
             もっと詳しく
           </Link>
         </Button>
@@ -99,7 +95,7 @@ const HomeSchoolCard = (props: Props): React.Node => {
           tuition={tuition}
           admissions={admissions}
         />
-        <div >
+        <div>
           <D3GraphsContainer
             admissionsData={admissions}
             tuitionData={tuition}

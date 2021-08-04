@@ -32,6 +32,7 @@ export const getSchools = async (
     selectMajor,
     filterState,
     sortSelection,
+    urbanizationLevel,
   } = searchCriteria
   let params = ''
 
@@ -52,14 +53,19 @@ export const getSchools = async (
   if (selectMajor) {
     params += `major=${selectMajor}&`
   }
+  if (urbanizationLevel) {
+    params += `urban=${urbanizationLevel}&`
+  }
   params += `sortby=${sortSelection}`
+
+  console.log(process.env.REACT_APP_BACKEND_API_ENDPOINT)
 
   try {
     const user = await firebaseAuth.currentUser
     if (!!user) {
       const token = await user.getIdToken(true)
       const { data } = await axios.get(
-        `${process.env.REACT_APP_BASE_URL}/api/v1/schools/?page=${pageNumber}&${params}`,
+        `${process.env.REACT_APP_BACKEND_API_ENDPOINT}/schools?page=${pageNumber}&${params}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -68,7 +74,7 @@ export const getSchools = async (
       return data
     } else {
       const { data } = await axios.get(
-        `${process.env.REACT_APP_BASE_URL}/api/v1/schools/?page=${pageNumber}&${params}`,
+        `${process.env.REACT_APP_BACKEND_API_ENDPOINT}/schools?page=${pageNumber}&${params}`,
         {
           headers: { Authorization: `Bearer` },
         }
@@ -92,29 +98,30 @@ export const useGetSchools = (
 }
 
 const getSchoolById = async (id: any): any => {
+  let merged
   try {
     const user = await firebaseAuth.currentUser
     if (!!user) {
       const token = await user.getIdToken(true)
       const { data } = await axios.get(
-        `${process.env.REACT_APP_BASE_URL}/api/v1/schools/${id}`,
+        `${process.env.REACT_APP_BACKEND_API_ENDPOINT}/schools/${id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
       )
-      const merged = {
+      merged = {
         ...data.schoolReport[0],
         isLiked: data.schoolReport.isLiked,
       }
       return merged
     } else {
       const { data } = await axios.get(
-        `${process.env.REACT_APP_BASE_URL}/api/v1/schools/${id}`,
+        `${process.env.REACT_APP_BACKEND_API_ENDPOINT}/schools/${id}`,
         {
           headers: { Authorization: `Bearer null` },
         }
       )
-      const merged = {
+      merged = {
         ...data.schoolReport[0],
         isLiked: false,
       }
@@ -134,7 +141,7 @@ export const useGetSchoolById = (schoolId: any): any => {
 const getMajorsOfSchoolById = async (uuid: String): any => {
   try {
     const { data } = await axios.get(
-      `${process.env.REACT_APP_BASE_URL}/api/v1/schools/${uuid}/majors`
+      `${process.env.REACT_APP_BACKEND_API_ENDPOINT}/schools/${uuid}/majors`
     )
     const majors = {
       ...data,

@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(4),
     display: 'grid',
     gridSpacing: theme.spacing(4),
-    gridTemplateColumns: '1fr 300px 20px 700px 1fr !important',
+    gridTemplateColumns: '1fr 300px 20px 900px 1fr !important',
   },
   filterContainer: {
     gridColumn: 2,
@@ -35,7 +35,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(4),
     display: 'grid',
     gridSpacing: theme.spacing(4),
-    gridTemplateColumns: '1fr 300px 20px 700px 1fr',
+    gridTemplateColumns: '1fr 300px 20px 900px 1fr !important',
   },
   myPageContainer: {
     gridColumn: '2 / 5',

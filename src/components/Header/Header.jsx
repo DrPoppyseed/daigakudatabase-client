@@ -17,7 +17,7 @@ import {
   ListItemText,
   TextField,
   Button,
-} from '@material-ui/core/'
+} from '@material-ui/core'
 import { connectSearchBox, connectHits } from 'react-instantsearch-dom'
 import { useMutation, useQueryClient } from 'react-query'
 import { AuthContext } from '../../AuthContext'
@@ -36,7 +36,7 @@ const Header = (): React.Element<any> => {
   const { user, setUser } = React.useContext(AuthContext)
 
   const useSignOutOnClick = useMutation(signOut, {
-    onSuccess: data => {
+    onSuccess: () => {
       setUser({ uid: '' })
       queryClient.invalidateQueries('schools')
       queryClient.invalidateQueries('schoolPage')
@@ -48,7 +48,7 @@ const Header = (): React.Element<any> => {
     setOpen(prevOpen => !prevOpen)
   }
 
-  const handleClose = event => {
+  const handleClose = () => {
     setOpen(false)
   }
 
@@ -87,9 +87,9 @@ const Header = (): React.Element<any> => {
     // )
 
     // TODO: Move away from algolia search & implement own text search
-    return <div/>
+    return <div />
   }
-  //
+
   // const CustomSearchBox = connectSearchBox(SearchBox)
   //
   // const Hits = ({ hits }) => {
@@ -142,7 +142,7 @@ const Header = (): React.Element<any> => {
   //     </Paper>
   //   )
   // }
-
+  //
   // const CustomHits = connectHits(Hits)
 
   return (
@@ -151,7 +151,8 @@ const Header = (): React.Element<any> => {
         <Toolbar className={c.toolbarRoot}>
           <Typography className={c.title} variant="h6" noWrap>
             <a href="/" className={c.titleLink}>
-              アメリカ大学 DB
+              <Typography>アメリカ大学</Typography>
+              <Typography>データベース</Typography>
             </a>
           </Typography>
           <div className={c.grow} />

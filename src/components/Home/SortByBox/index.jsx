@@ -29,8 +29,8 @@ const SortByBox = ({
       <div className={c.hitsContainer}>
         <Typography variant="h5">{hits} 校を見つけました</Typography>
         <Typography variant="caption">
-          {`${hits >= 8 ? 8 : hits}校表示中 ページ ${pageNumber} / ${Math.ceil(
-            hits / 8
+          {`${hits >= 10 ? 10 : hits}校表示中 ページ ${pageNumber} / ${Math.ceil(
+            hits / 10
           )}`}
         </Typography>
       </div>

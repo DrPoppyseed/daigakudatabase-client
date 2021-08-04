@@ -2,17 +2,16 @@
 import * as React from 'react'
 import clsx from 'clsx'
 import useStyles from './styles'
-import {Fab, Typography, Container} from '@material-ui/core'
+import { Fab, Typography, Container } from '@material-ui/core'
 import Pagination from '@material-ui/lab/Pagination'
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp'
-import {Helmet} from 'react-helmet'
-import {useQueryClient} from 'react-query'
+import { Helmet } from 'react-helmet'
+import { useQueryClient } from 'react-query'
 
 import ScrollTop from '../Common/ScrollTop/ScrollTop.jsx'
-// import SchoolCardLarge from '../SchoolCards/SchoolCardLarge/SchoolCardLarge.jsx'
 import HomeSchoolCardSkeleton from '../HomeSchoolCard/HomeSchoolCardSkeleton'
-import SortByBoxSkeleton from "./SortByBox/SortByBoxSkeleton";
-import FilterBox from './FilterBox/FilterBox'
+import SortByBoxSkeleton from './SortByBox/SortByBoxSkeleton'
+import FilterBox from './FilterBox'
 import SortByBox from './SortByBox'
 import {
   DEFAULT_SAT_RANGE_LOW,
@@ -21,7 +20,7 @@ import {
   DEFAULT_TUITION_RANGE_HIGH,
   DEFAULT_TUITION_RANGE_LOW,
 } from '../../util/final'
-import {getSchools, useGetSchools} from '../../hooks/useSchools'
+import { getSchools, useGetSchools } from '../../hooks/useSchools'
 
 import HomeSchoolCard from '../HomeSchoolCard'
 
@@ -50,6 +49,7 @@ const Home = (props: any): React.Element<any> => {
     other: false,
     liberalArtsCollege: false,
   })
+  const [urbanizationLevel, setUrbanizationLevel] = React.useState('')
   const [sortSelection, setSortSelection] = React.useState('default')
   const [searchCriteria, setSearchCriteria] = React.useState({
     satRange,
@@ -61,7 +61,7 @@ const Home = (props: any): React.Element<any> => {
     sortSelection,
   })
 
-  const {status, data, isFetching} = useGetSchools(pageNumber, searchCriteria)
+  const { status, data, isFetching } = useGetSchools(pageNumber, searchCriteria)
 
   React.useEffect(() => {
     if (data?.hasMore) {
@@ -74,7 +74,7 @@ const Home = (props: any): React.Element<any> => {
   const handlePageChange = (e, num) => {
     ;(e.target.ownerDocument || document)
       .querySelector('#back-to-top-anchor')
-      .scrollIntoView({behavior: 'instant', block: 'start'})
+      .scrollIntoView({ behavior: 'instant', block: 'start' })
     setPageNumber(num)
   }
 
@@ -107,10 +107,11 @@ const Home = (props: any): React.Element<any> => {
       other: false,
       liberalArtsCollege: false,
     })
+    setUrbanizationLevel('')
   }
 
   const handleFilterChange = e => {
-    setFilterState({...filterState, [e.target.name]: e.target.checked})
+    setFilterState({ ...filterState, [e.target.name]: e.target.checked })
   }
 
   const handleSatRange = (e, newValue) => {
@@ -129,6 +130,10 @@ const Home = (props: any): React.Element<any> => {
     setStateLocation(e.target.value)
   }
 
+  const handleUrbanizationLevel = (e, newValue) => {
+    setUrbanizationLevel(newValue)
+  }
+
   const handleMajorChange = e => {
     setSelectMajor(e.target.value)
   }
@@ -145,14 +150,11 @@ const Home = (props: any): React.Element<any> => {
       sortSelection: `${e.target.value}`,
     })
   }
-  // const mapSchools = (schools: Array): Array<React.Node> => {
-  //   return schools.map(school => (
-  //       // <SchoolCardLarge key={school.uuid} school={school} />
-  //     ))
-  // }
 
   const mapSchools = (schools: Array): Array<React.Node> => {
-    return schools.map(school => <HomeSchoolCard general={school.general}/>)
+    return schools.map(school => (
+      <HomeSchoolCard key={school.ipeds_unitid} general={school} />
+    ))
   }
 
   const renderSchools = React.useMemo(
@@ -164,7 +166,7 @@ const Home = (props: any): React.Element<any> => {
     <div className={c.root}>
       <Helmet>
         <title>アメリカ大学を検索しよう</title>
-        <meta name="description" content="アメリカ大学のデータベース。"/>
+        <meta name="description" content="アメリカ大学のデータベース。" />
       </Helmet>
       <div className={c.filterContainer}>
         <FilterBox
@@ -175,6 +177,7 @@ const Home = (props: any): React.Element<any> => {
             stateLocation,
             selectMajor,
             filterState,
+            urbanizationLevel,
           }}
           handleFilterChange={handleFilterChange}
           handleSatRange={handleSatRange}
@@ -184,6 +187,7 @@ const Home = (props: any): React.Element<any> => {
           handleMajorChange={handleMajorChange}
           handleSearchClick={useSearchClick}
           handleClearCriteria={handleClearCriteria}
+          handleUrbanizationLevel={handleUrbanizationLevel}
         />
       </div>
       <Container
@@ -207,11 +211,19 @@ const Home = (props: any): React.Element<any> => {
         ) : status === 'error' ? (
           'エラー発生'
         ) : data.totalSchoolsFound === 0 ? (
-          <Typography
-            variant="caption"
-            style={{textAlign: 'center', marginTop: 20}}>
-            条件にあった学校は見つかりませんでした。
-          </Typography>
+          <div>
+            <SortByBox
+              hits={data.totalSchoolsFound}
+              pageNumber={pageNumber}
+              sortSelection={sortSelection}
+              handleSortSelectionChange={handleSortSelectionChange}
+            />
+            <Typography
+              variant="caption"
+              style={{ textAlign: 'center', marginTop: 20 }}>
+              条件にあった学校は見つかりませんでした。
+            </Typography>
+          </div>
         ) : (
           <div>
             <SortByBox
@@ -225,7 +237,7 @@ const Home = (props: any): React.Element<any> => {
         )}
         {status === 'success' && !isFetching && (
           <Pagination
-            count={Math.ceil(data.totalSchoolsFound / 8)}
+            count={Math.ceil(data.totalSchoolsFound / 10)}
             page={pageNumber}
             className={c.pagination}
             onChange={handlePageChange}
@@ -234,7 +246,7 @@ const Home = (props: any): React.Element<any> => {
       </Container>
       <ScrollTop {...props}>
         <Fab aria-label="key arrow up" className={c.fab}>
-          <KeyboardArrowUpIcon className={c.fabIcon}/>
+          <KeyboardArrowUpIcon className={c.fabIcon} />
         </Fab>
       </ScrollTop>
     </div>

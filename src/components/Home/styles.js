@@ -7,7 +7,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(4),
     display: 'grid',
     gridSpacing: theme.spacing(4),
-    gridTemplateColumns: '1fr 300px 20px 900px 1fr',
+    gridTemplateColumns: '1fr 300px 20px 900px 1fr !important',
   },
   rootLoading: { height: '100vh' },
   fab: {

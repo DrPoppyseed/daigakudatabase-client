@@ -17,9 +17,12 @@ export const signUpWithEmail = async ({
     )
     const token = await user.getIdToken(true)
     const { data } = await api.put(
-      'https://foris-uscolleges-api.herokuapp.com/api/v1/users/',
+      `${process.env.REACT_APP_BACKEND_API_ENDPOINT}/users/`,
       {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'X-Is-Google-SignIn': false,
+        },
       },
       user
     )
@@ -43,9 +46,12 @@ export const signInWithEmail = async ({
     )
     const token = await user.getIdToken(true)
     const { data } = await axios.get(
-      `https://foris-uscolleges-api.herokuapp.com/api/v1/users/`,
+      `${process.env.REACT_APP_BACKEND_API_ENDPOINT}/users/`,
       {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'X-Is-Google-SignIn': false,
+        },
       }
     )
     return data.user
@@ -59,9 +65,12 @@ export const signInWithGoogle = async (): Promise<any> => {
     const { user } = await firebaseAuth.signInWithPopup(googleProvider)
     const token = await user.getIdToken(true)
     const { data } = await axios.get(
-      `https://foris-uscolleges-api.herokuapp.com/api/v1/users/`,
+      `${process.env.REACT_APP_BACKEND_API_ENDPOINT}/users/`,
       {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'X-Is-Google-SignIn': true,
+        },
       }
     )
     return data
@@ -78,12 +87,12 @@ export const signOut = () => {
 
 export const deleteAccount = () => {}
 
-export const likeSchoolById = async (schoolId: string): any => {
+export const likeSchoolById = async (ipeds_unitid: string): any => {
   try {
     const user = await firebaseAuth.currentUser
     const token = await user.getIdToken(true)
     const { data } = await axios.get(
-      `https://foris-uscolleges-api.herokuapp.com/api/v1/users/like/?schoolId=${schoolId}`,
+      `${process.env.REACT_APP_BACKEND_API_ENDPOINT}/users/like?ipeds_unitid=${ipeds_unitid}`,
       {
         headers: { Authorization: `Bearer ${token}` },
       }
@@ -97,12 +106,12 @@ export const likeSchoolById = async (schoolId: string): any => {
   }
 }
 
-export const unlikeSchoolById = async (schoolId: string): any => {
+export const unlikeSchoolById = async (ipeds_unitid: string): any => {
   try {
     const user = await firebaseAuth.currentUser
     const token = await user.getIdToken()
     const { data } = await axios.get(
-      `https://foris-uscolleges-api.herokuapp.com/api/v1/users/unlike?schoolId=${schoolId}`,
+      `${process.env.REACT_APP_BACKEND_API_ENDPOINT}/users/unlike?ipeds_unitid=${ipeds_unitid}`,
       {
         headers: { Authorization: `Bearer ${token}` },
       }
