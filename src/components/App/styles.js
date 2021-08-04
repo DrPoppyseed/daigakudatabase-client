@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles(theme => ({
   rootBackground: {
     backgroundColor: theme.palette.background.default,
-
     position: 'relative',
     minHeight: '100vh',
   },
@@ -12,10 +11,10 @@ const useStyles = makeStyles(theme => ({
   },
   homeRoot: {
     flexGrow: 1,
-    padding: theme.spacing(4),
+    paddingTop: theme.spacing(4),
     display: 'grid',
     gridSpacing: theme.spacing(4),
-    gridTemplateColumns: '1fr 300px 20px 900px 1fr !important',
+    gridTemplateColumns: '1fr 300px 20px 900px 1fr',
   },
   filterContainer: {
     gridColumn: 2,
@@ -35,7 +34,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(4),
     display: 'grid',
     gridSpacing: theme.spacing(4),
-    gridTemplateColumns: '1fr 300px 20px 900px 1fr !important',
+    gridTemplateColumns: '1fr 300px 20px 900px 1fr',
   },
   myPageContainer: {
     gridColumn: '2 / 5',

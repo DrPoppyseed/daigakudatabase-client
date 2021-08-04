@@ -58,6 +58,7 @@ const Home = (props: any): React.Element<any> => {
     stateLocation,
     selectMajor,
     filterState,
+    urbanizationLevel,
     sortSelection,
   })
 
@@ -86,6 +87,7 @@ const Home = (props: any): React.Element<any> => {
       stateLocation,
       selectMajor,
       filterState,
+      urbanizationLevel,
       sortSelection,
     })
   }

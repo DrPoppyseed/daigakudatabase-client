@@ -31,7 +31,7 @@ const DatacardsContainer = (props: Props): React.Node => {
             </div>
             <div className={c.datacardSummaryItem}>
               <Typography variant="caption">
-                {campus.state_ja}州（{campus.region_ja}）
+                {campus.state_ja}州 ({campus.region_ja}）
               </Typography>
             </div>
             {classifications !== undefined ? (

@@ -15,7 +15,7 @@ const UrbanButtonGroup = (props: Props): React.Node => {
       aria-label="school region urbanization level selector">
       <Button
         disableElevation
-        onClick={() => props.handleUrbanizationLevel('city')}
+        onClick={e => props.handleUrbanizationLevel(e, 'city')}
         variant={`${
           props.states.urbanizationLevel === 'city' ? 'contained' : 'text'
         }`}>
@@ -23,7 +23,7 @@ const UrbanButtonGroup = (props: Props): React.Node => {
       </Button>
       <Button
         disableElevation
-        onClick={() => props.handleUrbanizationLevel('suburb')}
+        onClick={e => props.handleUrbanizationLevel(e, 'suburb')}
         variant={`${
           props.states.urbanizationLevel === 'suburb' ? 'contained' : 'text'
         }`}>
@@ -31,7 +31,7 @@ const UrbanButtonGroup = (props: Props): React.Node => {
       </Button>
       <Button
         disableElevation
-        onClick={() => props.handleUrbanizationLevel('town')}
+        onClick={e => props.handleUrbanizationLevel(e, 'town')}
         variant={`${
           props.states.urbanizationLevel === 'town' ? 'contained' : 'text'
         }`}>
@@ -39,7 +39,7 @@ const UrbanButtonGroup = (props: Props): React.Node => {
       </Button>
       <Button
         disableElevation
-        onClick={() => props.handleUrbanizationLevel('rural')}
+        onClick={e => props.handleUrbanizationLevel(e, 'rural')}
         variant={`${
           props.states.urbanizationLevel === 'rural' ? 'contained' : 'text'
         }`}>

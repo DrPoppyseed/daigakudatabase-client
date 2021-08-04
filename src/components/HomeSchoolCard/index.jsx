@@ -65,19 +65,23 @@ const HomeSchoolCard = (props: Props): React.Node => {
     <Card className={c.cardContainer}>
       <div className={c.titleBlock}>
         <div className={c.titleContainer}>
-          <IconButton onClick={() => handleLikeClick()}>
-            {!!authContext.user.uid ? (
-              isCardLiked ? (
+          {!!authContext.user.uid ? (
+            isCardLiked ? (
+              <IconButton onClick={() => handleLikeClick()}>
                 <StarIcon style={{ color: '#ffa726' }} />
-              ) : (
-                <StarBorderIcon />
-              )
+              </IconButton>
             ) : (
+              <IconButton onClick={() => handleLikeClick()}>
+                <StarBorderIcon />
+              </IconButton>
+            )
+          ) : (
+            <IconButton>
               <Tooltip title="ログインして学校をお気に入り登録しよう！">
                 <StarBorderIcon />
               </Tooltip>
-            )}
-          </IconButton>
+            </IconButton>
+          )}
           <div className={c.logoContainer} />
           <Typography variant="h6">{name_en}</Typography>
         </div>
