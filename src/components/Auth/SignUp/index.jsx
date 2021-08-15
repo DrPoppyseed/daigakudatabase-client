@@ -40,7 +40,7 @@ const SignUp = () => {
     },
   })
 
-  const handleChange = event => {
+  const handleChange = () => {
     setIsLegalChecked(prevIsLegalChecked => !prevIsLegalChecked)
   }
 
@@ -60,7 +60,7 @@ const SignUp = () => {
     <div className={c.pageContainer}>
       <Paper className={c.container}>
         <Typography className={c.pageTitle} variant="h6">
-          FORISを無料で始める
+          アメリカ大学データベースを使い始める
         </Typography>
 
         <Box className={c.box}>

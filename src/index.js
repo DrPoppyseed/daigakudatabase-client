@@ -6,7 +6,8 @@ import { createTheme, ThemeProvider } from '@material-ui/core/styles'
 import history from './util/history'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
-import { AuthProvider } from './AuthContext.jsx'
+import { AuthProvider } from './AuthContext'
+import { HomeProvider } from './HomeContext'
 
 import App from './components/App/App.jsx'
 
@@ -30,11 +31,13 @@ ReactDOM.render(
   <QueryClientProvider client={queryClient}>
     <Router history={history}>
       <AuthProvider>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <App />
-          <ReactQueryDevtools />
-        </ThemeProvider>
+        <HomeProvider>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <App />
+            <ReactQueryDevtools />
+          </ThemeProvider>
+        </HomeProvider>
       </AuthProvider>
     </Router>
   </QueryClientProvider>,

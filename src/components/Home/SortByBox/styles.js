@@ -3,10 +3,15 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles(theme => ({
   root: {
     marginBottom: theme.spacing(2),
-    padding: theme.spacing(2),
+    padding: theme.spacing(3),
     display: 'flex',
     alignItems: 'center',
-    width: 900,
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+    },
+    [theme.breakpoints.up('md')]: {
+      width: 900,
+    },
   },
   divider: {
     flexGrow: 1,
@@ -21,6 +26,9 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  filterIconButton: {
+    marginRight: theme.spacing(2),
   },
 }))
 

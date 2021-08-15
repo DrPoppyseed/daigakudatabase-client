@@ -1,55 +1,13 @@
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
-  rootBackground: {
-    backgroundColor: theme.palette.background.default,
-    position: 'relative',
-    minHeight: '100vh',
-  },
   appContainer: {
-    paddingTop: theme.spacing(10),
+    paddingTop: theme.spacing(14),
+    [theme.breakpoints.down('md')]: {
+      paddingRight: 0,
+      paddingLeft: 0,
+    },
   },
-  homeRoot: {
-    flexGrow: 1,
-    paddingTop: theme.spacing(4),
-    display: 'grid',
-    gridSpacing: theme.spacing(4),
-    gridTemplateColumns: '1fr 300px 20px 900px 1fr',
-  },
-  filterContainer: {
-    gridColumn: 2,
-  },
-  cardsContainer: {
-    gridColumn: 4,
-    flexGrow: 1,
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  card: {
-    marginBottom: theme.spacing(2),
-  },
-  myPageRoot: {
-    flexGrow: 1,
-    padding: theme.spacing(4),
-    display: 'grid',
-    gridSpacing: theme.spacing(4),
-    gridTemplateColumns: '1fr 300px 20px 900px 1fr',
-  },
-  myPageContainer: {
-    gridColumn: '2 / 5',
-    width: '100%',
-  },
-  profileItemContainer: {
-    marginBottom: theme.spacing(2),
-    padding: theme.spacing(4),
-  },
-  profileSummaryContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  likedSchoolsContainer: {},
   loadingContainer: {
     position: 'absolute',
     top: '50%',

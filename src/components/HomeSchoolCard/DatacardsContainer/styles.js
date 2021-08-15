@@ -1,27 +1,38 @@
 // @flow
-import {makeStyles} from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
   datacardsBlock: {
     display: 'flex',
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
+    flexDirection: 'column',
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'row',
+      width: '100%',
+    },
   },
   datacardContainer: {
     display: 'flex',
-    flexDirection: 'column',
     alignItems: 'flex-start',
     padding: theme.spacing(0.5),
-    width: 350
+    flexDirection: 'column',
+    width: 350,
+    [theme.breakpoints.down('md')]: {
+      width: '100%',
+    },
   },
   datacardBodyContainer: {
     padding: theme.spacing(0.5),
     display: 'flex',
+    alignItems: 'flex-start',
     flexDirection: 'column',
-    alignItems: 'flex-start'
   },
   datacardSummaryItem: {
-    width: '350px',
-  }
+    width: 350,
+    [theme.breakpoints.down('md')]: {
+      width: '100%',
+    },
+  },
 }))
 
 export default useStyles

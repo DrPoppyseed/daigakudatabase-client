@@ -17,6 +17,7 @@ import {
   ListItemText,
   TextField,
   Button,
+  useMediaQuery,
 } from '@material-ui/core'
 import { connectSearchBox, connectHits } from 'react-instantsearch-dom'
 import { useMutation, useQueryClient } from 'react-query'
@@ -26,6 +27,7 @@ import { Search as SearchIcon, AccountCircle } from '@material-ui/icons'
 import { Link } from 'react-router-dom'
 import useStyles from './styles.js'
 import { signOut } from '../../hooks/useAuth'
+import SortByScroller from '../Home/SortByScroller'
 
 const Header = (): React.Element<any> => {
   const c = useStyles()
@@ -34,6 +36,7 @@ const Header = (): React.Element<any> => {
   const [open, setOpen] = React.useState(false)
   const [hitsOpen, setHitsOpen] = React.useState(false)
   const { user, setUser } = React.useContext(AuthContext)
+  const sm_down = useMediaQuery(theme => theme.breakpoints.down('sm'))
 
   const useSignOutOnClick = useMutation(signOut, {
     onSuccess: () => {
@@ -246,6 +249,7 @@ const Header = (): React.Element<any> => {
               </div>
             )}
           </div>
+          {sm_down && <SortByScroller className={c.sortByScroller} />}
         </Toolbar>
       </AppBar>
     </div>

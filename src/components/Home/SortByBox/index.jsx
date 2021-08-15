@@ -7,34 +7,50 @@ import {
   MenuItem,
   FormControl,
   InputLabel,
+  useMediaQuery,
+  IconButton,
+  Badge,
 } from '@material-ui/core'
+import { Tune as TuneIcon } from '@material-ui/icons'
+import { HomeContext } from '../../../HomeContext'
 
 import useStyles from './styles'
 
-const SortByBox = ({
-  hits,
-  pageNumber,
-  sortSelection,
-  handleSortSelectionChange,
-}: {
-  hits: Number,
-  pageNumber: Number,
-  sortSelection: String,
-  handleSortSelectionChange: any,
-}): React.Element<any> => {
+const SortByBox = (): React.Element<any> => {
   const c = useStyles()
+  const {
+    handleFilterDrawerOpen,
+    data,
+    pageNumber,
+    sortSelection,
+    handleSortSelectionChange,
+  } = React.useContext(HomeContext)
+  const md_down = useMediaQuery(theme => theme.breakpoints.down('md'))
 
   return (
     <Card className={c.root}>
+      {md_down && (
+        <IconButton
+          className={c.filterIconButton}
+          onClick={e => handleFilterDrawerOpen(e)}>
+          <Badge variant="dot" color="secondary">
+            <TuneIcon />
+          </Badge>
+        </IconButton>
+      )}
       <div className={c.hitsContainer}>
-        <Typography variant="h5">{hits} 校を見つけました</Typography>
+        <Typography variant="h5">
+          {data.totalSchoolsFound} 校を見つけました
+        </Typography>
         <Typography variant="caption">
-          {`${hits >= 10 ? 10 : hits}校表示中 ページ ${pageNumber} / ${Math.ceil(
-            hits / 10
+          {`${
+            data.totalSchoolsFound >= 10 ? 10 : data.totalSchoolsFound
+          }校表示中 ページ ${pageNumber} / ${Math.ceil(
+            data.totalSchoolsFound / 10
           )}`}
         </Typography>
       </div>
-      <div className={c.divider}></div>
+      <div className={c.divider} />
       <FormControl className={c.formContainer}>
         <InputLabel id="select-sort-label">条件で並べる</InputLabel>
         <Select

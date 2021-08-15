@@ -47,7 +47,7 @@ const SignIn = (): React.Element<any> => {
     <div className={c.pageContainer}>
       <Paper className={c.container}>
         <Typography className={c.pageTitle} variant="h6">
-          FORISにログイン
+          アメリカ大学データベースにログイン
         </Typography>
 
         <Box className={c.box}>

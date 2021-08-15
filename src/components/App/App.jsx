@@ -11,15 +11,16 @@ import { Container } from '@material-ui/core'
 import useStyles from './styles'
 import { AuthContext } from '../../AuthContext'
 
-import Header from '../Header/Header'
-import MyPage from '../MyPage/MyPage'
-import Home from '../Home/Home'
+import Header from '../Header'
+import MyPage from '../MyPage'
+import Home from '../Home'
+import FilterDrawer from '../Home/FilterDrawer'
 
-const SignIn = loadable(() => import('../Auth/SignIn/SignIn'))
-const SignUp = loadable(() => import('../Auth/SignUp/SignUp'))
-const Footer = loadable(() => import('../Footer/FooterSub.jsx'))
-const SchoolPage = loadable(() => import('../SchoolPage/SchoolPage'))
-const NoMatch = loadable(() => import('../NoMatch/NoMatch'))
+const SignIn = loadable(() => import('../Auth/SignIn'))
+const SignUp = loadable(() => import('../Auth/SignUp'))
+const Footer = loadable(() => import('../Footer/FooterSub'))
+const SchoolPage = loadable(() => import('../SchoolPage'))
+const NoMatch = loadable(() => import('../NoMatch'))
 
 const App = (): React.Element<any> => {
   const c = useStyles()
@@ -39,6 +40,7 @@ const App = (): React.Element<any> => {
           <React.Fragment>
             {isNotAuth ? <Header /> : null}
             <Container className={c.appContainer}>
+              <FilterDrawer />
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/mypage" component={MyPage} />

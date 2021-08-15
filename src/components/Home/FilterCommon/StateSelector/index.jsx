@@ -2,14 +2,12 @@
 import * as React from 'react'
 import { FormControl, InputLabel, MenuItem, Select } from '@material-ui/core'
 import useStyles from './styles.js'
+import { HomeContext } from '../../../../HomeContext'
 
-type Props = {
-  states: any,
-  handleStateLocationChange: () => null,
-}
-
-const StateSelector = (props: Props) => {
+const StateSelector = () => {
   const c = useStyles()
+  const { stateLocation, handleStateLocationChange } =
+    React.useContext(HomeContext)
 
   return (
     <FormControl className={c.selectStateContainer}>
@@ -17,8 +15,8 @@ const StateSelector = (props: Props) => {
       <Select
         labelId="select-state-label"
         id="select-state"
-        value={props.states.stateLocation}
-        onChange={props.handleStateLocationChange}>
+        value={stateLocation}
+        onChange={handleStateLocationChange}>
         <MenuItem value="">特になし</MenuItem>
         <MenuItem value="AL">アラバマ州</MenuItem>
         <MenuItem value="AK">アラスカ州</MenuItem>

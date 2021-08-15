@@ -4,10 +4,18 @@ import green from '@material-ui/core/colors/green'
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    padding: theme.spacing(4),
     display: 'grid',
     gridSpacing: theme.spacing(4),
-    gridTemplateColumns: '1fr 300px 20px 900px 1fr !important',
+    [theme.breakpoints.down('md')]: {
+      gridTemplateColumns: '0px auto 0px',
+      gridSpacing: theme.spacing(2),
+    },
+    [theme.breakpoints.between('md', 'lg')]: {
+      gridTemplateColumns: '1fr 900px 1fr',
+    },
+    [theme.breakpoints.up('lg')]: {
+      gridTemplateColumns: '1fr 300px 10px 900px 1fr',
+    },
   },
   rootLoading: { height: '100vh' },
   fab: {
@@ -21,15 +29,27 @@ const useStyles = makeStyles(theme => ({
     color: 'inherit',
   },
   filterContainer: {
+    display: 'block',
+    [theme.breakpoints.down('md')]: {
+      display: 'none',
+    },
     gridColumn: 2,
   },
   cardsContainer: {
-    gridColumn: 4,
+    gridColumn: 2,
     flexGrow: 1,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    width: '900px'
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+    },
+    [theme.breakpoints.up('md')]: {
+      width: 900,
+    },
+    [theme.breakpoints.up('lg')]: {
+      gridColumn: 4,
+    },
   },
   pagination: {
     marginTop: theme.spacing(2),
@@ -44,7 +64,6 @@ const useStyles = makeStyles(theme => ({
   loadingText: {
     marginBottom: 20,
   },
-
 }))
 
 export default useStyles

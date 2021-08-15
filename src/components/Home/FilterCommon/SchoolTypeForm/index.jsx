@@ -3,16 +3,12 @@ import * as React from 'react'
 import { FormControl, FormGroup, FormLabel } from '@material-ui/core'
 import CheckboxChild from '../../../Common/CheckboxChild/CheckboxChild'
 import useStyles from './styles'
+import { HomeContext } from '../../../../HomeContext'
 
-type Props = {
-  states: any,
-  handleFilterChange: () => null,
-}
-
-const SchoolTypeForm = (props: Props): React.Node => {
+const SchoolTypeForm = (): React.Node => {
   const c = useStyles()
-  const { fourYear, twoYear, publicSchool, privateSchool } =
-    props.states.filterState
+  const { handleFilterChange, filterState } = React.useContext(HomeContext)
+  const { fourYear, twoYear, publicSchool, privateSchool } = filterState
 
   return (
     <FormControl>
@@ -23,14 +19,14 @@ const SchoolTypeForm = (props: Props): React.Node => {
             label="４年制"
             name="fourYear"
             checked={fourYear}
-            onChange={props.handleFilterChange}
+            onChange={handleFilterChange}
             className={c.checkbox}
           />
           <CheckboxChild
             label="２年制"
             name="twoYear"
             checked={twoYear}
-            onChange={props.handleFilterChange}
+            onChange={handleFilterChange}
           />
         </div>
         <div>
@@ -38,14 +34,14 @@ const SchoolTypeForm = (props: Props): React.Node => {
             label="公立 (1985校)"
             name="publicSchool"
             checked={publicSchool}
-            onChange={props.handleFilterChange}
+            onChange={handleFilterChange}
             className={c.checkbox}
           />
           <CheckboxChild
             label="私立 (4338校)"
             name="privateSchool"
             checked={privateSchool}
-            onChange={props.handleFilterChange}
+            onChange={handleFilterChange}
             className={c.checkbox}
           />
         </div>

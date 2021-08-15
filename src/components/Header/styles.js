@@ -30,11 +30,21 @@ const useStyles = makeStyles(theme => ({
     position: 'fixed',
     padding: theme.spacing(1),
     gridSpacing: theme.spacing(4),
-    gridTemplateColumns: '1fr 1020px 1fr !important',
     backgroundColor: theme.palette.background.default,
+    [theme.breakpoints.up('lg')]: {
+      gridTemplateColumns: '1fr 1020px 1fr !important',
+    },
+    [theme.breakpoints.between('sm', 'lg')]: {
+      gridTemplateColumns: '1fr 900px 1fr',
+    },
+    [theme.breakpoints.down('sm')]: {
+      gridTemplateColumns: '20px auto 20px',
+    },
   },
   toolbarRoot: {
     gridColumn: 2,
+    // display: 'flex',
+    // flexDi
   },
   menuItemLink: {
     textDecoration: 'none',

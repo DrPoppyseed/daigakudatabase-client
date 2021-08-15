@@ -1,6 +1,13 @@
-import PasswordInput from '../AuthCommon/PasswordInput/PasswordInput'
-import SocialButton from '../AuthCommon/SocialButton/SocialButton'
-import BottomText from '../AuthCommon/BottomText/BottomText'
-import AuthLink from '../AuthCommon/AuthLink/AuthLink'
+import PasswordInput from './PasswordInput'
+import SocialButton from './SocialButton'
+import BottomText from './BottomText'
+import AuthLink from './AuthLink'
+import TogglePasswordVisibility from './TogglePasswordVisibility'
 
-export { PasswordInput, SocialButton, BottomText, AuthLink }
+export {
+  PasswordInput,
+  SocialButton,
+  BottomText,
+  AuthLink,
+  TogglePasswordVisibility,
+}

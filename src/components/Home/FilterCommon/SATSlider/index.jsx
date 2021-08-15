@@ -2,23 +2,20 @@
 import * as React from 'react'
 import { Slider, Typography } from '@material-ui/core'
 import useStyles from './styles.js'
+import { HomeContext } from '../../../../HomeContext'
 
-type Props = {
-  states: any,
-  handleSatRange: () => null,
-}
-
-const SATSlider = (props: Props): React.Node => {
+const SATSlider = (): React.Node => {
   const c = useStyles()
+  const { satRange, handleSatRange } = React.useContext(HomeContext)
   return (
     <div className={c.satRangeSlider}>
       <Typography variant="body2" className={c.satRangeText}>
         SATの点数範囲：
-        {`${props.states.satRange[0]} ~ ${props.states.satRange[1]}`}
+        {`${satRange[0]} ~ ${satRange[1]}`}
       </Typography>
       <Slider
-        value={props.states.satRange}
-        onChange={props.handleSatRange}
+        value={satRange}
+        onChange={handleSatRange}
         aria-labelledby="sat range slider"
         min={600}
         step={50}

@@ -85,7 +85,11 @@ const HomeSchoolCard = (props: Props): React.Node => {
           <div className={c.logoContainer} />
           <Typography variant="h6">{name_en}</Typography>
         </div>
-        <Button variant="contained" color="primary" disableElevation>
+        <Button
+          variant="contained"
+          color="primary"
+          disableElevation
+          className={c.buttonContainer}>
           <Link to="#" className={c.buttonLink}>
             もっと詳しく
           </Link>
@@ -99,15 +103,13 @@ const HomeSchoolCard = (props: Props): React.Node => {
           tuition={tuition}
           admissions={admissions}
         />
-        <div>
-          <D3GraphsContainer
-            admissionsData={admissions}
-            tuitionData={tuition}
-            educationData={education}
-            studentsData={students}
-            ipeds_unitid={ipeds_unitid}
-          />
-        </div>
+        <D3GraphsContainer
+          admissionsData={admissions}
+          tuitionData={tuition}
+          educationData={education}
+          studentsData={students}
+          ipeds_unitid={ipeds_unitid}
+        />
       </div>
     </Card>
   )
