@@ -43,6 +43,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     [theme.breakpoints.down('sm')]: {
       width: '100%',
+      marginTop: 30,
     },
     [theme.breakpoints.up('md')]: {
       width: 900,

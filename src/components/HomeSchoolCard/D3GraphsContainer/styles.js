@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles(theme => ({
   d3GraphsContainer: {
     [theme.breakpoints.down('md')]: {
-      width: '100%',
+      width: 'calc(100vw - 32px - 16px)',
       marginBottom: theme.spacing(2),
     },
     [theme.breakpoints.up('md')]: {
@@ -41,6 +41,11 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('md')]: {
       justifyContent: 'space-around',
     },
+    [theme.breakpoints.down('xs')]: {
+      flexDirection: 'column',
+      alignItems: 'center',
+      height: 260,
+    },
   },
   programNameColorBox: {
     height: 10,
@@ -55,9 +60,13 @@ const useStyles = makeStyles(theme => ({
   programsNamesContainer: {
     overflow: 'auto',
   },
+  programsContainer: {},
   programNameContainer: {
     display: 'flex',
     alignItems: 'center',
+    [theme.breakpoints.down('sm')]: {
+      padding: `${theme.spacing(0.5)}px ${theme.spacing(1)}px`,
+    },
   },
   squareActive: {
     opacity: 1,
@@ -77,6 +86,15 @@ const useStyles = makeStyles(theme => ({
     width: 220,
     height: 210,
   },
+  testscoresAndTuitionContainer: {
+    [theme.breakpoints.down('xs')]: {
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'flex-start',
+      overflowX: 'auto',
+      paddingLeft: theme.spacing(10),
+    },
+  },
   studentsGraphContainer: {
     display: 'flex',
     alignItems: 'flex-start',
@@ -85,12 +103,21 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('md')]: {
       justifyContent: 'space-around',
     },
+    [theme.breakpoints.down('xs')]: {
+      flexDirection: 'column',
+      alignItems: 'center',
+    },
   },
   studentsTextBlock: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
     paddingTop: theme.spacing(1),
+    [theme.breakpoints.down('xs')]: {
+      width: '100%',
+      alignItems: 'center',
+      paddingTop: 0,
+    },
   },
   nullStudentsGraphContainer: {
     height: 210,
@@ -102,10 +129,18 @@ const useStyles = makeStyles(theme => ({
     overflow: 'auto',
     height: 170,
     width: 188,
+    [theme.breakpoints.down('xs')]: {
+      width: '100%',
+      height: 50,
+    },
   },
   raceNameContainer: {
     display: 'flex',
     alignItems: 'center',
+    [theme.breakpoints.down('xs')]: {
+      paddingTop: 2,
+      paddingBottom: 2,
+    },
   },
   raceIndicatorColorBox: {
     height: 10,
@@ -115,6 +150,12 @@ const useStyles = makeStyles(theme => ({
     opacity: 0.6,
     transition: '0.5s',
     transform: 'translate(0, -2px)',
+  },
+  mobileBreakLine: {
+    display: 'none',
+    [theme.breakpoints.down('xs')]: {
+      display: 'initial',
+    },
   },
 }))
 

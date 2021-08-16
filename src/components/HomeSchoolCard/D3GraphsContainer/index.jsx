@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react'
-import { List, ListItem, Typography } from '@material-ui/core'
+import { List, ListItem, Typography, useMediaQuery } from '@material-ui/core'
 import D3ProgramsViz from '../D3ProgramsViz'
 import D3TuitionViz from '../D3TuitionViz'
 import D3TestscoresViz from '../D3TestscoresViz'
@@ -16,6 +16,7 @@ type Props = {
 }
 
 const D3GraphsContainer = (props: Props) => {
+  const xs_down = useMediaQuery(theme => theme.breakpoints.down('xs'))
   const c = useStyles()
   const {
     admissionsData: admissions,
@@ -77,22 +78,28 @@ const D3GraphsContainer = (props: Props) => {
         <button
           className={`${c.tab} ${activeGraph === 0 && c.active}`}
           onClick={() => handleActiveGraphChange(0)}>
-          人気プログラム
+          人気
+          <br className={c.mobileBreakLine} />
+          プログラム
         </button>
         <button
           className={`${c.tab} ${activeGraph === 1 && c.active}`}
           onClick={() => handleActiveGraphChange(1)}>
-          テストと学費
+          テストと
+          <br className={c.mobileBreakLine} />
+          学費
         </button>
         <button
           className={`${c.tab} ${activeGraph === 2 && c.active}`}
           onClick={() => handleActiveGraphChange(2)}>
-          生徒人口の詳細
+          生徒人口
+          <br className={c.mobileBreakLine} />
+          の詳細
         </button>
       </div>
       {activeGraph === 0 ? (
         education.program_sizes_ja.length ? (
-          <div className={c.graphContainer}>
+          <div className={`${c.graphContainer} ${c.programsContainer}`}>
             <div>
               <div
                 className={`programsVizContainer programsViz-${ipeds_unitid}`}
@@ -136,7 +143,8 @@ const D3GraphsContainer = (props: Props) => {
           <div className={c.nullProgramsContainer}>データがありません。</div>
         )
       ) : activeGraph === 1 ? (
-        <div className={`${c.graphContainer} D3GraphContainer-${ipeds_unitid}`}>
+        <div
+          className={`${c.graphContainer} D3GraphContainer-${ipeds_unitid} ${c.testscoresAndTuitionContainer}`}>
           <div>
             <Typography variant="caption">SATの点数 - 合格者上位25%</Typography>
             {admissions.sat.eng_25th_percentile === null ? (

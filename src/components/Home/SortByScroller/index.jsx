@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react'
-import { Paper, Chip, IconButton, Badge } from '@material-ui/core'
+import { Chip, IconButton, Badge } from '@material-ui/core'
 import useStyles from './styles'
 import { Tune as TuneIcon } from '@material-ui/icons'
 import SchoolTypeChip from './SchoolTypeChip'
@@ -21,7 +21,7 @@ const SortByScroller = () => {
     console.log(filtersAppliedNum)
   }, [filtersAppliedNum])
   return (
-    <Paper className={c.sortByScrollerContainer}>
+    <div className={c.sortByScrollerContainer}>
       <IconButton
         className={c.filterIconButton}
         onClick={e => handleFilterDrawerOpen(e)}>
@@ -68,7 +68,7 @@ const SortByScroller = () => {
           label="公立"
         />
       </div>
-    </Paper>
+    </div>
   )
 }
 

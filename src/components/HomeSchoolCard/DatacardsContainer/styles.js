@@ -10,6 +10,10 @@ const useStyles = makeStyles(theme => ({
       flexDirection: 'row',
       width: '100%',
     },
+    [theme.breakpoints.down('xs')]: {
+      flexDirection: 'column',
+      width: '100%',
+    },
   },
   datacardContainer: {
     display: 'flex',

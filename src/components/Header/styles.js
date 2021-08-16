@@ -1,4 +1,5 @@
-import { fade, makeStyles } from '@material-ui/core/styles'
+import { alpha, makeStyles } from '@material-ui/core/styles'
+
 const useStyles = makeStyles(theme => ({
   grow: {
     flexGrow: 1,
@@ -26,8 +27,12 @@ const useStyles = makeStyles(theme => ({
     color: 'black',
   },
   headerRoot: {
-    display: 'grid',
     position: 'fixed',
+    width: '100%',
+  },
+  toolbarRoot: {
+    width: '100%',
+    display: 'grid',
     padding: theme.spacing(1),
     gridSpacing: theme.spacing(4),
     backgroundColor: theme.palette.background.default,
@@ -38,24 +43,26 @@ const useStyles = makeStyles(theme => ({
       gridTemplateColumns: '1fr 900px 1fr',
     },
     [theme.breakpoints.down('sm')]: {
-      gridTemplateColumns: '20px auto 20px',
+      display: 'flex',
+      flexDirection: 'column',
+      paddingBottom: 0,
     },
   },
-  toolbarRoot: {
+  toolbarInnerRoot: {
     gridColumn: 2,
-    // display: 'flex',
-    // flexDi
+    display: 'flex',
+    alignItems: 'center',
+    width: '100%',
+    [theme.breakpoints.down('sm')]: {
+      paddingLeft: theme.spacing(2),
+      paddingRight: theme.spacing(2),
+    },
   },
   menuItemLink: {
     textDecoration: 'none',
     color: theme.palette.common.black,
   },
-  title: {
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
-    },
-  },
+  title: {},
   titleLink: {
     color: theme.palette.common.black,
     textDecoration: 'none',
@@ -74,7 +81,7 @@ const useStyles = makeStyles(theme => ({
     border: `1px solid ${theme.palette.text.disabled}`,
   },
   searchIcon: {
-    color: fade(theme.palette.common.black, 0.5),
+    color: alpha(theme.palette.common.black, 0.5),
     marginRight: -theme.spacing(1),
   },
   profileMenu: {
@@ -93,5 +100,6 @@ const useStyles = makeStyles(theme => ({
   signupButtonLink: {
     color: 'white',
   },
+  sortByScroller: {},
 }))
 export default useStyles

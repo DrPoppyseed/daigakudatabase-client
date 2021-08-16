@@ -11,6 +11,9 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('md')]: {
       width: 900,
     },
+    [theme.breakpoints.down('xs')]: {
+      padding: theme.spacing(1),
+    },
   },
   titleBlock: {
     display: 'flex',

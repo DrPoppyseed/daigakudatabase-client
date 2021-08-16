@@ -4,19 +4,19 @@ const useStyles = makeStyles(theme => ({
   sortByScrollerContainer: {
     display: 'flex',
     alignItems: 'center',
-    marginBottom: theme.spacing(2),
-    padding: theme.spacing(1),
     width: '100%',
+    paddingRight: theme.spacing(2),
   },
   filterIconButton: {
-    marginRight: theme.spacing(4),
+    marginRight: theme.spacing(2),
   },
   chipItemsContainer: {
     display: 'flex',
     alignItems: 'center',
     flexWrap: 'no-wrap',
     overflowX: 'auto',
-    maxWidth: 400,
+    paddingBottom: theme.spacing(1),
+    paddingTop: theme.spacing(1),
   },
   chipItem: {
     flex: '0 0 auto',
