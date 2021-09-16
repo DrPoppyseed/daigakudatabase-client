@@ -19,7 +19,10 @@ import { useTheme } from '@material-ui/core/styles'
 import { useMutation, useQueryClient } from 'react-query'
 import { AuthContext } from '../../AuthContext'
 
-import { Search as SearchIcon, AccountCircle } from '@material-ui/icons'
+import {
+  // Search as SearchIcon,
+  AccountCircle,
+} from '@material-ui/icons'
 import { Link } from 'react-router-dom'
 import useStyles from './styles.js'
 import { signOut } from '../../hooks/useAuth'

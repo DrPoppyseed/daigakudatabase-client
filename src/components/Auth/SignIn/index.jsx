@@ -76,7 +76,7 @@ const SignIn = (): React.Element<any> => {
               className={c.signInButton}
               variant="contained"
               color="primary"
-              disabled={isLoading ? true : false}
+              disabled={isLoading}
               type="submit">
               {isLoading ? <CircularProgress /> : 'ログイン'}
             </Button>

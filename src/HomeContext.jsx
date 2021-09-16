@@ -83,9 +83,9 @@ const HomeProvider = ({ children }: { children: React.Node }) => {
     setFilterState({ ...filterState, [e.target.name]: e.target.checked })
   }
 
-  const handleChipSchoolTypeChange = (e, schoolType) => {
-    console.log(schoolType)
-  }
+  // const handleChipSchoolTypeChange = (e, schoolType) => {
+  //   console.log(schoolType)
+  // }
 
   const handleSatRange = (e, newValue) => {
     setSatRange(newValue)

@@ -1,6 +1,11 @@
 // @flow
 import * as React from 'react'
-import { List, ListItem, Typography, useMediaQuery } from '@material-ui/core'
+import {
+  List,
+  ListItem,
+  Typography,
+  // useMediaQuery
+} from '@material-ui/core'
 import D3ProgramsViz from '../D3ProgramsViz'
 import D3TuitionViz from '../D3TuitionViz'
 import D3TestscoresViz from '../D3TestscoresViz'
@@ -16,7 +21,7 @@ type Props = {
 }
 
 const D3GraphsContainer = (props: Props) => {
-  const xs_down = useMediaQuery(theme => theme.breakpoints.down('xs'))
+  // const xs_down = useMediaQuery(theme => theme.breakpoints.down('xs'))
   const c = useStyles()
   const {
     admissionsData: admissions,

@@ -60,14 +60,13 @@ const SignUp = () => {
     <div className={c.pageContainer}>
       <Paper className={c.container}>
         <Typography className={c.pageTitle} variant="h6">
-          アメリカ大学データベースを使い始める
+          アメリカ大学データベースを使い始める{' '}
         </Typography>
-
         <Box className={c.box}>
           <SocialButton
             text="Googleアカウントで登録"
             onButtonClick={useSignInWithGoogle.mutate}
-          />
+          />{' '}
           <Divider className={c.divider} />
           <form onSubmit={handleSubmit(onSubmit)} className={c.form}>
             <TextField
@@ -103,36 +102,37 @@ const SignUp = () => {
                     className={c.toLegalText}
                     component={RouterLink}
                     to="/legal/user-agreement">
-                    利用規約
+                    利用規約{' '}
                   </Link>
-                  と
+                  と{' '}
                   <Link
                     className={c.toLegalText}
                     component={RouterLink}
                     to="/legal/privacy">
-                    プライバシーポリシー
+                    プライバシーポリシー{' '}
                   </Link>
-                  に同意する。
+                  に同意する。{' '}
                 </Typography>
               }
-            />
+            />{' '}
             <Button
               className={c.signUpButton}
               variant="contained"
               color={isLoading || !isLegalChecked ? 'default' : 'primary'}
-              disabled={isLoading || !isLegalChecked ? true : false}
+              disabled={isLoading || !isLegalChecked}
               type="submit">
-              {isLoading ? <CircularProgress /> : 'FORISを始める'}
-            </Button>
-          </form>
+              {' '}
+              {isLoading ? <CircularProgress /> : 'FORISを始める'}{' '}
+            </Button>{' '}
+          </form>{' '}
           <BottomText
             before="既存のアカウントでFORISに"
             link="ログイン"
             to="/auth/signin"
             after="する。"
           />
-        </Box>
-      </Paper>
+        </Box>{' '}
+      </Paper>{' '}
     </div>
   )
 }

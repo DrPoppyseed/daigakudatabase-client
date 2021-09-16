@@ -35,16 +35,16 @@ const Home = (props: any): React.Element<any> => {
       <HomeSchoolCard key={school.ipeds_unitid} general={school} />
     ))
 
-  const mapSchoolSkeletons = [
-    'sk_1',
-    'sk_2',
-    'sk_3',
-    'sk_4',
-    'sk_5',
-    'sk_6',
-    'sk_7',
-    'sk_8',
-  ].map(id => <HomeSchoolCardSkeleton key={id} />)
+  // const mapSchoolSkeletons = [
+  //   'sk_1',
+  //   'sk_2',
+  //   'sk_3',
+  //   'sk_4',
+  //   'sk_5',
+  //   'sk_6',
+  //   'sk_7',
+  //   'sk_8',
+  // ].map(id => <HomeSchoolCardSkeleton key={id} />)
 
   const renderSchools = React.useMemo(
     () => !!schoolsData && mapSchools(schoolsData.schools),
@@ -71,7 +71,18 @@ const Home = (props: any): React.Element<any> => {
           {status === 'loading' || isFetching ? (
             <div>
               <SortByBoxSkeleton />
-              {mapSchoolSkeletons}
+              {[
+                'sk_1',
+                'sk_2',
+                'sk_3',
+                'sk_4',
+                'sk_5',
+                'sk_6',
+                'sk_7',
+                'sk_8',
+              ].map(id => (
+                <HomeSchoolCardSkeleton key={id} />
+              ))}
             </div>
           ) : status === 'error' ? (
             'エラー発生'
