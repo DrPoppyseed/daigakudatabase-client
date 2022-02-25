@@ -1,7 +1,6 @@
 {
     "name": "client",
     "version": "0.1.0",
-    "private": true,
     "dependencies": {
         "@loadable/component": "^5.14.1",
         "@material-ui/core": "^4.11.3",
@@ -12,6 +11,7 @@
         "@nivo/legends": "^0.70.0",
         "@nivo/pie": "^0.70.0",
         "axios": "^0.21.0",
+        "clsx": "^1.1.1",
         "d3": "^7.0.0",
         "firebase": "^8.2.6",
         "react": "^17.0.1",
@@ -24,7 +24,6 @@
         "react-spinners-css": "^2.0.0",
         "react-window": "^1.8.6",
         "swiper": "^6.7.0",
-        "clsx": "^1.1.1",
         "web-vitals": "^1.1.0"
     },
     "scripts": {
@@ -34,38 +33,12 @@
         "eject": "react-scripts eject",
         "flow": "flow"
     },
-    "eslintConfig": {
-        "extends": [
-            "react-app",
-            "react-app/jest"
-        ]
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
     "devDependencies": {
         "@babel/plugin-transform-react-jsx": "^7.12.13",
-        "@testing-library/dom": "^7.29.4",
-        "@testing-library/jest-dom": "^5.11.9",
-        "@testing-library/react": "^11.2.5",
-        "@testing-library/user-event": "^12.6.3",
         "babel-plugin-transform-imports": "^2.0.0",
         "babel-preset-react-app": "^10.0.0",
         "customize-cra": "^1.0.0",
-        "eslint": "^7.19.0",
-        "eslint-plugin-react": "^7.21.5",
         "flow-bin": "^0.144.0",
-        "react-app-rewired": "^2.1.8",
-        "react-test-renderer": "^17.0.1",
-        "redux-immutable-state-invariant": "^2.1.0"
+        "react-app-rewired": "^2.1.8"
     }
 }
