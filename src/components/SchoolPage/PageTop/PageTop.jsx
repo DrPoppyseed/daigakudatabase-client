@@ -1,5 +1,5 @@
 //@flow
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable */
 import * as React from 'react'
 import {
   Paper,

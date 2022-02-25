@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable */
 // @flow
 import * as React from 'react'
 import useStyles from './styles'

@@ -44,7 +44,7 @@ const EditProfileDialog = (props: Props): React.Node => {
         lastName: userProfile.lastName,
       })
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
   }, [isPageLoading])
 
   const handleNameChange = (event): void => {
