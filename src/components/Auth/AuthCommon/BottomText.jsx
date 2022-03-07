@@ -1,11 +1,12 @@
 import * as React from 'react'
-import { Link, Typography } from '@material-ui/core'
-import { fade, makeStyles } from '@material-ui/core/styles'
+import { Link, Typography } from '@mui/material'
+import { alpha } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import { Link as RouterLink } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
   signUpText: {
-    color: fade(theme.palette.common.black, 0.5) + ' !important',
+    color: alpha(theme.palette.common.black, 0.5) + ' !important',
   },
   signInLink: {
     textDecoration: 'none',

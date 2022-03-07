@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FormControl, InputLabel, MenuItem, Select } from '@material-ui/core'
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 import useStyles from './styles.js'
 import { HomeContext } from '../../../../HomeContext'
 

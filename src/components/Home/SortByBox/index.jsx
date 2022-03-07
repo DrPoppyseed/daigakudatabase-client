@@ -9,8 +9,8 @@ import {
   Select,
   Typography,
   useMediaQuery
-} from '@material-ui/core'
-import { Tune as TuneIcon } from '@material-ui/icons'
+} from '@mui/material'
+import { Tune as TuneIcon } from '@mui/icons-material'
 import { HomeContext } from '../../../HomeContext'
 
 import useStyles from './styles'
@@ -24,14 +24,15 @@ const SortByBox = () => {
     sortSelection,
     handleSortSelectionChange,
   } = React.useContext(HomeContext)
-  const md_down = useMediaQuery(theme => theme.breakpoints.down('md'))
+  const md_down = useMediaQuery(theme => theme.breakpoints.down('lg'))
 
   return (
     <Card className={c.root}>
       {md_down && (
         <IconButton
           className={c.filterIconButton}
-          onClick={e => handleFilterDrawerOpen(e)}>
+          onClick={e => handleFilterDrawerOpen(e)}
+          size="large">
           <Badge variant="dot" color="secondary">
             <TuneIcon />
           </Badge>
@@ -78,7 +79,7 @@ const SortByBox = () => {
         </Select>
       </FormControl>
     </Card>
-  )
+  );
 }
 
 export default SortByBox

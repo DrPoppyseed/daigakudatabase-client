@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Paper, Typography } from '@material-ui/core'
+import { Paper, Typography } from '@mui/material'
 
 import CustomPie from './CustomPie/CustomPie'
 import useStyles from './styles'

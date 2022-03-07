@@ -6,8 +6,8 @@ import {
   Breadcrumbs,
   Tooltip,
   ButtonBase,
-} from '@material-ui/core'
-import { TurnedIn, TurnedInNot } from '@material-ui/icons'
+} from '@mui/material'
+import { TurnedIn, TurnedInNot } from '@mui/icons-material'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper.min.css'
 import 'swiper/components/pagination/pagination.min.css'

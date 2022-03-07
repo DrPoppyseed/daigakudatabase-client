@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Paper } from '@material-ui/core'
+import { Paper } from '@mui/material'
 import useStyles from './styles'
 import FilterInner from '../FilterCommon/FilterInner'
 

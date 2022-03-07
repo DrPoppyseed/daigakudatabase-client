@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FormControl, FormGroup, FormLabel } from '@material-ui/core'
+import { FormControl, FormGroup, FormLabel } from '@mui/material'
 import CheckboxChild from '../../../Common/CheckboxChild/CheckboxChild'
 import useStyles from './styles'
 import { HomeContext } from '../../../../HomeContext'

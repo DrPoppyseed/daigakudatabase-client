@@ -11,14 +11,14 @@
  */
 
 import * as React from 'react'
-import { Table, TableContainer } from '@material-ui/core'
+import { Table, TableContainer } from '@mui/material'
 import {
   AttachMoney as AttachMoneyIcon,
   Equalizer as EqualizerIcon,
   LocationCity as LocationCityIcon,
   OpenInNew as OpenInNewIcon,
   People as PeopleIcon
-} from '@material-ui/icons'
+} from '@mui/icons-material'
 
 import useStyles from './styles'
 import TableNode from '../TableNode/TableNode'

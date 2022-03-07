@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
-import { Card, Typography, IconButton } from '@material-ui/core'
+import { Card, Typography, IconButton } from '@mui/material'
 
-import TurnedIn from '@material-ui/icons/TurnedIn'
+import TurnedIn from '@mui/icons-material/TurnedIn'
 import useStyles from './styles'
 import { unlikeSchoolById } from '../../../hooks/useAuth'
 import { useMutation } from 'react-query'
@@ -58,11 +58,12 @@ const SchoolCardSmall = (props: Props): React.Node => {
       </Link>
       <IconButton
         className={c.iconButton}
-        onClick={() => onClickUnlike.mutate(schoolId)}>
+        onClick={() => onClickUnlike.mutate(schoolId)}
+        size="large">
         <TurnedIn className={c.icon} />
       </IconButton>
     </Card>
-  )
+  );
 }
 
 export default SchoolCardSmall

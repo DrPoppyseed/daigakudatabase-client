@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import * as React from 'react'
-import { Breadcrumbs, Typography } from '@material-ui/core'
-import { AttachMoney as AttachMoneyIcon, BarChart as BarChartIcon } from '@material-ui/icons'
+import { Breadcrumbs, Typography } from '@mui/material'
+import { AttachMoney as AttachMoneyIcon, BarChart as BarChartIcon } from '@mui/icons-material'
 import useStyles from './styles'
 
 const TestStatsBreadcrumb = (props) => {

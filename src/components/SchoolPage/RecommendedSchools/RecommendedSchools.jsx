@@ -1,6 +1,6 @@
 import * as React from 'react'
 import useStyles from './styles'
-import { ButtonBase, Card, Typography } from '@material-ui/core'
+import { ButtonBase, Card, Typography } from '@mui/material'
 
 import SchoolCardMini from '../../SchoolCards/SchoolCardMini/SchoolCardMini'
 import SchoolCardMiniSkeleton from '../../SchoolCards/SchoolCardMini/SchoolCardMiniSkeleton'

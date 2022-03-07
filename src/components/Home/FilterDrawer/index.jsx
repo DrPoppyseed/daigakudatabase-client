@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Drawer } from '@material-ui/core'
+import { Drawer } from '@mui/material'
 import useStyles from './styles.js'
 import FilterInner from '../FilterCommon/FilterInner'
 import { HomeContext } from '../../../HomeContext'

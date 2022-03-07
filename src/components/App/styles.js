@@ -1,9 +1,9 @@
-import { makeStyles } from '@material-ui/core/styles'
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles(theme => ({
   appContainer: {
     paddingTop: theme.spacing(14),
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('lg')]: {
       paddingRight: 0,
       paddingLeft: 0,
     },

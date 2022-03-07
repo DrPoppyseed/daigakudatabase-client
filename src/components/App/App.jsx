@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import loadable from '@loadable/component'
 import { Ripple } from 'react-spinners-css'
-import { Container, Typography } from '@material-ui/core'
+import { Container, Typography } from '@mui/material'
 import useStyles from './styles'
 import { AuthContext } from '../../AuthContext'
 

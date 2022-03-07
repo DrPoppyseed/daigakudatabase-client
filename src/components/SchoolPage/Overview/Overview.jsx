@@ -1,6 +1,6 @@
 import * as React from 'react'
 import clsx from 'clsx'
-import { Paper, Typography } from '@material-ui/core'
+import { Paper, Typography } from '@mui/material'
 import Students from './Students/Students'
 import StatsTable from './StatsTable/StatsTable'
 import Location from './Location/Location'

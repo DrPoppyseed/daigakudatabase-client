@@ -1,6 +1,6 @@
 import * as React from 'react'
 import useStyles from './styles'
-import { useScrollTrigger, Zoom } from '@material-ui/core'
+import { useScrollTrigger, Zoom } from '@mui/material'
 
 const ScrollTop = (props) => {
   const { children } = props

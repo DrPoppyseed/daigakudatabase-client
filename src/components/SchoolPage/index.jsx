@@ -2,9 +2,9 @@ import * as React from 'react'
 import useStyles from './styles'
 import { Helmet } from 'react-helmet'
 import ScrollTop from '../Common/ScrollTop/ScrollTop.jsx'
-import { Card, Fab } from '@material-ui/core'
-import Skeleton from '@material-ui/lab/Skeleton'
-import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp'
+import { Card, Fab } from '@mui/material'
+import Skeleton from '@mui/material/Skeleton'
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import { useGetSchoolById } from '../../hooks/useSchools'
 import { useLocation } from 'react-router-dom'
 
@@ -42,13 +42,13 @@ const SchoolPage = (props) => {
           <div className={c.loadingContainer}>
             <Skeleton
               animation="wave"
-              variant="rect"
+              variant="rectangular"
               height={475}
               width={700}
             />
             <Skeleton
               animation="wave"
-              variant="rect"
+              variant="rectangular"
               height={325}
               width={700}
               style={{ marginTop: 24 }}
@@ -82,7 +82,7 @@ const SchoolPage = (props) => {
             <Card style={{ marginBottom: 16, borderRadius: 0 }}>
               <Skeleton
                 animation="wave"
-                variant="rect"
+                variant="rectangular"
                 height={58}
                 width={300}
               />
@@ -108,7 +108,7 @@ const SchoolPage = (props) => {
         </Fab>
       </ScrollTop>
     </div>
-  )
+  );
 }
 
 export default SchoolPage

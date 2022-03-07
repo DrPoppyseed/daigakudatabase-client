@@ -1,7 +1,7 @@
 import * as React from 'react'
 import clsx from 'clsx'
-import { Paper, Typography } from '@material-ui/core'
-import Skeleton from '@material-ui/lab/Skeleton'
+import { Paper, Typography } from '@mui/material'
+import Skeleton from '@mui/material/Skeleton'
 import useStyles from './styles'
 import SchoolCardSmall from '../../SchoolCards/SchoolCardSmall/SchoolCardSmall.jsx'
 
@@ -36,15 +36,15 @@ const LikedSchoolsContainer = () => {
           renderLikedSchools
         ) : (
           <React.Fragment>
-            <Skeleton variant="rect" width={450} height={150} />
-            <Skeleton variant="rect" width={450} height={150} />
-            <Skeleton variant="rect" width={450} height={150} />
-            <Skeleton variant="rect" width={450} height={150} />
+            <Skeleton variant="rectangular" width={450} height={150} />
+            <Skeleton variant="rectangular" width={450} height={150} />
+            <Skeleton variant="rectangular" width={450} height={150} />
+            <Skeleton variant="rectangular" width={450} height={150} />
           </React.Fragment>
         )}
       </div>
     </Paper>
-  )
+  );
 }
 
 export default LikedSchoolsContainer

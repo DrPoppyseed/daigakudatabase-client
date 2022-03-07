@@ -1,7 +1,7 @@
 import * as React from 'react'
 
-import { Breadcrumbs, Typography } from '@material-ui/core'
-import { Rating } from '@material-ui/lab'
+import { Breadcrumbs, Typography } from '@mui/material'
+import { Rating } from '@mui/material';
 import useStyles from './styles'
 
 const BasicStatsBreadcrumb = (props) => {

@@ -1,4 +1,6 @@
-import { alpha, makeStyles } from '@material-ui/core/styles'
+import { alpha } from '@mui/material/styles';
+
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -39,10 +41,10 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('lg')]: {
       gridTemplateColumns: '1fr 1020px 1fr !important',
     },
-    [theme.breakpoints.between('sm', 'lg')]: {
+    [theme.breakpoints.between('sm', 'xl')]: {
       gridTemplateColumns: '1fr 900px 1fr',
     },
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       display: 'flex',
       flexDirection: 'column',
       paddingBottom: 0,
@@ -53,7 +55,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     alignItems: 'center',
     width: '100%',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       paddingLeft: theme.spacing(2),
       paddingRight: theme.spacing(2),
     },

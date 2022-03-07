@@ -1,6 +1,6 @@
 import * as React from 'react'
 import useStyles from './styles.js'
-import { Typography } from '@material-ui/core'
+import { Typography } from '@mui/material'
 
 const DatacardsContainer = (props) => {
   const c = useStyles()

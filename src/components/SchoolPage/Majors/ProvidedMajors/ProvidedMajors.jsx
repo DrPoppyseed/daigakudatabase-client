@@ -1,6 +1,6 @@
 import * as React from 'react'
 import useStyles from './styles'
-import { Grid, Paper } from '@material-ui/core'
+import { Grid, Paper } from '@mui/material'
 import { MajorsConsumer } from '../MajorsProvider'
 import ProvidedMajor from './ProvidedMajor/ProvidedMajor'
 

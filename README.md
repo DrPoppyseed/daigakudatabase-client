@@ -1,6 +1,6 @@
-# FORIS US College Search (FORIS アメリカ大学検索)
+# Daigaku Database
 
-[FORIS](https://foris.app) is a website for Japanese speakers to easily search colleges and universities in the U.S. and get useful information.
+[daigakudatabase.com](daigakudatabaase.com) is a website for Japanese speakers to easily search colleges and universities in the U.S. and get useful information.
 
 ## Table of Contents
 
@@ -8,11 +8,10 @@
 - [Technologies](#technologies)
 - [Releases](#releases)
 - [Contributing](#contributing)
-- [日本語の紹介](#日本語の紹介)
 
 ## Motivation
 
-I wanted to create a nice-looking and useful website for Japanese students to search for and attain useful information on colleges and universities in the U.S., especially with the lack of such websites in Japanese. I am heavily using data provided by [IPEDS](https://nces.ed.gov/ipeds/) and [College Scorecard](https://collegescorecard.ed.gov/), both reliable sources from the federal government. However, I also use information scraped from other college lookup sites and wikipedia.
+I wanted to create a nice-looking and useful website for Japanese students to search for useful information on colleges and universities in the U.S.
 
 ## Technologies
 
@@ -29,12 +28,8 @@ I wanted to create a nice-looking and useful website for Japanese students to se
 
 ## Releases
 
-- The website is still in development phase. The testing site is currently live at [foris.app](https://foris.app)
+- The website is still in development phase. The testing site is currently live at [daigakudatabase.com](daigakudatabase.com).
 
 ## Contributing
 
 - Pull requests are welcome but an email to me is highly encouraged. My email is [peaske16180@gmail.com](peaske16180@gmail.com), so don't hesitate to ask questions. I also speak Japanese, so Japanese contributors are welcome as well.
-
-## 日本語の紹介
-
-[FORIS](https://foris.app)は日本人学生のために作られた、アメリカの大学の検索サイトです。まだサイト構築の真っ最中ですが、新しい機能を続々追加していく予定です！質問やリクエスト、フィードバック等を歓迎しておりますので、ぜひ[peaske16180@gmail.com](peaske16180@gmail.com)へご連絡ください！

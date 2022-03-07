@@ -13,12 +13,12 @@ import {
   Toolbar,
   Typography,
   useMediaQuery
-} from '@material-ui/core'
-import { useTheme } from '@material-ui/core/styles'
+} from '@mui/material'
+import { useTheme } from '@mui/material/styles'
 import { useMutation, useQueryClient } from 'react-query'
 import { AuthContext } from '../../AuthContext'
 
-import { AccountCircle } from '@material-ui/icons'
+import { AccountCircle } from '@mui/icons-material'
 import { Link } from 'react-router-dom'
 import useStyles from './styles.js'
 import { signOut } from '../../hooks/useAuth'
@@ -31,7 +31,7 @@ const Header = () => {
   const [open, setOpen] = React.useState(false)
   const { user, setUser } = React.useContext(AuthContext)
   const theme = useTheme()
-  const sm_down = useMediaQuery(theme.breakpoints.down('sm'))
+  const sm_down = useMediaQuery(theme.breakpoints.down('md'))
 
   const useSignOutOnClick = useMutation(signOut, {
     onSuccess: () => {
@@ -79,7 +79,8 @@ const Header = () => {
                     ref={anchorRef}
                     aria-controls={open ? 'menu-list-grow' : undefined}
                     aria-haspopup="true"
-                    onClick={handleToggle}>
+                    onClick={handleToggle}
+                    size="large">
                     <AccountCircle />
                   </IconButton>
                   <Popper
@@ -158,7 +159,7 @@ const Header = () => {
         </Toolbar>
       </AppBar>
     </div>
-  )
+  );
 }
 
 export default Header

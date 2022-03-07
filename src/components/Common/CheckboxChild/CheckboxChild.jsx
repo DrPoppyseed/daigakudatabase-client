@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Checkbox, FormControlLabel, Typography } from '@material-ui/core'
+import { Checkbox, FormControlLabel, Typography } from '@mui/material'
 
 const CheckboxChild = ({
   label,

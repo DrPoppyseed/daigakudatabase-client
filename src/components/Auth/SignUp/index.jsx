@@ -13,7 +13,7 @@ import {
   CircularProgress,
   FormControlLabel,
   Checkbox,
-} from '@material-ui/core'
+} from '@mui/material'
 import { PasswordInput, SocialButton, BottomText } from '../AuthCommon'
 import { signUpWithEmail, signInWithGoogle } from '../../../hooks/useAuth'
 import useStyles from './styles'

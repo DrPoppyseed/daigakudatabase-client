@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { IconButton, InputAdornment } from '@material-ui/core'
-import { Visibility, VisibilityOff } from '@material-ui/icons'
+import { IconButton, InputAdornment } from '@mui/material'
+import { Visibility, VisibilityOff } from '@mui/icons-material'
 
 const TogglePasswordVisibility = ({
   showPassword,
@@ -11,11 +11,12 @@ const TogglePasswordVisibility = ({
       <IconButton
         aria-label="Toggle password visibility"
         onClick={handleClickShowPassword}
-        edge="end">
+        edge="end"
+        size="large">
         {showPassword ? <VisibilityOff /> : <Visibility />}
       </IconButton>
     </InputAdornment>
-  )
+  );
 }
 
 export default TogglePasswordVisibility

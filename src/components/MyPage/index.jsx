@@ -1,6 +1,6 @@
 import * as React from 'react'
 import loadable from '@loadable/component'
-import { Container } from '@material-ui/core'
+import { Container } from '@mui/material'
 import useStyles from './styles'
 
 import ProfileSummaryContainer from './ProfileSummaryContainer/ProfileSummaryContainer'

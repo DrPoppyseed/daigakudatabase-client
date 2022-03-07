@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { Button, Paper, Tab, Tabs, Tooltip, Typography } from '@material-ui/core'
-import { OpenInNew as OpenInNewIcon, TurnedIn, TurnedInNot } from '@material-ui/icons'
+import { Button, Paper, Tab, Tabs, Tooltip, Typography } from '@mui/material'
+import { OpenInNew as OpenInNewIcon, TurnedIn, TurnedInNot } from '@mui/icons-material'
 import { useMutation } from 'react-query'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper.min.css'

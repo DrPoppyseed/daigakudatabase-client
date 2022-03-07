@@ -1,6 +1,6 @@
 import * as React from 'react'
 import useStyles from './styles'
-import { Divider, List, Paper, Typography } from '@material-ui/core'
+import { Divider, List, Paper, Typography } from '@mui/material'
 import { MajorsContext } from '../MajorsProvider'
 
 import Program from '../Program/Program'

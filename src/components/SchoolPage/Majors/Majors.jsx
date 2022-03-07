@@ -2,7 +2,7 @@ import * as React from 'react'
 import CredLevFilter from './CredLevFilter/CredLevFilter'
 import ProvidedMajors from './ProvidedMajors/ProvidedMajors'
 import Major from './Major/Major'
-import Skeleton from '@material-ui/lab/Skeleton'
+import Skeleton from '@mui/material/Skeleton'
 import { MajorsProvider } from './MajorsProvider'
 
 import { useGetMajorsOfSchoolById } from '../../../hooks/useSchools'
@@ -16,14 +16,14 @@ const Majors = ({ uuid }) => {
         <div>
           <Skeleton
             animation="wave"
-            variant="rect"
+            variant="rectangular"
             width={700}
             height={134}
             style={{ marginTop: 24 }}
           />
           <Skeleton
             animation="wave"
-            variant="rect"
+            variant="rectangular"
             width={700}
             height={390}
             style={{ marginTop: 16 }}
@@ -41,7 +41,7 @@ const Majors = ({ uuid }) => {
         </React.Fragment>
       )}
     </MajorsProvider>
-  )
+  );
 }
 
 export default Majors

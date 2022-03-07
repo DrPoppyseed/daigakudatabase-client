@@ -1,8 +1,8 @@
 import * as React from 'react'
 import clsx from 'clsx'
-import { IconButton, Paper, Typography } from '@material-ui/core'
-import EditIcon from '@material-ui/icons/Edit'
-import Skeleton from '@material-ui/lab/Skeleton'
+import { IconButton, Paper, Typography } from '@mui/material'
+import EditIcon from '@mui/icons-material/Edit'
+import Skeleton from '@mui/material/Skeleton'
 
 import useStyles from './styles'
 
@@ -41,7 +41,7 @@ const ProfileSummaryContainer = (props) => {
             width={140}
           />
         ) : (
-          <Skeleton variant="circle" height={140} width={140} />
+          <Skeleton variant="circular" height={140} width={140} />
         )}
       </div>
       <div className={c.profileTextArea}>
@@ -52,7 +52,7 @@ const ProfileSummaryContainer = (props) => {
             {!isPageLoading ? (
               `${userProfile.lastName} ${userProfile.firstName}`
             ) : (
-              <Skeleton variant="rect" width={200} />
+              <Skeleton variant="rectangular" width={200} />
             )}
           </Typography>
         </div>
@@ -60,7 +60,7 @@ const ProfileSummaryContainer = (props) => {
           <Typography variant="caption">所属</Typography>
           <Typography variant="h6" className={c.profileUserSchool}>
             {isPageLoading ? (
-              <Skeleton variant="rect" width={200} />
+              <Skeleton variant="rectangular" width={200} />
             ) : (
               userBelongsTo.name
               // <></>
@@ -73,18 +73,19 @@ const ProfileSummaryContainer = (props) => {
             {!isPageLoading ? (
               <React.Fragment>{`${userProfile.profileText}`}</React.Fragment>
             ) : (
-              <Skeleton variant="rect" width={400} />
+              <Skeleton variant="rectangular" width={400} />
             )}
           </Typography>
         </div>
       </div>
       <IconButton
         className={c.editIconContainer}
-        onClick={() => props.setInEditingMode(prevMode => !prevMode)}>
+        onClick={() => props.setInEditingMode(prevMode => !prevMode)}
+        size="large">
         <EditIcon className={c.editIcon} />
       </IconButton>
     </Paper>
-  )
+  );
 }
 
 export default ProfileSummaryContainer

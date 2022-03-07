@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { List, ListItem, Typography } from '@material-ui/core'
+import { List, ListItem, Typography } from '@mui/material'
 import D3ProgramsViz from '../D3ProgramsViz'
 import D3TuitionViz from '../D3TuitionViz'
 import D3TestscoresViz from '../D3TestscoresViz'

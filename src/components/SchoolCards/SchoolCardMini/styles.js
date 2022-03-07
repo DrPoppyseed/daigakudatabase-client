@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles'
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles(theme => ({
   cardRoot: { marginBottom: theme.spacing(1), width: 300, borderRadius: 0 },

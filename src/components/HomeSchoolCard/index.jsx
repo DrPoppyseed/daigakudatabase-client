@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
-import { Button, Card, IconButton, Tooltip, Typography } from '@material-ui/core'
-import { Star as StarIcon, StarBorder as StarBorderIcon } from '@material-ui/icons'
+import { Button, Card, IconButton, Tooltip, Typography } from '@mui/material'
+import { Star as StarIcon, StarBorder as StarBorderIcon } from '@mui/icons-material'
 import useStyles from './styles'
 import D3GraphsContainer from './D3GraphsContainer'
 import DatacardsContainer from './DatacardsContainer'
@@ -53,16 +53,16 @@ const HomeSchoolCard = (props) => {
         <div className={c.titleContainer}>
           {!!authContext.user.uid ? (
             isCardLiked ? (
-              <IconButton onClick={() => handleLikeClick()}>
+              <IconButton onClick={() => handleLikeClick()} size="large">
                 <StarIcon style={{ color: '#ffa726' }} />
               </IconButton>
             ) : (
-              <IconButton onClick={() => handleLikeClick()}>
+              <IconButton onClick={() => handleLikeClick()} size="large">
                 <StarBorderIcon />
               </IconButton>
             )
           ) : (
-            <IconButton>
+            <IconButton size="large">
               <Tooltip title="ログインして学校をお気に入り登録しよう！">
                 <StarBorderIcon />
               </Tooltip>
@@ -98,6 +98,6 @@ const HomeSchoolCard = (props) => {
         />
       </div>
     </Card>
-  )
+  );
 }
 export default HomeSchoolCard
