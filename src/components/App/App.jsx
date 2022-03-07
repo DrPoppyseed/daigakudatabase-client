@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import loadable from '@loadable/component'
-import { Ripple } from 'react-spinners-css'
+import { InfinitySpin } from 'react-loader-spinner'
 import { Container, Typography } from '@mui/material'
 import useStyles from './styles'
 import { AuthContext } from '../../AuthContext'
@@ -46,7 +46,7 @@ const App = () => {
           <Typography className={c.loadingText}>
             新しいスタートはすぐそこ...
           </Typography>
-          <Ripple color="#2196f3" />
+          <InfinitySpin color="#2196f3" width="100" />
         </div>
       )}
     </React.StrictMode>
