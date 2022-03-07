@@ -1,5 +1,9 @@
 # dependencies
 /node_modules
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+.pnp.*
 
 # testing
 /coverage
@@ -17,3 +21,7 @@
 .env.production.local*
 
 /.eslintcache
+
+# dev environment
+.idea
+.vscode
