@@ -1,7 +1,6 @@
-// @flow
 import * as React from 'react'
-import { Typography, Link } from '@material-ui/core'
-import { makeStyles, fade } from '@material-ui/core/styles'
+import { Link, Typography } from '@material-ui/core'
+import { fade, makeStyles } from '@material-ui/core/styles'
 import { Link as RouterLink } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
@@ -18,12 +17,7 @@ const BottomText = ({
   link,
   to,
   after,
-}: {
-  before: string,
-  link: string,
-  to: string,
-  after: string,
-}): React.Element<any> => {
+}) => {
   const c = useStyles()
 
   return (

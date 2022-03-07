@@ -1,4 +1,3 @@
-// @flow
 import * as React from 'react'
 import { Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
@@ -17,10 +16,7 @@ const useStyles = makeStyles(theme => ({
 const SocialButton = ({
   text,
   onButtonClick,
-}: {
-  text: string,
-  onButtonClick: Function,
-}): React.Element<any> => {
+}) => {
   const c = useStyles()
   return (
     <Button

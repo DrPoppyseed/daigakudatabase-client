@@ -1,7 +1,6 @@
-// @flow
 import * as React from 'react'
 import useStyles from './styles'
-import { Typography, Card, ButtonBase } from '@material-ui/core'
+import { ButtonBase, Card, Typography } from '@material-ui/core'
 
 import SchoolCardMini from '../../SchoolCards/SchoolCardMini/SchoolCardMini'
 import SchoolCardMiniSkeleton from '../../SchoolCards/SchoolCardMini/SchoolCardMiniSkeleton'
@@ -9,9 +8,7 @@ import { useGetSchools } from '../../../hooks/useSchools'
 
 const RecommendedSchools = ({
   currentSchoolUuid,
-}: {
-  currentSchoolUuid: string,
-}): React.Element<any> => {
+}) => {
   const c = useStyles()
   const { status, data } = useGetSchools(1)
 

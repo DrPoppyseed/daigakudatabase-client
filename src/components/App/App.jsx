@@ -1,11 +1,8 @@
-// @flow
 import * as React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import loadable from '@loadable/component'
 import { Ripple } from 'react-spinners-css'
-import { Typography } from '@material-ui/core'
-
-import { Container } from '@material-ui/core'
+import { Container, Typography } from '@material-ui/core'
 import useStyles from './styles'
 import { AuthContext } from '../../AuthContext'
 
@@ -20,7 +17,7 @@ const Footer = loadable(() => import('../Footer/FooterSub'))
 const SchoolPage = loadable(() => import('../SchoolPage'))
 const NoMatch = loadable(() => import('../NoMatch'))
 
-const App = (): React.Element<any> => {
+const App = () => {
   const c = useStyles()
   const { globalLoading, currentPath } = React.useContext(AuthContext)
 

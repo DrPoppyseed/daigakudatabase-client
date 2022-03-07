@@ -1,15 +1,11 @@
-// @flow
-import { googleProvider, firebaseAuth } from '../util/firebase'
+import { firebaseAuth, googleProvider } from '../util/firebase'
 import { api } from '../util/api'
 import axios from 'axios'
 
 export const signUpWithEmail = async ({
   email,
   password,
-}: {
-  email: string,
-  password: string,
-}): Function => {
+}) => {
   try {
     const user = await firebaseAuth.createUserWithEmailAndPassword(
       email,
@@ -35,10 +31,7 @@ export const signUpWithEmail = async ({
 export const signInWithEmail = async ({
   email,
   password,
-}: {
-  email: string,
-  password: string,
-}): Promise<any> => {
+}) => {
   try {
     const { user } = await firebaseAuth.signInWithEmailAndPassword(
       email,
@@ -60,7 +53,7 @@ export const signInWithEmail = async ({
   }
 }
 
-export const signInWithGoogle = async (): Promise<any> => {
+export const signInWithGoogle = async ()=> {
   try {
     const { user } = await firebaseAuth.signInWithPopup(googleProvider)
     const token = await user.getIdToken(true)
@@ -87,7 +80,7 @@ export const signOut = () => {
 
 export const deleteAccount = () => {}
 
-export const likeSchoolById = async (ipeds_unitid: string): any => {
+export const likeSchoolById = async (ipeds_unitid) => {
   try {
     const user = await firebaseAuth.currentUser
     const token = await user.getIdToken(true)
@@ -106,7 +99,7 @@ export const likeSchoolById = async (ipeds_unitid: string): any => {
   }
 }
 
-export const unlikeSchoolById = async (ipeds_unitid: string): any => {
+export const unlikeSchoolById = async (ipeds_unitid) => {
   try {
     const user = await firebaseAuth.currentUser
     const token = await user.getIdToken()

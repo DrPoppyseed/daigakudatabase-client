@@ -1,6 +1,5 @@
-// @flow
 import * as React from 'react'
-import { Button, Divider, ListItem, Container } from '@material-ui/core'
+import { Button, Container, Divider, ListItem } from '@material-ui/core'
 import clsx from 'clsx'
 import SATSlider from '../SATSlider'
 import TuitionSlider from '../TuitionSlider'

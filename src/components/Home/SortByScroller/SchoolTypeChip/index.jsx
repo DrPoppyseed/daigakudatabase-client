@@ -1,16 +1,9 @@
-// @flow
 import * as React from 'react'
 import { Chip } from '@material-ui/core'
 import useStyles from './styles'
 import { HomeContext } from '../../../../HomeContext'
 
-type Props = {
-  label: string,
-  chipValue: string,
-  chipState: boolean,
-}
-
-const SchoolTypeChip = (props: Props) => {
+const SchoolTypeChip = (props) => {
   const c = useStyles()
 
   const { handleSchoolTypeChipClick } = React.useContext(HomeContext)

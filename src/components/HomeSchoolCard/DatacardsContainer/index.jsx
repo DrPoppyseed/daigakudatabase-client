@@ -1,17 +1,8 @@
-// @flow
 import * as React from 'react'
 import useStyles from './styles.js'
 import { Typography } from '@material-ui/core'
 
-type Props = {
-  campus: Object,
-  education: Object,
-  classifications: Object,
-  tuition: Object,
-  admissions: Object,
-}
-
-const DatacardsContainer = (props: Props): React.Node => {
+const DatacardsContainer = (props) => {
   const c = useStyles()
   const { campus, education, classifications, tuition, admissions } = props
 

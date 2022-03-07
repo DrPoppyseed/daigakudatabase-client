@@ -1,4 +1,3 @@
-// @flow
 import * as React from 'react'
 import { TextField } from '@material-ui/core'
 import TogglePasswordVisibility from './TogglePasswordVisibility'
@@ -15,11 +14,7 @@ const PasswordInput = ({
   control,
   register,
   helperText = '',
-}: {
-  control: any,
-  register: any,
-  helperText: string,
-}): React.Element<any> => {
+}) => {
   const c = useStyles()
   const [showPassword, setShowPassword] = React.useState(false)
 

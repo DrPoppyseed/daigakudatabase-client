@@ -1,17 +1,12 @@
-// @flow
 import * as React from 'react'
 import clsx from 'clsx'
-import { Paper, Typography, IconButton } from '@material-ui/core'
+import { IconButton, Paper, Typography } from '@material-ui/core'
 import EditIcon from '@material-ui/icons/Edit'
 import Skeleton from '@material-ui/lab/Skeleton'
 
 import useStyles from './styles'
 
-type Props = {
-  setInEditingMode: any,
-}
-
-const ProfileSummaryContainer = (props: Props): React.Element<any> => {
+const ProfileSummaryContainer = (props) => {
   const c = useStyles()
   const [isPageLoading] = React.useState(true)
   const [userProfile] = React.useState({

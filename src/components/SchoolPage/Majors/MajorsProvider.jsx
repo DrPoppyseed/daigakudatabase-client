@@ -1,13 +1,10 @@
-// @flow
 import * as React from 'react'
 
-const MajorsContext: React.Context<any> = React.createContext()
+const MajorsContext = React.createContext()
 
 const MajorsProvider = ({
   children,
-}: {
-  children: React.Element<any>,
-}): React.Element<any> => {
+}) => {
   const [filterState, setFilterState] = React.useState({
     '1': false,
     '2': false,
@@ -34,8 +31,8 @@ const MajorsProvider = ({
     setFilterState({ ...filterState, [e.target.name]: e.target.checked })
   }
 
-  const programNumsOnFilterChange = (programNums: Object): number => {
-    const currentPrograms: Array<any> = Object.entries(programNums).filter(pn =>
+  const programNumsOnFilterChange = (programNums) => {
+    const currentPrograms = Object.entries(programNums).filter(pn =>
       filterCredLevs.includes(pn[0])
     )
     if (currentPrograms.length > 0) {

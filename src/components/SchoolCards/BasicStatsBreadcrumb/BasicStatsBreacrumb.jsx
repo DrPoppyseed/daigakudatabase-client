@@ -1,19 +1,10 @@
-// @flow
 import * as React from 'react'
 
 import { Breadcrumbs, Typography } from '@material-ui/core'
 import { Rating } from '@material-ui/lab'
 import useStyles from './styles'
 
-type Props = {
-  ratingScore: number | string,
-  ratings: number | string,
-  yearType: string,
-  schoolType: string,
-  state: string,
-}
-
-const BasicStatsBreadcrumb = (props: Props): React.Node => {
+const BasicStatsBreadcrumb = (props) => {
   const c = useStyles()
 
   return (

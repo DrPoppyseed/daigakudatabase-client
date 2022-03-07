@@ -1,8 +1,7 @@
-// @flow
 import * as React from 'react'
 import clsx from 'clsx'
 import useStyles from './styles'
-import { Fab, Typography, Container, useMediaQuery } from '@material-ui/core'
+import { Container, Fab, Typography, useMediaQuery } from '@material-ui/core'
 import Pagination from '@material-ui/lab/Pagination'
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp'
 import { Helmet } from 'react-helmet'
@@ -18,7 +17,7 @@ import SortByScroller from './SortByScroller'
 
 import HomeSchoolCard from '../HomeSchoolCard'
 
-const Home = (props: any): React.Element<any> => {
+const Home = (props) => {
   const sm_down = useMediaQuery(theme => theme.breakpoints.down('sm'))
   const c = useStyles()
   const {
@@ -30,7 +29,7 @@ const Home = (props: any): React.Element<any> => {
     handlePageChange,
   } = React.useContext(HomeContext)
 
-  const mapSchools = (schools: Array): Array<React.Node> =>
+  const mapSchools = (schools) =>
     schools.map(school => (
       <HomeSchoolCard key={school.ipeds_unitid} general={school} />
     ))

@@ -1,12 +1,11 @@
-//@flow
 import * as React from 'react'
 import useStyles from './styles'
-import { Paper, Typography, Divider, List } from '@material-ui/core'
+import { Divider, List, Paper, Typography } from '@material-ui/core'
 import { MajorsContext } from '../MajorsProvider'
 
 import Program from '../Program/Program'
 
-const Major = ({ major }: { major: Object }): React.Element<any> => {
+const Major = ({ major }) => {
   const context = React.useContext(MajorsContext)
   const c = useStyles()
 

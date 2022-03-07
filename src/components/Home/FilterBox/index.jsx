@@ -1,10 +1,9 @@
-// @flow
 import * as React from 'react'
 import { Paper } from '@material-ui/core'
 import useStyles from './styles'
 import FilterInner from '../FilterCommon/FilterInner'
 
-const FilterBox = (): React.Element<any> => {
+const FilterBox = () => {
   const c = useStyles()
 
   return (

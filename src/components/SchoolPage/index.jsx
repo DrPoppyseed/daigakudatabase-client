@@ -1,10 +1,8 @@
-/* eslint-disable */
-// @flow
 import * as React from 'react'
 import useStyles from './styles'
 import { Helmet } from 'react-helmet'
 import ScrollTop from '../Common/ScrollTop/ScrollTop.jsx'
-import { Fab, Card } from '@material-ui/core'
+import { Card, Fab } from '@material-ui/core'
 import Skeleton from '@material-ui/lab/Skeleton'
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp'
 import { useGetSchoolById } from '../../hooks/useSchools'
@@ -17,11 +15,7 @@ import PageTop from './PageTop/PageTop'
 import Majors from './Majors/Majors'
 import Apply from './Apply/Apply'
 
-type Props = {
-  children?: any,
-}
-
-const SchoolPage = (props: Props): React.Element<any> => {
+const SchoolPage = (props) => {
   const c = useStyles()
   const { pathname } = useLocation()
   const schoolUrl = pathname.split('/')[2]

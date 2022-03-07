@@ -1,34 +1,30 @@
-// @flow
 import * as React from 'react'
 import clsx from 'clsx'
 import {
   AppBar,
-  Toolbar,
-  IconButton,
-  Typography,
-  MenuItem,
-  Grow,
-  Popper,
-  ClickAwayListener,
-  Paper,
-  MenuList,
   Button,
-  useMediaQuery,
+  ClickAwayListener,
+  Grow,
+  IconButton,
+  MenuItem,
+  MenuList,
+  Paper,
+  Popper,
+  Toolbar,
+  Typography,
+  useMediaQuery
 } from '@material-ui/core'
 import { useTheme } from '@material-ui/core/styles'
 import { useMutation, useQueryClient } from 'react-query'
 import { AuthContext } from '../../AuthContext'
 
-import {
-  // Search as SearchIcon,
-  AccountCircle,
-} from '@material-ui/icons'
+import { AccountCircle } from '@material-ui/icons'
 import { Link } from 'react-router-dom'
 import useStyles from './styles.js'
 import { signOut } from '../../hooks/useAuth'
 import SortByScroller from '../Home/SortByScroller'
 
-const Header = (): React.Element<any> => {
+const Header = () => {
   const c = useStyles()
   const queryClient = useQueryClient()
   const anchorRef = React.useRef(null)
@@ -159,7 +155,6 @@ const Header = (): React.Element<any> => {
             </div>
           </div>
           {sm_down ? <SortByScroller className={c.sortByScroller} /> : ''}
-          {console.log(`is sm_down true or false: ${sm_down}`)}
         </Toolbar>
       </AppBar>
     </div>

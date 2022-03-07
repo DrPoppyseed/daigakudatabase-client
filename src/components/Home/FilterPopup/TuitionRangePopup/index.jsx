@@ -1,4 +1,3 @@
-// // @flow
 // import * from 'react'
 // import useStyles from './styles'
 // import {Dialog} from '@material-ui/core'

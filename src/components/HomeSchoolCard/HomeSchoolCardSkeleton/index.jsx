@@ -1,13 +1,9 @@
-// @flow
 import * as React from 'react'
-import {
-  Card,
-  // useMediaQuery
-} from '@material-ui/core'
+import { Card } from '@material-ui/core'
 import Skeleton from '@material-ui/lab/Skeleton'
 import useStyles from './styles.js'
 
-const HomeSchoolCardSkeleton = (): React.Node => {
+const HomeSchoolCardSkeleton = () => {
   const c = useStyles()
   // const sm_up = useMediaQuery(theme => theme.breakpoints.up('xs'))
 

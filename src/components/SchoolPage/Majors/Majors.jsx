@@ -1,4 +1,3 @@
-//@flow
 import * as React from 'react'
 import CredLevFilter from './CredLevFilter/CredLevFilter'
 import ProvidedMajors from './ProvidedMajors/ProvidedMajors'
@@ -8,7 +7,7 @@ import { MajorsProvider } from './MajorsProvider'
 
 import { useGetMajorsOfSchoolById } from '../../../hooks/useSchools'
 
-const Majors = ({ uuid }: { uuid: String }): React.Element<any> => {
+const Majors = ({ uuid }) => {
   const { status, data } = useGetMajorsOfSchoolById(uuid)
 
   return (

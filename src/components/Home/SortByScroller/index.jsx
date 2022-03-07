@@ -1,6 +1,5 @@
-// @flow
 import * as React from 'react'
-import { Chip, IconButton, Badge } from '@material-ui/core'
+import { Badge, Chip, IconButton } from '@material-ui/core'
 import useStyles from './styles'
 import { Tune as TuneIcon } from '@material-ui/icons'
 import SchoolTypeChip from './SchoolTypeChip'

@@ -1,4 +1,3 @@
-// @flow
 import * as React from 'react'
 import { Slider, Typography } from '@material-ui/core'
 import useStyles from './styles.js'

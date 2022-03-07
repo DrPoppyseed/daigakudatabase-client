@@ -1,8 +1,7 @@
-// @flow
 import * as React from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 import { Link, Typography } from '@material-ui/core'
-import { makeStyles, fade } from '@material-ui/core/styles'
+import { fade, makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
   default: {
@@ -19,12 +18,7 @@ const AuthLink = ({
   to,
   text,
   type = 'default',
-}: {
-  variant: string,
-  to: string,
-  text: string,
-  type: string,
-}): React.Element<any> => {
+}) => {
   const c = useStyles()
 
   return (

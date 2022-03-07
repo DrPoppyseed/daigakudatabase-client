@@ -1,5 +1,3 @@
-/* eslint-disable */
-// @flow
 import * as React from 'react'
 import { Paper, Typography } from '@material-ui/core'
 
@@ -8,10 +6,7 @@ import useStyles from './styles'
 const Location = ({
   lat,
   lon,
-}: {
-  lat: String,
-  lon: String,
-}): React.Element<any> => {
+}) => {
   const c = useStyles()
 
   return (

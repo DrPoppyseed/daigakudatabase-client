@@ -1,9 +1,8 @@
-// @flow
 import * as React from 'react'
 import { Button, ButtonGroup } from '@material-ui/core'
 import { HomeContext } from '../../../../HomeContext'
 
-const UrbanButtonGroup = (): React.Node => {
+const UrbanButtonGroup = () => {
   const { handleUrbanizationLevel, urbanizationLevel } =
     React.useContext(HomeContext)
   return (

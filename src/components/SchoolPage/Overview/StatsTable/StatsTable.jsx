@@ -10,15 +10,14 @@
  * 		- What info would we want to display ?
  */
 
-// @flow
 import * as React from 'react'
 import { Table, TableContainer } from '@material-ui/core'
 import {
-  LocationCity as LocationCityIcon,
-  People as PeopleIcon,
-  Equalizer as EqualizerIcon,
-  OpenInNew as OpenInNewIcon,
   AttachMoney as AttachMoneyIcon,
+  Equalizer as EqualizerIcon,
+  LocationCity as LocationCityIcon,
+  OpenInNew as OpenInNewIcon,
+  People as PeopleIcon
 } from '@material-ui/icons'
 
 import useStyles from './styles'
@@ -26,9 +25,7 @@ import TableNode from '../TableNode/TableNode'
 
 const StatsTable = ({
   basicInfo = {},
-}: {
-  basicInfo: Object,
-}): React.Element<any> => {
+}) => {
   const c = useStyles()
 
   const {

@@ -1,14 +1,9 @@
-// @flow
 import * as React from 'react'
 import { Card, Typography } from '@material-ui/core'
 
 import useStyles from './styles'
 
-type Props = {|
-  name: string,
-|}
-
-const SchoolCardAtom = (props: Props): React.Element<any> => {
+const SchoolCardAtom = (props) => {
   const c = useStyles()
 
   return (

@@ -1,4 +1,3 @@
-// @flow
 import * as React from 'react'
 import { Card } from '@material-ui/core'
 import { Skeleton } from '@material-ui/lab'

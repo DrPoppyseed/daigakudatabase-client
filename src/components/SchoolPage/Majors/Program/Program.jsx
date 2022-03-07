@@ -1,24 +1,17 @@
-//@flow
 import clsx from 'clsx'
 import * as React from 'react'
 import useStyles from './styles'
+import { Collapse, ListItem, ListItemText, Table, Typography } from '@material-ui/core'
 import {
-  Typography,
-  ListItem,
-  ListItemText,
-  Table,
-  Collapse,
-} from '@material-ui/core'
-import {
-  People as PeopleIcon,
-  ExposurePlus2 as ExposurePlus2Icon,
-  ExposurePlus1 as ExposurePlus1Icon,
   ExpandMore as ExpandMoreIcon,
+  ExposurePlus1 as ExposurePlus1Icon,
+  ExposurePlus2 as ExposurePlus2Icon,
+  People as PeopleIcon
 } from '@material-ui/icons'
 
 import TableNode from '../../Overview/TableNode/TableNode'
 
-const Program = ({ program }: { program: Object }): React.Element<any> => {
+const Program = ({ program }) => {
   const c = useStyles()
   const [open, setOpen] = React.useState(false)
 

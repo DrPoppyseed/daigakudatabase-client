@@ -1,17 +1,7 @@
-// @flow
 import * as React from 'react'
 import { Link } from 'react-router-dom'
-import {
-  Typography,
-  Card,
-  Button,
-  IconButton,
-  Tooltip,
-} from '@material-ui/core'
-import {
-  StarBorder as StarBorderIcon,
-  Star as StarIcon,
-} from '@material-ui/icons'
+import { Button, Card, IconButton, Tooltip, Typography } from '@material-ui/core'
+import { Star as StarIcon, StarBorder as StarBorderIcon } from '@material-ui/icons'
 import useStyles from './styles'
 import D3GraphsContainer from './D3GraphsContainer'
 import DatacardsContainer from './DatacardsContainer'
@@ -20,11 +10,7 @@ import { likeSchoolById, unlikeSchoolById } from '../../hooks/useAuth'
 import { useMutation } from 'react-query'
 import { AuthContext } from '../../AuthContext'
 
-type Props = {
-  general: any,
-}
-
-const HomeSchoolCard = (props: Props): React.Node => {
+const HomeSchoolCard = (props) => {
   const c = useStyles()
   const {
     name_en,

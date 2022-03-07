@@ -1,13 +1,8 @@
-// @flow
 import * as React from 'react'
 import useStyles from './styles'
 import { useScrollTrigger, Zoom } from '@material-ui/core'
 
-type Props = {
-  children?: React.Node,
-}
-
-const ScrollTop = (props: Props): React.Element<any> => {
+const ScrollTop = (props) => {
   const { children } = props
   const c = useStyles()
   const trigger = useScrollTrigger({

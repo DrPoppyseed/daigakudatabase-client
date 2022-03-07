@@ -1,4 +1,3 @@
-// @flow
 import clsx from 'clsx'
 import * as React from 'react'
 import { Breadcrumbs, Typography } from '@material-ui/core'

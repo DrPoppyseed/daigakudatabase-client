@@ -1,10 +1,9 @@
-// @flow
 import * as React from 'react'
 import { ResponsivePie } from '@nivo/pie'
 
 // import useStyles from './styles'
 
-const CustomPie = ({ data }: { data: any }): React.Element<any> => {
+const CustomPie = ({ data }) => {
   // const c = useStyles()
 
   return (

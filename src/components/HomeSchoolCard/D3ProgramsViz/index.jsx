@@ -1,17 +1,9 @@
-// @flow
 import * as React from 'react'
 import * as d3 from 'd3'
-import {useD3} from '../../../hooks/useD3'
+import { useD3 } from '../../../hooks/useD3'
 import './styles.css'
 
-type Props = {
-  width: number,
-  height: number,
-  data: Array,
-  unitid: string
-}
-
-const D3ProgramsViz = (props: Props) => {
+const D3ProgramsViz = (props) => {
   const {
     width = 200,
     height = 200,

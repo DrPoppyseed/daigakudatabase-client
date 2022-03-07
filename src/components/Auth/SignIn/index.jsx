@@ -1,27 +1,13 @@
-// @flow
 import * as React from 'react'
 import { useMutation } from 'react-query'
 import { useForm } from 'react-hook-form'
 import useStyles from './styles'
-import {
-  Divider,
-  Paper,
-  Typography,
-  TextField,
-  Box,
-  Button,
-  CircularProgress,
-} from '@material-ui/core'
-import {
-  PasswordInput,
-  SocialButton,
-  BottomText,
-  AuthLink,
-} from '../AuthCommon'
+import { Box, Button, CircularProgress, Divider, Paper, TextField, Typography } from '@material-ui/core'
+import { AuthLink, BottomText, PasswordInput, SocialButton } from '../AuthCommon'
 import { signInWithEmail, signInWithGoogle } from '../../../hooks/useAuth'
 import { AuthContext } from '../../../AuthContext'
 
-const SignIn = (): React.Element<any> => {
+const SignIn = () => {
   const { register, handleSubmit, control } = useForm()
   const { setUser } = React.useContext(AuthContext)
   const [isLoading] = React.useState(false)

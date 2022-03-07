@@ -1,4 +1,3 @@
-// @flow
 import * as React from 'react'
 import { FormControl, InputLabel, MenuItem, Select } from '@material-ui/core'
 import useStyles from './styles.js'

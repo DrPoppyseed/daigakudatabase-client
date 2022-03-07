@@ -1,22 +1,21 @@
-// @flow
 import * as React from 'react'
 import {
-  Card,
-  Typography,
-  Select,
-  MenuItem,
-  FormControl,
-  InputLabel,
-  useMediaQuery,
-  IconButton,
   Badge,
+  Card,
+  FormControl,
+  IconButton,
+  InputLabel,
+  MenuItem,
+  Select,
+  Typography,
+  useMediaQuery
 } from '@material-ui/core'
 import { Tune as TuneIcon } from '@material-ui/icons'
 import { HomeContext } from '../../../HomeContext'
 
 import useStyles from './styles'
 
-const SortByBox = (): React.Element<any> => {
+const SortByBox = () => {
   const c = useStyles()
   const {
     handleFilterDrawerOpen,

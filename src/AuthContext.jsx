@@ -1,16 +1,13 @@
-// @flow
 import * as React from 'react'
 import { firebaseAuth } from './util/firebase'
 import { useLocation } from 'react-router-dom'
 import history from './util/history'
 
-const AuthContext: React.Context<any> = React.createContext()
+const AuthContext = React.createContext()
 
 const AuthProvider = ({
   children,
-}: {
-  children: React.Element<any>,
-}): React.Element<any> => {
+}) => {
   const [globalLoading, setGlobalLoading] = React.useState(true)
   const [currentPath, setCurrentPath] = React.useState('')
   const location = useLocation()

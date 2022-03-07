@@ -1,10 +1,9 @@
-// @flow
 import * as React from 'react'
 import Skeleton from '@material-ui/lab/Skeleton'
 import Card from '@material-ui/core/Card'
 import useStyles from './styles'
 
-const SortByBoxSkeleton = (): React.Node => {
+const SortByBoxSkeleton = () => {
   const c = useStyles()
   return (
     <Card className={c.cardContainer}>
