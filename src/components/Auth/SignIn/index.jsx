@@ -45,10 +45,9 @@ const SignIn = () => {
           <Divider className={c.divider} />
           <form onSubmit={handleSubmit(onSubmit)} className={c.form}>
             <TextField
-              name="email"
+              {...register('email')}
               label="email"
               type="text"
-              inputRef={register}
               className={c.emailField}
               autoComplete="username"
               variant="outlined"
@@ -68,7 +67,7 @@ const SignIn = () => {
             </Button>
           </form>
           <BottomText
-            before="FORISのアカウントをもっていない場合は"
+            before="Daigaku Databaseのアカウントをもっていない場合は"
             link="新規登録"
             to="/auth/signup"
             after="から。"

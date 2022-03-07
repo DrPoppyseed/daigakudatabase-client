@@ -3,19 +3,19 @@ import { useMutation } from 'react-query'
 import { useForm } from 'react-hook-form'
 import { Link as RouterLink } from 'react-router-dom'
 import {
-  Divider,
-  Paper,
-  Typography,
-  TextField,
   Box,
-  Link,
   Button,
-  CircularProgress,
-  FormControlLabel,
   Checkbox,
+  CircularProgress,
+  Divider,
+  FormControlLabel,
+  Link,
+  Paper,
+  TextField,
+  Typography
 } from '@mui/material'
-import { PasswordInput, SocialButton, BottomText } from '../AuthCommon'
-import { signUpWithEmail, signInWithGoogle } from '../../../hooks/useAuth'
+import { BottomText, PasswordInput, SocialButton } from '../AuthCommon'
+import { signInWithGoogle, signUpWithEmail } from '../../../hooks/useAuth'
 import useStyles from './styles'
 import { AuthContext } from '../../../AuthContext'
 
@@ -70,10 +70,9 @@ const SignUp = () => {
           <Divider className={c.divider} />
           <form onSubmit={handleSubmit(onSubmit)} className={c.form}>
             <TextField
-              name="email"
               label="email"
               type="text"
-              inputRef={register}
+              {...register('email')}
               className={c.emailField}
               autoComplete="username"
               variant="outlined"
