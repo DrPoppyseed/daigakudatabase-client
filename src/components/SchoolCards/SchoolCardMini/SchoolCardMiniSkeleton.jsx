@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const SchoolCardMiniSkeleton = (): React.Element<any> => {
+const SchoolCardMiniSkeleton = () => {
   const c = useStyles()
 
   return (

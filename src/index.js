@@ -14,17 +14,17 @@ import App from './components/App/App.jsx'
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      refetchOnWindowFocus: false,
-    },
-  },
+      refetchOnWindowFocus: false
+    }
+  }
 })
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#2196f3',
-    },
-  },
+      main: '#2196f3'
+    }
+  }
 })
 
 ReactDOM.render(

@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
   stats: {},
 }))
 
-const SchoolCardTest = (): React.Element<any> => {
+const SchoolCardTest = () => {
   const c = useStyles()
 
   return (
