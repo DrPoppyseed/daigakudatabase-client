@@ -18,10 +18,11 @@ const FilterInner = () => {
     <Container className={c.filterInnerContainer}>
       <ListItem className={c.listItem}>
         <Button
-          variant="contained"
-          color="primary"
+          variant='contained'
+          color='primary'
           className={c.filterSearchButton}
-          onClick={handleSearchClick}>
+          onClick={handleSearchClick}
+        >
           条件がけで検索
         </Button>
       </ListItem>
@@ -48,11 +49,12 @@ const FilterInner = () => {
       <Divider />
       <ListItem className={c.listItem}>
         <Button
-          variant="outlined"
-          color="primary"
+          variant='outlined'
+          color='primary'
           startIcon={<DeleteIcon />}
           className={c.filterSearchButton}
-          onClick={handleClearCriteria}>
+          onClick={handleClearCriteria}
+        >
           条件をクリアする
         </Button>
       </ListItem>

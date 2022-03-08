@@ -8,7 +8,7 @@ import {
   MenuItem,
   Select,
   Typography,
-  useMediaQuery
+  useMediaQuery,
 } from '@mui/material'
 import { Tune as TuneIcon } from '@mui/icons-material'
 import { HomeContext } from '../../../HomeContext'
@@ -32,17 +32,18 @@ const SortByBox = () => {
         <IconButton
           className={c.filterIconButton}
           onClick={e => handleFilterDrawerOpen(e)}
-          size="large">
-          <Badge variant="dot" color="secondary">
+          size='large'
+        >
+          <Badge variant='dot' color='secondary'>
             <TuneIcon />
           </Badge>
         </IconButton>
       )}
       <div className={c.hitsContainer}>
-        <Typography variant="h5">
+        <Typography variant='h5'>
           {data.totalSchoolsFound} 校を見つけました
         </Typography>
-        <Typography variant="caption">
+        <Typography variant='caption'>
           {`${
             data.totalSchoolsFound >= 10 ? 10 : data.totalSchoolsFound
           }校表示中 ページ ${pageNumber} / ${Math.ceil(
@@ -52,7 +53,7 @@ const SortByBox = () => {
       </div>
       <div className={c.divider} />
       <FormControl className={c.formContainer}>
-        <InputLabel id="select-sort-label">条件で並べる</InputLabel>
+        <InputLabel id='select-sort-label'>条件で並べる</InputLabel>
         <Select
           MenuProps={{
             anchorOrigin: {
@@ -65,21 +66,22 @@ const SortByBox = () => {
             },
             getContentAnchorEl: null,
           }}
-          labelId="select-sort-label"
-          id="select-sort"
+          labelId='select-sort-label'
+          id='select-sort'
           className={c.select}
           value={sortSelection}
-          defaultValue="default"
-          onChange={handleSortSelectionChange}>
-          <MenuItem value="default">特になし</MenuItem>
-          <MenuItem value="tuition-ascending">学費が低い順</MenuItem>
-          <MenuItem value="tuition-descending">学費が高い順</MenuItem>
-          <MenuItem value="sat-ascending">SATの必要得点が低い順</MenuItem>
-          <MenuItem value="sat-descending">SATの必要得点が高い順</MenuItem>
+          defaultValue='default'
+          onChange={handleSortSelectionChange}
+        >
+          <MenuItem value='default'>特になし</MenuItem>
+          <MenuItem value='tuition-ascending'>学費が低い順</MenuItem>
+          <MenuItem value='tuition-descending'>学費が高い順</MenuItem>
+          <MenuItem value='sat-ascending'>SATの必要得点が低い順</MenuItem>
+          <MenuItem value='sat-descending'>SATの必要得点が高い順</MenuItem>
         </Select>
       </FormControl>
     </Card>
-  );
+  )
 }
 
 export default SortByBox

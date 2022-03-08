@@ -18,10 +18,10 @@ const CustomPie = ({ data }) => {
       borderWidth={1}
       borderColor={{ from: 'color', modifiers: [['darker', 0.2]] }}
       radialLabelsSkipAngle={10}
-      radialLabelsTextColor="#333333"
+      radialLabelsTextColor='#333333'
       radialLabelsLinkColor={{ from: 'color' }}
       sliceLabelsSkipAngle={10}
-      sliceLabelsTextColor="#333333"
+      sliceLabelsTextColor='#333333'
       legends={[
         {
           anchor: 'top-right',

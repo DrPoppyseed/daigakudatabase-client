@@ -6,9 +6,7 @@ import SchoolCardMini from '../../SchoolCards/SchoolCardMini/SchoolCardMini'
 import SchoolCardMiniSkeleton from '../../SchoolCards/SchoolCardMini/SchoolCardMiniSkeleton'
 import { useGetSchools } from '../../../hooks/useSchools'
 
-const RecommendedSchools = ({
-  currentSchoolUuid,
-}) => {
+const RecommendedSchools = ({ currentSchoolUuid }) => {
   const c = useStyles()
   const { status, data } = useGetSchools(1)
 
@@ -20,7 +18,7 @@ const RecommendedSchools = ({
   return (
     <div>
       <Card className={c.recommendationTitle}>
-        <Typography variant="body1">他の大学も見る</Typography>
+        <Typography variant='body1'>他の大学も見る</Typography>
       </Card>
       <div className={c.schoolCardList}>
         {status === 'loading' ? (
@@ -44,8 +42,8 @@ const RecommendedSchools = ({
       </div>
       {status === 'success' && (
         <Card className={c.seeMoreCardContainer}>
-          <ButtonBase className={c.seeMoreButtonBaseContainer} href="/">
-            <Typography variant="body1">もっと見る</Typography>
+          <ButtonBase className={c.seeMoreButtonBaseContainer} href='/'>
+            <Typography variant='body1'>もっと見る</Typography>
           </ButtonBase>
         </Card>
       )}

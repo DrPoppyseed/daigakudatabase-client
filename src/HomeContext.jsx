@@ -1,9 +1,9 @@
-import * as React from 'react'
+import React from 'react'
 import {
   DEFAULT_SAT_RANGE_HIGH,
   DEFAULT_SAT_RANGE_LOW,
   DEFAULT_TUITION_RANGE_HIGH,
-  DEFAULT_TUITION_RANGE_LOW
+  DEFAULT_TUITION_RANGE_LOW,
 } from './util/final'
 import { useQueryClient } from 'react-query'
 import { getSchools, useGetSchools } from './hooks/useSchools'
@@ -109,12 +109,6 @@ const HomeProvider = ({ children }) => {
     setIsStateLocationPopupOpen(!isStateLocationPopupOpen)
   }
 
-  const handleTuitionRangePopup = () => {}
-
-  const handleSatRangePopup = () => {}
-
-  const handleStateSelectorPopup = () => {}
-
   const handleStateLocationChange = e => {
     setStateLocation(e.target.value)
   }
@@ -145,7 +139,7 @@ const HomeProvider = ({ children }) => {
   }
 
   const handlePageChange = (e, num) => {
-    ;(e.target.ownerDocument || document)
+    e.target.ownerDocument
       .querySelector('#back-to-top-anchor')
       .scrollIntoView({ behavior: 'instant', block: 'start' })
     setPageNumber(num)
@@ -206,13 +200,11 @@ const HomeProvider = ({ children }) => {
         handleTuitionRangeChipClick,
         handleSatRangeChipClick,
         handleStateSelectorChipClick,
-        handleTuitionRangePopup,
-        handleSatRangePopup,
-        handleStateSelectorPopup,
         status,
         isFetching,
         data,
-      }}>
+      }}
+    >
       {children}
     </HomeContext.Provider>
   )

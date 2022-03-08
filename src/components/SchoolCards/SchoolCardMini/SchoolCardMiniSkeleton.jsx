@@ -1,5 +1,5 @@
 import * as React from 'react'
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from '@mui/styles/makeStyles'
 import { Card } from '@mui/material'
 import Skeleton from '@mui/material/Skeleton'
 
@@ -27,19 +27,29 @@ const SchoolCardMiniSkeleton = () => {
 
   return (
     <Card className={c.cardRoot}>
-      <Skeleton animation="wave" variant="rectangular" height={100} width={300} />
+      <Skeleton
+        animation='wave'
+        variant='rectangular'
+        height={100}
+        width={300}
+      />
       <div className={c.textArea}>
         <Skeleton
-          animation="wave"
-          variant="rectangular"
+          animation='wave'
+          variant='rectangular'
           height={16}
           width={200}
           style={{ marginBottom: 13 }}
         />
-        <Skeleton animation="wave" variant="rectangular" height={11} width={100} />
+        <Skeleton
+          animation='wave'
+          variant='rectangular'
+          height={11}
+          width={100}
+        />
       </div>
     </Card>
-  );
+  )
 }
 
 export default SchoolCardMiniSkeleton

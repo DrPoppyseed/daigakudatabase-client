@@ -6,7 +6,7 @@ import Skeleton from '@mui/material/Skeleton'
 
 import useStyles from './styles'
 
-const ProfileSummaryContainer = (props) => {
+const ProfileSummaryContainer = props => {
   const c = useStyles()
   const [isPageLoading] = React.useState(true)
   const [userProfile] = React.useState({
@@ -41,26 +41,26 @@ const ProfileSummaryContainer = (props) => {
             width={140}
           />
         ) : (
-          <Skeleton variant="circular" height={140} width={140} />
+          <Skeleton variant='circular' height={140} width={140} />
         )}
       </div>
       <div className={c.profileTextArea}>
         {/** user profile information */}
         <div className={clsx(c.profileTextItem, c.profileUserNameContainer)}>
-          <Typography variant="caption">ユーザー名</Typography>
-          <Typography variant="h6" className={c.profileUserName}>
+          <Typography variant='caption'>ユーザー名</Typography>
+          <Typography variant='h6' className={c.profileUserName}>
             {!isPageLoading ? (
               `${userProfile.lastName} ${userProfile.firstName}`
             ) : (
-              <Skeleton variant="rectangular" width={200} />
+              <Skeleton variant='rectangular' width={200} />
             )}
           </Typography>
         </div>
         <div className={clsx(c.profileTextItem, c.profileUserSchoolContainer)}>
-          <Typography variant="caption">所属</Typography>
-          <Typography variant="h6" className={c.profileUserSchool}>
+          <Typography variant='caption'>所属</Typography>
+          <Typography variant='h6' className={c.profileUserSchool}>
             {isPageLoading ? (
-              <Skeleton variant="rectangular" width={200} />
+              <Skeleton variant='rectangular' width={200} />
             ) : (
               userBelongsTo.name
               // <></>
@@ -68,12 +68,12 @@ const ProfileSummaryContainer = (props) => {
           </Typography>
         </div>
         <div className={clsx(c.profileUserProfileTextContainer)}>
-          <Typography variant="caption">プロフィール</Typography>
-          <Typography variant="body1" className={c.profileUserProfileText}>
+          <Typography variant='caption'>プロフィール</Typography>
+          <Typography variant='body1' className={c.profileUserProfileText}>
             {!isPageLoading ? (
               <React.Fragment>{`${userProfile.profileText}`}</React.Fragment>
             ) : (
-              <Skeleton variant="rectangular" width={400} />
+              <Skeleton variant='rectangular' width={400} />
             )}
           </Typography>
         </div>
@@ -81,11 +81,12 @@ const ProfileSummaryContainer = (props) => {
       <IconButton
         className={c.editIconContainer}
         onClick={() => props.setInEditingMode(prevMode => !prevMode)}
-        size="large">
+        size='large'
+      >
         <EditIcon className={c.editIcon} />
       </IconButton>
     </Paper>
-  );
+  )
 }
 
 export default ProfileSummaryContainer

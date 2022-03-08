@@ -1,9 +1,17 @@
 import * as React from 'react'
 import clsx from 'clsx'
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField, Typography } from '@mui/material'
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  TextField,
+  Typography,
+} from '@mui/material'
 import useStyles from './styles'
 
-const EditProfileDialog = (props) => {
+const EditProfileDialog = props => {
   const c = useStyles()
   const [isPageLoading] = React.useState(true)
   const [userSchool, setUserSchool] = React.useState('')
@@ -33,11 +41,11 @@ const EditProfileDialog = (props) => {
     // eslint-disable-next-line
   }, [isPageLoading])
 
-  const handleNameChange = (event) => {
+  const handleNameChange = event => {
     setUserName({ [event.target.name]: event.target.value })
   }
 
-  const handleSchoolChange = (event) => {
+  const handleSchoolChange = event => {
     setUserSchool(event.target.value)
   }
 
@@ -50,23 +58,24 @@ const EditProfileDialog = (props) => {
     setUserSchool(userProfile.belongsTo.name)
   }
 
-  const handleProfileTextChange = (event) => {
+  const handleProfileTextChange = event => {
     setUserProfileText(event.target.value)
   }
 
   return (
     <Dialog
-      scroll="paper"
+      scroll='paper'
       className={c.root}
       open={props.open}
-      onClose={props.handleClose}>
+      onClose={props.handleClose}
+    >
       <DialogTitle className={c.dialogTitle}>
         プロフィールを編集する
       </DialogTitle>
       <DialogContent dividers className={c.dialogContent}>
         <form>
           <div className={c.topContentContainer}>
-            <Typography variant="subtitle2" className={c.topContentTitle}>
+            <Typography variant='subtitle2' className={c.topContentTitle}>
               プロフィールトップ
             </Typography>
             <div className={c.topContentArea}>
@@ -82,7 +91,7 @@ const EditProfileDialog = (props) => {
                   className={c.editProfileImage}
                   height={140}
                   width={140}
-                  alt="user profile"
+                  alt='user profile'
                 />
               </div>
               <div className={c.topTextArea}>
@@ -90,9 +99,9 @@ const EditProfileDialog = (props) => {
                   {/** TODO: edit first name last name */}
                   <TextField
                     required
-                    id="edit-lastName"
-                    name="lastName"
-                    label="姓"
+                    id='edit-lastName'
+                    name='lastName'
+                    label='姓'
                     className={clsx(c.nameField, c.lastNameField)}
                     InputLabelProps={{
                       shrink: true,
@@ -102,9 +111,9 @@ const EditProfileDialog = (props) => {
                   />
                   <TextField
                     required
-                    id="edit-firstName"
-                    name="firstName"
-                    label="名字"
+                    id='edit-firstName'
+                    name='firstName'
+                    label='名字'
                     className={c.nameField}
                     InputLabelProps={{
                       shrink: true,
@@ -120,8 +129,8 @@ const EditProfileDialog = (props) => {
                   <TextField
                     required
                     className={c.schoolField}
-                    id="edit-school"
-                    label="大学と学部"
+                    id='edit-school'
+                    label='大学と学部'
                     value={userSchool}
                     onChange={handleSchoolChange}
                   />
@@ -132,15 +141,15 @@ const EditProfileDialog = (props) => {
             </div>
           </div>
           <div className={c.messageContentContainer}>
-            <Typography variant="subtitle2" className={c.messageContentTitle}>
+            <Typography variant='subtitle2' className={c.messageContentTitle}>
               プロフィールメッセージ
             </Typography>
             <TextField
               multiline
               rows={4}
-              variant="outlined"
-              id="edit-profileText"
-              name="profileText"
+              variant='outlined'
+              id='edit-profileText'
+              name='profileText'
               className={c.profileText}
               onChange={handleProfileTextChange}
               value={userProfileText}
@@ -154,10 +163,11 @@ const EditProfileDialog = (props) => {
           キャンセル
         </Button>
         <Button
-          variant="contained"
-          color="primary"
+          variant='contained'
+          color='primary'
           className={c.saveButton}
-          disableElevation>
+          disableElevation
+        >
           変更を保存する
         </Button>
       </DialogActions>

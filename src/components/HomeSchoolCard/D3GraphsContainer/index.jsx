@@ -6,7 +6,7 @@ import D3TestscoresViz from '../D3TestscoresViz'
 import D3StudentsViz from '../D3StudentsViz'
 import useStyles from './styles'
 
-const D3GraphsContainer = (props) => {
+const D3GraphsContainer = props => {
   // const xs_down = useMediaQuery(theme => theme.breakpoints.down('xs'))
   const c = useStyles()
   const {
@@ -23,7 +23,7 @@ const D3GraphsContainer = (props) => {
   const [highlighted, setHighlighted] = React.useState('')
   const [highlightedRace, setHighlightedRace] = React.useState('')
 
-  const cleanDemographicsData = (rawData) => {
+  const cleanDemographicsData = rawData => {
     let colorsLookup = {
       white: '#9C27B0',
       black: '#00ACC1',
@@ -68,21 +68,24 @@ const D3GraphsContainer = (props) => {
       <div className={c.tabs}>
         <button
           className={`${c.tab} ${activeGraph === 0 && c.active}`}
-          onClick={() => handleActiveGraphChange(0)}>
+          onClick={() => handleActiveGraphChange(0)}
+        >
           人気
           <br className={c.mobileBreakLine} />
           プログラム
         </button>
         <button
           className={`${c.tab} ${activeGraph === 1 && c.active}`}
-          onClick={() => handleActiveGraphChange(1)}>
+          onClick={() => handleActiveGraphChange(1)}
+        >
           テストと
           <br className={c.mobileBreakLine} />
           学費
         </button>
         <button
           className={`${c.tab} ${activeGraph === 2 && c.active}`}
-          onClick={() => handleActiveGraphChange(2)}>
+          onClick={() => handleActiveGraphChange(2)}
+        >
           生徒人口
           <br className={c.mobileBreakLine} />
           の詳細
@@ -94,7 +97,8 @@ const D3GraphsContainer = (props) => {
             <div>
               <div
                 className={`programsVizContainer programsViz-${ipeds_unitid}`}
-                style={{ display: 'relative' }}>
+                style={{ display: 'relative' }}
+              >
                 <D3ProgramsViz
                   width={200}
                   height={160}
@@ -113,14 +117,15 @@ const D3GraphsContainer = (props) => {
                     className={c.programNameContainer}
                     button
                     onMouseEnter={() => setHighlighted(itemId)}
-                    onMouseLeave={() => setHighlighted('')}>
+                    onMouseLeave={() => setHighlighted('')}
+                  >
                     <div
                       className={`${c.programNameColorBox} ${
                         itemId === highlighted ? c.squareActive : ''
                       }`}
                       style={{ backgroundColor: `${program.color}` }}
                     />
-                    <Typography variant="caption">
+                    <Typography variant='caption'>
                       {index + 1}位 -{' '}
                       {parseFloat(program.percentage * 100).toFixed(1)}%:{' '}
                       {program.program_ja}
@@ -135,12 +140,13 @@ const D3GraphsContainer = (props) => {
         )
       ) : activeGraph === 1 ? (
         <div
-          className={`${c.graphContainer} D3GraphContainer-${ipeds_unitid} ${c.testscoresAndTuitionContainer}`}>
+          className={`${c.graphContainer} D3GraphContainer-${ipeds_unitid} ${c.testscoresAndTuitionContainer}`}
+        >
           <div>
-            <Typography variant="caption">SATの点数 - 合格者上位25%</Typography>
+            <Typography variant='caption'>SATの点数 - 合格者上位25%</Typography>
             {admissions.sat.eng_25th_percentile === null ? (
               <div className={c.nullGraphContainer}>
-                <Typography variant="caption">データがありません。</Typography>
+                <Typography variant='caption'>データがありません。</Typography>
               </div>
             ) : (
               <D3TestscoresViz
@@ -154,11 +160,11 @@ const D3GraphsContainer = (props) => {
             )}
           </div>
           <div>
-            <Typography variant="caption">学費</Typography>
+            <Typography variant='caption'>学費</Typography>
             {tuition.out_of_state['2019'].tuition === '-' ||
             tuition.out_of_state['2019'].tuition === null ? (
               <div className={c.nullGraphContainer}>
-                <Typography variant="caption">データがありません。</Typography>
+                <Typography variant='caption'>データがありません。</Typography>
               </div>
             ) : (
               <D3TuitionViz
@@ -192,7 +198,7 @@ const D3GraphsContainer = (props) => {
                 />
               </div>
               <div className={c.studentsTextBlock}>
-                <Typography variant="caption">
+                <Typography variant='caption'>
                   生徒総数：{students.enrollment.size}人
                 </Typography>
                 <List className={c.raceNamesContainer}>
@@ -202,16 +208,17 @@ const D3GraphsContainer = (props) => {
                       return (
                         <ListItem
                           button
-                          variant="caption"
+                          variant='caption'
                           className={c.raceNameContainer}
                           key={`${ipeds_unitid}-${d.race}`}
                           onMouseEnter={() => setHighlightedRace(itemId)}
-                          onMouseLeave={() => setHighlightedRace('')}>
+                          onMouseLeave={() => setHighlightedRace('')}
+                        >
                           <div
                             className={c.raceIndicatorColorBox}
                             style={{ backgroundColor: `${d.color}` }}
                           />
-                          <Typography variant="caption">
+                          <Typography variant='caption'>
                             {d.ja}：{d.percentage}%
                           </Typography>
                         </ListItem>

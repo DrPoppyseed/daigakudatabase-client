@@ -12,7 +12,7 @@ import {
   Popper,
   Toolbar,
   Typography,
-  useMediaQuery
+  useMediaQuery,
 } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 import { useMutation, useQueryClient } from 'react-query'
@@ -58,12 +58,12 @@ const Header = () => {
   }
 
   return (
-    <div className={c.grow} id="back-to-top-anchor">
-      <AppBar position="static" className={c.headerRoot}>
+    <div className={c.grow} id='back-to-top-anchor'>
+      <AppBar position='static' className={c.headerRoot}>
         <Toolbar className={c.toolbarRoot}>
           <div className={c.toolbarInnerRoot}>
-            <Typography className={c.title} variant="h6" noWrap>
-              <a href="/" className={c.titleLink}>
+            <Typography className={c.title} variant='h6' noWrap>
+              <a href='/' className={c.titleLink}>
                 <Typography>アメリカ大学</Typography>
                 <Typography>データベース</Typography>
               </a>
@@ -73,14 +73,15 @@ const Header = () => {
               {user.uid ? (
                 <React.Fragment>
                   <IconButton
-                    edge="end"
-                    aria-label="account of current user"
-                    color="default"
+                    edge='end'
+                    aria-label='account of current user'
+                    color='default'
                     ref={anchorRef}
                     aria-controls={open ? 'menu-list-grow' : undefined}
-                    aria-haspopup="true"
+                    aria-haspopup='true'
                     onClick={handleToggle}
-                    size="large">
+                    size='large'
+                  >
                     <AccountCircle />
                   </IconButton>
                   <Popper
@@ -88,7 +89,8 @@ const Header = () => {
                     anchorEl={anchorRef.current}
                     role={undefined}
                     transition
-                    disablePortal>
+                    disablePortal
+                  >
                     {({ TransitionProps, placement }) => (
                       <Grow
                         {...TransitionProps}
@@ -97,28 +99,32 @@ const Header = () => {
                             placement === 'bottom'
                               ? 'center top'
                               : 'center bottom',
-                        }}>
+                        }}
+                      >
                         <Paper>
                           <ClickAwayListener onClickAway={handleClose}>
                             <MenuList
                               autoFocusItem={open}
-                              id="menu-list-grow"
-                              onKeyDown={handleListKeyDown}>
+                              id='menu-list-grow'
+                              onKeyDown={handleListKeyDown}
+                            >
                               {/** TODO: enable profile after fixing profile page */}
                               <MenuItem
                                 disabled
                                 className={c.profileMenuItem}
-                                onClick={() => handleClose()}>
-                                <Typography variant="body2">
-                                  <Link to="/mypage" className={c.menuItemLink}>
+                                onClick={() => handleClose()}
+                              >
+                                <Typography variant='body2'>
+                                  <Link to='/mypage' className={c.menuItemLink}>
                                     プロフィール
                                   </Link>
                                 </Typography>
                               </MenuItem>
                               <MenuItem
                                 className={c.profileMenuItem}
-                                onClick={() => useSignOutOnClick.mutate()}>
-                                <Typography variant="body2">
+                                onClick={() => useSignOutOnClick.mutate()}
+                              >
+                                <Typography variant='body2'>
                                   ログアウト
                                 </Typography>
                               </MenuItem>
@@ -132,22 +138,26 @@ const Header = () => {
               ) : (
                 <div className={c.buttonsContainer}>
                   <Button
-                    variant="outlined"
-                    color="primary"
-                    className={c.authButton}>
+                    variant='outlined'
+                    color='primary'
+                    className={c.authButton}
+                  >
                     <Link
-                      to="/auth/signin"
-                      className={clsx(c.authButtonLink, c.signinButtonLink)}>
+                      to='/auth/signin'
+                      className={clsx(c.authButtonLink, c.signinButtonLink)}
+                    >
                       ログイン
                     </Link>
                   </Button>
                   <Button
-                    variant="contained"
-                    color="primary"
-                    className={c.authButton}>
+                    variant='contained'
+                    color='primary'
+                    className={c.authButton}
+                  >
                     <Link
-                      to="/auth/signup"
-                      className={clsx(c.authButtonLink, c.signupButtonLink)}>
+                      to='/auth/signup'
+                      className={clsx(c.authButtonLink, c.signupButtonLink)}
+                    >
                       新規登録
                     </Link>
                   </Button>
@@ -159,7 +169,7 @@ const Header = () => {
         </Toolbar>
       </AppBar>
     </div>
-  );
+  )
 }
 
 export default Header

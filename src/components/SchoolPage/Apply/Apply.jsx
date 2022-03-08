@@ -8,7 +8,7 @@ const Apply = () => {
 
   return (
     <Paper className={c.root}>
-      <Typography variant="h6">大学への応募方法</Typography>
+      <Typography variant='h6'>大学への応募方法</Typography>
     </Paper>
   )
 }

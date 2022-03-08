@@ -30,14 +30,14 @@ const App = () => {
           {isNotAuth ? <Header /> : null}
           <Container className={c.appContainer}>
             <FilterDrawer />
-              <Routes>
-                <Route exact path="/" element={<Home />} />
-                <Route exact path="/mypage" element={<MyPage />} />
-                <Route exact path="/auth/signin" element={<SignIn />} />
-                <Route exact path="/auth/signup" element={<SignUp /> } />
-                <Route path="/schools/:schoolId" element={<SchoolPage />} />
-                <Route component={NoMatch} />
-              </Routes>
+            <Routes>
+              <Route exact path='/' element={<Home />} />
+              <Route exact path='/mypage' element={<MyPage />} />
+              <Route exact path='/auth/signin' element={<SignIn />} />
+              <Route exact path='/auth/signup' element={<SignUp />} />
+              <Route path='/schools/:schoolId' element={<SchoolPage />} />
+              <Route component={NoMatch} />
+            </Routes>
           </Container>
           {isNotAuth ? <Footer /> : null}
         </React.Fragment>
@@ -46,7 +46,7 @@ const App = () => {
           <Typography className={c.loadingText}>
             新しいスタートはすぐそこ...
           </Typography>
-          <InfinitySpin color="#2196f3" width="100" />
+          <InfinitySpin color='#2196f3' width='100' />
         </div>
       )}
     </React.StrictMode>

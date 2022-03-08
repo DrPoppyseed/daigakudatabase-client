@@ -8,14 +8,14 @@ const SATSlider = () => {
   const { satRange, handleSatRange } = React.useContext(HomeContext)
   return (
     <div className={c.satRangeSlider}>
-      <Typography variant="body2" className={c.satRangeText}>
+      <Typography variant='body2' className={c.satRangeText}>
         SATの点数範囲：
         {`${satRange[0]} ~ ${satRange[1]}`}
       </Typography>
       <Slider
         value={satRange}
         onChange={handleSatRange}
-        aria-labelledby="sat range slider"
+        aria-labelledby='sat range slider'
         min={600}
         step={50}
         max={1600}

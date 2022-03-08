@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Card } from '@mui/material'
-import { Skeleton } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { Skeleton } from '@mui/material'
+import makeStyles from '@mui/styles/makeStyles'
 
 const useStyles = makeStyles(theme => ({
   cardContainer: {
@@ -32,24 +32,34 @@ const SchoolCardTest = () => {
 
   return (
     <Card className={c.cardContainer}>
-      <Skeleton animation="wave" variant="rectangular" height={230} width={220} />
+      <Skeleton
+        animation='wave'
+        variant='rectangular'
+        height={230}
+        width={220}
+      />
       <div className={c.textContainer}>
         <Skeleton
-          variant="rectangular"
-          animation="wave"
+          variant='rectangular'
+          animation='wave'
           height={45}
           style={{ marginBottom: 20 }}
         />
         <Skeleton
-          variant="rectangular"
-          animation="wave"
+          variant='rectangular'
+          animation='wave'
           height={60}
           style={{ marginBottom: 20 }}
         />
-        <Skeleton variant="rectangular" animation="wave" width={200} height={40} />
+        <Skeleton
+          variant='rectangular'
+          animation='wave'
+          width={200}
+          height={40}
+        />
       </div>
     </Card>
-  );
+  )
 }
 
 export default SchoolCardTest

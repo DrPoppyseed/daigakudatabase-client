@@ -4,9 +4,7 @@ import { Paper, Typography } from '@mui/material'
 import CustomPie from './CustomPie/CustomPie'
 import useStyles from './styles'
 
-const Students = ({
-  demographics,
-}) => {
+const Students = ({ demographics }) => {
   const c = useStyles()
 
   const data = [
@@ -44,7 +42,7 @@ const Students = ({
 
   return (
     <Paper className={c.root}>
-      <Typography variant="h6">学生の人種構成</Typography>
+      <Typography variant='h6'>学生の人種構成</Typography>
       <div className={c.pieContainer}>
         <CustomPie data={data} />
       </div>

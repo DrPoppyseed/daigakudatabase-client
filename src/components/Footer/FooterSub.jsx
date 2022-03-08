@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Typography } from '@mui/material'
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from '@mui/styles/makeStyles'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -17,7 +17,7 @@ const FooterSub = () => {
   const c = useStyles()
   return (
     <div className={c.root}>
-      <Typography variant="overline">
+      <Typography variant='overline'>
         質問・フィードバックは <strong>peaske16180@gmail.com</strong> へ
       </Typography>
     </div>

@@ -3,18 +3,14 @@ import { TextField } from '@mui/material'
 import TogglePasswordVisibility from './TogglePasswordVisibility'
 import makeStyles from '@mui/styles/makeStyles'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   passwordField: {
     marginTop: '1rem !important',
     width: '100%',
   },
 }))
 
-const PasswordInput = ({
-  control,
-  register,
-  helperText = '',
-}) => {
+const PasswordInput = ({ control, register, helperText = '' }) => {
   const c = useStyles()
   const [showPassword, setShowPassword] = React.useState(false)
 
@@ -24,11 +20,11 @@ const PasswordInput = ({
   return (
     <TextField
       type={showPassword ? 'text' : 'password'}
-      variant="outlined"
+      variant='outlined'
       {...register('password')}
-      label="password"
+      label='password'
       className={c.passwordField}
-      autoComplete="current-password"
+      autoComplete='current-password'
       control={control}
       helperText={helperText}
       required

@@ -12,7 +12,7 @@ import {
   Link,
   Paper,
   TextField,
-  Typography
+  Typography,
 } from '@mui/material'
 import { BottomText, PasswordInput, SocialButton } from '../AuthCommon'
 import { signInWithGoogle, signUpWithEmail } from '../../../hooks/useAuth'
@@ -59,31 +59,31 @@ const SignUp = () => {
   return (
     <div className={c.pageContainer}>
       <Paper className={c.container}>
-        <Typography className={c.pageTitle} variant="h6">
+        <Typography className={c.pageTitle} variant='h6'>
           アメリカ大学データベースを使い始める{' '}
         </Typography>
         <Box className={c.box}>
           <SocialButton
-            text="Googleアカウントで登録"
+            text='Googleアカウントで登録'
             onButtonClick={useSignInWithGoogle.mutate}
           />{' '}
           <Divider className={c.divider} />
           <form onSubmit={handleSubmit(onSubmit)} className={c.form}>
             <TextField
-              label="email"
-              type="text"
+              label='email'
+              type='text'
               {...register('email')}
               className={c.emailField}
-              autoComplete="username"
-              variant="outlined"
+              autoComplete='username'
+              variant='outlined'
               control={control}
-              defaultValue=""
+              defaultValue=''
               required
             />
             <PasswordInput
               control={control}
               register={register}
-              helpterText="8字以上のパスワード"
+              helpterText='8字以上のパスワード'
             />
             <FormControlLabel
               className={c.formControl}
@@ -91,23 +91,25 @@ const SignUp = () => {
                 <Checkbox
                   checked={isLegalChecked}
                   onChange={handleChange}
-                  color="primary"
-                  name="legal"
+                  color='primary'
+                  name='legal'
                 />
               }
               label={
-                <Typography variant="body2">
+                <Typography variant='body2'>
                   <Link
                     className={c.toLegalText}
                     component={RouterLink}
-                    to="/legal/user-agreement">
+                    to='/legal/user-agreement'
+                  >
                     利用規約{' '}
                   </Link>
                   と{' '}
                   <Link
                     className={c.toLegalText}
                     component={RouterLink}
-                    to="/legal/privacy">
+                    to='/legal/privacy'
+                  >
                     プライバシーポリシー{' '}
                   </Link>
                   に同意する。{' '}
@@ -116,19 +118,20 @@ const SignUp = () => {
             />{' '}
             <Button
               className={c.signUpButton}
-              variant="contained"
+              variant='contained'
               color={isLoading || !isLegalChecked ? 'default' : 'primary'}
               disabled={isLoading || !isLegalChecked}
-              type="submit">
+              type='submit'
+            >
               {' '}
               {isLoading ? <CircularProgress /> : 'FORISを始める'}{' '}
             </Button>{' '}
           </form>{' '}
           <BottomText
-            before="既存のアカウントでFORISに"
-            link="ログイン"
-            to="/auth/signin"
-            after="する。"
+            before='既存のアカウントでFORISに'
+            link='ログイン'
+            to='/auth/signin'
+            after='する。'
           />
         </Box>{' '}
       </Paper>{' '}

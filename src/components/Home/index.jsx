@@ -17,7 +17,7 @@ import SortByScroller from './SortByScroller'
 
 import HomeSchoolCard from '../HomeSchoolCard'
 
-const Home = (props) => {
+const Home = props => {
   const sm_down = useMediaQuery(theme => theme.breakpoints.down('md'))
   const c = useStyles()
   const {
@@ -29,7 +29,7 @@ const Home = (props) => {
     handlePageChange,
   } = React.useContext(HomeContext)
 
-  const mapSchools = (schools) =>
+  const mapSchools = schools =>
     schools.map(school => (
       <HomeSchoolCard key={school.ipeds_unitid} general={school} />
     ))
@@ -55,7 +55,7 @@ const Home = (props) => {
       <div className={c.root}>
         <Helmet>
           <title>アメリカ大学を検索しよう</title>
-          <meta name="description" content="アメリカ大学のデータベース。" />
+          <meta name='description' content='アメリカ大学のデータベース。' />
         </Helmet>
         <FilterDrawer />
         <div className={c.filterContainer}>
@@ -65,7 +65,8 @@ const Home = (props) => {
           className={clsx(
             c.cardsContainer,
             status === 'loading' && c.rootLoading
-          )}>
+          )}
+        >
           {/** TODO: add chips for different university rankings and lists */}
           {status === 'loading' || isFetching ? (
             <div>
@@ -89,8 +90,9 @@ const Home = (props) => {
             <React.Fragment>
               {sm_down ? <SortByScroller /> : <SortByBox />}
               <Typography
-                variant="caption"
-                style={{ textAlign: 'center', marginTop: 20 }}>
+                variant='caption'
+                style={{ textAlign: 'center', marginTop: 20 }}
+              >
                 条件にあった学校は見つかりませんでした。
               </Typography>
             </React.Fragment>
@@ -110,7 +112,7 @@ const Home = (props) => {
           )}
         </Container>
         <ScrollTop {...props}>
-          <Fab aria-label="key arrow up" className={c.fab}>
+          <Fab aria-label='key arrow up' className={c.fab}>
             <KeyboardArrowUpIcon className={c.fabIcon} />
           </Fab>
         </ScrollTop>

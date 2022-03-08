@@ -7,31 +7,36 @@ const UrbanButtonGroup = () => {
     React.useContext(HomeContext)
   return (
     <ButtonGroup
-      variant="text"
-      color="primary"
-      aria-label="school region urbanization level selector">
+      variant='text'
+      color='primary'
+      aria-label='school region urbanization level selector'
+    >
       <Button
         disableElevation
         onClick={e => handleUrbanizationLevel(e, 'city')}
-        variant={`${urbanizationLevel === 'city' ? 'contained' : 'text'}`}>
+        variant={`${urbanizationLevel === 'city' ? 'contained' : 'text'}`}
+      >
         都市
       </Button>
       <Button
         disableElevation
         onClick={e => handleUrbanizationLevel(e, 'suburb')}
-        variant={`${urbanizationLevel === 'suburb' ? 'contained' : 'text'}`}>
+        variant={`${urbanizationLevel === 'suburb' ? 'contained' : 'text'}`}
+      >
         郊外
       </Button>
       <Button
         disableElevation
         onClick={e => handleUrbanizationLevel(e, 'town')}
-        variant={`${urbanizationLevel === 'town' ? 'contained' : 'text'}`}>
+        variant={`${urbanizationLevel === 'town' ? 'contained' : 'text'}`}
+      >
         町
       </Button>
       <Button
         disableElevation
         onClick={e => handleUrbanizationLevel(e, 'rural')}
-        variant={`${urbanizationLevel === 'rural' ? 'contained' : 'text'}`}>
+        variant={`${urbanizationLevel === 'rural' ? 'contained' : 'text'}`}
+      >
         田舎
       </Button>
     </ButtonGroup>

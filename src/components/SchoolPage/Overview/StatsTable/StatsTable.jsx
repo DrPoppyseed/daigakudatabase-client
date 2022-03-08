@@ -17,15 +17,13 @@ import {
   Equalizer as EqualizerIcon,
   LocationCity as LocationCityIcon,
   OpenInNew as OpenInNewIcon,
-  People as PeopleIcon
+  People as PeopleIcon,
 } from '@mui/icons-material'
 
 import useStyles from './styles'
 import TableNode from '../TableNode/TableNode'
 
-const StatsTable = ({
-  basicInfo = {},
-}) => {
+const StatsTable = ({ basicInfo = {} }) => {
   const c = useStyles()
 
   const {
@@ -45,48 +43,50 @@ const StatsTable = ({
 
   return (
     <TableContainer>
-      <Table className={c.table} aria-label="学校の基本情報">
+      <Table className={c.table} aria-label='学校の基本情報'>
         <tbody>
           <TableNode
             title={'学校ホームページ'}
-            content={`${school_homepage_url}`}>
+            content={`${school_homepage_url}`}
+          >
             <OpenInNewIcon
-              fontSize="small"
+              fontSize='small'
               style={{ marginRight: 10, color: 'blue' }}
             />
           </TableNode>
           <TableNode title={'キャンパス'} content={`${campus_address_short}`}>
             <LocationCityIcon
-              fontSize="small"
+              fontSize='small'
               style={{ marginRight: 10, color: 'green' }}
             />
           </TableNode>
-          <TableNode title="入学合格率" content={`${admission_rate}%`}>
+          <TableNode title='入学合格率' content={`${admission_rate}%`}>
             <EqualizerIcon
-              fontSize="small"
+              fontSize='small'
               style={{ marginRight: 10, color: 'green' }}
             />
           </TableNode>
-          <TableNode title="学生総数" content={`${students.size}人`}>
+          <TableNode title='学生総数' content={`${students.size}人`}>
             <PeopleIcon
-              fontSize="small"
+              fontSize='small'
               style={{ marginRight: 10, color: 'grey' }}
             />
           </TableNode>
           {/* TODO: get student vs faculty ratio */}
-          <TableNode title="教師一人当たりの学生数" content={`${'未測定'}人`}>
+          <TableNode title='教師一人当たりの学生数' content={`${'未測定'}人`}>
             <PeopleIcon
-              fontSize="small"
+              fontSize='small'
               style={{ marginRight: 10, color: 'red' }}
             />
           </TableNode>
           <TableNode
-            title="学費"
+            title='学費'
             content={`$${formatMoney(cost.in_state_tuition)} ~ $${formatMoney(
               cost.out_of_state_tuition
-            )}`}>
+            )}`}
+          >
             <AttachMoneyIcon
-              fontSize="small"
+              fontSize='small'
               style={{ marginRight: 10, color: 'yellow' }}
             />
           </TableNode>

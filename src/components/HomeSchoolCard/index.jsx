@@ -1,7 +1,10 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Card, IconButton, Tooltip, Typography } from '@mui/material'
-import { Star as StarIcon, StarBorder as StarBorderIcon } from '@mui/icons-material'
+import {
+  Star as StarIcon,
+  StarBorder as StarBorderIcon,
+} from '@mui/icons-material'
 import useStyles from './styles'
 import D3GraphsContainer from './D3GraphsContainer'
 import DatacardsContainer from './DatacardsContainer'
@@ -10,7 +13,7 @@ import { likeSchoolById, unlikeSchoolById } from '../../hooks/useAuth'
 import { useMutation } from 'react-query'
 import { AuthContext } from '../../AuthContext'
 
-const HomeSchoolCard = (props) => {
+const HomeSchoolCard = props => {
   const c = useStyles()
   const {
     name_en,
@@ -51,32 +54,33 @@ const HomeSchoolCard = (props) => {
     <Card className={c.cardContainer}>
       <div className={c.titleBlock}>
         <div className={c.titleContainer}>
-          {!!authContext.user.uid ? (
+          {authContext.user.uid ? (
             isCardLiked ? (
-              <IconButton onClick={() => handleLikeClick()} size="large">
+              <IconButton onClick={() => handleLikeClick()} size='large'>
                 <StarIcon style={{ color: '#ffa726' }} />
               </IconButton>
             ) : (
-              <IconButton onClick={() => handleLikeClick()} size="large">
+              <IconButton onClick={() => handleLikeClick()} size='large'>
                 <StarBorderIcon />
               </IconButton>
             )
           ) : (
-            <IconButton size="large">
-              <Tooltip title="ログインして学校をお気に入り登録しよう！">
+            <IconButton size='large'>
+              <Tooltip title='ログインして学校をお気に入り登録しよう！'>
                 <StarBorderIcon />
               </Tooltip>
             </IconButton>
           )}
           <div className={c.logoContainer} />
-          <Typography variant="h6">{name_en}</Typography>
+          <Typography variant='h6'>{name_en}</Typography>
         </div>
         <Button
-          variant="contained"
-          color="primary"
+          variant='contained'
+          color='primary'
           disableElevation
-          className={c.buttonContainer}>
-          <Link to="#" className={c.buttonLink}>
+          className={c.buttonContainer}
+        >
+          <Link to='#' className={c.buttonLink}>
             もっと詳しく
           </Link>
         </Button>
@@ -98,6 +102,6 @@ const HomeSchoolCard = (props) => {
         />
       </div>
     </Card>
-  );
+  )
 }
 export default HomeSchoolCard

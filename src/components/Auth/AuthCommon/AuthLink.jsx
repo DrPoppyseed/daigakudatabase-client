@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 import { Link, Typography } from '@mui/material'
-import { alpha } from '@mui/material/styles';
+import { alpha } from '@mui/material/styles'
 
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from '@mui/styles/makeStyles'
 
 const useStyles = makeStyles(theme => ({
   default: {
@@ -15,12 +15,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const AuthLink = ({
-  variant = 'caption',
-  to,
-  text,
-  type = 'default',
-}) => {
+const AuthLink = ({ variant = 'caption', to, text, type = 'default' }) => {
   const c = useStyles()
 
   return (
@@ -28,7 +23,8 @@ const AuthLink = ({
       <Link
         component={RouterLink}
         to={to}
-        className={type === 'legal' ? c.toLegalText : c.default}>
+        className={type === 'legal' ? c.toLegalText : c.default}
+      >
         {text}
       </Link>
     </Typography>
