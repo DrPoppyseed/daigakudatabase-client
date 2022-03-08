@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Button } from '@mui/material'
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from '@mui/styles/makeStyles'
 
 const useStyles = makeStyles(theme => ({
   socialButton: {
@@ -13,19 +13,17 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const SocialButton = ({
-  text,
-  onButtonClick,
-}) => {
+const SocialButton = ({ text, onButtonClick }) => {
   const c = useStyles()
   return (
     <Button
       className={c.socialButton}
-      variant="outlined"
+      variant='outlined'
       // disabled={isLoading ? true : false}
       onClick={() => onButtonClick()}
-      type="submit"
-      disableElevation>
+      type='submit'
+      disableElevation
+    >
       {text}
       {/* {isLoading ? <CircularProgress /> : 'ログイン'} */}
     </Button>

@@ -11,10 +11,11 @@ const FilterDrawer = () => {
 
   return (
     <Drawer
-      anchor="left"
+      anchor='left'
       open={isFilterDrawerOpen}
       onClose={e => handleFilterDrawerOpen(e)}
-      className={c.drawerContainer}>
+      className={c.drawerContainer}
+    >
       <FilterInner />
     </Drawer>
   )

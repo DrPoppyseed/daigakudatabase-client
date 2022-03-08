@@ -12,13 +12,13 @@ const Major = ({ major }) => {
   return (
     <Paper className={c.root}>
       <div className={c.title} id={`${major.majorTitleJap}`}>
-        <Typography variant="body1" className={c.majorTitle}>
+        <Typography variant='body1' className={c.majorTitle}>
           {major.majorTitleJap}
         </Typography>
       </div>
       <Divider className={c.divider} />
       <List className={c.programsContainer}>
-        {major.programs.map((program) => {
+        {major.programs.map(program => {
           return context.filterCredLevs.includes(program.credLev) ? (
             <Program
               key={`${program.codeFull}${program.credLev}`}

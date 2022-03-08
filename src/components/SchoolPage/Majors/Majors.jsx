@@ -15,15 +15,15 @@ const Majors = ({ uuid }) => {
       {status === 'loading' ? (
         <div>
           <Skeleton
-            animation="wave"
-            variant="rectangular"
+            animation='wave'
+            variant='rectangular'
             width={700}
             height={134}
             style={{ marginTop: 24 }}
           />
           <Skeleton
-            animation="wave"
-            variant="rectangular"
+            animation='wave'
+            variant='rectangular'
             width={700}
             height={390}
             style={{ marginTop: 16 }}
@@ -41,7 +41,7 @@ const Majors = ({ uuid }) => {
         </React.Fragment>
       )}
     </MajorsProvider>
-  );
+  )
 }
 
 export default Majors

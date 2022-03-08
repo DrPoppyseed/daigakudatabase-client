@@ -1,7 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import CssBaseline from '@mui/material/CssBaseline'
-import { adaptV4Theme, createTheme, StyledEngineProvider, ThemeProvider } from '@mui/material/styles'
+import {
+  adaptV4Theme,
+  createTheme,
+  StyledEngineProvider,
+  ThemeProvider,
+} from '@mui/material/styles'
 import { BrowserRouter } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
@@ -13,18 +18,20 @@ import App from './components/App/App.jsx'
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      refetchOnWindowFocus: false
-    }
-  }
+      refetchOnWindowFocus: false,
+    },
+  },
 })
 
-const theme = createTheme(adaptV4Theme({
-  palette: {
-    primary: {
-      main: '#2196f3'
-    }
-  }
-}))
+const theme = createTheme(
+  adaptV4Theme({
+    palette: {
+      primary: {
+        main: '#2196f3',
+      },
+    },
+  })
+)
 
 ReactDOM.render(
   <QueryClientProvider client={queryClient}>

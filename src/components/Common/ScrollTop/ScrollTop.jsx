@@ -2,7 +2,7 @@ import * as React from 'react'
 import useStyles from './styles'
 import { useScrollTrigger, Zoom } from '@mui/material'
 
-const ScrollTop = (props) => {
+const ScrollTop = props => {
   const { children } = props
   const c = useStyles()
   const trigger = useScrollTrigger({
@@ -11,7 +11,7 @@ const ScrollTop = (props) => {
   })
 
   const handleClick = event => {
-    const anchor = (event.target.ownerDocument || document).querySelector(
+    const anchor = event.target.ownerDocument.querySelector(
       '#back-to-top-anchor'
     )
 
@@ -22,7 +22,7 @@ const ScrollTop = (props) => {
 
   return (
     <Zoom in={trigger}>
-      <div onClick={handleClick} role="presentation" className={c.fabContainer}>
+      <div onClick={handleClick} role='presentation' className={c.fabContainer}>
         {children}
       </div>
     </Zoom>

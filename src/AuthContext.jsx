@@ -4,9 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 
 const AuthContext = React.createContext()
 
-const AuthProvider = ({
-  children,
-}) => {
+const AuthProvider = ({ children }) => {
   const navigate = useNavigate()
   const [globalLoading, setGlobalLoading] = React.useState(true)
   const [currentPath, setCurrentPath] = React.useState('')
@@ -46,7 +44,8 @@ const AuthProvider = ({
         globalLoading,
         setGlobalLoading,
         currentPath,
-      }}>
+      }}
+    >
       {children}
     </AuthContext.Provider>
   )

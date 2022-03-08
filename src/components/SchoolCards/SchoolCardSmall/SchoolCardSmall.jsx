@@ -9,7 +9,7 @@ import { useMutation } from 'react-query'
 
 import BasicStatsBreacrumb from '../BasicStatsBreadcrumb/BasicStatsBreacrumb.jsx'
 
-const SchoolCardSmall = (props) => {
+const SchoolCardSmall = props => {
   const c = useStyles()
 
   const onClickUnlike = useMutation(unlikeSchoolById, {
@@ -30,9 +30,9 @@ const SchoolCardSmall = (props) => {
   } = props
 
   return (
-    <Card variant="outlined" className={c.root}>
+    <Card variant='outlined' className={c.root}>
       <Link to={`/schools/${url}`} className={c.schoolLinkContainer}>
-        <Typography variant="h6" className={c.schoolName}>
+        <Typography variant='h6' className={c.schoolName}>
           {name}
         </Typography>
         <BasicStatsBreacrumb
@@ -48,11 +48,12 @@ const SchoolCardSmall = (props) => {
       <IconButton
         className={c.iconButton}
         onClick={() => onClickUnlike.mutate(schoolId)}
-        size="large">
+        size='large'
+      >
         <TurnedIn className={c.icon} />
       </IconButton>
     </Card>
-  );
+  )
 }
 
 export default SchoolCardSmall

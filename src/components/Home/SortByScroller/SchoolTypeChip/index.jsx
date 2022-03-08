@@ -3,7 +3,7 @@ import { Chip } from '@mui/material'
 import useStyles from './styles'
 import { HomeContext } from '../../../../HomeContext'
 
-const SchoolTypeChip = (props) => {
+const SchoolTypeChip = props => {
   const c = useStyles()
 
   const { handleSchoolTypeChipClick } = React.useContext(HomeContext)
@@ -15,14 +15,14 @@ const SchoolTypeChip = (props) => {
           label={`${props.label}`}
           className={c.chipItem}
           onClick={e => handleSchoolTypeChipClick(e, props.chipValue)}
-          color="primary"
+          color='primary'
         />
       ) : (
         <Chip
           label={`${props.label}`}
           className={c.chipItem}
           onClick={e => handleSchoolTypeChipClick(e, props.chipValue)}
-          variant="outlined"
+          variant='outlined'
         />
       )}
     </React.Fragment>

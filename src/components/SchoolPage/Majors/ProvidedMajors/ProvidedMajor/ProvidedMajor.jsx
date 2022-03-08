@@ -1,10 +1,7 @@
 import * as React from 'react'
 import { Typography } from '@mui/material'
 
-const ProvidedMajor = ({
-  majorTitleJap,
-  programNum,
-}) => {
+const ProvidedMajor = ({ majorTitleJap, programNum }) => {
   const handleClick = event => {
     const anchor = (event.target.ownerDocument || document).querySelector(
       `#${majorTitleJap}`
@@ -16,7 +13,7 @@ const ProvidedMajor = ({
 
   return (
     <div style={{ cursor: 'pointer' }}>
-      <Typography variant="subtitle2" onClick={handleClick}>
+      <Typography variant='subtitle2' onClick={handleClick}>
         {majorTitleJap} - ({programNum})
       </Typography>
     </div>

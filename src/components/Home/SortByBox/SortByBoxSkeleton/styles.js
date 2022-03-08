@@ -1,4 +1,4 @@
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from '@mui/styles/makeStyles'
 
 const useStyles = makeStyles(theme => ({
   cardContainer: {
@@ -6,15 +6,15 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     display: 'flex',
     alignItems: 'center',
-    width: 900
+    width: 900,
   },
   divider: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   hitsContainer: {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
   },
 }))
 

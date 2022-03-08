@@ -16,7 +16,7 @@ const TuitionSlider = () => {
 
   return (
     <div className={c.tuitionRangeSlider}>
-      <Typography variant="body2" className={c.tuitionRangeText}>
+      <Typography variant='body2' className={c.tuitionRangeText}>
         １年間の平均学費の範囲：
         <br />
         {`${`$ ${formatMoney(tuitionRange[0])}`} ~ ${
@@ -28,7 +28,7 @@ const TuitionSlider = () => {
       <Slider
         value={tuitionRange}
         onChange={handleTuitionRange}
-        aria-labelledby="tuition range slider"
+        aria-labelledby='tuition range slider'
         min={0}
         step={100}
         max={60000}

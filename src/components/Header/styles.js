@@ -1,6 +1,6 @@
-import { alpha } from '@mui/material/styles';
+import { alpha } from '@mui/material/styles'
 
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from '@mui/styles/makeStyles'
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -76,7 +76,7 @@ const useStyles = makeStyles(theme => ({
   },
   search: {
     borderRadius: theme.shape.borderRadius,
-    padding: `2px 4px 2px 12px !important`,
+    padding: '2px 4px 2px 12px !important',
     display: 'flex',
     alignItems: 'center',
     width: 400,

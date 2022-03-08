@@ -1,16 +1,19 @@
 import clsx from 'clsx'
 import * as React from 'react'
 import { Breadcrumbs, Typography } from '@mui/material'
-import { AttachMoney as AttachMoneyIcon, BarChart as BarChartIcon } from '@mui/icons-material'
+import {
+  AttachMoney as AttachMoneyIcon,
+  BarChart as BarChartIcon,
+} from '@mui/icons-material'
 import useStyles from './styles'
 
-const TestStatsBreadcrumb = (props) => {
+const TestStatsBreadcrumb = props => {
   const c = useStyles()
 
   const formatMoney = num => {
     return new Intl.NumberFormat('en-US', {
       style: 'decimal',
-      currency: 'USD'
+      currency: 'USD',
     }).format(num)
   }
 

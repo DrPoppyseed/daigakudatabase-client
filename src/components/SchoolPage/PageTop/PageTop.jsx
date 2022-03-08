@@ -1,6 +1,10 @@
 import * as React from 'react'
 import { Button, Paper, Tab, Tabs, Tooltip, Typography } from '@mui/material'
-import { OpenInNew as OpenInNewIcon, TurnedIn, TurnedInNot } from '@mui/icons-material'
+import {
+  OpenInNew as OpenInNewIcon,
+  TurnedIn,
+  TurnedInNot,
+} from '@mui/icons-material'
 import { useMutation } from 'react-query'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper.min.css'
@@ -12,12 +16,7 @@ import { likeSchoolById, unlikeSchoolById } from '../../../hooks/useAuth'
 import useStyles from './styles'
 import BasicStatsBreadcrumb from '../../SchoolCards/BasicStatsBreadcrumb/BasicStatsBreacrumb.jsx'
 
-const PageTop = ({
-  tabIndex,
-  handleTabChange,
-  school,
-  isLiked = false,
-}) => {
+const PageTop = ({ tabIndex, handleTabChange, school, isLiked = false }) => {
   const c = useStyles()
   const authContext = React.useContext(AuthContext)
   const [likedState, setLikedState] = React.useState(isLiked)
@@ -47,38 +46,42 @@ const PageTop = ({
         <div className={c.buttonGroup}>
           <a
             href={`//${school.school_homepage_url}`}
-            target="_blank"
-            rel="noreferrer"
-            style={{ textDecoration: 'none' }}>
+            target='_blank'
+            rel='noreferrer'
+            style={{ textDecoration: 'none' }}
+          >
             <Button
-              size="small"
-              variant="contained"
+              size='small'
+              variant='contained'
               startIcon={<OpenInNewIcon />}
               disableElevation
-              color="primary">
+              color='primary'
+            >
               公式サイトにアクセス
             </Button>
           </a>
-          {!!authContext.user.uid ? (
+          {authContext.user.uid ? (
             <Button
-              size="small"
+              size='small'
               className={c.likeButton}
-              variant="contained"
+              variant='contained'
               startIcon={likedState ? <TurnedIn /> : <TurnedInNot />}
               onClick={() => handleLikeClick()}
               disableElevation
-              style={{ backgroundColor: 'green', color: 'white' }}>
+              style={{ backgroundColor: 'green', color: 'white' }}
+            >
               {likedState ? 'お気に入り登録済み' : 'お気に入り登録する'}
             </Button>
           ) : (
-            <Tooltip title="ログインして学校をお気に入り登録しよう！">
+            <Tooltip title='ログインして学校をお気に入り登録しよう！'>
               <Button
-                size="small"
+                size='small'
                 className={c.likeButton}
-                variant="contained"
+                variant='contained'
                 startIcon={<TurnedInNot />}
                 disableElevation
-                style={{ backgroundColor: 'green', color: 'white' }}>
+                style={{ backgroundColor: 'green', color: 'white' }}
+              >
                 お気に入り登録する
               </Button>
             </Tooltip>
@@ -91,19 +94,20 @@ const PageTop = ({
               pagination={{ clickable: true }}
               navigation={true}
               spaceBetween={30}
-              className={c.swiper}>
+              className={c.swiper}
+            >
               {school.page_img_srcs_jpeg.map((img, index) => {
                 return (
-                  <SwiperSlide>
+                  <SwiperSlide key={JSON.stringify(img)}>
                     <picture>
                       <source
-                        type="image/webp"
+                        type='image/webp'
                         src={school.page_img_srcs_webp[index]}
                         srcSet={school.page_img_srcs_webp[index]}
                         className={c.img}
                       />
                       <source
-                        type="image/jpeg"
+                        type='image/jpeg'
                         src={school.page_img_srcs_jpeg[index]}
                         srcSet={school.page_img_srcs_jpeg[index]}
                         className={c.img}
@@ -121,8 +125,8 @@ const PageTop = ({
           ) : (
             <div className={c.imgNotFoundContainer}>
               <img
-                alt="大学の画像がありません。フリー素材のhttps://www.freepik.com/vectors/school、pch.vector - www.freepik.comのフリー素材を使用してます。"
-                src="../assets/image_not_found__size__800x400.jpeg"
+                alt='大学の画像がありません。フリー素材のhttps://www.freepik.com/vectors/school、pch.vector - www.freepik.comのフリー素材を使用してます。'
+                src='../assets/image_not_found__size__800x400.jpeg'
                 className={c.imgNotFound}
               />
             </div>
@@ -140,10 +144,10 @@ const PageTop = ({
               schoolType={`${school.school_type}`}
               state={`${school.state_jp}`}
             />
-            <Typography variant="h5" className={c.schoolNameJap}>
+            <Typography variant='h5' className={c.schoolNameJap}>
               {school.name_jp}
             </Typography>
-            <Typography variant="caption" className={c.schoolNameEn}>
+            <Typography variant='caption' className={c.schoolNameEn}>
               {school.name_en.toUpperCase()}
             </Typography>
           </div>
@@ -153,12 +157,13 @@ const PageTop = ({
         <Tabs
           className={c.summaryTabs}
           value={tabIndex}
-          indicatorColor="primary"
-          textColor="primary"
-          onChange={handleTabChange}>
-          <Tab label="基本情報" />
-          <Tab label="専攻情報" />
-          <Tab label="応募情報" disabled />
+          indicatorColor='primary'
+          textColor='primary'
+          onChange={handleTabChange}
+        >
+          <Tab label='基本情報' />
+          <Tab label='専攻情報' />
+          <Tab label='応募情報' disabled />
         </Tabs>
       </div>
     </Paper>

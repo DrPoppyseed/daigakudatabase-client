@@ -15,7 +15,7 @@ import PageTop from './PageTop/PageTop'
 import Majors from './Majors/Majors'
 import Apply from './Apply/Apply'
 
-const SchoolPage = (props) => {
+const SchoolPage = props => {
   const c = useStyles()
   const { pathname } = useLocation()
   const schoolUrl = pathname.split('/')[2]
@@ -41,14 +41,14 @@ const SchoolPage = (props) => {
         {status === 'loading' ? (
           <div className={c.loadingContainer}>
             <Skeleton
-              animation="wave"
-              variant="rectangular"
+              animation='wave'
+              variant='rectangular'
               height={475}
               width={700}
             />
             <Skeleton
-              animation="wave"
-              variant="rectangular"
+              animation='wave'
+              variant='rectangular'
               height={325}
               width={700}
               style={{ marginTop: 24 }}
@@ -81,8 +81,8 @@ const SchoolPage = (props) => {
           <div>
             <Card style={{ marginBottom: 16, borderRadius: 0 }}>
               <Skeleton
-                animation="wave"
-                variant="rectangular"
+                animation='wave'
+                variant='rectangular'
                 height={58}
                 width={300}
               />
@@ -103,12 +103,12 @@ const SchoolPage = (props) => {
         )}
       </div>
       <ScrollTop {...props}>
-        <Fab aria-label="key arrow up" className={c.fab}>
+        <Fab aria-label='key arrow up' className={c.fab}>
           <KeyboardArrowUpIcon className={c.fabIcon} />
         </Fab>
       </ScrollTop>
     </div>
-  );
+  )
 }
 
 export default SchoolPage

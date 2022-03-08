@@ -2,17 +2,15 @@ import * as React from 'react'
 
 const MajorsContext = React.createContext()
 
-const MajorsProvider = ({
-  children,
-}) => {
+const MajorsProvider = ({ children }) => {
   const [filterState, setFilterState] = React.useState({
-    '1': false,
-    '2': false,
-    '3': true,
-    '5': false,
-    '6': false,
-    '7': false,
-    '8': false,
+    1: false,
+    2: false,
+    3: true,
+    5: false,
+    6: false,
+    7: false,
+    8: false,
   })
   const [filterCredLevs, setFilterCredLevs] = React.useState(['3'])
 
@@ -24,14 +22,14 @@ const MajorsProvider = ({
       }
     }
     setFilterCredLevs([...credLevsTemp])
-    // eslint-disable-next-line 
+    // eslint-disable-next-line
   }, [filterState])
 
   const handleFilterChange = e => {
     setFilterState({ ...filterState, [e.target.name]: e.target.checked })
   }
 
-  const programNumsOnFilterChange = (programNums) => {
+  const programNumsOnFilterChange = programNums => {
     const currentPrograms = Object.entries(programNums).filter(pn =>
       filterCredLevs.includes(pn[0])
     )
@@ -54,7 +52,8 @@ const MajorsProvider = ({
         setFilterCredLevs,
         handleFilterChange,
         programNumsOnFilterChange,
-      }}>
+      }}
+    >
       {children}
     </MajorsContext.Provider>
   )

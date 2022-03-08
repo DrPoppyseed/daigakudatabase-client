@@ -3,7 +3,7 @@ import { Card, Typography } from '@mui/material'
 
 import useStyles from './styles'
 
-const SchoolCardAtom = (props) => {
+const SchoolCardAtom = props => {
   const c = useStyles()
 
   return (

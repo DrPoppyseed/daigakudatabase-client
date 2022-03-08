@@ -7,16 +7,17 @@ const TogglePasswordVisibility = ({
   handleClickShowPassword,
 }) => {
   return (
-    <InputAdornment position="end">
+    <InputAdornment position='end'>
       <IconButton
-        aria-label="Toggle password visibility"
+        aria-label='Toggle password visibility'
         onClick={handleClickShowPassword}
-        edge="end"
-        size="large">
+        edge='end'
+        size='large'
+      >
         {showPassword ? <VisibilityOff /> : <Visibility />}
       </IconButton>
     </InputAdornment>
-  );
+  )
 }
 
 export default TogglePasswordVisibility

@@ -2,10 +2,7 @@ import { firebaseAuth, googleProvider } from '../util/firebase'
 import { api } from '../util/api'
 import axios from 'axios'
 
-export const signUpWithEmail = async ({
-  email,
-  password,
-}) => {
+export const signUpWithEmail = async ({ email, password }) => {
   try {
     const user = await firebaseAuth.createUserWithEmailAndPassword(
       email,
@@ -28,10 +25,7 @@ export const signUpWithEmail = async ({
   }
 }
 
-export const signInWithEmail = async ({
-  email,
-  password,
-}) => {
+export const signInWithEmail = async ({ email, password }) => {
   try {
     const { user } = await firebaseAuth.signInWithEmailAndPassword(
       email,
@@ -53,7 +47,7 @@ export const signInWithEmail = async ({
   }
 }
 
-export const signInWithGoogle = async ()=> {
+export const signInWithGoogle = async () => {
   try {
     const { user } = await firebaseAuth.signInWithPopup(googleProvider)
     const token = await user.getIdToken(true)
@@ -72,15 +66,17 @@ export const signInWithGoogle = async ()=> {
   }
 }
 
-export const forgotPassword = async () => {}
+// TODO: implement
+// export const forgotPassword = async () => {}
 
 export const signOut = () => {
   firebaseAuth.signOut()
 }
 
-export const deleteAccount = () => {}
+// TODO: implement
+// export const deleteAccount = () => {}
 
-export const likeSchoolById = async (ipeds_unitid) => {
+export const likeSchoolById = async ipeds_unitid => {
   try {
     const user = await firebaseAuth.currentUser
     const token = await user.getIdToken(true)
@@ -99,7 +95,7 @@ export const likeSchoolById = async (ipeds_unitid) => {
   }
 }
 
-export const unlikeSchoolById = async (ipeds_unitid) => {
+export const unlikeSchoolById = async ipeds_unitid => {
   try {
     const user = await firebaseAuth.currentUser
     const token = await user.getIdToken()

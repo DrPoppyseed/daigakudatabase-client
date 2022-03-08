@@ -2,8 +2,21 @@ import * as React from 'react'
 import { useMutation } from 'react-query'
 import { useForm } from 'react-hook-form'
 import useStyles from './styles'
-import { Box, Button, CircularProgress, Divider, Paper, TextField, Typography } from '@mui/material'
-import { AuthLink, BottomText, PasswordInput, SocialButton } from '../AuthCommon'
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Divider,
+  Paper,
+  TextField,
+  Typography,
+} from '@mui/material'
+import {
+  AuthLink,
+  BottomText,
+  PasswordInput,
+  SocialButton,
+} from '../AuthCommon'
 import { signInWithEmail, signInWithGoogle } from '../../../hooks/useAuth'
 import { AuthContext } from '../../../AuthContext'
 
@@ -32,13 +45,13 @@ const SignIn = () => {
   return (
     <div className={c.pageContainer}>
       <Paper className={c.container}>
-        <Typography className={c.pageTitle} variant="h6">
+        <Typography className={c.pageTitle} variant='h6'>
           アメリカ大学データベースにログイン
         </Typography>
 
         <Box className={c.box}>
           <SocialButton
-            text="Googleアカウントでログイン"
+            text='Googleアカウントでログイン'
             onButtonClick={useSignInWithGoogle.mutate}
           />
 
@@ -46,38 +59,39 @@ const SignIn = () => {
           <form onSubmit={handleSubmit(onSubmit)} className={c.form}>
             <TextField
               {...register('email')}
-              label="email"
-              type="text"
+              label='email'
+              type='text'
               className={c.emailField}
-              autoComplete="username"
-              variant="outlined"
+              autoComplete='username'
+              variant='outlined'
               control={control}
-              defaultValue=""
+              defaultValue=''
               required
             />
             <PasswordInput register={register} control={control} />
-            <AuthLink to="/auth/signin" text="パスワードを忘れた場合" />
+            <AuthLink to='/auth/signin' text='パスワードを忘れた場合' />
             <Button
               className={c.signInButton}
-              variant="contained"
-              color="primary"
+              variant='contained'
+              color='primary'
               disabled={isLoading}
-              type="submit">
+              type='submit'
+            >
               {isLoading ? <CircularProgress /> : 'ログイン'}
             </Button>
           </form>
           <BottomText
-            before="Daigaku Databaseのアカウントをもっていない場合は"
-            link="新規登録"
-            to="/auth/signup"
-            after="から。"
+            before='Daigaku Databaseのアカウントをもっていない場合は'
+            link='新規登録'
+            to='/auth/signup'
+            after='から。'
           />
         </Box>
       </Paper>
       <div className={c.toLegalContainer}>
         <div className={c.grow} />
-        <AuthLink to="/legal/user-agreement" text="利用規約" type="legal" />
-        <AuthLink to="/legal/privacy" text="プライバシー" type="legal" />
+        <AuthLink to='/legal/user-agreement' text='利用規約' type='legal' />
+        <AuthLink to='/legal/privacy' text='プライバシー' type='legal' />
       </div>
     </div>
   )

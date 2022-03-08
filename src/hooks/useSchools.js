@@ -6,7 +6,7 @@ import {
   DEFAULT_SAT_RANGE_LOW,
   DEFAULT_TOEFL_RANGE,
   DEFAULT_TUITION_RANGE_HIGH,
-  DEFAULT_TUITION_RANGE_LOW
+  DEFAULT_TUITION_RANGE_LOW,
 } from '../util/final'
 
 const _INITIAL_SEARCH_STATE = {
@@ -19,10 +19,7 @@ const _INITIAL_SEARCH_STATE = {
   filterState: {},
 }
 
-export const getSchools = async (
-  pageNumber = 1,
-  searchCriteria
-) => {
+export const getSchools = async (pageNumber = 1, searchCriteria) => {
   /** TODO: refactor if statements and make function readable and compact */
   const {
     satRange,
@@ -61,7 +58,7 @@ export const getSchools = async (
 
   try {
     const user = await firebaseAuth.currentUser
-    if (!!user) {
+    if (user) {
       const token = await user.getIdToken(true)
       const { data } = await axios.get(
         `${process.env.REACT_APP_BACKEND_API_ENDPOINT}/schools?page=${pageNumber}&${params}`,
@@ -75,7 +72,7 @@ export const getSchools = async (
       const { data } = await axios.get(
         `${process.env.REACT_APP_BACKEND_API_ENDPOINT}/schools?page=${pageNumber}&${params}`,
         {
-          headers: { Authorization: `Bearer` },
+          headers: { Authorization: 'Bearer' },
         }
       )
       return data
@@ -96,11 +93,11 @@ export const useGetSchools = (
   )
 }
 
-const getSchoolById = async (id) => {
+const getSchoolById = async id => {
   let merged
   try {
     const user = await firebaseAuth.currentUser
-    if (!!user) {
+    if (user) {
       const token = await user.getIdToken(true)
       const { data } = await axios.get(
         `${process.env.REACT_APP_BACKEND_API_ENDPOINT}/schools/${id}`,
@@ -117,7 +114,7 @@ const getSchoolById = async (id) => {
       const { data } = await axios.get(
         `${process.env.REACT_APP_BACKEND_API_ENDPOINT}/schools/${id}`,
         {
-          headers: { Authorization: `Bearer null` },
+          headers: { Authorization: 'Bearer null' },
         }
       )
       merged = {
@@ -131,13 +128,13 @@ const getSchoolById = async (id) => {
   }
 }
 
-export const useGetSchoolById = (schoolId) => {
+export const useGetSchoolById = schoolId => {
   return useQuery(['schoolPage', schoolId], () => getSchoolById(schoolId), {
     enabled: !!schoolId,
   })
 }
 
-const getMajorsOfSchoolById = async (uuid) => {
+const getMajorsOfSchoolById = async uuid => {
   try {
     const { data } = await axios.get(
       `${process.env.REACT_APP_BACKEND_API_ENDPOINT}/schools/${uuid}/majors`
@@ -155,7 +152,7 @@ const getMajorsOfSchoolById = async (uuid) => {
   }
 }
 
-export const useGetMajorsOfSchoolById = (uuid) => {
+export const useGetMajorsOfSchoolById = uuid => {
   return useQuery(['majors', uuid], () => getMajorsOfSchoolById(uuid), {
     enabled: !!uuid,
   })
