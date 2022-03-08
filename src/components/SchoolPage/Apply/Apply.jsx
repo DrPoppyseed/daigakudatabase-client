@@ -1,10 +1,9 @@
-//@flow
 import * as React from 'react'
-import { Paper, Typography } from '@material-ui/core'
+import { Paper, Typography } from '@mui/material'
 
 import useStyles from './styles'
 
-const Apply = (): React.Element<any> => {
+const Apply = () => {
   const c = useStyles()
 
   return (

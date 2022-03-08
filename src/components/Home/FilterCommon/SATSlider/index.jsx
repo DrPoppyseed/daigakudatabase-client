@@ -1,10 +1,9 @@
-// @flow
 import * as React from 'react'
-import { Slider, Typography } from '@material-ui/core'
+import { Slider, Typography } from '@mui/material'
 import useStyles from './styles.js'
 import { HomeContext } from '../../../../HomeContext'
 
-const SATSlider = (): React.Node => {
+const SATSlider = () => {
   const c = useStyles()
   const { satRange, handleSatRange } = React.useContext(HomeContext)
   return (

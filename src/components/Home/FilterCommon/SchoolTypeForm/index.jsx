@@ -1,11 +1,10 @@
-// @flow
 import * as React from 'react'
-import { FormControl, FormGroup, FormLabel } from '@material-ui/core'
+import { FormControl, FormGroup, FormLabel } from '@mui/material'
 import CheckboxChild from '../../../Common/CheckboxChild/CheckboxChild'
 import useStyles from './styles'
 import { HomeContext } from '../../../../HomeContext'
 
-const SchoolTypeForm = (): React.Node => {
+const SchoolTypeForm = () => {
   const c = useStyles()
   const { handleFilterChange, filterState } = React.useContext(HomeContext)
   const { fourYear, twoYear, publicSchool, privateSchool } = filterState

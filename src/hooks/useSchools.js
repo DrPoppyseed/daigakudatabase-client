@@ -1,13 +1,12 @@
-// @flow
 import { useQuery } from 'react-query'
 import axios from 'axios'
 import { firebaseAuth } from '../util/firebase'
 import {
-  DEFAULT_SAT_RANGE_LOW,
   DEFAULT_SAT_RANGE_HIGH,
+  DEFAULT_SAT_RANGE_LOW,
   DEFAULT_TOEFL_RANGE,
   DEFAULT_TUITION_RANGE_HIGH,
-  DEFAULT_TUITION_RANGE_LOW,
+  DEFAULT_TUITION_RANGE_LOW
 } from '../util/final'
 
 const _INITIAL_SEARCH_STATE = {
@@ -21,9 +20,9 @@ const _INITIAL_SEARCH_STATE = {
 }
 
 export const getSchools = async (
-  pageNumber: number = 1,
-  searchCriteria: Object
-): any => {
+  pageNumber = 1,
+  searchCriteria
+) => {
   /** TODO: refactor if statements and make function readable and compact */
   const {
     satRange,
@@ -87,9 +86,9 @@ export const getSchools = async (
 }
 
 export const useGetSchools = (
-  pageNumber: number = 1,
-  searchCriteria: any = _INITIAL_SEARCH_STATE
-): any => {
+  pageNumber = 1,
+  searchCriteria = _INITIAL_SEARCH_STATE
+) => {
   return useQuery(
     ['schools', pageNumber, searchCriteria],
     () => getSchools(pageNumber, searchCriteria),
@@ -97,7 +96,7 @@ export const useGetSchools = (
   )
 }
 
-const getSchoolById = async (id: any): any => {
+const getSchoolById = async (id) => {
   let merged
   try {
     const user = await firebaseAuth.currentUser
@@ -132,13 +131,13 @@ const getSchoolById = async (id: any): any => {
   }
 }
 
-export const useGetSchoolById = (schoolId: any): any => {
+export const useGetSchoolById = (schoolId) => {
   return useQuery(['schoolPage', schoolId], () => getSchoolById(schoolId), {
     enabled: !!schoolId,
   })
 }
 
-const getMajorsOfSchoolById = async (uuid: String): any => {
+const getMajorsOfSchoolById = async (uuid) => {
   try {
     const { data } = await axios.get(
       `${process.env.REACT_APP_BACKEND_API_ENDPOINT}/schools/${uuid}/majors`
@@ -156,7 +155,7 @@ const getMajorsOfSchoolById = async (uuid: String): any => {
   }
 }
 
-export const useGetMajorsOfSchoolById = (uuid: String): any => {
+export const useGetMajorsOfSchoolById = (uuid) => {
   return useQuery(['majors', uuid], () => getMajorsOfSchoolById(uuid), {
     enabled: !!uuid,
   })

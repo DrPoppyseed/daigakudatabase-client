@@ -1,12 +1,12 @@
-// @flow
 import * as React from 'react'
-import { Typography, Link } from '@material-ui/core'
-import { makeStyles, fade } from '@material-ui/core/styles'
+import { Link, Typography } from '@mui/material'
+import { alpha } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import { Link as RouterLink } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
   signUpText: {
-    color: fade(theme.palette.common.black, 0.5) + ' !important',
+    color: alpha(theme.palette.common.black, 0.5) + ' !important',
   },
   signInLink: {
     textDecoration: 'none',
@@ -18,12 +18,7 @@ const BottomText = ({
   link,
   to,
   after,
-}: {
-  before: string,
-  link: string,
-  to: string,
-  after: string,
-}): React.Element<any> => {
+}) => {
   const c = useStyles()
 
   return (

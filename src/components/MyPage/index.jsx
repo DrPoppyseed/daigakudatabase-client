@@ -1,9 +1,6 @@
-// @flow
 import * as React from 'react'
 import loadable from '@loadable/component'
-import { Container } from '@material-ui/core'
-// import { Index } from '@material-ui/lab'
-// import { Link } from 'react-router-dom'
+import { Container } from '@mui/material'
 import useStyles from './styles'
 
 import ProfileSummaryContainer from './ProfileSummaryContainer/ProfileSummaryContainer'
@@ -15,14 +12,14 @@ const EditProfileDialog = loadable(() =>
   import('./EditProfileDialog/EditProfileDialog.jsx')
 )
 
-const MyPage = (): React.Node => {
+const MyPage = () => {
   const c = useStyles()
 
   const [inEditingMode, setInEditingMode] = React.useState(false)
 
   const descriptionElementRef = React.useRef(null)
 
-  React.useEffect((): void => {
+  React.useEffect(() => {
     if (inEditingMode) {
       const { current: descriptionElement } = descriptionElementRef
       if (descriptionElement !== null) {
@@ -31,7 +28,7 @@ const MyPage = (): React.Node => {
     }
   }, [inEditingMode])
 
-  const handleDialogClose = (): void => {
+  const handleDialogClose = () => {
     setInEditingMode(false)
   }
 
@@ -42,8 +39,8 @@ const MyPage = (): React.Node => {
       <Helmet>
         <title>マイページ</title>
         <meta
-          name="description"
-          content="プロフィールを編集したり、お気に入りした大学をチェックアウトしよう。"
+          name='description'
+          content='プロフィールを編集したり、お気に入りした大学をチェックアウトしよう。'
         />
       </Helmet>
       <Container className={c.mypageContainer}>

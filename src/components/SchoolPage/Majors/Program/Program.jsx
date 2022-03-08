@@ -1,24 +1,17 @@
-//@flow
 import clsx from 'clsx'
 import * as React from 'react'
 import useStyles from './styles'
+import { Collapse, ListItem, ListItemText, Table, Typography } from '@mui/material'
 import {
-  Typography,
-  ListItem,
-  ListItemText,
-  Table,
-  Collapse,
-} from '@material-ui/core'
-import {
-  People as PeopleIcon,
-  ExposurePlus2 as ExposurePlus2Icon,
-  ExposurePlus1 as ExposurePlus1Icon,
   ExpandMore as ExpandMoreIcon,
-} from '@material-ui/icons'
+  LooksOne as LooksOneIcon,
+  LooksTwo as LooksTwoIcon,
+  People as PeopleIcon
+} from '@mui/icons-material'
 
 import TableNode from '../../Overview/TableNode/TableNode'
 
-const Program = ({ program }: { program: Object }): React.Element<any> => {
+const Program = ({ program }) => {
   const c = useStyles()
   const [open, setOpen] = React.useState(false)
 
@@ -66,7 +59,7 @@ const Program = ({ program }: { program: Object }): React.Element<any> => {
                   ? '未測定'
                   : `$${program.medianIncome1}`
               }>
-              <ExposurePlus1Icon
+              <LooksOneIcon
                 fontSize="small"
                 style={{ marginRight: 10, color: 'blue' }}
               />
@@ -78,7 +71,7 @@ const Program = ({ program }: { program: Object }): React.Element<any> => {
                   ? '未測定'
                   : `$${program.medianIncome2}`
               }>
-              <ExposurePlus2Icon
+              <LooksTwoIcon
                 fontSize="small"
                 style={{ marginRight: 10, color: 'red' }}
               />

@@ -1,7 +1,6 @@
-// @flow
 import * as React from 'react'
-import { Typography } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
+import { Typography } from '@mui/material'
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -14,7 +13,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const FooterSub = (): React.Element<any> => {
+const FooterSub = () => {
   const c = useStyles()
   return (
     <div className={c.root}>

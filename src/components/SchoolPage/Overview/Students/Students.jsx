@@ -1,15 +1,12 @@
-// @flow
 import * as React from 'react'
-import { Typography, Paper } from '@material-ui/core'
+import { Paper, Typography } from '@mui/material'
 
 import CustomPie from './CustomPie/CustomPie'
 import useStyles from './styles'
 
 const Students = ({
   demographics,
-}: {
-  demographics: Object,
-}): React.Element<any> => {
+}) => {
   const c = useStyles()
 
   const data = [

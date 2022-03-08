@@ -1,22 +1,11 @@
-// @flow
 import * as React from 'react'
-import { Chip } from '@material-ui/core'
+import { Chip } from '@mui/material'
 import useStyles from './styles'
 
-type ChipObj = {
-  label: string,
-  link: string,
-  chipId: string,
-}
-
-type Props = {
-  chips: Array<ChipObj>,
-}
-
-const ChipGroup = (props: Props): React.Node => {
+const ChipGroup = (props) => {
   const c = useStyles()
 
-  const renderChips = props.chips.map((chip: ChipObj): React.Node => (
+  const renderChips = props.chips.map((chip) => (
     <Chip
       key={chip.chipId}
       className={c.chipItem}

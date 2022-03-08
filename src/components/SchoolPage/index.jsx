@@ -1,12 +1,10 @@
-/* eslint-disable */
-// @flow
 import * as React from 'react'
 import useStyles from './styles'
 import { Helmet } from 'react-helmet'
 import ScrollTop from '../Common/ScrollTop/ScrollTop.jsx'
-import { Fab, Card } from '@material-ui/core'
-import Skeleton from '@material-ui/lab/Skeleton'
-import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp'
+import { Card, Fab } from '@mui/material'
+import Skeleton from '@mui/material/Skeleton'
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import { useGetSchoolById } from '../../hooks/useSchools'
 import { useLocation } from 'react-router-dom'
 
@@ -17,11 +15,7 @@ import PageTop from './PageTop/PageTop'
 import Majors from './Majors/Majors'
 import Apply from './Apply/Apply'
 
-type Props = {
-  children?: any,
-}
-
-const SchoolPage = (props: Props): React.Element<any> => {
+const SchoolPage = (props) => {
   const c = useStyles()
   const { pathname } = useLocation()
   const schoolUrl = pathname.split('/')[2]
@@ -48,13 +42,13 @@ const SchoolPage = (props: Props): React.Element<any> => {
           <div className={c.loadingContainer}>
             <Skeleton
               animation="wave"
-              variant="rect"
+              variant="rectangular"
               height={475}
               width={700}
             />
             <Skeleton
               animation="wave"
-              variant="rect"
+              variant="rectangular"
               height={325}
               width={700}
               style={{ marginTop: 24 }}
@@ -88,7 +82,7 @@ const SchoolPage = (props: Props): React.Element<any> => {
             <Card style={{ marginBottom: 16, borderRadius: 0 }}>
               <Skeleton
                 animation="wave"
-                variant="rect"
+                variant="rectangular"
                 height={58}
                 width={300}
               />
@@ -114,7 +108,7 @@ const SchoolPage = (props: Props): React.Element<any> => {
         </Fab>
       </ScrollTop>
     </div>
-  )
+  );
 }
 
 export default SchoolPage

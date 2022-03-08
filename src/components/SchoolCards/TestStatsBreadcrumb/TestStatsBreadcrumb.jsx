@@ -1,28 +1,16 @@
-// @flow
 import clsx from 'clsx'
 import * as React from 'react'
-import { Breadcrumbs, Typography } from '@material-ui/core'
-import {
-  AttachMoney as AttachMoneyIcon,
-  BarChart as BarChartIcon,
-} from '@material-ui/icons'
+import { Breadcrumbs, Typography } from '@mui/material'
+import { AttachMoney as AttachMoneyIcon, BarChart as BarChartIcon } from '@mui/icons-material'
 import useStyles from './styles'
 
-type Props = {
-  tuitionLow: number,
-  tuitionHigh: number,
-  tuitionAvg: number,
-  SATHigh: number,
-  SATLow: number,
-}
-
-const TestStatsBreadcrumb = (props: Props): React.Node => {
+const TestStatsBreadcrumb = (props) => {
   const c = useStyles()
 
   const formatMoney = num => {
     return new Intl.NumberFormat('en-US', {
       style: 'decimal',
-      currency: 'USD',
+      currency: 'USD'
     }).format(num)
   }
 
@@ -30,19 +18,19 @@ const TestStatsBreadcrumb = (props: Props): React.Node => {
     <Breadcrumbs className={c.statGroup}>
       <div className={c.statItemContainer}>
         <BarChartIcon
-          fontSize="small"
+          fontSize='small'
           className={clsx(c.statItemIcon, c.blue)}
         />
-        <Typography variant="caption">
+        <Typography variant='caption'>
           {`SAT ${props.SATLow || '未測定'} ~ ${props.SATHigh || '未測定'}`}
         </Typography>
       </div>
       <div className={c.statItemContainer}>
         <AttachMoneyIcon
-          fontSize="small"
+          fontSize='small'
           className={clsx(c.statItemIcon, c.yellow)}
         />
-        <Typography variant="caption">
+        <Typography variant='caption'>
           {`平均：$${formatMoney(props.tuitionAvg)}/年 ($${formatMoney(
             props.tuitionHigh
           )} ~ $${formatMoney(props.tuitionLow)}/年)`}

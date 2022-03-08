@@ -1,15 +1,12 @@
-// @flow
 import * as React from 'react'
 import useStyles from './styles'
-import { Paper, FormControl, FormGroup } from '@material-ui/core'
+import { FormControl, FormGroup, Paper } from '@mui/material'
 import CheckboxChild from '../../../Common/CheckboxChild/CheckboxChild'
 import { MajorsConsumer } from '../MajorsProvider'
 
 const CredLevFilter = ({
   programsPerCredLev,
-}: {
-  programsPerCredLev: Object,
-}): React.Element<any> => {
+}) => {
   const c = useStyles()
 
   return (

@@ -1,17 +1,17 @@
-import { makeStyles } from '@material-ui/core/styles'
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles(theme => ({
   cardContainer: {
     marginBottom: theme.spacing(1),
     padding: theme.spacing(3),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       width: '100%',
       padding: theme.spacing(2),
     },
     [theme.breakpoints.up('md')]: {
       width: 900,
     },
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       padding: theme.spacing(1),
     },
   },
@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     marginBottom: theme.spacing(2),
     justifyContent: 'space-between',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       flexDirection: 'column',
       alignItems: 'flex-start',
     },
@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   buttonContainer: {
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       display: 'none',
     },
     [theme.breakpoints.up('md')]: {
@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     alignItems: 'flex-start',
     justifyContent: 'space-between',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       flexDirection: 'column-reverse',
     },
     [theme.breakpoints.up('md')]: {

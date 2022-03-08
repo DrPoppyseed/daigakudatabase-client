@@ -1,8 +1,7 @@
-// @flow
 import * as React from 'react'
-import { Chip, IconButton, Badge } from '@material-ui/core'
+import { Badge, Chip, IconButton } from '@mui/material'
 import useStyles from './styles'
-import { Tune as TuneIcon } from '@material-ui/icons'
+import { Tune as TuneIcon } from '@mui/icons-material'
 import SchoolTypeChip from './SchoolTypeChip'
 import { HomeContext } from '../../../HomeContext'
 
@@ -24,7 +23,8 @@ const SortByScroller = () => {
     <div className={c.sortByScrollerContainer}>
       <IconButton
         className={c.filterIconButton}
-        onClick={e => handleFilterDrawerOpen(e)}>
+        onClick={e => handleFilterDrawerOpen(e)}
+        size="large">
         <Badge variant="dot" color="secondary">
           <TuneIcon />
         </Badge>
@@ -69,7 +69,7 @@ const SortByScroller = () => {
         />
       </div>
     </div>
-  )
+  );
 }
 
 export default SortByScroller

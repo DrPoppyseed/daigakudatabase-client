@@ -1,16 +1,13 @@
-// @flow
 import * as React from 'react'
 import { firebaseAuth } from './util/firebase'
-import { useLocation } from 'react-router-dom'
-import history from './util/history'
+import { useLocation, useNavigate } from 'react-router-dom'
 
-const AuthContext: React.Context<any> = React.createContext()
+const AuthContext = React.createContext()
 
 const AuthProvider = ({
   children,
-}: {
-  children: React.Element<any>,
-}): React.Element<any> => {
+}) => {
+  const navigate = useNavigate()
   const [globalLoading, setGlobalLoading] = React.useState(true)
   const [currentPath, setCurrentPath] = React.useState('')
   const location = useLocation()
@@ -30,7 +27,7 @@ const AuthProvider = ({
           setGlobalLoading(false)
 
           if (currentPath.match(/(auth\/signin|auth\/signup)/)) {
-            history.push('/')
+            navigate('/')
           }
         } else {
           setGlobalLoading(false)

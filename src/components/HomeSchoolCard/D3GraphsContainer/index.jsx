@@ -1,26 +1,12 @@
-// @flow
 import * as React from 'react'
-import {
-  List,
-  ListItem,
-  Typography,
-  // useMediaQuery
-} from '@material-ui/core'
+import { List, ListItem, Typography } from '@mui/material'
 import D3ProgramsViz from '../D3ProgramsViz'
 import D3TuitionViz from '../D3TuitionViz'
 import D3TestscoresViz from '../D3TestscoresViz'
 import D3StudentsViz from '../D3StudentsViz'
 import useStyles from './styles'
 
-type Props = {
-  admissionsData: Object,
-  tuitionData: Object,
-  educationData: Object,
-  studentsData: Object,
-  ipeds_unitid: string,
-}
-
-const D3GraphsContainer = (props: Props) => {
+const D3GraphsContainer = (props) => {
   // const xs_down = useMediaQuery(theme => theme.breakpoints.down('xs'))
   const c = useStyles()
   const {
@@ -37,7 +23,7 @@ const D3GraphsContainer = (props: Props) => {
   const [highlighted, setHighlighted] = React.useState('')
   const [highlightedRace, setHighlightedRace] = React.useState('')
 
-  const cleanDemographicsData = (rawData: Object): Array => {
+  const cleanDemographicsData = (rawData) => {
     let colorsLookup = {
       white: '#9C27B0',
       black: '#00ACC1',
@@ -66,7 +52,7 @@ const D3GraphsContainer = (props: Props) => {
     return resData
   }
 
-  const cleanSexData = (men, women): Array => {
+  const cleanSexData = (men, women) => {
     return [
       { sex: 'men', percentage: men, color: '#42A5F5', ja: '男性' },
       { sex: 'women', percentage: women, color: '#F4511E', ja: '女性' },

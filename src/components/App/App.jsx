@@ -1,11 +1,8 @@
-// @flow
 import * as React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import loadable from '@loadable/component'
-import { Ripple } from 'react-spinners-css'
-import { Typography } from '@material-ui/core'
-
-import { Container } from '@material-ui/core'
+import { InfinitySpin } from 'react-loader-spinner'
+import { Container, Typography } from '@mui/material'
 import useStyles from './styles'
 import { AuthContext } from '../../AuthContext'
 
@@ -20,7 +17,7 @@ const Footer = loadable(() => import('../Footer/FooterSub'))
 const SchoolPage = loadable(() => import('../SchoolPage'))
 const NoMatch = loadable(() => import('../NoMatch'))
 
-const App = (): React.Element<any> => {
+const App = () => {
   const c = useStyles()
   const { globalLoading, currentPath } = React.useContext(AuthContext)
 
@@ -33,14 +30,14 @@ const App = (): React.Element<any> => {
           {isNotAuth ? <Header /> : null}
           <Container className={c.appContainer}>
             <FilterDrawer />
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/mypage" component={MyPage} />
-              <Route exact path="/auth/signin" component={SignIn} />
-              <Route exact path="/auth/signup" component={SignUp} />
-              <Route path="/schools/:schoolId" component={SchoolPage} />
-              <Route component={NoMatch} />
-            </Switch>
+              <Routes>
+                <Route exact path="/" element={<Home />} />
+                <Route exact path="/mypage" element={<MyPage />} />
+                <Route exact path="/auth/signin" element={<SignIn />} />
+                <Route exact path="/auth/signup" element={<SignUp /> } />
+                <Route path="/schools/:schoolId" element={<SchoolPage />} />
+                <Route component={NoMatch} />
+              </Routes>
           </Container>
           {isNotAuth ? <Footer /> : null}
         </React.Fragment>
@@ -49,7 +46,7 @@ const App = (): React.Element<any> => {
           <Typography className={c.loadingText}>
             新しいスタートはすぐそこ...
           </Typography>
-          <Ripple color="#2196f3" />
+          <InfinitySpin color="#2196f3" width="100" />
         </div>
       )}
     </React.StrictMode>

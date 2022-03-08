@@ -1,17 +1,16 @@
-// @flow
 import * as React from 'react'
 import {
-  DEFAULT_SAT_RANGE_LOW,
   DEFAULT_SAT_RANGE_HIGH,
+  DEFAULT_SAT_RANGE_LOW,
   DEFAULT_TUITION_RANGE_HIGH,
-  DEFAULT_TUITION_RANGE_LOW,
+  DEFAULT_TUITION_RANGE_LOW
 } from './util/final'
 import { useQueryClient } from 'react-query'
 import { getSchools, useGetSchools } from './hooks/useSchools'
 
-const HomeContext: React.Context = React.createContext()
+const HomeContext = React.createContext()
 
-const HomeProvider = ({ children }: { children: React.Node }) => {
+const HomeProvider = ({ children }) => {
   const queryClient = useQueryClient()
   const [filtersAppliedNum, setFiltersAppliedNums] = React.useState(0)
   const [pageNumber, setPageNumber] = React.useState(1)

@@ -1,17 +1,16 @@
-// @flow
 import * as React from 'react'
 import clsx from 'clsx'
-import { Typography, Paper } from '@material-ui/core'
-import Skeleton from '@material-ui/lab/Skeleton'
+import { Paper, Typography } from '@mui/material'
+import Skeleton from '@mui/material/Skeleton'
 import useStyles from './styles'
 import SchoolCardSmall from '../../SchoolCards/SchoolCardSmall/SchoolCardSmall.jsx'
 
-const LikedSchoolsContainer = (): React.Element<any> => {
+const LikedSchoolsContainer = () => {
   const c = useStyles()
   const [likedSchools] = React.useState([])
   const [isPageLoading] = React.useState(true)
 
-  const renderLikedSchools = likedSchools.map((school): React.Node => {
+  const renderLikedSchools = likedSchools.map((school) => {
     return (
       <SchoolCardSmall
         key={school.school_id}
@@ -37,15 +36,15 @@ const LikedSchoolsContainer = (): React.Element<any> => {
           renderLikedSchools
         ) : (
           <React.Fragment>
-            <Skeleton variant="rect" width={450} height={150} />
-            <Skeleton variant="rect" width={450} height={150} />
-            <Skeleton variant="rect" width={450} height={150} />
-            <Skeleton variant="rect" width={450} height={150} />
+            <Skeleton variant="rectangular" width={450} height={150} />
+            <Skeleton variant="rectangular" width={450} height={150} />
+            <Skeleton variant="rectangular" width={450} height={150} />
+            <Skeleton variant="rectangular" width={450} height={150} />
           </React.Fragment>
         )}
       </div>
     </Paper>
-  )
+  );
 }
 
 export default LikedSchoolsContainer

@@ -1,4 +1,6 @@
-import { makeStyles, fade } from '@material-ui/core/styles'
+import { alpha } from '@mui/material/styles';
+
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles(theme => ({
   root: { flexGrow: 1 },
@@ -10,7 +12,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     alignItems: 'center',
     // marginRight: theme.spacing(2),
-    color: fade(theme.palette.common.black, 0.6),
+    color: alpha(theme.palette.common.black, 0.6),
   },
   statItemIcon: {
     marginRight: theme.spacing(0.5),

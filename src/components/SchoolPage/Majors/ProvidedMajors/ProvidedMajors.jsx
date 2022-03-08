@@ -1,11 +1,10 @@
-//@flow
 import * as React from 'react'
 import useStyles from './styles'
-import { Paper, Grid } from '@material-ui/core'
+import { Grid, Paper } from '@mui/material'
 import { MajorsConsumer } from '../MajorsProvider'
 import ProvidedMajor from './ProvidedMajor/ProvidedMajor'
 
-const ProvidedMajors = ({ majors }: { majors: Object }): React.Element<any> => {
+const ProvidedMajors = ({ majors }) => {
   const c = useStyles()
 
   return (

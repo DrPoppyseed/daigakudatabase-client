@@ -1,7 +1,6 @@
-// // @flow
 // import * from 'react'
 // import useStyles from './styles'
-// import {Dialog} from '@material-ui/core'
+// import {Dialog} from '@mui/material'
 // import {HomeContext} from '../../../../HomeContext'
 //
 // const TuitionRangePopup = () => {

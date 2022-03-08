@@ -1,22 +1,21 @@
-// @flow
 import * as React from 'react'
 import {
-  Card,
-  Typography,
-  Select,
-  MenuItem,
-  FormControl,
-  InputLabel,
-  useMediaQuery,
-  IconButton,
   Badge,
-} from '@material-ui/core'
-import { Tune as TuneIcon } from '@material-ui/icons'
+  Card,
+  FormControl,
+  IconButton,
+  InputLabel,
+  MenuItem,
+  Select,
+  Typography,
+  useMediaQuery
+} from '@mui/material'
+import { Tune as TuneIcon } from '@mui/icons-material'
 import { HomeContext } from '../../../HomeContext'
 
 import useStyles from './styles'
 
-const SortByBox = (): React.Element<any> => {
+const SortByBox = () => {
   const c = useStyles()
   const {
     handleFilterDrawerOpen,
@@ -25,14 +24,15 @@ const SortByBox = (): React.Element<any> => {
     sortSelection,
     handleSortSelectionChange,
   } = React.useContext(HomeContext)
-  const md_down = useMediaQuery(theme => theme.breakpoints.down('md'))
+  const md_down = useMediaQuery(theme => theme.breakpoints.down('lg'))
 
   return (
     <Card className={c.root}>
       {md_down && (
         <IconButton
           className={c.filterIconButton}
-          onClick={e => handleFilterDrawerOpen(e)}>
+          onClick={e => handleFilterDrawerOpen(e)}
+          size="large">
           <Badge variant="dot" color="secondary">
             <TuneIcon />
           </Badge>
@@ -79,7 +79,7 @@ const SortByBox = (): React.Element<any> => {
         </Select>
       </FormControl>
     </Card>
-  )
+  );
 }
 
 export default SortByBox

@@ -1,18 +1,9 @@
 import * as React from 'react'
 import * as d3 from 'd3'
-import {useD3} from '../../../hooks/useD3'
+import { useD3 } from '../../../hooks/useD3'
 import data from '../../../data/tuition.json'
 
-type Props = {
-  height: number,
-  width: number,
-  identifier: string,
-  tuition: number,
-  ticks?: number,
-  ipeds_unitid: string
-}
-
-const D3HistogramViz = (props: Props) => {
+const D3HistogramViz = (props) => {
   const {
     height: _height,
     width: _width,

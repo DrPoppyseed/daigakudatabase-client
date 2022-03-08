@@ -1,16 +1,16 @@
-import { makeStyles } from '@material-ui/core/styles'
-import green from '@material-ui/core/colors/green'
+import makeStyles from '@mui/styles/makeStyles';
+import { green } from '@mui/material/colors';
 
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     display: 'grid',
     gridSpacing: theme.spacing(4),
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('lg')]: {
       gridTemplateColumns: '0px auto 0px',
       gridSpacing: theme.spacing(2),
     },
-    [theme.breakpoints.between('md', 'lg')]: {
+    [theme.breakpoints.between('md', 'xl')]: {
       gridTemplateColumns: '1fr 900px 1fr',
     },
     [theme.breakpoints.up('lg')]: {
@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
   },
   filterContainer: {
     display: 'block',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('lg')]: {
       display: 'none',
     },
     gridColumn: 2,
@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       width: '100%',
       marginTop: 30,
     },

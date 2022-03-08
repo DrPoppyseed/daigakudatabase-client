@@ -1,27 +1,15 @@
-// @flow
 import * as React from 'react'
 import { Link } from 'react-router-dom'
-import { Card, Typography, IconButton } from '@material-ui/core'
+import { Card, IconButton, Typography } from '@mui/material'
 
-import TurnedIn from '@material-ui/icons/TurnedIn'
+import TurnedIn from '@mui/icons-material/TurnedIn'
 import useStyles from './styles'
 import { unlikeSchoolById } from '../../../hooks/useAuth'
 import { useMutation } from 'react-query'
 
 import BasicStatsBreacrumb from '../BasicStatsBreadcrumb/BasicStatsBreacrumb.jsx'
 
-type Props = {
-  name: string,
-  url: string,
-  schoolId: string,
-  ratingScore: number,
-  ratings: number,
-  yearType: string,
-  schoolType: string,
-  state: string,
-}
-
-const SchoolCardSmall = (props: Props): React.Node => {
+const SchoolCardSmall = (props) => {
   const c = useStyles()
 
   const onClickUnlike = useMutation(unlikeSchoolById, {
@@ -59,11 +47,12 @@ const SchoolCardSmall = (props: Props): React.Node => {
       </Link>
       <IconButton
         className={c.iconButton}
-        onClick={() => onClickUnlike.mutate(schoolId)}>
+        onClick={() => onClickUnlike.mutate(schoolId)}
+        size="large">
         <TurnedIn className={c.icon} />
       </IconButton>
     </Card>
-  )
+  );
 }
 
 export default SchoolCardSmall

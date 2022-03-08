@@ -1,20 +1,10 @@
-// @flow
 import * as React from 'react'
 import * as d3 from 'd3'
-import {useD3} from '../../../hooks/useD3'
+import { useD3 } from '../../../hooks/useD3'
 import data from '../../../data/admissionScores.json'
 import './styles.css'
 
-type Props = {
-  height: number,
-  width: number,
-  score: number,
-  percentile?: string,
-  identifier: string,
-  ipeds_unitid: string
-}
-
-const D3TestscoresViz = (props: Props) => {
+const D3TestscoresViz = (props) => {
   const {
     height: _height,
     width: _width,

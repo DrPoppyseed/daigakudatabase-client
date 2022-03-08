@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { List, ListItem, Typography } from '@material-ui/core'
+import { List, ListItem, Typography } from '@mui/material'
 
 import useStyles from './styles'
 

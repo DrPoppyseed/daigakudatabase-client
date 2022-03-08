@@ -1,4 +1,6 @@
-import { fade, makeStyles } from '@material-ui/core/styles'
+import { alpha } from '@mui/material/styles';
+
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -13,7 +15,7 @@ const useStyles = makeStyles(theme => ({
     display: 'grid',
     gridTemplateColumns: '1fr 1fr 1fr',
     gridTemplateRows: 'auto auto',
-    background: fade(theme.palette.common.black, 1),
+    background: alpha(theme.palette.common.black, 1),
     marginTop: theme.spacing(4),
   },
   linkStyle: {
@@ -46,7 +48,7 @@ const useStyles = makeStyles(theme => ({
     gridColumn: 2,
   },
   copyright: {
-    color: fade(theme.palette.common.white, 0.7),
+    color: alpha(theme.palette.common.white, 0.7),
     marginLeft: theme.spacing(2),
   },
 }))

@@ -1,12 +1,12 @@
 // // @flow
 // import * as React from 'react'
 // import { Link } from 'react-router-dom'
-// import { Typography, Card, IconButton, Tooltip } from '@material-ui/core'
+// import { Typography, Card, IconButton, Tooltip } from '@mui/material'
 // import { Swiper, SwiperSlide } from 'swiper/react'
 // import {
 //   StarBorder as StarBorderIcon,
 //   Star as StarIcon,
-// } from '@material-ui/icons'
+// } from '@mui/icons-material'
 // import 'swiper/swiper.min.css'
 // import 'swiper/components/pagination/pagination.min.css'
 // import 'swiper/components/navigation/navigation.min.css'

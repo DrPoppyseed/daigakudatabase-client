@@ -1,23 +1,14 @@
-// @flow
 import clsx from 'clsx'
 import * as React from 'react'
-import { TableCell, TableRow, Typography } from '@material-ui/core'
+import { TableCell, TableRow, Typography } from '@mui/material'
 
 import useStyles from './styles'
-
-type Props = {
-  title: string,
-  content: string,
-  children: any,
-}
 
 const TableNode = ({
   title,
   content,
   children,
-}: {
-  ...Props,
-}): React.Element<any> => {
+}) => {
   const c = useStyles()
 
   return (

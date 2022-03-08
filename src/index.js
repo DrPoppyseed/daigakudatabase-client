@@ -1,9 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Router } from 'react-router-dom'
-import CssBaseline from '@material-ui/core/CssBaseline'
-import { createTheme, ThemeProvider } from '@material-ui/core/styles'
-import history from './util/history'
+import CssBaseline from '@mui/material/CssBaseline'
+import { adaptV4Theme, createTheme, StyledEngineProvider, ThemeProvider } from '@mui/material/styles'
+import { BrowserRouter } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { AuthProvider } from './AuthContext'
@@ -14,32 +13,34 @@ import App from './components/App/App.jsx'
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      refetchOnWindowFocus: false,
-    },
-  },
+      refetchOnWindowFocus: false
+    }
+  }
 })
 
-const theme = createTheme({
+const theme = createTheme(adaptV4Theme({
   palette: {
     primary: {
-      main: '#2196f3',
-    },
-  },
-})
+      main: '#2196f3'
+    }
+  }
+}))
 
 ReactDOM.render(
   <QueryClientProvider client={queryClient}>
-    <Router history={history}>
+    <BrowserRouter>
       <AuthProvider>
         <HomeProvider>
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <App />
-            <ReactQueryDevtools />
-          </ThemeProvider>
+          <StyledEngineProvider injectFirst>
+            <ThemeProvider theme={theme}>
+              <CssBaseline />
+              <App />
+              <ReactQueryDevtools />
+            </ThemeProvider>
+          </StyledEngineProvider>
         </HomeProvider>
       </AuthProvider>
-    </Router>
+    </BrowserRouter>
   </QueryClientProvider>,
   document.querySelector('#root')
 )

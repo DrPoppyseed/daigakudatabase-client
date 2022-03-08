@@ -1,12 +1,11 @@
-//@flow
 import * as React from 'react'
 import useStyles from './styles'
-import { Paper, Typography, Divider, List } from '@material-ui/core'
+import { Divider, List, Paper, Typography } from '@mui/material'
 import { MajorsContext } from '../MajorsProvider'
 
 import Program from '../Program/Program'
 
-const Major = ({ major }: { major: Object }): React.Element<any> => {
+const Major = ({ major }) => {
   const context = React.useContext(MajorsContext)
   const c = useStyles()
 
@@ -19,7 +18,7 @@ const Major = ({ major }: { major: Object }): React.Element<any> => {
       </div>
       <Divider className={c.divider} />
       <List className={c.programsContainer}>
-        {major.programs.map((program: Object) => {
+        {major.programs.map((program) => {
           return context.filterCredLevs.includes(program.credLev) ? (
             <Program
               key={`${program.codeFull}${program.credLev}`}

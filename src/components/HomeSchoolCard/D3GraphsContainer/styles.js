@@ -1,8 +1,8 @@
-import { makeStyles } from '@material-ui/core/styles'
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles(theme => ({
   d3GraphsContainer: {
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('lg')]: {
       width: 'calc(100vw - 32px - 16px)',
       marginBottom: theme.spacing(2),
     },
@@ -38,10 +38,10 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(0.5),
     height: 210,
     width: '100%',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('lg')]: {
       justifyContent: 'space-around',
     },
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
       alignItems: 'center',
       height: 260,
@@ -64,8 +64,8 @@ const useStyles = makeStyles(theme => ({
   programNameContainer: {
     display: 'flex',
     alignItems: 'center',
-    [theme.breakpoints.down('sm')]: {
-      padding: `${theme.spacing(0.5)}px ${theme.spacing(1)}px`,
+    [theme.breakpoints.down('md')]: {
+      padding: `${theme.spacing(0.5)} ${theme.spacing(1)}`,
     },
   },
   squareActive: {
@@ -87,7 +87,7 @@ const useStyles = makeStyles(theme => ({
     height: 210,
   },
   testscoresAndTuitionContainer: {
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       display: 'flex',
       flexDirection: 'row',
       alignItems: 'flex-start',
@@ -100,10 +100,10 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'flex-start',
     height: '100%',
     width: '100%',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('lg')]: {
       justifyContent: 'space-around',
     },
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
       alignItems: 'center',
     },
@@ -113,7 +113,7 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
     alignItems: 'flex-start',
     paddingTop: theme.spacing(1),
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       width: '100%',
       alignItems: 'center',
       paddingTop: 0,
@@ -129,7 +129,7 @@ const useStyles = makeStyles(theme => ({
     overflow: 'auto',
     height: 170,
     width: 188,
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       width: '100%',
       height: 50,
     },
@@ -137,7 +137,7 @@ const useStyles = makeStyles(theme => ({
   raceNameContainer: {
     display: 'flex',
     alignItems: 'center',
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       paddingTop: 2,
       paddingBottom: 2,
     },
@@ -153,7 +153,7 @@ const useStyles = makeStyles(theme => ({
   },
   mobileBreakLine: {
     display: 'none',
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       display: 'initial',
     },
   },

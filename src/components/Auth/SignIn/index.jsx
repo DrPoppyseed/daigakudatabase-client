@@ -1,27 +1,13 @@
-// @flow
 import * as React from 'react'
 import { useMutation } from 'react-query'
 import { useForm } from 'react-hook-form'
 import useStyles from './styles'
-import {
-  Divider,
-  Paper,
-  Typography,
-  TextField,
-  Box,
-  Button,
-  CircularProgress,
-} from '@material-ui/core'
-import {
-  PasswordInput,
-  SocialButton,
-  BottomText,
-  AuthLink,
-} from '../AuthCommon'
+import { Box, Button, CircularProgress, Divider, Paper, TextField, Typography } from '@mui/material'
+import { AuthLink, BottomText, PasswordInput, SocialButton } from '../AuthCommon'
 import { signInWithEmail, signInWithGoogle } from '../../../hooks/useAuth'
 import { AuthContext } from '../../../AuthContext'
 
-const SignIn = (): React.Element<any> => {
+const SignIn = () => {
   const { register, handleSubmit, control } = useForm()
   const { setUser } = React.useContext(AuthContext)
   const [isLoading] = React.useState(false)
@@ -59,10 +45,9 @@ const SignIn = (): React.Element<any> => {
           <Divider className={c.divider} />
           <form onSubmit={handleSubmit(onSubmit)} className={c.form}>
             <TextField
-              name="email"
+              {...register('email')}
               label="email"
               type="text"
-              inputRef={register}
               className={c.emailField}
               autoComplete="username"
               variant="outlined"
@@ -82,7 +67,7 @@ const SignIn = (): React.Element<any> => {
             </Button>
           </form>
           <BottomText
-            before="FORISのアカウントをもっていない場合は"
+            before="Daigaku Databaseのアカウントをもっていない場合は"
             link="新規登録"
             to="/auth/signup"
             after="から。"

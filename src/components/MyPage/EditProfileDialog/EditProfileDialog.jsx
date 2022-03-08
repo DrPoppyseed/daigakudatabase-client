@@ -1,23 +1,9 @@
-// @flow
 import * as React from 'react'
 import clsx from 'clsx'
-import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  TextField,
-  Typography,
-  Button,
-} from '@material-ui/core'
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField, Typography } from '@mui/material'
 import useStyles from './styles'
 
-type Props = {
-  open: boolean,
-  handleClose: any,
-}
-
-const EditProfileDialog = (props: Props): React.Node => {
+const EditProfileDialog = (props) => {
   const c = useStyles()
   const [isPageLoading] = React.useState(true)
   const [userSchool, setUserSchool] = React.useState('')
@@ -47,15 +33,15 @@ const EditProfileDialog = (props: Props): React.Node => {
     // eslint-disable-next-line
   }, [isPageLoading])
 
-  const handleNameChange = (event): void => {
+  const handleNameChange = (event) => {
     setUserName({ [event.target.name]: event.target.value })
   }
 
-  const handleSchoolChange = (event): void => {
+  const handleSchoolChange = (event) => {
     setUserSchool(event.target.value)
   }
 
-  const handleCancelClick = (): void => {
+  const handleCancelClick = () => {
     props.handleClose()
     setUserName({
       firstName: userProfile.firstName,
@@ -64,7 +50,7 @@ const EditProfileDialog = (props: Props): React.Node => {
     setUserSchool(userProfile.belongsTo.name)
   }
 
-  const handleProfileTextChange = (event): void => {
+  const handleProfileTextChange = (event) => {
     setUserProfileText(event.target.value)
   }
 

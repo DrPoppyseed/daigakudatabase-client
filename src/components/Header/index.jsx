@@ -1,41 +1,37 @@
-// @flow
 import * as React from 'react'
 import clsx from 'clsx'
 import {
   AppBar,
-  Toolbar,
-  IconButton,
-  Typography,
-  MenuItem,
-  Grow,
-  Popper,
-  ClickAwayListener,
-  Paper,
-  MenuList,
   Button,
-  useMediaQuery,
-} from '@material-ui/core'
-import { useTheme } from '@material-ui/core/styles'
+  ClickAwayListener,
+  Grow,
+  IconButton,
+  MenuItem,
+  MenuList,
+  Paper,
+  Popper,
+  Toolbar,
+  Typography,
+  useMediaQuery
+} from '@mui/material'
+import { useTheme } from '@mui/material/styles'
 import { useMutation, useQueryClient } from 'react-query'
 import { AuthContext } from '../../AuthContext'
 
-import {
-  // Search as SearchIcon,
-  AccountCircle,
-} from '@material-ui/icons'
+import { AccountCircle } from '@mui/icons-material'
 import { Link } from 'react-router-dom'
 import useStyles from './styles.js'
 import { signOut } from '../../hooks/useAuth'
 import SortByScroller from '../Home/SortByScroller'
 
-const Header = (): React.Element<any> => {
+const Header = () => {
   const c = useStyles()
   const queryClient = useQueryClient()
   const anchorRef = React.useRef(null)
   const [open, setOpen] = React.useState(false)
   const { user, setUser } = React.useContext(AuthContext)
   const theme = useTheme()
-  const sm_down = useMediaQuery(theme.breakpoints.down('sm'))
+  const sm_down = useMediaQuery(theme.breakpoints.down('md'))
 
   const useSignOutOnClick = useMutation(signOut, {
     onSuccess: () => {
@@ -83,7 +79,8 @@ const Header = (): React.Element<any> => {
                     ref={anchorRef}
                     aria-controls={open ? 'menu-list-grow' : undefined}
                     aria-haspopup="true"
-                    onClick={handleToggle}>
+                    onClick={handleToggle}
+                    size="large">
                     <AccountCircle />
                   </IconButton>
                   <Popper
@@ -159,11 +156,10 @@ const Header = (): React.Element<any> => {
             </div>
           </div>
           {sm_down ? <SortByScroller className={c.sortByScroller} /> : ''}
-          {console.log(`is sm_down true or false: ${sm_down}`)}
         </Toolbar>
       </AppBar>
     </div>
-  )
+  );
 }
 
 export default Header

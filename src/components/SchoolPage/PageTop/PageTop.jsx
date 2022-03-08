@@ -1,19 +1,6 @@
-//@flow
-/* eslint-disable */
 import * as React from 'react'
-import {
-  Paper,
-  Button,
-  Typography,
-  Tabs,
-  Tab,
-  Tooltip,
-} from '@material-ui/core'
-import {
-  OpenInNew as OpenInNewIcon,
-  TurnedIn,
-  TurnedInNot,
-} from '@material-ui/icons'
+import { Button, Paper, Tab, Tabs, Tooltip, Typography } from '@mui/material'
+import { OpenInNew as OpenInNewIcon, TurnedIn, TurnedInNot } from '@mui/icons-material'
 import { useMutation } from 'react-query'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper.min.css'
@@ -30,12 +17,7 @@ const PageTop = ({
   handleTabChange,
   school,
   isLiked = false,
-}: {
-  tabIndex: number,
-  handleTabChange: Function,
-  school: Object,
-  isLiked: any,
-}): React.Element<any> => {
+}) => {
   const c = useStyles()
   const authContext = React.useContext(AuthContext)
   const [likedState, setLikedState] = React.useState(isLiked)

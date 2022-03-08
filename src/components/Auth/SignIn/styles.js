@@ -1,4 +1,6 @@
-import { fade, makeStyles } from '@material-ui/core/styles'
+import { alpha } from '@mui/material/styles';
+
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -56,7 +58,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.info.main + ' !important',
   },
   signUpText: {
-    color: fade(theme.palette.common.black, 0.5) + ' !important',
+    color: alpha(theme.palette.common.black, 0.5) + ' !important',
   },
   signUpLink: {
     textDecoration: 'none',
@@ -66,7 +68,7 @@ const useStyles = makeStyles(theme => ({
     // padding: '0 2rem',
   },
   toLegalText: {
-    color: fade(theme.palette.common.black, 0.5) + ' !important',
+    color: alpha(theme.palette.common.black, 0.5) + ' !important',
     paddingLeft: theme.spacing(2),
   },
 }))

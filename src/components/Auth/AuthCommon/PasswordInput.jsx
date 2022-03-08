@@ -1,8 +1,7 @@
-// @flow
 import * as React from 'react'
-import { TextField } from '@material-ui/core'
+import { TextField } from '@mui/material'
 import TogglePasswordVisibility from './TogglePasswordVisibility'
-import { makeStyles } from '@material-ui/core/styles'
+import makeStyles from '@mui/styles/makeStyles'
 
 const useStyles = makeStyles(theme => ({
   passwordField: {
@@ -15,11 +14,7 @@ const PasswordInput = ({
   control,
   register,
   helperText = '',
-}: {
-  control: any,
-  register: any,
-  helperText: string,
-}): React.Element<any> => {
+}) => {
   const c = useStyles()
   const [showPassword, setShowPassword] = React.useState(false)
 
@@ -30,8 +25,7 @@ const PasswordInput = ({
     <TextField
       type={showPassword ? 'text' : 'password'}
       variant="outlined"
-      inputRef={register}
-      name="password"
+      {...register('password')}
       label="password"
       className={c.passwordField}
       autoComplete="current-password"
