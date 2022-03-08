@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import loadable from '@loadable/component'
 import { InfinitySpin } from 'react-loader-spinner'
 import { Container, Typography } from '@mui/material'
@@ -30,14 +30,14 @@ const App = () => {
           {isNotAuth ? <Header /> : null}
           <Container className={c.appContainer}>
             <FilterDrawer />
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/mypage" component={MyPage} />
-              <Route exact path="/auth/signin" component={SignIn} />
-              <Route exact path="/auth/signup" component={SignUp} />
-              <Route path="/schools/:schoolId" component={SchoolPage} />
-              <Route component={NoMatch} />
-            </Switch>
+              <Routes>
+                <Route exact path="/" element={<Home />} />
+                <Route exact path="/mypage" element={<MyPage />} />
+                <Route exact path="/auth/signin" element={<SignIn />} />
+                <Route exact path="/auth/signup" element={<SignUp /> } />
+                <Route path="/schools/:schoolId" element={<SchoolPage />} />
+                <Route component={NoMatch} />
+              </Routes>
           </Container>
           {isNotAuth ? <Footer /> : null}
         </React.Fragment>

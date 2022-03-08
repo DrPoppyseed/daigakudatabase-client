@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
-import { Card, Typography, IconButton } from '@mui/material'
+import { Card, IconButton, Typography } from '@mui/material'
 
 import TurnedIn from '@mui/icons-material/TurnedIn'
 import useStyles from './styles'
@@ -9,18 +9,7 @@ import { useMutation } from 'react-query'
 
 import BasicStatsBreacrumb from '../BasicStatsBreadcrumb/BasicStatsBreacrumb.jsx'
 
-type Props = {
-  name: string,
-  url: string,
-  schoolId: string,
-  ratingScore: number,
-  ratings: number,
-  yearType: string,
-  schoolType: string,
-  state: string,
-}
-
-const SchoolCardSmall = (props: Props): React.Node => {
+const SchoolCardSmall = (props) => {
   const c = useStyles()
 
   const onClickUnlike = useMutation(unlikeSchoolById, {

@@ -1,12 +1,6 @@
 import * as React from 'react'
 import useStyles from './styles'
-import {
-  Card,
-  Typography,
-  Breadcrumbs,
-  Tooltip,
-  ButtonBase,
-} from '@mui/material'
+import { Breadcrumbs, ButtonBase, Card, Tooltip, Typography } from '@mui/material'
 import { TurnedIn, TurnedInNot } from '@mui/icons-material'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper.min.css'
@@ -15,7 +9,7 @@ import 'swiper/components/navigation/navigation.min.css'
 
 import { AuthContext } from '../../../AuthContext'
 
-const SchoolCardMini = ({ school }: { school: Object }): React.Element<any> => {
+const SchoolCardMini = ({ school }) => {
   const c = useStyles()
   const authContext = React.useContext(AuthContext)
 

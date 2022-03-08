@@ -18,7 +18,7 @@ const Major = ({ major }) => {
       </div>
       <Divider className={c.divider} />
       <List className={c.programsContainer}>
-        {major.programs.map((program: Object) => {
+        {major.programs.map((program) => {
           return context.filterCredLevs.includes(program.credLev) ? (
             <Program
               key={`${program.codeFull}${program.credLev}`}

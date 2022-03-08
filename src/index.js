@@ -1,9 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Router } from 'react-router-dom'
 import CssBaseline from '@mui/material/CssBaseline'
-import { createTheme, ThemeProvider, StyledEngineProvider, adaptV4Theme } from '@mui/material/styles';
-import history from './util/history'
+import { adaptV4Theme, createTheme, StyledEngineProvider, ThemeProvider } from '@mui/material/styles'
+import { BrowserRouter } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { AuthProvider } from './AuthContext'
@@ -29,7 +28,7 @@ const theme = createTheme(adaptV4Theme({
 
 ReactDOM.render(
   <QueryClientProvider client={queryClient}>
-    <Router history={history}>
+    <BrowserRouter>
       <AuthProvider>
         <HomeProvider>
           <StyledEngineProvider injectFirst>
@@ -41,7 +40,7 @@ ReactDOM.render(
           </StyledEngineProvider>
         </HomeProvider>
       </AuthProvider>
-    </Router>
+    </BrowserRouter>
   </QueryClientProvider>,
   document.querySelector('#root')
 )
