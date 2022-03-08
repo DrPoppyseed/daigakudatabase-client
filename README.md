@@ -1,5 +1,9 @@
 # Daigaku Database
 
+https://user-images.githubusercontent.com/44737273/157153881-482a6a64-823b-4174-adf9-85f98e73c401.mp4
+
+
+
 [daigakudatabase.com](daigakudatabaase.com) is a website for students to easily search colleges and universities in the
 U.S. and get useful information.
 
