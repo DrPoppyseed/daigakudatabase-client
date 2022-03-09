@@ -1,7 +1,7 @@
 import * as React from 'react'
 import useStyles from './styles'
 import { FormControl, FormGroup, Paper } from '@mui/material'
-import CheckboxChild from '../../../Common/CheckboxChild/CheckboxChild'
+import CheckboxChild from '../../../common/CheckboxChild'
 import { MajorsConsumer } from '../MajorsProvider'
 
 const CredLevFilter = ({ programsPerCredLev }) => {

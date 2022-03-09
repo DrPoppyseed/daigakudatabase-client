@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { firebaseAuth } from './util/firebase'
+import { firebaseAuth } from './config/firebase'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 const AuthContext = React.createContext()

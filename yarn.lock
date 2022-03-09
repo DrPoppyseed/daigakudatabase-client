@@ -1440,7 +1440,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.14.6, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.2, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.6.2, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.7.7, @babel/runtime@npm:^7.8.3, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.8.7, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.14.6, @babel/runtime@npm:^7.15.4, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.2, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.6.2, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.7.7, @babel/runtime@npm:^7.8.3, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.8.7, @babel/runtime@npm:^7.9.2":
   version: 7.17.2
   resolution: "@babel/runtime@npm:7.17.2"
   dependencies:
@@ -3537,6 +3537,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/hoist-non-react-statics@npm:^3.3.0":
+  version: 3.3.1
+  resolution: "@types/hoist-non-react-statics@npm:3.3.1"
+  dependencies:
+    "@types/react": "*"
+    hoist-non-react-statics: ^3.3.0
+  checksum: 2c0778570d9a01d05afabc781b32163f28409bb98f7245c38d5eaf082416fdb73034003f5825eb5e21313044e8d2d9e1f3fe2831e345d3d1b1d20bcd12270719
+  languageName: node
+  linkType: hard
+
 "@types/html-minifier-terser@npm:^6.0.0":
   version: 6.1.0
   resolution: "@types/html-minifier-terser@npm:6.1.0"
@@ -3664,12 +3674,33 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-helmet@npm:^6.1.5":
+  version: 6.1.5
+  resolution: "@types/react-helmet@npm:6.1.5"
+  dependencies:
+    "@types/react": "*"
+  checksum: d059cc084d3b3071cce3421bb1170dd42819cf39b81afe60d4fbd66c5ef9ffeaadf1802df80efd9553258f621678f69ceb5a21d73df0d8539d40ae9a0f995485
+  languageName: node
+  linkType: hard
+
 "@types/react-is@npm:^16.7.1 || ^17.0.0":
   version: 17.0.3
   resolution: "@types/react-is@npm:17.0.3"
   dependencies:
     "@types/react": "*"
   checksum: 6abb7c47d54f012272650df8a962a28bd82f219291e5ef8b4dfa7fe0bb98ae243b060bf9fbe8ceff6213141794855a006db194b490b00ffd15842ae19d0ce1f0
+  languageName: node
+  linkType: hard
+
+"@types/react-redux@npm:^7.1.20, @types/react-redux@npm:^7.1.23":
+  version: 7.1.23
+  resolution: "@types/react-redux@npm:7.1.23"
+  dependencies:
+    "@types/hoist-non-react-statics": ^3.3.0
+    "@types/react": "*"
+    hoist-non-react-statics: ^3.3.0
+    redux: ^4.0.0
+  checksum: 7cedb0f20806ce67255f676fab2d4d9534c12705d43636df95224cfa77fdf5a2e792dc76c6e072c02cad1c88030aea822c14f36fe85d459b898ee68fcff6f05c
   languageName: node
   linkType: hard
 
@@ -6235,6 +6266,8 @@ __metadata:
     "@types/node": ^17.0.21
     "@types/react": ^17.0.39
     "@types/react-dom": ^17.0.13
+    "@types/react-helmet": ^6.1.5
+    "@types/react-redux": ^7.1.23
     "@typescript-eslint/eslint-plugin": ^5.14.0
     "@typescript-eslint/parser": ^5.14.0
     axios: ^0.26.0
@@ -6247,7 +6280,7 @@ __metadata:
     eslint-config-prettier: ^8.5.0
     eslint-plugin-react: ^7.29.3
     firebase: ^9.6.8
-    husky: ^7.0.0
+    husky: ^7.0.4
     pinst: ^3.0.0
     prettier: ^2.5.1
     react: ^17.0.2
@@ -6257,6 +6290,7 @@ __metadata:
     react-hook-form: ^7.27.1
     react-loader-spinner: ^6.0.0-0
     react-query: ^3.34.16
+    react-redux: ^7.2.6
     react-router-dom: ^6.2.2
     react-scripts: ^5.0.0
     swiper: ^6.8.4
@@ -7992,7 +8026,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hoist-non-react-statics@npm:^3.0.0, hoist-non-react-statics@npm:^3.3.1, hoist-non-react-statics@npm:^3.3.2":
+"hoist-non-react-statics@npm:^3.0.0, hoist-non-react-statics@npm:^3.3.0, hoist-non-react-statics@npm:^3.3.1, hoist-non-react-statics@npm:^3.3.2":
   version: 3.3.2
   resolution: "hoist-non-react-statics@npm:3.3.2"
   dependencies:
@@ -8210,7 +8244,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:^7.0.0":
+"husky@npm:^7.0.4":
   version: 7.0.4
   resolution: "husky@npm:7.0.4"
   bin:
@@ -12060,6 +12094,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-redux@npm:^7.2.6":
+  version: 7.2.6
+  resolution: "react-redux@npm:7.2.6"
+  dependencies:
+    "@babel/runtime": ^7.15.4
+    "@types/react-redux": ^7.1.20
+    hoist-non-react-statics: ^3.3.2
+    loose-envify: ^1.4.0
+    prop-types: ^15.7.2
+    react-is: ^17.0.2
+  peerDependencies:
+    react: ^16.8.3 || ^17
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+    react-native:
+      optional: true
+  checksum: 0bf142ce0d0b80aef955650fd5e9489fca32d94f19ee23893b332f1b01ceee7bd3623337c942cbda642667d1dc9de5ac869c3c1946afa6cf2046407b57d24741
+  languageName: node
+  linkType: hard
+
 "react-refresh@npm:^0.11.0":
   version: 0.11.0
   resolution: "react-refresh@npm:0.11.0"
@@ -12245,7 +12300,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"redux@npm:^4.1.2":
+"redux@npm:^4.0.0, redux@npm:^4.1.2":
   version: 4.1.2
   resolution: "redux@npm:4.1.2"
   dependencies:

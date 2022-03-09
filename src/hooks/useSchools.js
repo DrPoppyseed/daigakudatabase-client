@@ -1,17 +1,15 @@
 import { useQuery } from 'react-query'
 import axios from 'axios'
-import { firebaseAuth } from '../util/firebase'
+import { firebaseAuth } from '../config/firebase'
 import {
   DEFAULT_SAT_RANGE_HIGH,
   DEFAULT_SAT_RANGE_LOW,
-  DEFAULT_TOEFL_RANGE,
   DEFAULT_TUITION_RANGE_HIGH,
   DEFAULT_TUITION_RANGE_LOW,
-} from '../util/final'
+} from '../util/constants'
 
 const _INITIAL_SEARCH_STATE = {
   satRange: [DEFAULT_SAT_RANGE_LOW, DEFAULT_SAT_RANGE_HIGH],
-  toeflRange: DEFAULT_TOEFL_RANGE,
   tuitionRange: [DEFAULT_TUITION_RANGE_LOW, DEFAULT_TUITION_RANGE_HIGH],
   stateLocation: '',
   selectMajor: '',

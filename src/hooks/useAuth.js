@@ -1,4 +1,4 @@
-import { firebaseAuth, googleProvider } from '../util/firebase'
+import { firebaseAuth, googleProvider } from '../config/firebase'
 import { api } from '../util/api'
 import axios from 'axios'
 

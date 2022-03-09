@@ -1,7 +1,7 @@
 import * as React from 'react'
 import useStyles from './styles'
 import { Helmet } from 'react-helmet'
-import ScrollTop from '../Common/ScrollTop/ScrollTop.jsx'
+import ScrollTop from '../common/ScrollTop/ScrollTop.jsx'
 import { Card, Fab } from '@mui/material'
 import Skeleton from '@mui/material/Skeleton'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'

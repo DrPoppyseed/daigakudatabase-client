@@ -22,7 +22,7 @@ import { AccountCircle } from '@mui/icons-material'
 import { Link } from 'react-router-dom'
 import useStyles from './styles.js'
 import { signOut } from '../../hooks/useAuth'
-import SortByScroller from '../Home/SortByScroller'
+import SortByScroller from '../HomePage/SortByScroller'
 
 const Header = () => {
   const c = useStyles()

@@ -8,8 +8,8 @@ import { AuthContext } from '../../AuthContext'
 
 import Header from '../Header'
 import MyPage from '../MyPage'
-import Home from '../Home'
-import FilterDrawer from '../Home/FilterDrawer'
+import Home from '../HomePage/HomePage'
+import FilterDrawer from '../HomePage/FilterDrawer'
 
 const SignIn = loadable(() => import('../Auth/SignIn'))
 const SignUp = loadable(() => import('../Auth/SignUp'))

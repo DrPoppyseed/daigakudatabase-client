@@ -4,7 +4,7 @@ import {
   DEFAULT_SAT_RANGE_LOW,
   DEFAULT_TUITION_RANGE_HIGH,
   DEFAULT_TUITION_RANGE_LOW,
-} from './util/final'
+} from './util/constants'
 import { useQueryClient } from 'react-query'
 import { getSchools, useGetSchools } from './hooks/useSchools'
 
@@ -79,6 +79,7 @@ const HomeProvider = ({ children }) => {
   const [isFilterDrawerOpen, setIsFilterDrawerOpen] = React.useState(false)
 
   const handleFilterChange = e => {
+    console.log('from handleFilterChange', e)
     setFilterState({ ...filterState, [e.target.name]: e.target.checked })
   }
 
