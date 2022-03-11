@@ -15,7 +15,7 @@ import { AuthProvider } from './AuthContext'
 import { HomeProvider } from './HomeContext'
 import { store } from './store'
 
-import App from './components/App/App.jsx'
+import App from './components/App'
 
 const queryClient = new QueryClient({
   defaultOptions: {

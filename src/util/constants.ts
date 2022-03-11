@@ -77,3 +77,7 @@ export const States = [
   { en: 'WY', ja: 'ワイオミング州' },
   { en: 'DC', ja: 'ワシントンＤＣ' },
 ]
+
+export const PageMetaTitles = {
+  HOME: 'ホーム',
+}

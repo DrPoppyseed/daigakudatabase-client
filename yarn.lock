@@ -3602,6 +3602,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/loadable__component@npm:^5.13.4":
+  version: 5.13.4
+  resolution: "@types/loadable__component@npm:5.13.4"
+  dependencies:
+    "@types/react": "*"
+  checksum: a2d1c77b952eb15c45dfad841a7a0a3e4045f828e1f0ecbab997a306a56a48cd48ee12ee75bf79f59bbcff0347bbeb120106e8e66c91a38a530a028e1598b130
+  languageName: node
+  linkType: hard
+
 "@types/long@npm:^4.0.1":
   version: 4.0.1
   resolution: "@types/long@npm:4.0.1"
@@ -6263,6 +6272,7 @@ __metadata:
     "@nivo/legends": ^0.79.1
     "@nivo/pie": ^0.79.1
     "@reduxjs/toolkit": ^1.8.0
+    "@types/loadable__component": ^5.13.4
     "@types/node": ^17.0.21
     "@types/react": ^17.0.39
     "@types/react-dom": ^17.0.13

@@ -108,7 +108,7 @@ export const unlikeSchoolById = async ipeds_unitid => {
     return data
   } catch (err) {
     console.log(
-      '🚀 ~ file: useSchools.js ~ unlikeSchoolById() try-catch ~ err',
+      '🚀 ~ file: useSchools.ts ~ unlikeSchoolById() try-catch ~ err',
       err
     )
   }
