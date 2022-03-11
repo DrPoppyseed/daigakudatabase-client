@@ -5,10 +5,10 @@ import Major from './Major/Major'
 import Skeleton from '@mui/material/Skeleton'
 import { MajorsProvider } from './MajorsProvider'
 
-import { useGetMajorsOfSchoolById } from '../../../hooks/useSchools'
+import { useGetMajorsById } from '../../../hooks/useSchools'
 
 const Majors = ({ uuid }) => {
-  const { status, data } = useGetMajorsOfSchoolById(uuid)
+  const { status, data } = useGetMajorsById(uuid)
 
   return (
     <MajorsProvider>

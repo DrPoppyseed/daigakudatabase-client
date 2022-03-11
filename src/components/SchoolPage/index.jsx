@@ -1,7 +1,7 @@
 import * as React from 'react'
 import useStyles from './styles'
 import { Helmet } from 'react-helmet'
-import ScrollTop from '../Common/ScrollTop/ScrollTop.jsx'
+import ScrollTopFab from '../common/ScrollTopFab.tsx'
 import { Card, Fab } from '@mui/material'
 import Skeleton from '@mui/material/Skeleton'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
@@ -102,11 +102,11 @@ const SchoolPage = props => {
           <RecommendedSchools currentSchoolUuid={data.uuid} />
         )}
       </div>
-      <ScrollTop {...props}>
+      <ScrollTopFab {...props}>
         <Fab aria-label='key arrow up' className={c.fab}>
           <KeyboardArrowUpIcon className={c.fabIcon} />
         </Fab>
-      </ScrollTop>
+      </ScrollTopFab>
     </div>
   )
 }
