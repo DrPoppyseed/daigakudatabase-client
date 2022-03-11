@@ -22,7 +22,6 @@ import { AccountCircle } from '@mui/icons-material'
 import { Link } from 'react-router-dom'
 import useStyles from './styles.js'
 import { signOut } from '../../hooks/useAuth'
-import SortByScroller from '../sort/SortByScroller'
 
 const Header = () => {
   const c = useStyles()
@@ -165,7 +164,6 @@ const Header = () => {
               )}
             </div>
           </div>
-          {sm_down ? <SortByScroller className={c.sortByScroller} /> : ''}
         </Toolbar>
       </AppBar>
     </div>

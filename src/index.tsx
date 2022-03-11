@@ -12,7 +12,6 @@ import { BrowserRouter } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { AuthProvider } from './AuthContext'
-import { HomeProvider } from './HomeContext'
 import { store } from './store'
 
 import App from './components/App'
@@ -40,15 +39,13 @@ ReactDOM.render(
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <AuthProvider>
-          <HomeProvider>
-            <StyledEngineProvider injectFirst>
-              <ThemeProvider theme={theme}>
-                <CssBaseline />
-                <App />
-                <ReactQueryDevtools />
-              </ThemeProvider>
-            </StyledEngineProvider>
-          </HomeProvider>
+          <StyledEngineProvider injectFirst>
+            <ThemeProvider theme={theme}>
+              <CssBaseline />
+              <App />
+              <ReactQueryDevtools />
+            </ThemeProvider>
+          </StyledEngineProvider>
         </AuthProvider>
       </BrowserRouter>
     </QueryClientProvider>

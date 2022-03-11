@@ -1,12 +1,11 @@
 import * as React from 'react'
-import { Card, Skeleton, Theme, useMediaQuery } from '@mui/material'
+import { Card, Skeleton } from '@mui/material'
 import useStyles from './HomeSchoolCardSkeletonStyles'
 
 const HomeSchoolCardSkeleton = () => {
   const c = useStyles()
-  const sm_up = useMediaQuery((theme: Theme) => theme.breakpoints.up('xs'))
 
-  const cardsMDUp = () => (
+  return (
     <Card className={c.cardContainer}>
       <Skeleton
         variant='rectangular'
@@ -31,12 +30,6 @@ const HomeSchoolCardSkeleton = () => {
       </div>
     </Card>
   )
-
-  const cardsSMDown = () => (
-    <Card className={c.cardContainer}>Skeleton sm down</Card>
-  )
-
-  return sm_up ? cardsMDUp() : cardsSMDown()
 }
 
 export default HomeSchoolCardSkeleton

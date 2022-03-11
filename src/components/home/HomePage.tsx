@@ -1,12 +1,9 @@
 import * as React from 'react'
 import clsx from 'clsx'
 import useStyles from './HomePageStyles'
-import { Container, Theme, useMediaQuery } from '@mui/material'
+import { Container } from '@mui/material'
 import Pagination from './Pagination'
-
-import HomeSchoolCardSkeleton from '../HomeSchoolCard/HomeSchoolCardSkeleton'
 import FilterBox from '../filter/FilterBox'
-import FilterDrawer from '../filter/FilterDrawer'
 
 import HomeSchoolCard from '../HomeSchoolCard/HomeSchoolCard'
 import MetaTitle from '../common/MetaTitle'
@@ -18,11 +15,12 @@ import ScrollTopFab from '../common/ScrollTopFab'
 import SortByBox from '../sort/SortByBox'
 import NoSchoolsFound from './NoSchoolsFound'
 import { useAppSelector } from '../../hooks/useFilter'
+import ErrorMessage from './ErrorMessage'
+import HomePageCardListSkeleton from './HomePageCardListSkeleton'
 
 const Home = () => {
   const params = useAppSelector(state => state.params)
 
-  const sm_down = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'))
   const c = useStyles()
   const { data, isLoading, isError, isSuccess } = useGetSchoolsQuery(
     queryParamsBuilder(params)
@@ -41,27 +39,23 @@ const Home = () => {
   return (
     <div className={c.root}>
       <MetaTitle title={PageMetaTitles.HOME} />
-      <FilterDrawer />
       <div className={c.filterContainer}>
         <FilterBox />
       </div>
       <Container className={clsx(c.cardsContainer, isLoading && c.rootLoading)}>
         {isLoading ? (
-          <HomeSchoolCardSkeleton />
+          <HomePageCardListSkeleton />
         ) : isError ? (
-          'エラー発生'
+          <ErrorMessage />
         ) : data && data.totalSchoolsFound === 0 ? (
           <React.Fragment>
-            {/*{sm_down ? <SortByScroller /> : <SortByBox />}*/}
-            {!sm_down && <SortByBox data={data} />}
+            <SortByBox data={data} />
             <NoSchoolsFound />
           </React.Fragment>
         ) : (
           <React.Fragment>
-            {!sm_down && <SortByBox data={data} />}
-            {console.log(data!.schools)}
+            <SortByBox data={data} />
             {renderSchools}
-            hello
           </React.Fragment>
         )}
         {isSuccess && <Pagination totalSchoolsFound={data.totalSchoolsFound} />}

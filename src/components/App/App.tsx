@@ -9,7 +9,6 @@ import { AuthContext } from '../../AuthContext'
 import Header from '../header'
 import MyPage from '../MyPage'
 import Home from '../home/HomePage'
-import FilterDrawer from '../filter/FilterDrawer'
 
 const SignIn = loadable(() => import('../Auth/SignIn'))
 const SignUp = loadable(() => import('../Auth/SignUp'))
@@ -29,7 +28,6 @@ const App = () => {
         <React.Fragment>
           {isNotAuth ? <Header /> : null}
           <Container className={c.appContainer}>
-            <FilterDrawer />
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/account' element={<MyPage />} />
