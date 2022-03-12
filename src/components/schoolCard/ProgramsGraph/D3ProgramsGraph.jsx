@@ -1,9 +1,9 @@
 import * as React from 'react'
 import * as d3 from 'd3'
 import { useD3 } from '../../../hooks/useD3'
-import './styles.css'
+import './D3ProgramsGraphStyles.css'
 
-const D3ProgramsViz = props => {
+const D3ProgramsGraph = props => {
   const { width = 200, height = 200, data, unitid, highlighted } = props
 
   const ref = useD3(
@@ -50,9 +50,11 @@ const D3ProgramsViz = props => {
           d3.forceCollide().radius(d => d.radius * 80)
         )
 
-      simulation.nodes(data).on('tick', () => {
-        node.attr('cx', d => d.x).attr('cy', d => d.y)
-      })
+      console.log('from D3ProgramsGraph', data, simulation.nodes)
+      // simulation.nodes(data).on('tick', d => {
+      //   // console.log(node.attr)
+      //   node.attr('cx', d => d.x).attr('cy', d => d.y)
+      // })
 
       let node = svg
         .append('g')
@@ -90,4 +92,4 @@ const D3ProgramsViz = props => {
   return <svg ref={ref} height={height} width={width} />
 }
 
-export default D3ProgramsViz
+export default D3ProgramsGraph

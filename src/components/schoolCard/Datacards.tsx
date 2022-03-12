@@ -1,10 +1,24 @@
 import * as React from 'react'
-import useStyles from './styles.js'
+import { FC } from 'react'
+import useStyles from './DatacardsStyles'
 import { Typography } from '@mui/material'
 
-const DatacardsContainer = props => {
+export interface DatacardsProps {
+  campus: any
+  education: any
+  classifications: any
+  tuition: any
+  admissions: any
+}
+
+const Datacards: FC<DatacardsProps> = ({
+  campus,
+  education,
+  classifications,
+  tuition,
+  admissions,
+}) => {
   const c = useStyles()
-  const { campus, education, classifications, tuition, admissions } = props
 
   return (
     <div className={c.datacardsBlock}>
@@ -52,7 +66,7 @@ const DatacardsContainer = props => {
         </div>
       </div>
       <div className={c.datacardContainer}>
-        <div className={c.datacardTitleContainer}>
+        <div>
           <Typography variant='button'>テストと学費</Typography>
         </div>
         <div className={c.datacardBodyContainer}>
@@ -94,4 +108,4 @@ const DatacardsContainer = props => {
   )
 }
 
-export default DatacardsContainer
+export default Datacards
