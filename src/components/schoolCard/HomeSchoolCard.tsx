@@ -7,11 +7,12 @@ import {
   StarBorder as StarBorderIcon,
 } from '@mui/icons-material'
 import useStyles from './HomeSchoolCardStyles'
-import DatacardsContainer from './DatacardsContainer'
+import Datacards from './Datacards'
 
 import { likeSchoolById, unlikeSchoolById } from '../../hooks/useAuth'
 import { useMutation } from 'react-query'
 import { AuthContext } from '../../AuthContext'
+import D3Graphs from './D3Graphs'
 
 export interface HomeSchoolCardProps {
   general: any
@@ -92,20 +93,20 @@ const HomeSchoolCard: FC<HomeSchoolCardProps> = ({
         </Button>
       </div>
       <div className={c.bodyBlock}>
-        <DatacardsContainer
+        <Datacards
           campus={campus}
           education={education}
           classifications={classifications}
           tuition={tuition}
           admissions={admissions}
         />
-        {/*<D3GraphsContainer*/}
-        {/*  admissionsData={admissions}*/}
-        {/*  tuitionData={tuition}*/}
-        {/*  educationData={education}*/}
-        {/*  studentsData={students}*/}
-        {/*  ipeds_unitid={ipeds_unitid}*/}
-        {/*/>*/}
+        <D3Graphs
+          admissionsData={admissions}
+          tuitionData={tuition}
+          educationData={education}
+          studentsData={students}
+          ipeds_unitid={ipeds_unitid}
+        />
       </div>
     </Card>
   )

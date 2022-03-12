@@ -1,9 +1,9 @@
 import * as React from 'react'
 import * as d3 from 'd3'
 import { useD3 } from '../../../hooks/useD3'
-import './styles.css'
+import './D3StudentsGraphStyles.css'
 
-const D3StudentsViz = props => {
+const D3StudentsGraph = props => {
   const {
     height: _height,
     width: _width,
@@ -175,4 +175,4 @@ const D3StudentsViz = props => {
   return <svg ref={ref} height={_height} width={_width} />
 }
 
-export default D3StudentsViz
+export default D3StudentsGraph

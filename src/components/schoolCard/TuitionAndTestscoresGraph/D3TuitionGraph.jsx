@@ -3,7 +3,7 @@ import * as d3 from 'd3'
 import { useD3 } from '../../../hooks/useD3'
 import data from '../../../data/tuition.json'
 
-const D3HistogramViz = props => {
+const D3TuitionGraph = props => {
   const {
     height: _height,
     width: _width,
@@ -201,4 +201,4 @@ const D3HistogramViz = props => {
   )
 }
 
-export default D3HistogramViz
+export default D3TuitionGraph

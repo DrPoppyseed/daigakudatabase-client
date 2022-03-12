@@ -1,5 +1,5 @@
 import SortByBoxSkeleton from '../sort/SortByBoxSkeleton'
-import HomeSchoolCardSkeleton from '../HomeSchoolCard/HomeSchoolCardSkeleton'
+import HomeSchoolCardSkeleton from '../schoolCard/HomeSchoolCardSkeleton'
 import * as React from 'react'
 
 const HomePageCardListSkeleton = () => {

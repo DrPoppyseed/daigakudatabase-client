@@ -5,7 +5,7 @@ import { Container } from '@mui/material'
 import Pagination from './Pagination'
 import FilterBox from '../filter/FilterBox'
 
-import HomeSchoolCard from '../HomeSchoolCard/HomeSchoolCard'
+import HomeSchoolCard from '../schoolCard/HomeSchoolCard'
 import MetaTitle from '../common/MetaTitle'
 import { PageMetaTitles } from '../../util/constants'
 import { useGetSchoolsQuery } from '../../features/schoolsAPISlice'
