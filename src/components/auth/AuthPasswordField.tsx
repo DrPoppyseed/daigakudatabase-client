@@ -2,12 +2,12 @@ import React, { FC } from 'react'
 import { styled, TextField } from '@mui/material'
 import TogglePasswordVisibility from './TogglePasswordVisibility'
 
-export interface PasswordInputProps {
+export interface AuthPasswordFieldProps {
   register: any
   helperText?: string
 }
 
-const AuthPasswordField: FC<PasswordInputProps> = ({
+const AuthPasswordField: FC<AuthPasswordFieldProps> = ({
   register,
   helperText = '',
 }) => {

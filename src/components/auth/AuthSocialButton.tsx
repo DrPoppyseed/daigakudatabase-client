@@ -2,12 +2,12 @@ import React, { FC } from 'react'
 import { Button, styled } from '@mui/material'
 import { FormattedMessage } from 'react-intl'
 
-export interface SocialButtonProps {
+export interface AuthSocialButtonProps {
   buttonLabelMessageId: string
   onButtonClick: () => void
 }
 
-const AuthSocialButton: FC<SocialButtonProps> = ({
+const AuthSocialButton: FC<AuthSocialButtonProps> = ({
   buttonLabelMessageId,
   onButtonClick,
 }) => {
