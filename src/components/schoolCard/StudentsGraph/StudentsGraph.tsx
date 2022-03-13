@@ -41,7 +41,7 @@ const StudentsGraph: FC<StudentsGraphProps> = ({ students, unitid }) => {
       sex: 'men',
       percentage: men,
       color: SexGraphics.men.color,
-      ja: SexGraphics.men.color,
+      ja: SexGraphics.men.ja,
     },
     {
       sex: 'women',
