@@ -11,7 +11,10 @@ import { store } from './store'
 
 import App from './components/App'
 import theme from './config/muiTheme'
+import { IntlProvider } from 'react-intl'
+import { browserLocale, messages } from './config/i18n'
 
+// TODO: deprecate react-query and migrate to rtk-query
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -28,7 +31,13 @@ ReactDOM.render(
           <StyledEngineProvider injectFirst>
             <ThemeProvider theme={theme}>
               <CssBaseline />
-              <App />
+              <IntlProvider
+                locale={browserLocale}
+                messages={messages[browserLocale]}
+                defaultLocale='en'
+              >
+                <App />
+              </IntlProvider>
               <ReactQueryDevtools />
             </ThemeProvider>
           </StyledEngineProvider>

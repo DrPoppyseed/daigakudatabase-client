@@ -2,7 +2,8 @@ import D3StudentsViz from './D3StudentsGraph'
 import { List, ListItemButton, Typography } from '@mui/material'
 import React, { FC } from 'react'
 import { KeyValueObject } from '../../../types/common'
-import { DemographicsGraphics, SexGraphics } from '../../../util/constants'
+import { SexGraphics } from '../../../util/constants'
+import { DemographicsGraphics } from '../../../constants/DemographicsGraphics'
 import useStyles from './StudentsGraphStyles'
 
 export interface StudentsGraphProps {

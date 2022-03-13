@@ -1,0 +1,6 @@
+{
+  "header.auth_button.signin": "ログイン",
+  "header.auth_button.signup": "新規登録",
+  "filter.state_selector.input_label": "州別で見る",
+  "filter.state_selector.select_item.default_value": "特になし"
+}

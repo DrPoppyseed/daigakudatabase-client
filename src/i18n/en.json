@@ -1,0 +1,6 @@
+{
+  "header.auth_button.signin": "Sign In",
+  "header.auth_button.signup": "Sign Up",
+  "filter.state_selector.input_label": "See by State",
+  "filter.state_selector.select_item.default_value": "None"
+}

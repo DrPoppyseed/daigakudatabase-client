@@ -1,6 +1,7 @@
 import { Button, Link, styled } from '@mui/material'
 import { Link as RouterLink } from 'react-router-dom'
 import * as React from 'react'
+import { FormattedMessage } from 'react-intl'
 
 const AuthButtonsBlock = () => {
   return (
@@ -11,12 +12,12 @@ const AuthButtonsBlock = () => {
           component={RouterLink}
           sx={{ color: 'palette.primary.main' }}
         >
-          ログイン
+          <FormattedMessage id='header.auth_button.signin' />
         </Link>
       </AuthButton>
       <AuthButton variant='contained'>
         <Link to='/auth/signup' component={RouterLink} sx={{ color: 'white' }}>
-          新規登録
+          <FormattedMessage id='header.auth_button.signin' />
         </Link>
       </AuthButton>
     </ButtonsContainer>
