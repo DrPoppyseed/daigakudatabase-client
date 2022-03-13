@@ -31,7 +31,7 @@ const AppBarRoot = styled(AppBar)(({ theme }) => ({
   position: 'fixed',
   width: '100%',
   backgroundColor: theme.palette.background.default,
-  zIndex: 9999,
+  zIndex: 999,
   padding: `0 ${theme.spacing(4)}`,
   display: 'grid',
   [theme.breakpoints.up('lg')]: {

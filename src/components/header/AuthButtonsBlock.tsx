@@ -17,7 +17,7 @@ const AuthButtonsBlock = () => {
       </AuthButton>
       <AuthButton variant='contained'>
         <Link to='/auth/signup' component={RouterLink} sx={{ color: 'white' }}>
-          <FormattedMessage id='header.auth_button.signin' />
+          <FormattedMessage id='header.auth_button.signup' />
         </Link>
       </AuthButton>
     </ButtonsContainer>

@@ -14,6 +14,7 @@ const Pagination: FC<PaginationProps> = ({ totalSchoolsFound }) => {
 
   const handlePageChange = async (e: ChangeEvent<unknown>, num: number) => {
     dispatch(setPage(num))
+    window.scrollTo(0, 0)
   }
 
   return (

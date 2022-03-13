@@ -1,8 +1,13 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 import { IconButton, InputAdornment } from '@mui/material'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 
-const TogglePasswordVisibility = ({
+export interface TogglePasswordVisibilityProps {
+  showPassword: boolean
+  handleClickShowPassword: () => void
+}
+
+const TogglePasswordVisibility: FC<TogglePasswordVisibilityProps> = ({
   showPassword,
   handleClickShowPassword,
 }) => {
@@ -12,7 +17,6 @@ const TogglePasswordVisibility = ({
         aria-label='Toggle password visibility'
         onClick={handleClickShowPassword}
         edge='end'
-        size='large'
       >
         {showPassword ? <VisibilityOff /> : <Visibility />}
       </IconButton>

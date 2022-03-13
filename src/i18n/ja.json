@@ -50,6 +50,17 @@
   "school_card.datacard.tuition_and_testscores_graph.title.sat": "SATの点数 - 合格者上位25%",
   "school_card.datacard.students.no_data_text.label": "データがありません。",
   "school_card.datacard.students_graph.total_students": "生徒総数：",
+  "auth.auth_bottom_text.before_message.signup": "既存のアカウントでDaigaku Databaseに",
+  "auth.auth_bottom_text.link_text.signup": "ログイン",
+  "auth.auth_bottom_text.after_message.signup": "する。",
+  "auth.auth_bottom_text.before_message.signin": "Daigaku Databaseのアカウントをもっていない場合は",
+  "auth.auth_bottom_text.link_text.signin": "新規登録",
+  "auth.auth_bottom_text.after_message.signin": "から。",
+  "auth.auth_page_container.title.signin": "Daigaku Databaseにログインする",
+  "auth.auth_page_container.title.signup": "Daigaku Databaseを使い始める",
+  "auth.auth_button.button_label.signin": "ログイン",
+  "auth.auth_button.button_label.signup": "新規登録",
+  "auth.social_button.button_label.google": "Googleアカウントで認証",
   "not_found.message": "404 ページが見つかりませんでした。",
   "page_loading.message": "新しいスタートはすぐそこ..."
 }

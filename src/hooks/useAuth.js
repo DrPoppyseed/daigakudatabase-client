@@ -3,26 +3,22 @@ import { api } from '../util/api'
 import axios from 'axios'
 
 export const signUpWithEmail = async ({ email, password }) => {
-  try {
-    const user = await firebaseAuth.createUserWithEmailAndPassword(
-      email,
-      password
-    )
-    const token = await user.getIdToken(true)
-    const { data } = await api.put(
-      `${process.env.REACT_APP_BACKEND_API_ENDPOINT}/users/`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'X-Is-Google-SignIn': false,
-        },
+  const user = await firebaseAuth.createUserWithEmailAndPassword(
+    email,
+    password
+  )
+  const token = await user?.getIdToken(true)
+  const { data } = await api.put(
+    `${process.env.REACT_APP_BACKEND_API_ENDPOINT}/users/`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'X-Is-Google-SignIn': false,
       },
-      user
-    )
-    return data
-  } catch (err) {
-    console.log(err)
-  }
+    },
+    user
+  )
+  return data
 }
 
 export const signInWithEmail = async ({ email, password }) => {

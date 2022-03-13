@@ -1,31 +1,28 @@
-import * as React from 'react'
-import { TextField } from '@mui/material'
+import React, { FC } from 'react'
+import { styled, TextField } from '@mui/material'
 import TogglePasswordVisibility from './TogglePasswordVisibility'
-import makeStyles from '@mui/styles/makeStyles'
 
-const useStyles = makeStyles(() => ({
-  passwordField: {
-    marginTop: '1rem !important',
-    width: '100%',
-  },
-}))
+export interface PasswordInputProps {
+  register: any
+  helperText?: string
+}
 
-const PasswordInput = ({ control, register, helperText = '' }) => {
-  const c = useStyles()
+const AuthPasswordField: FC<PasswordInputProps> = ({
+  register,
+  helperText = '',
+}) => {
   const [showPassword, setShowPassword] = React.useState(false)
 
   const handleClickShowPassword = () =>
     setShowPassword(prevShowPassword => !prevShowPassword)
 
   return (
-    <TextField
+    <PasswordInputField
       type={showPassword ? 'text' : 'password'}
       variant='outlined'
       {...register('password')}
       label='password'
-      className={c.passwordField}
       autoComplete='current-password'
-      control={control}
       helperText={helperText}
       required
       InputProps={{
@@ -40,4 +37,9 @@ const PasswordInput = ({ control, register, helperText = '' }) => {
   )
 }
 
-export default PasswordInput
+const PasswordInputField = styled(TextField)(() => ({
+  marginTop: '1rem !important',
+  width: '100%',
+}))
+
+export default AuthPasswordField

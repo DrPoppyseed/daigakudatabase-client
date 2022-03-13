@@ -26,7 +26,6 @@ const CheckboxChild: FC<CheckboxChildProps> = ({
       }
       control={
         <Checkbox
-          color='primary'
           name={name}
           checked={checked}
           onChange={onChange}

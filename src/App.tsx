@@ -9,8 +9,8 @@ import MyPage from './components/MyPage'
 import Home from './components/home/HomePage'
 import PageLoading from './components/common/PageLoading'
 
-const SignIn = loadable(() => import('./components/Auth/SignIn'))
-const SignUp = loadable(() => import('./components/Auth/SignUp'))
+const SignIn = loadable(() => import('./components/auth/SignInPage'))
+const SignUp = loadable(() => import('./components/auth/SignUpPage'))
 const Footer = loadable(() => import('./components/common/Footer'))
 const SchoolPage = loadable(() => import('./components/SchoolPage'))
 const NoMatch = loadable(() => import('./components/common/NotFoundPage'))

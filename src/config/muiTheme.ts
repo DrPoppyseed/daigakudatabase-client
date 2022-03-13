@@ -10,6 +10,7 @@ const theme = createTheme({
     MuiButton: {
       defaultProps: {
         color: 'primary',
+        variant: 'contained',
       },
     },
     MuiLink: {
@@ -20,6 +21,16 @@ const theme = createTheme({
     MuiIconButton: {
       defaultProps: {
         size: 'large',
+      },
+    },
+    MuiTextField: {
+      defaultProps: {
+        variant: 'outlined',
+      },
+    },
+    MuiCheckbox: {
+      defaultProps: {
+        color: 'primary',
       },
     },
   },

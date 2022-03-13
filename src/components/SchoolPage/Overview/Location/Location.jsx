@@ -17,6 +17,7 @@ const Location = ({ lat, lon }) => {
           height='450'
           style={{ border: 0 }}
           loading='lazy'
+          title={'location'}
           allowFullScreen
           src={`https://www.google.com/maps/embed/v1/view?key=AIzaSyCd_GHnmWwBIrlIDh7pbzFbBQzw7VA166g&center=${lat},${lon}&maptype=satellite&zoom=17`}
         ></iframe>

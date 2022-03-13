@@ -50,6 +50,17 @@
   "school_card.datacard.tuition_and_testscores_graph.title.sat": "SAT 75th Percentile",
   "school_card.datacard.students.no_data_text.label": "Insufficient Data",
   "school_card.datacard.students_graph.total_students": "Total Students: ",
+  "auth.auth_bottom_text.before_message": "If you already have a Daigaku Database account",
+  "auth.auth_bottom_text.link_text": "sign in",
+  "auth.auth_bottom_text.after_message": "here.",
+  "auth.auth_bottom_text.before_message.signin": "If you don't have a Daigaku Database account",
+  "auth.auth_bottom_text.link_text.signin": "sign up",
+  "auth.auth_bottom_text.after_message.signin": "here.",
+  "auth.auth_page_container.title.signin": "Sign In to Daigaku Database",
+  "auth.auth_page_container.title.signup": "Sign Up to Daigaku Database",
+  "auth.auth_button.button_label.signin": "Sign In",
+  "auth.auth_button.button_label.signup": "Sign Up",
+  "auth.social_button.button_label.google": "Authenticate with Google",
   "not_found.message": "404 page not found",
   "page_loading.message": "A new beginning awaits..."
 }

@@ -1,7 +1,5 @@
 import * as React from 'react'
-import clsx from 'clsx'
-import useStyles from './HomePageStyles'
-import { Container } from '@mui/material'
+import { Container, styled } from '@mui/material'
 import Pagination from './Pagination'
 import FilterBox from '../filter/FilterBox'
 
@@ -21,7 +19,6 @@ import HomePageCardListSkeleton from './HomePageCardListSkeleton'
 const Home = () => {
   const params = useAppSelector(state => state.params)
 
-  const c = useStyles()
   const { data, isLoading, isError, isSuccess } = useGetSchoolsQuery(
     queryParamsBuilder(params)
   )
@@ -37,12 +34,16 @@ const Home = () => {
   )
 
   return (
-    <div className={c.root}>
+    <Root>
       <MetaTitle title={PageMetaTitles.HOME} />
-      <div className={c.filterContainer}>
+      <FilterContainer>
         <FilterBox />
-      </div>
-      <Container className={clsx(c.cardsContainer, isLoading && c.rootLoading)}>
+      </FilterContainer>
+      <CardsContainer
+        style={{
+          height: isLoading ? '100vh' : 'auto',
+        }}
+      >
         {isLoading ? (
           <HomePageCardListSkeleton />
         ) : isError ? (
@@ -59,9 +60,52 @@ const Home = () => {
           </React.Fragment>
         )}
         {isSuccess && <Pagination totalSchoolsFound={data.totalSchoolsFound} />}
-      </Container>
+      </CardsContainer>
       <ScrollTopFab />
-    </div>
+    </Root>
   )
 }
+
+const Root = styled('div')(({ theme }) => ({
+  flexGrow: 1,
+  display: 'grid',
+  gridSpacing: theme.spacing(4),
+  [theme.breakpoints.down('lg')]: {
+    gridTemplateColumns: '0px auto 0px',
+    gridSpacing: theme.spacing(2),
+  },
+  [theme.breakpoints.between('md', 'xl')]: {
+    gridTemplateColumns: '1fr 900px 1fr',
+  },
+  [theme.breakpoints.up('lg')]: {
+    gridTemplateColumns: '1fr 300px 10px 900px 1fr',
+  },
+}))
+
+const FilterContainer = styled('div')(({ theme }) => ({
+  display: 'block',
+  [theme.breakpoints.down('lg')]: {
+    display: 'none',
+  },
+  gridColumn: 2,
+}))
+
+const CardsContainer = styled(Container)(({ theme }) => ({
+  gridColumn: 2,
+  flexGrow: 1,
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  [theme.breakpoints.down('md')]: {
+    width: '100%',
+    marginTop: 30,
+  },
+  [theme.breakpoints.up('md')]: {
+    width: 900,
+  },
+  [theme.breakpoints.up('lg')]: {
+    gridColumn: 4,
+  },
+}))
+
 export default Home
