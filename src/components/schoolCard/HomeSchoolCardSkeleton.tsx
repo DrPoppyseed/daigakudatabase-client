@@ -1,35 +1,42 @@
 import * as React from 'react'
-import { Card, Skeleton } from '@mui/material'
-import useStyles from './HomeSchoolCardSkeletonStyles'
+import { Card, Skeleton, styled } from '@mui/material'
 
-const HomeSchoolCardSkeleton = () => {
-  const c = useStyles()
-
-  return (
-    <Card className={c.cardContainer}>
+const HomeSchoolCardSkeleton = () => (
+  <CardContainer>
+    <Skeleton
+      variant='rectangular'
+      width={852}
+      height={48}
+      sx={{ marginBottom: 2 }}
+      animation='wave'
+    />
+    <BodyBlock>
       <Skeleton
         variant='rectangular'
-        width={852}
-        height={48}
-        className={c.titleBlock}
+        width={350}
+        height={261}
         animation='wave'
       />
-      <div className={c.bodyBlock}>
-        <Skeleton
-          variant='rectangular'
-          width={350}
-          height={261}
-          animation='wave'
-        />
-        <Skeleton
-          variant='rectangular'
-          width={450}
-          height={241}
-          animation='wave'
-        />
-      </div>
-    </Card>
-  )
-}
+      <Skeleton
+        variant='rectangular'
+        width={450}
+        height={241}
+        animation='wave'
+      />
+    </BodyBlock>
+  </CardContainer>
+)
+
+const CardContainer = styled(Card)(({ theme }) => ({
+  width: 900,
+  marginBottom: theme.spacing(1),
+  padding: theme.spacing(3),
+  height: 373,
+}))
+
+const BodyBlock = styled('div')(() => ({
+  display: 'flex',
+  justifyContent: 'space-between',
+}))
 
 export default HomeSchoolCardSkeleton

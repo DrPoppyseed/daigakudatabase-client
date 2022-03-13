@@ -3,6 +3,7 @@ import { FormControl, FormGroup, FormLabel } from '@mui/material'
 import { useAppDispatch, useAppSelector } from '../../hooks/useFilter'
 import { setSchoolType } from '../../features/filterSlice'
 import CheckboxChild from '../common/CheckboxChild'
+import { FormattedMessage } from 'react-intl'
 
 const SchoolTypeCheckboxes = () => {
   const schoolType = useAppSelector(state => state.filter.schoolType)
@@ -19,17 +20,19 @@ const SchoolTypeCheckboxes = () => {
 
   return (
     <FormControl>
-      <FormLabel component='legend'>大学の区分</FormLabel>
+      <FormLabel component='legend'>
+        <FormattedMessage id='filter.school_type_checkboxes.form_label' />
+      </FormLabel>
       <FormGroup>
         <div>
           <CheckboxChild
-            label='４年制'
+            messageId='filter.school_type_checkboxes.form_group.checkbox_label.four_year'
             name='fourYear'
             checked={schoolType.fourYear}
             onChange={handleSchoolType}
           />
           <CheckboxChild
-            label='２年制'
+            messageId='filter.school_type_checkboxes.form_group.checkbox_label.two_year'
             name='twoYear'
             checked={schoolType.twoYear}
             onChange={handleSchoolType}
@@ -37,13 +40,13 @@ const SchoolTypeCheckboxes = () => {
         </div>
         <div>
           <CheckboxChild
-            label='公立 (1985校)'
+            messageId='filter.school_type_checkboxes.form_group.checkbox_label.public'
             name='publicSchool'
             checked={schoolType.publicSchool}
             onChange={handleSchoolType}
           />
           <CheckboxChild
-            label='私立 (4338校)'
+            messageId='filter.school_type_checkboxes.form_group.checkbox_label.private'
             name='privateSchool'
             checked={schoolType.privateSchool}
             onChange={handleSchoolType}

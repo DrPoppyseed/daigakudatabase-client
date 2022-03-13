@@ -2,8 +2,11 @@ import D3StudentsViz from './D3StudentsGraph'
 import { List, ListItemButton, Typography } from '@mui/material'
 import React, { FC } from 'react'
 import { KeyValueObject } from '../../../types/common'
-import { DemographicsGraphics, SexGraphics } from '../../../util/constants'
+import { SexGraphics } from '../../../util/constants'
+import { DemographicsGraphics } from '../../../constants/DemographicsGraphics'
 import useStyles from './StudentsGraphStyles'
+import NoDataText from './NoDataText'
+import { FormattedMessage } from 'react-intl'
 
 export interface StudentsGraphProps {
   students: any
@@ -70,7 +73,8 @@ const StudentsGraph: FC<StudentsGraphProps> = ({ students, unitid }) => {
           </div>
           <div className={c.studentsTextBlock}>
             <Typography variant='caption'>
-              生徒総数：{students.enrollment.size}人
+              <FormattedMessage id='school_card.datacard.students_graph.total_students' />
+              {students.enrollment.size}
             </Typography>
             <List className={c.raceNamesContainer}>
               {cleanDemographicsData(students.enrollment.demographics).map(
@@ -98,7 +102,7 @@ const StudentsGraph: FC<StudentsGraphProps> = ({ students, unitid }) => {
           </div>
         </div>
       ) : (
-        <div className={c.nullStudentsGraphContainer}>データがありません。</div>
+        <NoDataText />
       )}
     </div>
   )

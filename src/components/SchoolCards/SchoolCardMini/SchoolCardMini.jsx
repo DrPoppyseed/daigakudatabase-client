@@ -13,7 +13,7 @@ import 'swiper/swiper.min.css'
 import 'swiper/components/pagination/pagination.min.css'
 import 'swiper/components/navigation/navigation.min.css'
 
-import { AuthContext } from '../../../AuthContext'
+import { AuthContext } from '../../../contexts/AuthContext'
 
 const SchoolCardMini = ({ school }) => {
   const c = useStyles()

@@ -69,8 +69,8 @@ export const signInWithGoogle = async () => {
 // TODO: implement
 // export const forgotPassword = async () => {}
 
-export const signOut = () => {
-  firebaseAuth.signOut()
+export const signOut = async () => {
+  await firebaseAuth.signOut()
 }
 
 // TODO: implement

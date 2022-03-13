@@ -1,10 +1,9 @@
-import { Typography } from '@mui/material'
+import { styled, Typography } from '@mui/material'
 import D3TestscoresGraph from './D3TestscoresGraph'
 import D3TuitionGraph from './D3TuitionGraph'
 import React, { FC } from 'react'
-import useStyles from './TuitionAndTestscoresGraphStyles'
-import clsx from 'clsx'
 import NoDataText from './NoDataText'
+import { FormattedMessage } from 'react-intl'
 
 export interface TuitionAndTestscoresGraphProps {
   admissions: any
@@ -16,52 +15,64 @@ const TuitionAndTestscoresGraph: FC<TuitionAndTestscoresGraphProps> = ({
   admissions,
   tuition,
   unitid,
-}) => {
-  const c = useStyles()
-
-  const score =
-    admissions.sat.eng_75th_percentile + admissions.sat.math_75th_percentile
-
-  return (
-    <div
-      className={clsx(
-        c.graphContainer,
-        `D3GraphContainer-${unitid}`,
-        c.testscoresAndTuitionContainer
+}) => (
+  <Root className={`D3GraphContainer-${unitid}`}>
+    <div>
+      <Typography variant='caption'>
+        <FormattedMessage id='school_card.datacard.tuition_and_testscores_graph.title.sat' />
+      </Typography>
+      {admissions.sat.eng_25th_percentile === null ? (
+        <NoDataText />
+      ) : (
+        <D3TestscoresGraph
+          width={220}
+          height={210}
+          score={
+            admissions.sat.eng_75th_percentile +
+            admissions.sat.math_75th_percentile
+          }
+          identifier={`D3GraphContainer-${unitid}`}
+          percentile={'sat_75th'}
+          ipeds_unitid={unitid}
+        />
       )}
-    >
-      <div>
-        <Typography variant='caption'>SATの点数 - 合格者上位25%</Typography>
-        {admissions.sat.eng_25th_percentile === null ? (
-          <NoDataText />
-        ) : (
-          <D3TestscoresGraph
-            width={220}
-            height={210}
-            score={score}
-            identifier={`D3GraphContainer-${unitid}`}
-            percentile={'sat_75th'}
-            ipeds_unitid={unitid}
-          />
-        )}
-      </div>
-      <div>
-        <Typography variant='caption'>学費</Typography>
-        {tuition.out_of_state['2019'].tuition === '-' ||
-        tuition.out_of_state['2019'].tuition === null ? (
-          <NoDataText />
-        ) : (
-          <D3TuitionGraph
-            width={220}
-            height={210}
-            identifier={`D3GraphContainer-${unitid}`}
-            tuition={tuition.out_of_state['2019'].tuition}
-            ipeds_unitid={unitid}
-          />
-        )}
-      </div>
     </div>
-  )
-}
+    <div>
+      <Typography variant='caption'>
+        <FormattedMessage id='school_card.datacard.tuition_and_testscores_graph.title.tuition' />
+      </Typography>
+      {tuition.out_of_state['2019'].tuition === '-' ||
+      tuition.out_of_state['2019'].tuition === null ? (
+        <NoDataText />
+      ) : (
+        <D3TuitionGraph
+          width={220}
+          height={210}
+          identifier={`D3GraphContainer-${unitid}`}
+          tuition={tuition.out_of_state['2019'].tuition}
+          ipeds_unitid={unitid}
+        />
+      )}
+    </div>
+  </Root>
+)
+
+const Root = styled('div')(({ theme }) => ({
+  display: 'flex',
+  padding: theme.spacing(0.5),
+  height: 210,
+  width: '100%',
+  [theme.breakpoints.down('lg')]: {
+    justifyContent: 'space-around',
+  },
+  [theme.breakpoints.down('sm')]: {
+    flexDirection: 'column',
+    height: 260,
+    display: 'flex',
+    alignItems: 'flex-start',
+    overflowX: 'auto',
+    paddingLeft: theme.spacing(10),
+  },
+}))
 
 export default TuitionAndTestscoresGraph

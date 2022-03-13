@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
-import useStyles from './D3GraphsStyles'
-import clsx from 'clsx'
 import TuitionAndTestscoresGraph from './TuitionAndTestscoresGraph'
 import StudentsGraph from './StudentsGraph'
 import ProgramsGraph from './ProgramsGraph'
+import D3GraphTabs from './D3GraphTabs'
+import { styled } from '@mui/material'
 
 export interface D3GraphsProps {
   admissionsData: any
@@ -20,41 +20,11 @@ const D3Graphs: FC<D3GraphsProps> = ({
   studentsData: students,
   ipeds_unitid,
 }) => {
-  const c = useStyles()
   const [activeGraph, setActiveGraph] = React.useState(0)
 
-  const handleActiveGraphChange = (newValue: number) => {
-    if (newValue !== activeGraph) setActiveGraph(newValue)
-  }
-
   return (
-    <div className={c.d3GraphsContainer}>
-      <div className={c.tabs}>
-        <button
-          className={clsx(c.tab, activeGraph === 0 && c.active)}
-          onClick={() => handleActiveGraphChange(0)}
-        >
-          人気
-          <br className={c.mobileBreakLine} />
-          プログラム
-        </button>
-        <button
-          className={clsx(c.tab, activeGraph === 1 && c.active)}
-          onClick={() => handleActiveGraphChange(1)}
-        >
-          テストと
-          <br className={c.mobileBreakLine} />
-          学費
-        </button>
-        <button
-          className={clsx(c.tab, activeGraph === 2 && c.active)}
-          onClick={() => handleActiveGraphChange(2)}
-        >
-          生徒人口
-          <br className={c.mobileBreakLine} />
-          の詳細
-        </button>
-      </div>
+    <D3GraphsContainer>
+      <D3GraphTabs activeGraph={activeGraph} setActiveGraph={setActiveGraph} />
       {activeGraph === 0 ? (
         <ProgramsGraph
           programSizes={education.program_sizes_ja}
@@ -69,8 +39,18 @@ const D3Graphs: FC<D3GraphsProps> = ({
       ) : (
         <StudentsGraph students={students} unitid={ipeds_unitid} />
       )}
-    </div>
+    </D3GraphsContainer>
   )
 }
+
+const D3GraphsContainer = styled('div')(({ theme }) => ({
+  [theme.breakpoints.down('lg')]: {
+    width: 'calc(100vw - 32px - 16px)',
+    marginBottom: theme.spacing(2),
+  },
+  [theme.breakpoints.up('md')]: {
+    width: 450,
+  },
+}))
 
 export default D3Graphs

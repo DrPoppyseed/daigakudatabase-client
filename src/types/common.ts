@@ -1,3 +1,5 @@
+import { SUPPORTED_LOCALES } from '../constants/SupportedLocales'
+
 export type KeyValueObject = { [key: string]: any }
 
 export type GraphicsObject = {
@@ -6,3 +8,6 @@ export type GraphicsObject = {
     ja: string
   }
 }
+
+export type SupportedLocalesTuple = typeof SUPPORTED_LOCALES
+export type SupportedLocale = SupportedLocalesTuple[number]

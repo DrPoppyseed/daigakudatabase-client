@@ -11,7 +11,7 @@ import 'swiper/swiper.min.css'
 import 'swiper/components/pagination/pagination.min.css'
 import 'swiper/components/navigation/navigation.min.css'
 
-import { AuthContext } from '../../../AuthContext'
+import { AuthContext } from '../../../contexts/AuthContext'
 import { likeSchoolById, unlikeSchoolById } from '../../../hooks/useAuth'
 import useStyles from './styles'
 import BasicStatsBreadcrumb from '../../SchoolCards/BasicStatsBreadcrumb/BasicStatsBreacrumb.jsx'

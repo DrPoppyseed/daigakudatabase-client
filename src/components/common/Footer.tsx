@@ -1,29 +1,22 @@
 import * as React from 'react'
-import { Theme, Typography } from '@mui/material'
-import { createStyles, makeStyles } from '@mui/styles'
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      flexGrow: 1,
-      display: 'block',
-      bottom: '0',
-      textAlign: 'center',
-      width: '100%',
-      padding: theme.spacing(1),
-    },
-  })
-)
+import { styled, Typography } from '@mui/material'
 
 const Footer = () => {
-  const c = useStyles()
   return (
-    <div className={c.root}>
-      <Typography variant='overline'>
-        質問・フィードバックは <strong>peaske16180@gmail.com</strong> へ
-      </Typography>
-    </div>
+    <FooterContainer>
+      <Typography variant='overline'>Made with ❤️ by DrPoppyseed</Typography>
+    </FooterContainer>
   )
 }
+
+const FooterContainer = styled('div')(({ theme }) => ({
+  marginTop: theme.spacing(3),
+  flexGrow: 1,
+  display: 'block',
+  bottom: '0',
+  textAlign: 'center',
+  width: '100%',
+  padding: theme.spacing(2),
+}))
 
 export default Footer

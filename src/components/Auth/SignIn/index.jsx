@@ -18,7 +18,7 @@ import {
   SocialButton,
 } from '../AuthCommon'
 import { signInWithEmail, signInWithGoogle } from '../../../hooks/useAuth'
-import { AuthContext } from '../../../AuthContext'
+import { AuthContext } from '../../../contexts/AuthContext'
 
 const SignIn = () => {
   const { register, handleSubmit, control } = useForm()

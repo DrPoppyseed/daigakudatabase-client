@@ -17,7 +17,7 @@ import {
 import { BottomText, PasswordInput, SocialButton } from '../AuthCommon'
 import { signInWithGoogle, signUpWithEmail } from '../../../hooks/useAuth'
 import useStyles from './styles'
-import { AuthContext } from '../../../AuthContext'
+import { AuthContext } from '../../../contexts/AuthContext'
 
 const SignUp = () => {
   const { register, handleSubmit, control } = useForm()

@@ -1,17 +1,16 @@
 import * as React from 'react'
-import { Slider, Typography } from '@mui/material'
-import useStyles from './TuitionSliderStyles'
+import { Box, Slider, Typography } from '@mui/material'
 import formatMoney from '../../util/formatMoney'
+import { useAppDispatch, useAppSelector } from '../../hooks/useFilter'
+import { setTuitionRange } from '../../features/filterSlice'
+import { TuitionRange } from '../../types/TuitionRange'
+import { FormattedMessage } from 'react-intl'
 import {
   DEFAULT_TUITION_RANGE_HIGH,
   DEFAULT_TUITION_RANGE_LOW,
 } from '../../util/constants'
-import { useAppDispatch, useAppSelector } from '../../hooks/useFilter'
-import { setTuitionRange } from '../../features/filterSlice'
-import { TuitionRange } from '../../types/TuitionRange'
 
 const TuitionSlider = () => {
-  const c = useStyles()
   const tuitionRange = useAppSelector(state => state.filter.tuitionRange)
   const dispatch = useAppDispatch()
 
@@ -20,13 +19,21 @@ const TuitionSlider = () => {
   }
 
   return (
-    <div className={c.tuitionRangeSlider}>
-      <Typography variant='body2' className={c.tuitionRangeText}>
-        １年間の平均学費の範囲：
-        <br />${formatMoney(tuitionRange[0])} ~ $
-        {tuitionRange[1] !== 60000
-          ? `${formatMoney(tuitionRange[1])} / 年`
-          : `${formatMoney(tuitionRange[1])} 以上 / 年`}
+    <Box sx={{ width: '100%' }}>
+      <Typography variant='body2' sx={{ marginBottom: 1 }}>
+        <FormattedMessage id='filter.tuition_range_slider.tuition_range_pre_text' />
+        <br />${formatMoney(tuitionRange[0])} ~
+        {tuitionRange[1] !== 60000 ? (
+          <>
+            ${formatMoney(tuitionRange[1])}
+            <FormattedMessage id='filter.tuition_range_slider.tuition_low_post_text' />
+          </>
+        ) : (
+          <>
+            ${formatMoney(tuitionRange[1])}
+            <FormattedMessage id='filter.tuition_range_slider.tuition_low_post_text_max' />
+          </>
+        )}
       </Typography>
       <Slider
         value={tuitionRange}
@@ -36,7 +43,7 @@ const TuitionSlider = () => {
         step={100}
         max={DEFAULT_TUITION_RANGE_HIGH}
       />
-    </div>
+    </Box>
   )
 }
 

@@ -1,89 +1,66 @@
-import * as React from 'react'
-import { FC } from 'react'
+import React, { FC } from 'react'
 import {
   Card,
   FormControl,
   InputLabel,
-  MenuItem,
-  Select,
-  SelectChangeEvent,
+  styled,
   Typography,
 } from '@mui/material'
 
-import useStyles from './SortByBoxStyles'
-import { useAppDispatch, useAppSelector } from '../../hooks/useFilter'
-import { changeSortBy } from '../../features/paramsSlice'
-import { SortByTypes } from '../../types/SortByTypes'
+import { FormattedMessage } from 'react-intl'
+import FlexGrow from '../common/FlexGrow'
+import SortBySelector from './SortBySelector'
+import { useAppSelector } from '../../hooks/useFilter'
 
 interface SortByBoxProps {
   data: any
 }
 
 const SortByBox: FC<SortByBoxProps> = ({ data }) => {
-  const c = useStyles()
   const params = useAppSelector(state => state.params)
-  // const md_down = useMediaQuery((theme: Theme) => theme.breakpoints.down('lg'))
-  const dispatch = useAppDispatch()
-
-  const handleSortByChange = (e: SelectChangeEvent) => {
-    dispatch(changeSortBy(e.target.value as SortByTypes))
-  }
 
   return (
-    <Card className={c.root}>
-      {/*{md_down && (*/}
-      {/*  <IconButton*/}
-      {/*    className={c.filterIconButton}*/}
-      {/*    onClick={e => handleFilterDrawerOpen(e)}*/}
-      {/*    size='large'*/}
-      {/*  >*/}
-      {/*    <Badge variant='dot' color='secondary'>*/}
-      {/*      <TuneIcon />*/}
-      {/*    </Badge>*/}
-      {/*  </IconButton>*/}
-      {/*)}*/}
-      <div className={c.hitsContainer}>
+    <Root>
+      <HitsContainer>
         <Typography variant='h5'>
-          {data.totalSchoolsFound} 校を見つけました
+          {data.totalSchoolsFound}{' '}
+          <FormattedMessage id='sort.hits_container.schools_found_post_text' />
         </Typography>
         <Typography variant='caption'>
-          {`${
-            data.totalSchoolsFound >= 10 ? 10 : data.totalSchoolsFound
-          }校表示中 ページ ${params.page} / ${Math.ceil(
-            data.totalSchoolsFound / 10
-          )}`}
+          {data.totalSchoolsFound >= 10 ? 10 : data.totalSchoolsFound}{' '}
+          <FormattedMessage id='sort.hits_container.schools_currently_showing' />
+          - <FormattedMessage id='sort.hits_container.current_page' />{' '}
+          {params.page} / {Math.ceil(data.totalSchoolsFound / 10)}
         </Typography>
-      </div>
-      <div className={c.divider} />
+      </HitsContainer>
+      <FlexGrow />
       <FormControl>
-        <InputLabel id='select-sort-label'>条件で並べる</InputLabel>
-        <Select
-          MenuProps={{
-            anchorOrigin: {
-              vertical: 'bottom',
-              horizontal: 'left',
-            },
-            transformOrigin: {
-              vertical: 'top',
-              horizontal: 'left',
-            },
-          }}
-          labelId='select-sort-label'
-          id='select-sort'
-          className={c.select}
-          value={params.sortBy}
-          defaultValue='default'
-          onChange={handleSortByChange}
-        >
-          <MenuItem value='default'>特になし</MenuItem>
-          <MenuItem value='tuition-ascending'>学費が低い順</MenuItem>
-          <MenuItem value='tuition-descending'>学費が高い順</MenuItem>
-          <MenuItem value='sat-ascending'>SATの必要得点が低い順</MenuItem>
-          <MenuItem value='sat-descending'>SATの必要得点が高い順</MenuItem>
-        </Select>
+        <InputLabel id='select-sort-label'>
+          <FormattedMessage id='sort.sort_box.input_label' />
+        </InputLabel>
+        <SortBySelector />
       </FormControl>
-    </Card>
+    </Root>
   )
 }
+
+const Root = styled(Card)(({ theme }) => ({
+  marginBottom: theme.spacing(2),
+  padding: theme.spacing(3),
+  display: 'flex',
+  alignItems: 'center',
+  [theme.breakpoints.down('md')]: {
+    width: '100%',
+  },
+  [theme.breakpoints.up('md')]: {
+    width: 900,
+  },
+}))
+
+const HitsContainer = styled('div')(() => ({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+}))
 
 export default SortByBox

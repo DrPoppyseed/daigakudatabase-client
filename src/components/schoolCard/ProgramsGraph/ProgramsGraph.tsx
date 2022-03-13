@@ -47,7 +47,7 @@ const ProgramsGraph: FC<ProgramsGraphProps> = ({ programSizes, unitid }) => {
                 style={{ backgroundColor: `${program.color}` }}
               />
               <Typography variant='caption'>
-                {index + 1}位 -{' '}
+                {index + 1} -{' '}
                 {parseFloat(`${program.percentage * 100}`).toFixed(1)}%:{' '}
                 {program.program_ja}
               </Typography>

@@ -9,10 +9,22 @@ const UrbanButtonGroup = () => {
       color='primary'
       aria-label='school region urbanization level selector'
     >
-      <UrbanizationLevelButton label={'都市'} value={'city'} />
-      <UrbanizationLevelButton label={'郊外'} value={'suburb'} />
-      <UrbanizationLevelButton label={'町'} value={'town'} />
-      <UrbanizationLevelButton label={'田舎'} value={'rural'} />
+      <UrbanizationLevelButton
+        messageId='filter.urbanization_level_button.label.city'
+        value={'city'}
+      />
+      <UrbanizationLevelButton
+        messageId='filter.urbanization_level_button.label.suburb'
+        value={'suburb'}
+      />
+      <UrbanizationLevelButton
+        messageId='filter.urbanization_level_button.label.town'
+        value={'town'}
+      />
+      <UrbanizationLevelButton
+        messageId='filter.urbanization_level_button.label.rural'
+        value={'rural'}
+      />
     </ButtonGroup>
   )
 }
