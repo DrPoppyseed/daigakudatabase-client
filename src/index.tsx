@@ -1,12 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import CssBaseline from '@mui/material/CssBaseline'
-import {
-  adaptV4Theme,
-  createTheme,
-  StyledEngineProvider,
-  ThemeProvider,
-} from '@mui/material/styles'
+import { StyledEngineProvider, ThemeProvider } from '@mui/material/styles'
 import { Provider as ReduxStore } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from 'react-query'
@@ -15,6 +10,7 @@ import { AuthProvider } from './AuthContext'
 import { store } from './store'
 
 import App from './components/App'
+import theme from './config/muiTheme'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -23,16 +19,6 @@ const queryClient = new QueryClient({
     },
   },
 })
-
-const theme = createTheme(
-  adaptV4Theme({
-    palette: {
-      primary: {
-        main: '#2196f3',
-      },
-    },
-  })
-)
 
 ReactDOM.render(
   <ReduxStore store={store}>

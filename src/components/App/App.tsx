@@ -6,7 +6,7 @@ import { Container, Typography } from '@mui/material'
 import useStyles from './AppStyles'
 import { AuthContext } from '../../AuthContext'
 
-import Header from '../header'
+import Header from '../header/Header'
 import MyPage from '../MyPage'
 import Home from '../home/HomePage'
 
