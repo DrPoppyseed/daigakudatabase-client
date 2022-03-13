@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { AppBar, Box, Toolbar } from '@mui/material'
 import { styled } from '@mui/system'
-import { AuthContext } from '../../AuthContext'
+import { AuthContext } from '../../contexts/AuthContext'
 import HeaderLogo from './HeaderLogo'
 import FlexGrow from '../common/FlexGrow'
 import AuthButtonsBlock from './AuthButtonsBlock'

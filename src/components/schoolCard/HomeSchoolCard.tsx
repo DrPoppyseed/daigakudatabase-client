@@ -1,18 +1,10 @@
 import * as React from 'react'
 import { FC } from 'react'
-import { Link } from 'react-router-dom'
-import { Button, Card, IconButton, Tooltip, Typography } from '@mui/material'
-import {
-  Star as StarIcon,
-  StarBorder as StarBorderIcon,
-} from '@mui/icons-material'
-import useStyles from './HomeSchoolCardStyles'
+import { Card, styled, Typography } from '@mui/material'
 import Datacards from './Datacards'
-
-import { likeSchoolById, unlikeSchoolById } from '../../hooks/useAuth'
-import { useMutation } from 'react-query'
-import { AuthContext } from '../../AuthContext'
 import D3Graphs from './D3Graphs'
+import CardLikedIcon from './CardLikedIcon'
+import LearnMoreButton from './LearnMoreButton'
 
 export interface HomeSchoolCardProps {
   general: any
@@ -30,85 +22,78 @@ const HomeSchoolCard: FC<HomeSchoolCardProps> = ({
     ipeds_unitid,
     isLiked,
   },
-}) => {
-  const c = useStyles()
+}) => (
+  <CardContainer>
+    <TitleBlock>
+      <TitleContainer>
+        <CardLikedIcon unitid={ipeds_unitid} isLiked={isLiked} />
+        <Typography variant='h6'>{name_en}</Typography>
+      </TitleContainer>
+      <LearnMoreButton />
+    </TitleBlock>
+    <BodyBlock>
+      <Datacards
+        campus={campus}
+        education={education}
+        classifications={classifications}
+        tuition={tuition}
+        admissions={admissions}
+      />
+      <D3Graphs
+        admissionsData={admissions}
+        tuitionData={tuition}
+        educationData={education}
+        studentsData={students}
+        ipeds_unitid={ipeds_unitid}
+      />
+    </BodyBlock>
+  </CardContainer>
+)
 
-  const [isCardLiked, setIsCardLiked] = React.useState(isLiked)
+const CardContainer = styled(Card)(({ theme }) => ({
+  marginBottom: theme.spacing(1),
+  padding: theme.spacing(3),
+  [theme.breakpoints.down('md')]: {
+    width: '100%',
+    padding: theme.spacing(2),
+  },
+  [theme.breakpoints.up('md')]: {
+    width: 900,
+  },
+  [theme.breakpoints.down('sm')]: {
+    padding: theme.spacing(1),
+  },
+}))
 
-  const onClickLike = useMutation(likeSchoolById, {
-    onSuccess: () => {
-      setIsCardLiked(true)
-      console.log('success!')
-    },
-  })
-  const onClickUnlike = useMutation(unlikeSchoolById, {
-    onSuccess: () => {
-      setIsCardLiked(false)
-      console.log('unlike success!')
-    },
-  })
+const TitleBlock = styled('div')(({ theme }) => ({
+  display: 'flex',
+  marginBottom: theme.spacing(2),
+  justifyContent: 'space-between',
+  [theme.breakpoints.down('md')]: {
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+  },
+  [theme.breakpoints.up('md')]: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+}))
 
-  const authContext = React.useContext(AuthContext)
-  const handleLikeClick = () => {
-    setIsCardLiked(!isCardLiked)
-    console.log(ipeds_unitid)
-    !isCardLiked
-      ? onClickLike.mutate(ipeds_unitid)
-      : onClickUnlike.mutate(ipeds_unitid)
-  }
+const TitleContainer = styled('div')(() => ({
+  display: 'flex',
+  alignItems: 'center',
+}))
 
-  return (
-    <Card className={c.cardContainer}>
-      <div className={c.titleBlock}>
-        <div className={c.titleContainer}>
-          {authContext.user.uid ? (
-            isCardLiked ? (
-              <IconButton onClick={() => handleLikeClick()} size='large'>
-                <StarIcon style={{ color: '#ffa726' }} />
-              </IconButton>
-            ) : (
-              <IconButton onClick={() => handleLikeClick()} size='large'>
-                <StarBorderIcon />
-              </IconButton>
-            )
-          ) : (
-            <IconButton size='large'>
-              <Tooltip title='ログインして学校をお気に入り登録しよう！'>
-                <StarBorderIcon />
-              </Tooltip>
-            </IconButton>
-          )}
-          <div className={c.logoContainer} />
-          <Typography variant='h6'>{name_en}</Typography>
-        </div>
-        <Button
-          variant='contained'
-          color='primary'
-          disableElevation
-          className={c.buttonContainer}
-        >
-          <Link to='#' className={c.buttonLink}>
-            もっと詳しく
-          </Link>
-        </Button>
-      </div>
-      <div className={c.bodyBlock}>
-        <Datacards
-          campus={campus}
-          education={education}
-          classifications={classifications}
-          tuition={tuition}
-          admissions={admissions}
-        />
-        <D3Graphs
-          admissionsData={admissions}
-          tuitionData={tuition}
-          educationData={education}
-          studentsData={students}
-          ipeds_unitid={ipeds_unitid}
-        />
-      </div>
-    </Card>
-  )
-}
+const BodyBlock = styled('div')(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'flex-start',
+  justifyContent: 'space-between',
+  [theme.breakpoints.down('md')]: {
+    flexDirection: 'column-reverse',
+  },
+  [theme.breakpoints.up('md')]: {
+    flexDirection: 'row',
+  },
+}))
+
 export default HomeSchoolCard

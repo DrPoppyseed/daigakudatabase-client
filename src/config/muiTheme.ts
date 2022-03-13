@@ -17,6 +17,11 @@ const theme = createTheme({
         underline: 'none',
       },
     },
+    MuiIconButton: {
+      defaultProps: {
+        size: 'large',
+      },
+    },
   },
 })
 

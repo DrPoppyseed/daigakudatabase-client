@@ -12,7 +12,7 @@ import { Link as RouterLink } from 'react-router-dom'
 import React, { FC } from 'react'
 import { useMutation, useQueryClient } from 'react-query'
 import { signOut } from '../../hooks/useAuth'
-import { AuthContext } from '../../AuthContext'
+import { AuthContext } from '../../contexts/AuthContext'
 import { FormattedMessage } from 'react-intl'
 
 export interface AccountPopper {

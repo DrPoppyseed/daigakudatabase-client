@@ -1,20 +1,23 @@
-import { Typography } from '@mui/material'
+import { styled, Typography } from '@mui/material'
 import * as React from 'react'
+import { FormattedMessage } from 'react-intl'
 
 const NoDataText = () => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        paddingTop: 60,
-        width: 220,
-        height: 210,
-      }}
-    >
-      <Typography variant='caption'>データがありません。</Typography>
-    </div>
+    <Root>
+      <Typography variant='caption'>
+        <FormattedMessage id='school_card.datacard.tuition_and_testscores_graph.no_data_text.label' />
+      </Typography>
+    </Root>
   )
 }
+
+const Root = styled('div')(() => ({
+  display: 'flex',
+  justifyContent: 'center',
+  paddingTop: 60,
+  width: 220,
+  height: 210,
+}))
 
 export default NoDataText

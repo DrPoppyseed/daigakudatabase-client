@@ -1,7 +1,9 @@
 import * as React from 'react'
 import { FC } from 'react'
-import useStyles from './DatacardsStyles'
-import { Typography } from '@mui/material'
+import { styled, Typography } from '@mui/material'
+import DatacardSection from './DatacardSection'
+import { FormattedMessage } from 'react-intl'
+import formatMoney from '../../util/formatMoney'
 
 export interface DatacardsProps {
   campus: any
@@ -18,94 +20,115 @@ const Datacards: FC<DatacardsProps> = ({
   tuition,
   admissions,
 }) => {
-  const c = useStyles()
-
   return (
-    <div className={c.datacardsBlock}>
-      <div className={c.datacardContainer}>
-        <div>
-          <Typography variant='button'>学校概要</Typography>
-        </div>
-        <div className={c.datacardBodyContainer}>
-          <div className={c.datacardSummaryItem}>
-            <Typography variant='caption'>
-              設置形態：{campus.control_ja} ・ 学期制：
-              {education.calendar_system_ja}
-            </Typography>
-          </div>
-          <div className={c.datacardSummaryItem}>
-            <Typography variant='caption'>
-              {campus.state_ja}州 ({campus.region_ja}）
-            </Typography>
-          </div>
-          {classifications !== undefined ? (
-            <React.Fragment>
-              <div className={c.datacardSummaryItem}>
-                <Typography variant='caption'>
-                  学校の分類規模：{classifications.carnegie_size_category_ja}
-                </Typography>
-              </div>
-              <div className={c.datacardSummaryItem}>
-                <Typography variant='caption'>
-                  学校のカーネギー分類：
-                  {classifications.carnegie_classification_ja}
-                </Typography>
-              </div>
-            </React.Fragment>
-          ) : (
-            <div>ー</div>
-          )}
-          {admissions.population.admissions_rate !== null &&
-          admissions.population.admissions_rate !== '-' ? (
-            <Typography variant='caption'>
-              合格率：{admissions.population.admissions_rate}%
-            </Typography>
-          ) : (
-            <Typography variant='caption'>合格率：ー</Typography>
-          )}
-        </div>
-      </div>
-      <div className={c.datacardContainer}>
-        <div>
-          <Typography variant='button'>テストと学費</Typography>
-        </div>
-        <div className={c.datacardBodyContainer}>
-          {tuition !== null ? (
-            <Typography variant='caption'>
-              州外生徒の平均学費： $
-              {new Intl.NumberFormat().format(
-                tuition['out_of_state'][2019]['tuition']
-              )}
-            </Typography>
-          ) : (
-            <Typography variant='caption'>州外生徒の平均学費：ー</Typography>
-          )}
-          {admissions.act.comp_25th_percentile === null &&
-          admissions.sat.eng_25th_percentile === null ? (
-            <React.Fragment>
+    <DatacardsBlock>
+      <DatacardSection sectionTitleMessageId='school_card.datacard_section.title.school_summary'>
+        <DatacardSummaryItem>
+          <Typography variant='caption'>
+            <FormattedMessage id='school_card.datacard.item_title.campus_control' />
+            {campus.control_ja} ・
+            <FormattedMessage id='school_card.datacard.item_title.calendar_system' />
+            {education.calendar_system_ja}
+          </Typography>
+        </DatacardSummaryItem>
+        <DatacardSummaryItem>
+          <Typography variant='caption'>
+            {campus.state_ja}州 ({campus.region_ja}）
+          </Typography>
+        </DatacardSummaryItem>
+        {classifications !== undefined ? (
+          <React.Fragment>
+            <DatacardSummaryItem>
               <Typography variant='caption'>
-                入学者のACT点数の範囲：ー
+                <FormattedMessage id='school_card.datacard.item_title.school_size' />
+                {classifications.carnegie_size_category_ja}
               </Typography>
+            </DatacardSummaryItem>
+            <DatacardSummaryItem>
               <Typography variant='caption'>
-                入学者のSAT点数の範囲：ー
+                <FormattedMessage id='school_card.datacard.item_title.carnegie_category' />
+                {classifications.carnegie_classification_ja}
               </Typography>
-            </React.Fragment>
-          ) : (
-            <React.Fragment>
-              <Typography variant='caption'>
-                入学者のACT点数の範囲： {admissions.act.comp_25th_percentile}点
-                ~ {admissions.act.comp_75th_percentile}点
-              </Typography>
-              <Typography variant='caption'>
-                入学者のSAT点数の範囲： {admissions.sat.total_25th_percentile}点
-                ~{admissions.sat.total_75th_percentile}点
-              </Typography>
-            </React.Fragment>
-          )}
-        </div>
-      </div>
-    </div>
+            </DatacardSummaryItem>
+          </React.Fragment>
+        ) : (
+          <div>ー</div>
+        )}
+        {admissions.population.admissions_rate !== null &&
+        admissions.population.admissions_rate !== '-' ? (
+          <Typography variant='caption'>
+            <FormattedMessage id='school_card.datacard.item_title.acceptance_rate' />
+            {admissions.population.admissions_rate}%
+          </Typography>
+        ) : (
+          <Typography variant='caption'>
+            <FormattedMessage id='school_card.datacard.item_title.acceptance_rate' />
+            ー
+          </Typography>
+        )}
+      </DatacardSection>
+      <DatacardSection sectionTitleMessageId='school_card.datacard_section.title.tests_and_tuition'>
+        {tuition !== null ? (
+          <Typography variant='caption'>
+            <FormattedMessage id='school_card.datacard.item_title.out_of_state_tuition' />
+            ${formatMoney(tuition['out_of_state'][2019]['tuition'])}
+          </Typography>
+        ) : (
+          <Typography variant='caption'>
+            <FormattedMessage id='school_card.datacard.item_title.out_of_state_tuition' />
+            ー
+          </Typography>
+        )}
+        {admissions.act.comp_25th_percentile === null &&
+        admissions.sat.eng_25th_percentile === null ? (
+          <React.Fragment>
+            <Typography variant='caption'>
+              <FormattedMessage id='school_card.datacard.item_title.act_average_of_accepted_students' />
+              ー
+            </Typography>
+            <Typography variant='caption'>
+              <FormattedMessage id='school_card.datacard.item_title.sat_average_of_accepted_students' />
+              ー
+            </Typography>
+          </React.Fragment>
+        ) : (
+          <React.Fragment>
+            <Typography variant='caption'>
+              <FormattedMessage id='school_card.datacard.item_title.act_average_of_accepted_students' />
+              {admissions.act.comp_25th_percentile} ~
+              {admissions.act.comp_75th_percentile}
+            </Typography>
+            <Typography variant='caption'>
+              <FormattedMessage id='school_card.datacard.item_title.sat_average_of_accepted_students' />
+              {admissions.sat.total_25th_percentile} ~
+              {admissions.sat.total_75th_percentile}
+            </Typography>
+          </React.Fragment>
+        )}
+      </DatacardSection>
+    </DatacardsBlock>
   )
 }
+
+const DatacardsBlock = styled('div')(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'flex-start',
+  flexDirection: 'column',
+  [theme.breakpoints.down('md')]: {
+    flexDirection: 'row',
+    width: '100%',
+  },
+  [theme.breakpoints.down('sm')]: {
+    flexDirection: 'column',
+    width: '100%',
+  },
+}))
+
+const DatacardSummaryItem = styled('div')(({ theme }) => ({
+  width: 350,
+  [theme.breakpoints.down('lg')]: {
+    width: '100%',
+  },
+}))
 
 export default Datacards

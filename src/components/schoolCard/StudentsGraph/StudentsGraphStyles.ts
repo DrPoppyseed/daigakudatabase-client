@@ -41,12 +41,6 @@ const useStyles = makeStyles((theme: Theme) =>
         paddingTop: 0,
       },
     },
-    nullStudentsGraphContainer: {
-      height: 210,
-      width: 450,
-      display: 'flex',
-      justifyContent: 'center',
-    },
     raceNamesContainer: {
       overflow: 'auto',
       height: 170,
