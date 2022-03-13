@@ -14,7 +14,7 @@ const SignIn = loadable(() => import('../Auth/SignIn'))
 const SignUp = loadable(() => import('../Auth/SignUp'))
 const Footer = loadable(() => import('../common/Footer'))
 const SchoolPage = loadable(() => import('../SchoolPage'))
-const NoMatch = loadable(() => import('../NoMatch'))
+const NoMatch = loadable(() => import('../common/NotFoundPage'))
 
 const App = () => {
   const c = useStyles()

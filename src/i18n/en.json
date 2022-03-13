@@ -1,6 +1,20 @@
 {
   "header.auth_button.signin": "Sign In",
   "header.auth_button.signup": "Sign Up",
+  "header.account_popper.menu_item.profile": "Profile",
+  "header.account_popper.menu_item.signout": "Sign Out",
   "filter.state_selector.input_label": "See by State",
-  "filter.state_selector.select_item.default_value": "None"
+  "filter.state_selector.select_item.default_value": "None",
+  "home.error_message": "An error occurred",
+  "home.no_school_found_message": "No schools matched",
+  "sort.hits_container.schools_found_post_text": "schools found",
+  "sort.hits_container.schools_currently_showing": "schools showing",
+  "sort.hits_container.current_page": "page",
+  "sort.sort_box.input_label": "sort by",
+  "sort.sort_box.select.menu_item.default": "None",
+  "sort.sort_box.select.menu_item.tuition_ascending": "Tuition Ascending",
+  "sort.sort_box.select.menu_item.tuition_descending": "Tuition Descending",
+  "sort.sort_box.select.menu_item.sat_ascending": "SAT Ascending",
+  "sort.sort_box.select.menu_item.sat_descending": "SAT Descending",
+  "not_found.message": "404 page not found"
 }

@@ -13,6 +13,7 @@ import React, { FC } from 'react'
 import { useMutation, useQueryClient } from 'react-query'
 import { signOut } from '../../hooks/useAuth'
 import { AuthContext } from '../../AuthContext'
+import { FormattedMessage } from 'react-intl'
 
 export interface AccountPopper {
   open: boolean
@@ -76,12 +77,14 @@ const AccountPopper: FC<AccountPopper> = ({ open, setOpen, anchorRef }) => {
                         color: 'palette.common.black',
                       }}
                     >
-                      プロフィール
+                      <FormattedMessage id='header.account_popper.menu_item.profile' />
                     </Link>
                   </Typography>
                 </MenuItem>
                 <MenuItem onClick={() => useSignOutOnClick.mutate()}>
-                  <Typography variant='body2'>ログアウト</Typography>
+                  <Typography variant='body2'>
+                    <FormattedMessage id='header.account_popper.menu_item.signout' />
+                  </Typography>
                 </MenuItem>
               </MenuList>
             </ClickAwayListener>
