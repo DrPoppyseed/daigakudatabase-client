@@ -6,14 +6,12 @@ import {
   Select,
   SelectChangeEvent,
 } from '@mui/material'
-import useStyles from './StateSelectorStyles'
 import { States } from '../../constants/States'
 import { useAppDispatch, useAppSelector } from '../../hooks/useFilter'
 import { setState } from '../../features/filterSlice'
 import { FormattedMessage } from 'react-intl'
 
 const StateSelector = () => {
-  const c = useStyles()
   const state = useAppSelector(state => state.filter.state)
   const dispatch = useAppDispatch()
 
@@ -22,7 +20,7 @@ const StateSelector = () => {
   }
 
   return (
-    <FormControl className={c.selectStateContainer}>
+    <FormControl sx={{ width: '100%' }}>
       <InputLabel id='select-state-label'>
         <FormattedMessage id='filter.state_selector.input_label' />
       </InputLabel>

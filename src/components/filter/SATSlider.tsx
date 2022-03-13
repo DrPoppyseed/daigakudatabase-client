@@ -1,6 +1,5 @@
 import React from 'react'
-import { Slider, Typography } from '@mui/material'
-import useStyles from './SATSliderStyles'
+import { Slider, styled, Typography } from '@mui/material'
 import {
   DEFAULT_SAT_RANGE_HIGH,
   DEFAULT_SAT_RANGE_LOW,
@@ -8,9 +7,9 @@ import {
 import { SATRange } from '../../types/SATRange'
 import { useAppDispatch, useAppSelector } from '../../hooks/useFilter'
 import { setSATRange } from '../../features/filterSlice'
+import { FormattedMessage } from 'react-intl'
 
 const SATSlider = () => {
-  const c = useStyles()
   const satRange = useAppSelector(state => state.filter.satRange)
   const dispatch = useAppDispatch()
 
@@ -19,10 +18,10 @@ const SATSlider = () => {
   }
 
   return (
-    <div className={c.satRangeSlider}>
-      <Typography variant='body2' className={c.satRangeText}>
-        SATの点数範囲：
-        {`${satRange[0]} ~ ${satRange[1]}`}
+    <SatRangeSliderContainer>
+      <Typography variant='body2' sx={{ marginBottom: 1 }}>
+        <FormattedMessage id='filter.sat_range_slider.sat_range_pre_text' />
+        {satRange[0]} ~ {satRange[1]}
       </Typography>
       <Slider
         value={satRange}
@@ -32,8 +31,16 @@ const SATSlider = () => {
         step={50}
         max={DEFAULT_SAT_RANGE_HIGH}
       />
-    </div>
+    </SatRangeSliderContainer>
   )
 }
+
+const SatRangeSliderContainer = styled('div')(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  width: '100%',
+  marginBottom: theme.spacing(2),
+}))
 
 export default SATSlider

@@ -1,13 +1,10 @@
 import React from 'react'
 import { Paper } from '@mui/material'
-import useStyles from './FilterBoxStyles'
 import FilterInner from './FilterInner'
 
 const FilterBox = () => {
-  const c = useStyles()
-
   return (
-    <Paper className={c.root}>
+    <Paper sx={{ flexGrow: 1 }}>
       <FilterInner />
     </Paper>
   )

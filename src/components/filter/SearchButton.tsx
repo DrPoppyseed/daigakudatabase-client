@@ -2,6 +2,7 @@ import { Button } from '@mui/material'
 import * as React from 'react'
 import { useAppDispatch, useAppSelector } from '../../hooks/useFilter'
 import { setParams } from '../../features/paramsSlice'
+import { FormattedMessage } from 'react-intl'
 
 const SearchButton = () => {
   const filter = useAppSelector(state => state.filter)
@@ -24,7 +25,7 @@ const SearchButton = () => {
       sx={{ width: '100%' }}
       onClick={handleSearchClick}
     >
-      条件がけで検索
+      <FormattedMessage id='filter.search_button.label' />
     </Button>
   )
 }

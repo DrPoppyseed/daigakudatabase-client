@@ -1,8 +1,9 @@
 import React, { ChangeEvent, FC } from 'react'
 import { Checkbox, FormControlLabel, Typography } from '@mui/material'
+import { FormattedMessage } from 'react-intl'
 
 export interface CheckboxChildProps {
-  label: string
+  messageId: string
   name: string
   checked: boolean
   className?: string
@@ -10,7 +11,7 @@ export interface CheckboxChildProps {
 }
 
 const CheckboxChild: FC<CheckboxChildProps> = ({
-  label,
+  messageId,
   name,
   checked,
   onChange,
@@ -18,7 +19,11 @@ const CheckboxChild: FC<CheckboxChildProps> = ({
 }) => {
   return (
     <FormControlLabel
-      label={<Typography variant='subtitle2'>{label}</Typography>}
+      label={
+        <Typography variant='subtitle2'>
+          <FormattedMessage id={messageId} />
+        </Typography>
+      }
       control={
         <Checkbox
           color='primary'

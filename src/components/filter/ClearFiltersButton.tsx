@@ -3,10 +3,9 @@ import { Delete as DeleteIcon } from '@mui/icons-material'
 import React from 'react'
 import { useAppDispatch } from '../../hooks/useFilter'
 import { clearFilter } from '../../features/filterSlice'
-import useStyles from './ClearFiltersButtonStyles'
+import { FormattedMessage } from 'react-intl'
 
 const ClearFiltersButton = () => {
-  const c = useStyles()
   const dispatch = useAppDispatch()
 
   const handleClearFilter = () => {
@@ -17,10 +16,10 @@ const ClearFiltersButton = () => {
     <Button
       variant='outlined'
       startIcon={<DeleteIcon />}
-      className={c.filterSearchButton}
+      sx={{ width: '100%' }}
       onClick={handleClearFilter}
     >
-      条件をクリアする
+      <FormattedMessage id='filter.clear_filter_button.label' />
     </Button>
   )
 }
