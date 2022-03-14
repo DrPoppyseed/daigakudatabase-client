@@ -19,9 +19,12 @@ const AuthButton: FC<AuthButtonProps> = ({
   return (
     <AuthButtonBase color={color} disabled={disabled} type='submit'>
       {isLoading ? (
-        <CircularProgress />
+        <CircularProgress data-testid={'auth-button-progress'} />
       ) : (
-        <FormattedMessage id={labelMessageId} />
+        <FormattedMessage
+          data-testid={'auth-button-formatted-message'}
+          id={labelMessageId}
+        />
       )}
     </AuthButtonBase>
   )
