@@ -4,7 +4,7 @@
   "version": "0.2.1",
   "packageManager": "yarn@3.2.0",
   "license": "MIT",
-  "description": "Search and visualize data from U.S. colleges",
+  "description": "⛏ Active development branch of DaigakuDatabase.com",
   "repository": {
     "url": "https://github.com/DrPoppyseed/daigakudatabase-client",
     "type": "git"
@@ -35,6 +35,9 @@
       "last 1 safari version"
     ]
   },
+  "engines": {
+    "node": ">= 16.0"
+  },
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}"
@@ -49,9 +52,6 @@
       "yarn format",
       "yarn test"
     ]
-  },
-  "engines": {
-    "node": ">= 16.0"
   },
   "dependencies": {
     "@emotion/react": "^11.8.2",
