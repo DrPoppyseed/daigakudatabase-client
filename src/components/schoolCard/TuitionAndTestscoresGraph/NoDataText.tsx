@@ -1,5 +1,5 @@
 import { styled, Typography } from '@mui/material'
-import * as React from 'react'
+import React from 'react'
 import { FormattedMessage } from 'react-intl'
 
 const NoDataText = () => {

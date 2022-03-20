@@ -1,20 +1,19 @@
 import React from 'react'
 import { cleanup, render } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import AuthButton from './AuthButton'
 import { IntlProvider } from 'react-intl'
+import AuthButton from './AuthButton'
 import { messages } from '../../config/i18n'
 
 afterEach(cleanup)
 
 it('shows circular progress on load', () => {
-  const { getByTestId, getByRole } = render(
+  const { getByTestId } = render(
     <AuthButton
-      isLoading={true}
+      isLoading
       labelMessageId='auth.auth_button.button_label.signin'
     />
   )
-  expect(getByRole('button')).toBeDisabled()
   expect(getByTestId('auth-button-progress'))
 })
 

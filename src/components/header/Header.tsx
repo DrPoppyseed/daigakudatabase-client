@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useContext } from 'react'
 import { AppBar, Box, Toolbar } from '@mui/material'
 import { styled } from '@mui/system'
 import { AuthContext } from '../../contexts/AuthContext'
@@ -8,7 +8,7 @@ import AuthButtonsBlock from './AuthButtonsBlock'
 import AccountBlock from './AccountBlock'
 
 const Header = () => {
-  const { user } = React.useContext(AuthContext)
+  const { user } = useContext(AuthContext)
 
   return (
     <FlexGrow id='back-to-top-anchor'>

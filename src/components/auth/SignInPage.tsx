@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useContext, useState } from 'react'
 import { useMutation } from 'react-query'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { signInWithEmail } from '../../hooks/useAuth'
@@ -13,8 +13,8 @@ import { SignInForm } from '../../types/SignInForm'
 
 const SignIn = () => {
   const { register, handleSubmit, reset } = useForm<SignInForm>()
-  const { setUser } = React.useContext(AuthContext)
-  const [isLoading, setIsLoading] = React.useState(false)
+  const { setUser } = useContext(AuthContext)
+  const [isLoading, setIsLoading] = useState(false)
 
   const useSignInWithEmail = useMutation(signInWithEmail, {
     onSuccess: data => {

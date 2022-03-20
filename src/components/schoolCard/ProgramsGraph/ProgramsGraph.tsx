@@ -1,6 +1,6 @@
-import { KeyValueObject } from '../../../types/common'
-import React, { FC } from 'react'
+import React, { useState, FC } from 'react'
 import { List, ListItem, Typography } from '@mui/material'
+import { KeyValueObject } from '../../../types/common'
 import useStyles from './ProgramsGraphStyles'
 import D3ProgramsGraph from './D3ProgramsGraph'
 
@@ -11,7 +11,7 @@ export interface ProgramsGraphProps {
 
 const ProgramsGraph: FC<ProgramsGraphProps> = ({ programSizes, unitid }) => {
   const c = useStyles()
-  const [highlighted, setHighlighted] = React.useState('')
+  const [highlighted, setHighlighted] = useState('')
 
   return programSizes.length ? (
     <div className={c.graphContainer}>

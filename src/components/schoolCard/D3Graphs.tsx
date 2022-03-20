@@ -1,9 +1,9 @@
-import React, { FC } from 'react'
+import React, { useState, FC } from 'react'
+import { styled } from '@mui/material'
 import TuitionAndTestscoresGraph from './TuitionAndTestscoresGraph'
 import StudentsGraph from './StudentsGraph'
 import ProgramsGraph from './ProgramsGraph'
 import D3GraphTabs from './D3GraphTabs'
-import { styled } from '@mui/material'
 
 export interface D3GraphsProps {
   admissionsData: any
@@ -20,7 +20,7 @@ const D3Graphs: FC<D3GraphsProps> = ({
   studentsData: students,
   ipeds_unitid,
 }) => {
-  const [activeGraph, setActiveGraph] = React.useState(0)
+  const [activeGraph, setActiveGraph] = useState(0)
 
   return (
     <D3GraphsContainer>

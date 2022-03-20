@@ -1,9 +1,9 @@
 import { Button } from '@mui/material'
 import { Delete as DeleteIcon } from '@mui/icons-material'
 import React from 'react'
+import { FormattedMessage } from 'react-intl'
 import { useAppDispatch } from '../../hooks/useFilter'
 import { clearFilter } from '../../features/filterSlice'
-import { FormattedMessage } from 'react-intl'
 
 const ClearFiltersButton = () => {
   const dispatch = useAppDispatch()

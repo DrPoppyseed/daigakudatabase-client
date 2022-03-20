@@ -1,13 +1,11 @@
 import * as React from 'react'
 import { styled, Typography } from '@mui/material'
 
-const Footer = () => {
-  return (
-    <FooterContainer>
-      <Typography variant='overline'>Made with ❤️ by DrPoppyseed</Typography>
-    </FooterContainer>
-  )
-}
+const Footer = () => (
+  <FooterContainer>
+    <Typography variant='overline'>Made with ❤️ by DrPoppyseed</Typography>
+  </FooterContainer>
+)
 
 const FooterContainer = styled('div')(({ theme }) => ({
   marginTop: theme.spacing(3),

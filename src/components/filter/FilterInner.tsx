@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { Container, Divider, ListItem, styled } from '@mui/material'
 import SATSlider from './SATSlider'
 import TuitionSlider from './TuitionSlider'

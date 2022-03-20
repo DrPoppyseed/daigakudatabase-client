@@ -37,27 +37,27 @@ const D3StudentsGraph = props => {
 
       svg.select(`.${identifier}`).attr('height', _height).attr('width', _width)
 
-      let pie = d3
+      const pie = d3
         .pie()
         .sort(null)
         .value(d => d.percentage)
 
-      let demographicsData = pie(demographics)
-      let sexData = pie(sex)
+      const demographicsData = pie(demographics)
+      const sexData = pie(sex)
 
-      let arc = d3
+      const arc = d3
         .arc()
         .innerRadius(radius * 0.6)
         .outerRadius(radius * 0.9)
         .cornerRadius(3)
 
-      let innerArc = d3
+      const innerArc = d3
         .arc()
         .innerRadius(radius * 0.3)
         .outerRadius(radius * 0.6)
         .cornerRadius(3)
 
-      let labelArc = d3
+      const labelArc = d3
         .arc()
         .innerRadius(radius * 0.9)
         .outerRadius(radius * 0.9)
@@ -130,7 +130,6 @@ const D3StudentsGraph = props => {
         .call(text => text.append('tspan'))
         .attr('y', '.4em')
         .text(d => {
-          console.log('from D3StudentsGraph', d.data)
           return d.data.ja === '男性' ? '男' : '女'
         })
 
@@ -162,7 +161,7 @@ const D3StudentsGraph = props => {
         .attr('class', 'demographicsLabelText')
         .text(d => (d.data.percentage > 5 ? d.data.ja : ''))
         .attr('transform', d => {
-          let pos = labelArc.centroid(d)
+          const pos = labelArc.centroid(d)
           const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
           pos[0] = radius * 0.94 * (midangle < Math.PI ? 1 : -1)
           return `translate(${pos[0] + xTranslation}, ${pos[1] + yTranslation})`

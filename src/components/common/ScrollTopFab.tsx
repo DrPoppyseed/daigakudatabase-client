@@ -40,10 +40,10 @@ const useStyles = makeStyles((theme: Theme) =>
       right: theme.spacing(6),
     },
     fab: {
-      color: theme.palette.common.white + ' !important',
-      backgroundColor: green[500] + ' !important',
+      color: `${theme.palette.common.white} !important`,
+      backgroundColor: `${green[500]} !important`,
       '&:hover': {
-        backgroundColor: green[600] + ' !important',
+        backgroundColor: `${green[600]} !important`,
       },
     },
     fabIcon: {

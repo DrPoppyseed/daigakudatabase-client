@@ -1,29 +1,27 @@
 import { Link } from '@mui/material'
 import { Link as RouterLink } from 'react-router-dom'
-import * as React from 'react'
+import React from 'react'
 
-const HeaderLogo = () => {
-  return (
-    <Link
-      component={RouterLink}
-      to='/'
-      sx={{
-        color: 'palette.common.black',
-        textDecoration: 'none',
-        display: 'flex',
-        alignItems: 'center',
+const HeaderLogo = () => (
+  <Link
+    component={RouterLink}
+    to='/'
+    sx={{
+      color: 'palette.common.black',
+      textDecoration: 'none',
+      display: 'flex',
+      alignItems: 'center',
+    }}
+  >
+    <img
+      src='/assets/logo.png'
+      alt='logo'
+      style={{
+        height: '40px',
+        width: '40px',
       }}
-    >
-      <img
-        src='/assets/logo.png'
-        alt='logo'
-        style={{
-          height: '40px',
-          width: '40px',
-        }}
-      />
-    </Link>
-  )
-}
+    />
+  </Link>
+)
 
 export default HeaderLogo

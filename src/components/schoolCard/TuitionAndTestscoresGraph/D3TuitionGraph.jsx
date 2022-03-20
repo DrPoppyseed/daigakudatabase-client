@@ -82,7 +82,7 @@ const D3TuitionGraph = props => {
       })
       .style('fill', '#69b3a2')
 
-    let pathLine = svg
+    const pathLine = svg
       .append('path')
       .datum(bins)
       .attr('fill', 'none')
@@ -99,7 +99,8 @@ const D3TuitionGraph = props => {
       )
       .attr('transform', `translate(${margin.left}, ${margin.top - 5})`)
 
-    let circle, pos
+    let circle
+    let pos
     svg
       .append('line')
       .attr('x1', 0)
@@ -154,7 +155,7 @@ const D3TuitionGraph = props => {
       .attr('transform', `translate(${margin.left}, ${margin.top})`)
 
     svg.on('mousemove', e => {
-      let xPos =
+      const xPos =
         e.pageX -
         document
           .getElementById(`${ipeds_unitid}-tuitionVizSvg`)
@@ -166,11 +167,11 @@ const D3TuitionGraph = props => {
           'transform',
           `translate(${margin.left + xPos}, ${margin.top})`
         )
-        let pathLength = pathLine.node().getTotalLength()
-        let x = xPos
-        let beginning = x,
-          end = pathLength,
-          target
+        const pathLength = pathLine.node().getTotalLength()
+        const x = xPos
+        let beginning = x
+        let end = pathLength
+        let target
         while (true) {
           target = Math.floor((beginning + end) / 2)
           pos = pathLine.node().getPointAtLength(target)
@@ -179,7 +180,7 @@ const D3TuitionGraph = props => {
           }
           if (pos.x > x) end = target
           else if (pos.x < x) beginning = target
-          else break //position found
+          else break // position found
         }
         circle
           .attr('opacity', 1)

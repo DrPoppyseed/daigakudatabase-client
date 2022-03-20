@@ -1,5 +1,4 @@
-import * as React from 'react'
-import { ChangeEvent, FC } from 'react'
+import React, { ChangeEvent, FC } from 'react'
 import { Pagination as MuiPagination } from '@mui/material'
 import { useAppDispatch, useAppSelector } from '../../hooks/useFilter'
 import { setPage } from '../../features/paramsSlice'

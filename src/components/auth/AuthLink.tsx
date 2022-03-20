@@ -8,26 +8,24 @@ export interface AuthLinkProps {
   to: string
 }
 
-const AuthLink: FC<AuthLinkProps> = ({ to, text, type = 'default' }) => {
-  return (
-    <Typography variant={'caption'}>
-      <Link
-        component={RouterLink}
-        to={to}
-        sx={
-          type === 'legal'
-            ? {
-                color: 'palette.common.black',
-                paddingLeft: 2,
-                opacity: 0.5,
-              }
-            : null
-        }
-      >
-        {text}
-      </Link>
-    </Typography>
-  )
-}
+const AuthLink: FC<AuthLinkProps> = ({ to, text, type = 'default' }) => (
+  <Typography variant='caption'>
+    <Link
+      component={RouterLink}
+      to={to}
+      sx={
+        type === 'legal'
+          ? {
+              color: 'palette.common.black',
+              paddingLeft: 2,
+              opacity: 0.5,
+            }
+          : null
+      }
+    >
+      {text}
+    </Link>
+  </Typography>
+)
 
 export default AuthLink

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { useState, FC } from 'react'
 import { styled, TextField } from '@mui/material'
 import TogglePasswordVisibility from './TogglePasswordVisibility'
 
@@ -11,7 +11,7 @@ const AuthPasswordField: FC<AuthPasswordFieldProps> = ({
   register,
   helperText = '',
 }) => {
-  const [showPassword, setShowPassword] = React.useState(false)
+  const [showPassword, setShowPassword] = useState(false)
 
   const handleClickShowPassword = () =>
     setShowPassword(prevShowPassword => !prevShowPassword)

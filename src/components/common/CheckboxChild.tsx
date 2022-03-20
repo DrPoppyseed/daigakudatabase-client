@@ -16,24 +16,22 @@ const CheckboxChild: FC<CheckboxChildProps> = ({
   checked,
   onChange,
   className = '',
-}) => {
-  return (
-    <FormControlLabel
-      label={
-        <Typography variant='subtitle2'>
-          <FormattedMessage id={messageId} />
-        </Typography>
-      }
-      control={
-        <Checkbox
-          name={name}
-          checked={checked}
-          onChange={onChange}
-          className={className}
-        />
-      }
-    />
-  )
-}
+}) => (
+  <FormControlLabel
+    label={
+      <Typography variant='subtitle2'>
+        <FormattedMessage id={messageId} />
+      </Typography>
+    }
+    control={
+      <Checkbox
+        name={name}
+        checked={checked}
+        onChange={onChange}
+        className={className}
+      />
+    }
+  />
+)
 
 export default CheckboxChild

@@ -19,7 +19,7 @@ const D3ProgramsGraphCore = (
     .attr('width', width)
     .attr('height', height)
 
-  let simulation = d3
+  const simulation = d3
     .forceSimulation()
     .force(
       'forceX',
@@ -75,8 +75,8 @@ const D3ProgramsGraphCore = (
     })
     .on('mousemove', (e, d) => {
       Tooltip.html(`<p>${d.program_ja}</p>`)
-        .style('left', e.pageX + 20 + 'px')
-        .style('top', e.pageY + 10 + 'px')
+        .style('left', `${e.pageX + 20}px`)
+        .style('top', `${e.pageY + 10}px`)
     })
     .on('mouseleave', () => {
       Tooltip.style('display', 'none')

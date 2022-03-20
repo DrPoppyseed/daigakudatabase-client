@@ -1,6 +1,5 @@
 import { styled, Typography } from '@mui/material'
-import * as React from 'react'
-import { FC } from 'react'
+import React, { FC } from 'react'
 import { FormattedMessage } from 'react-intl'
 
 export interface DatacardSectionProps {
@@ -10,18 +9,16 @@ export interface DatacardSectionProps {
 const DatacardSection: FC<DatacardSectionProps> = ({
   sectionTitleMessageId,
   children,
-}) => {
-  return (
-    <DatacardSectionContainer>
-      <div>
-        <Typography variant='button'>
-          <FormattedMessage id={sectionTitleMessageId} />
-        </Typography>
-      </div>
-      <DatacardSectionBodyContainer>{children}</DatacardSectionBodyContainer>
-    </DatacardSectionContainer>
-  )
-}
+}) => (
+  <DatacardSectionContainer>
+    <div>
+      <Typography variant='button'>
+        <FormattedMessage id={sectionTitleMessageId} />
+      </Typography>
+    </div>
+    <DatacardSectionBodyContainer>{children}</DatacardSectionBodyContainer>
+  </DatacardSectionContainer>
+)
 
 const DatacardSectionContainer = styled('div')(({ theme }) => ({
   display: 'flex',

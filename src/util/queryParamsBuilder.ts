@@ -15,7 +15,8 @@ const queryParamsBuilder = ({
 }: Params) => {
   let params = `page=${page}&sortby=${sortBy}&`
 
-  for (const [key, value] of Object.entries(schoolType)) {
+  for (let i = 0; i < Object.entries(schoolType).length; i++) {
+    const [key, value] = Object.entries(schoolType)[i]
     if (value) params += `${key}=${value}&`
   }
 
@@ -25,12 +26,9 @@ const queryParamsBuilder = ({
   ) {
     params += `sat=${satRange[0]},${satRange[1]}&`
   }
-  // if (
-  //   tuitionRange[0] !== DEFAULT_TUITION_RANGE_LOW ||
-  //   tuitionRange[1] !== DEFAULT_TUITION_RANGE_HIGH
-  // ) {
+
   params += `tuition=${tuitionRange[0]},${tuitionRange[1]}&`
-  // }
+
   if (state) {
     params += `state=${state}&`
   }
@@ -41,7 +39,6 @@ const queryParamsBuilder = ({
     params += `urban=${urbanizationLevel}&`
   }
 
-  // remove & at end
   params = params.slice(0, -1)
 
   return params

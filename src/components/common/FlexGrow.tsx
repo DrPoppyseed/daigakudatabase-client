@@ -5,9 +5,9 @@ export interface FlexGrowProps {
   id?: string
 }
 
-const FlexGrow: FC<FlexGrowProps> = ({ children, id = '' }) => {
-  return <Grow id={id}>{children}</Grow>
-}
+const FlexGrow: FC<FlexGrowProps> = ({ children, id = '' }) => (
+  <Grow id={id}>{children}</Grow>
+)
 
 const Grow = styled('div')`
   flex-grow: 1;

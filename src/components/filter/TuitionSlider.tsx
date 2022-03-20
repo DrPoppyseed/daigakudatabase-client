@@ -1,10 +1,10 @@
-import * as React from 'react'
+import React from 'react'
 import { Box, Slider, Typography } from '@mui/material'
+import { FormattedMessage } from 'react-intl'
 import formatMoney from '../../util/formatMoney'
 import { useAppDispatch, useAppSelector } from '../../hooks/useFilter'
 import { setTuitionRange } from '../../features/filterSlice'
 import { TuitionRange } from '../../types/TuitionRange'
-import { FormattedMessage } from 'react-intl'
 import {
   DEFAULT_TUITION_RANGE_HIGH,
   DEFAULT_TUITION_RANGE_LOW,
@@ -14,8 +14,8 @@ const TuitionSlider = () => {
   const tuitionRange = useAppSelector(state => state.filter.tuitionRange)
   const dispatch = useAppDispatch()
 
-  const handleTuitionRange = (_: Event, tuitionRange: TuitionRange) => {
-    dispatch(setTuitionRange(tuitionRange))
+  const handleTuitionRange = (_: Event, _tuitionRange: TuitionRange) => {
+    dispatch(setTuitionRange(_tuitionRange))
   }
 
   return (
@@ -37,7 +37,7 @@ const TuitionSlider = () => {
       </Typography>
       <Slider
         value={tuitionRange}
-        onChange={(_, range) => handleTuitionRange(_, range as TuitionRange)}
+        onChange={handleTuitionRange}
         aria-labelledby='tuition range slider'
         min={DEFAULT_TUITION_RANGE_LOW}
         step={100}

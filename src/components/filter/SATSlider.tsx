@@ -1,5 +1,6 @@
 import React from 'react'
 import { Slider, styled, Typography } from '@mui/material'
+import { FormattedMessage } from 'react-intl'
 import {
   DEFAULT_SAT_RANGE_HIGH,
   DEFAULT_SAT_RANGE_LOW,
@@ -7,14 +8,13 @@ import {
 import { SATRange } from '../../types/SATRange'
 import { useAppDispatch, useAppSelector } from '../../hooks/useFilter'
 import { setSATRange } from '../../features/filterSlice'
-import { FormattedMessage } from 'react-intl'
 
 const SATSlider = () => {
   const satRange = useAppSelector(state => state.filter.satRange)
   const dispatch = useAppDispatch()
 
-  const handleSatRange = (_: Event, satRange: SATRange) => {
-    dispatch(setSATRange(satRange))
+  const handleSatRange = (_: Event, _satRange: SATRange) => {
+    dispatch(setSATRange(_satRange))
   }
 
   return (
@@ -25,7 +25,7 @@ const SATSlider = () => {
       </Typography>
       <Slider
         value={satRange}
-        onChange={(e, range) => handleSatRange(e, range as SATRange)}
+        onChange={handleSatRange}
         aria-labelledby='sat range slider'
         min={DEFAULT_SAT_RANGE_LOW}
         step={50}

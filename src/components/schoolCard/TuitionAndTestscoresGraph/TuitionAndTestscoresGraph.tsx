@@ -1,9 +1,9 @@
 import { styled, Typography } from '@mui/material'
+import React, { FC } from 'react'
+import { FormattedMessage } from 'react-intl'
 import D3TestscoresGraph from './D3TestscoresGraph'
 import D3TuitionGraph from './D3TuitionGraph'
-import React, { FC } from 'react'
 import NoDataText from './NoDataText'
-import { FormattedMessage } from 'react-intl'
 
 export interface TuitionAndTestscoresGraphProps {
   admissions: any
@@ -32,7 +32,7 @@ const TuitionAndTestscoresGraph: FC<TuitionAndTestscoresGraphProps> = ({
             admissions.sat.math_75th_percentile
           }
           identifier={`D3GraphContainer-${unitid}`}
-          percentile={'sat_75th'}
+          percentile='sat_75th'
           ipeds_unitid={unitid}
         />
       )}

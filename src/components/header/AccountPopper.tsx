@@ -9,21 +9,25 @@ import {
   Typography,
 } from '@mui/material'
 import { Link as RouterLink } from 'react-router-dom'
-import React, { FC } from 'react'
+import React, { useContext, FC } from 'react'
 import { useMutation, useQueryClient } from 'react-query'
+import { FormattedMessage } from 'react-intl'
 import { signOut } from '../../hooks/useAuth'
 import { AuthContext } from '../../contexts/AuthContext'
-import { FormattedMessage } from 'react-intl'
 
-export interface AccountPopper {
+export interface AccountPopperProps {
   open: boolean
   setOpen: (state: boolean) => void
   anchorRef: any
 }
 
-const AccountPopper: FC<AccountPopper> = ({ open, setOpen, anchorRef }) => {
+const AccountPopper: FC<AccountPopperProps> = ({
+  open,
+  setOpen,
+  anchorRef,
+}) => {
   const queryClient = useQueryClient()
-  const { setUser } = React.useContext(AuthContext)
+  const { setUser } = useContext(AuthContext)
 
   const handleClose = () => {
     setOpen(false)

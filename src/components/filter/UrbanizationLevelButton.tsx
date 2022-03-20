@@ -1,8 +1,8 @@
 import { Button } from '@mui/material'
 import React, { FC, MouseEvent } from 'react'
+import { FormattedMessage } from 'react-intl'
 import { useAppDispatch, useAppSelector } from '../../hooks/useFilter'
 import { setUrbanizationLevel } from '../../features/filterSlice'
-import { FormattedMessage } from 'react-intl'
 
 export interface UrbanizationLevelButtonProps {
   messageId: string
@@ -20,9 +20,9 @@ const UrbanizationLevelButton: FC<UrbanizationLevelButtonProps> = ({
 
   const handleUrbanizationLevel = (
     e: MouseEvent<HTMLButtonElement>,
-    value: string
+    _value: string
   ) => {
-    dispatch(setUrbanizationLevel(value))
+    dispatch(setUrbanizationLevel(_value))
   }
 
   return (

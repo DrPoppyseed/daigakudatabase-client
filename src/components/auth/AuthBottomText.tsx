@@ -16,17 +16,15 @@ const AuthBottomText: FC<AuthBottomTextProps> = ({
   linkTextMessageId,
   to,
   afterMessageId,
-}) => {
-  return (
-    <AuthText variant='caption'>
-      <FormattedMessage id={beforeMessageId} />
-      <Link component={RouterLink} to={to}>
-        <FormattedMessage id={linkTextMessageId} />
-      </Link>
-      <FormattedMessage id={afterMessageId} />
-    </AuthText>
-  )
-}
+}) => (
+  <AuthText variant='caption'>
+    <FormattedMessage id={beforeMessageId} />
+    <Link component={RouterLink} to={to}>
+      <FormattedMessage id={linkTextMessageId} />
+    </Link>
+    <FormattedMessage id={afterMessageId} />
+  </AuthText>
+)
 
 const AuthText = styled(Typography)(({ theme }) => ({
   color: alpha(theme.palette.common.black, 0.5),

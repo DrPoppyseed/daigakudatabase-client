@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useMemo } from 'react'
 import { Container, styled } from '@mui/material'
 import Pagination from './Pagination'
 import FilterBox from '../filter/FilterBox'
@@ -28,7 +28,7 @@ const Home = () => {
       <HomeSchoolCard key={school.ipeds_unitid} general={school} />
     ))
 
-  const renderSchools = React.useMemo(
+  const renderSchools = useMemo(
     () => !!data && mapSchools(data.schools),
     [data]
   )
@@ -49,15 +49,15 @@ const Home = () => {
         ) : isError ? (
           <ErrorMessage />
         ) : data && data.totalSchoolsFound === 0 ? (
-          <React.Fragment>
+          <>
             <SortByBox data={data} />
             <NoSchoolsFound />
-          </React.Fragment>
+          </>
         ) : (
-          <React.Fragment>
+          <>
             <SortByBox data={data} />
             {renderSchools}
-          </React.Fragment>
+          </>
         )}
         {isSuccess && <Pagination totalSchoolsFound={data.totalSchoolsFound} />}
       </CardsContainer>

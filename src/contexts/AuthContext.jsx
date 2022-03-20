@@ -1,23 +1,23 @@
-import * as React from 'react'
-import { firebaseAuth } from '../config/firebase'
+import React, { useEffect, useState, createContext } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { firebaseAuth } from '../config/firebase'
 
-const AuthContext = React.createContext()
+const AuthContext = createContext()
 
 const AuthProvider = ({ children }) => {
   const navigate = useNavigate()
-  const [globalLoading, setGlobalLoading] = React.useState(true)
-  const [currentPath, setCurrentPath] = React.useState('')
+  const [globalLoading, setGlobalLoading] = useState(true)
+  const [currentPath, setCurrentPath] = useState('')
   const location = useLocation()
-  const [user, setUser] = React.useState({
+  const [user, setUser] = useState({
     uid: '',
   })
 
-  React.useEffect(() => {
+  useEffect(() => {
     setCurrentPath(location.pathname)
   }, [location])
 
-  React.useEffect(() => {
+  useEffect(() => {
     firebaseAuth.onAuthStateChanged(result => {
       if (result) {
         if (result.uid !== user.uid) {

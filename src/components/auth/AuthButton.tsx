@@ -15,26 +15,24 @@ const AuthButton: FC<AuthButtonProps> = ({
   isLoading,
   disabled = isLoading,
   labelMessageId,
-}) => {
-  return (
-    <AuthButtonBase color={color} disabled={disabled} type='submit'>
-      {isLoading ? (
-        <CircularProgress data-testid={'auth-button-progress'} />
-      ) : (
-        <FormattedMessage
-          data-testid={'auth-button-formatted-message'}
-          id={labelMessageId}
-        />
-      )}
-    </AuthButtonBase>
-  )
-}
+}) => (
+  <AuthButtonBase color={color} disabled={disabled} type='submit'>
+    {isLoading ? (
+      <CircularProgress data-testid='auth-button-progress' />
+    ) : (
+      <FormattedMessage
+        data-testid='auth-button-formatted-message'
+        id={labelMessageId}
+      />
+    )}
+  </AuthButtonBase>
+)
 
 const AuthButtonBase = styled(Button)(({ theme }) => ({
   height: 50,
   margin: '1.5rem 0 1rem 0 !important',
   width: '100%',
-  backgroundColor: theme.palette.info.main + ' !important',
+  backgroundColor: `${theme.palette.info.main} !important`,
 }))
 
 export default AuthButton

@@ -1,12 +1,12 @@
-import D3StudentsViz from './D3StudentsGraph'
 import { List, ListItemButton, Typography } from '@mui/material'
-import React, { FC } from 'react'
+import React, { useState, FC } from 'react'
+import { FormattedMessage } from 'react-intl'
+import D3StudentsViz from './D3StudentsGraph'
 import { KeyValueObject } from '../../../types/common'
 import { SexGraphics } from '../../../util/constants'
 import { DemographicsGraphics } from '../../../constants/DemographicsGraphics'
 import useStyles from './StudentsGraphStyles'
 import NoDataText from './NoDataText'
-import { FormattedMessage } from 'react-intl'
 
 export interface StudentsGraphProps {
   students: any
@@ -15,7 +15,7 @@ export interface StudentsGraphProps {
 
 const StudentsGraph: FC<StudentsGraphProps> = ({ students, unitid }) => {
   const c = useStyles()
-  const [highlightedRace, setHighlightedRace] = React.useState('')
+  const [highlightedRace, setHighlightedRace] = useState('')
 
   const cleanDemographicsData = (rawData: KeyValueObject) =>
     Object.entries(rawData).reduce(

@@ -6,12 +6,12 @@ import { Provider as ReduxStore } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
+import { IntlProvider } from 'react-intl'
 import { AuthProvider } from './contexts/AuthContext'
 import { store } from './store'
 
 import App from './App'
 import theme from './config/muiTheme'
-import { IntlProvider } from 'react-intl'
 import { browserLocale, messages } from './config/i18n'
 
 // TODO: deprecate react-query and migrate to rtk-query
