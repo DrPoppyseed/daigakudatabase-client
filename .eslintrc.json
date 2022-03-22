@@ -21,12 +21,7 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "plugins": [
-    "react",
-    "react-hooks",
-    "prettier",
-    "@typescript-eslint"
-  ],
+  "plugins": ["react", "react-hooks", "prettier", "@typescript-eslint"],
   "rules": {
     "import/order": "warn",
     "import/prefer-default-export": "off",
