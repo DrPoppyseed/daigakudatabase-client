@@ -9,7 +9,7 @@ https://user-images.githubusercontent.com/44737273/157153881-482a6a64-823b-4174-
 
 ## Motivation
 
-I first created bulk of the website in spring 2021 while as a project to learn web development and data visualization. After a year, I decided to revisit the project and give it some much needed updates, as well as adding new features and brushing up old ones while I was at it.
+I first created the bulk of the website in spring 2021 as a project to learn web development and data visualization. After a year, I decided to revisit the project and give it some much needed updates, as well as adding new features and brushing up old ones while I was at it. However, in all honesty, I'm split between bettering this project or embarking on a new web development project.
 
 ## Tasks
 
