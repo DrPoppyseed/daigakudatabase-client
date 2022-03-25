@@ -12,17 +12,23 @@
 /build
 /public/dist
 
-# misc
-.DS_Store
+# machine specific
 **/.DS_Store
+
+# environment variables and keys
 .env
 .env.local
 .env.development.local
 .env.test.local
-.env.production.local*
+.env.prod
 
 /.eslintcache
 
 # dev environment
 .idea
 .vscode
+
+# hosting
+firebase-debug.log
+.firebaserc
+.firebase

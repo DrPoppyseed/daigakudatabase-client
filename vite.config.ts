@@ -31,6 +31,7 @@ export default defineConfig({
       },
     },
     sourcemap: !!shouldAnalyze,
+    outDir: join(__dirname, './build/'),
   },
   server: {
     port: 3001,
