@@ -5,14 +5,14 @@ import FilterBox from '../filter/FilterBox'
 
 import HomeSchoolCard from '../schoolCard/HomeSchoolCard'
 import MetaTitle from '../common/MetaTitle'
-import { PageMetaTitles } from '../../util/constants'
-import { useGetSchoolsQuery } from '../../features/schoolsAPISlice'
-import queryParamsBuilder from '../../util/queryParamsBuilder'
-import { School } from '../../model/School'
+import { PageMetaTitles } from '@/util/constants'
+import { useGetSchoolsQuery } from '@/features/schoolsAPISlice'
+import queryParamsBuilder from '@/util/queryParamsBuilder'
+import { School } from '@/model/School'
 import ScrollTopFab from '../common/ScrollTopFab'
 import SortByBox from '../sort/SortByBox'
 import NoSchoolsFound from './NoSchoolsFound'
-import { useAppSelector } from '../../hooks/useFilter'
+import { useAppSelector } from '@/hooks/useFilter'
 import ErrorMessage from './ErrorMessage'
 import HomePageCardListSkeleton from './HomePageCardListSkeleton'
 
@@ -59,7 +59,9 @@ const Home = () => {
             {renderSchools}
           </>
         )}
-        {isSuccess && <Pagination totalSchoolsFound={data.totalSchoolsFound} />}
+        {isSuccess && (
+          <Pagination totalSchoolsFound={data?.totalSchoolsFound} />
+        )}
       </CardsContainer>
       <ScrollTopFab />
     </Root>

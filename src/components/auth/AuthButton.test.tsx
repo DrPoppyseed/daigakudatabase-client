@@ -1,9 +1,8 @@
 import React from 'react'
 import { cleanup, render } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import { IntlProvider } from 'react-intl'
 import AuthButton from './AuthButton'
-import { messages } from '../../config/i18n'
+import { I18nProvider } from '@/config/i18nProvider'
 
 afterEach(cleanup)
 
@@ -19,12 +18,12 @@ it('shows circular progress on load', () => {
 
 it('show text when not loading', () => {
   const { getByText } = render(
-    <IntlProvider locale='en' messages={messages.en}>
+    <I18nProvider>
       <AuthButton
         isLoading={false}
         labelMessageId='auth.auth_button.button_label.signin'
       />
-    </IntlProvider>
+    </I18nProvider>
   )
   getByText('Sign In')
 })

@@ -1,5 +1,5 @@
 import axios from 'axios'
 
-axios.defaults.baseURL = process.env.REACT_APP_BACKEND_API_ENDPOINT
+axios.defaults.baseURL = import.meta.env.VITE_BACKEND_API_ENDPOINT as string
 
 export const api = axios

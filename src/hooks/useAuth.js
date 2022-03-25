@@ -7,9 +7,9 @@ export const signUpWithEmail = async ({ email, password }) => {
     email,
     password
   )
-  const token = await user?.getIdToken(true)
+  const token = await user.getIdToken(true)
   const { data } = await api.put(
-    `${process.env.REACT_APP_BACKEND_API_ENDPOINT}/users/`,
+    `${import.meta.env.VITE_BACKEND_API_ENDPOINT}/users/`,
     {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -28,7 +28,7 @@ export const signInWithEmail = async ({ email, password }) => {
   )
   const token = await user.getIdToken(true)
   const { data } = await axios.get(
-    `${process.env.REACT_APP_BACKEND_API_ENDPOINT}/users/`,
+    `${import.meta.env.VITE_BACKEND_API_ENDPOINT}/users/`,
     {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -43,7 +43,7 @@ export const signInWithGoogle = async () => {
   const { user } = await firebaseAuth.signInWithPopup(googleProvider)
   const token = await user.getIdToken(true)
   const { data } = await axios.get(
-    `${process.env.REACT_APP_BACKEND_API_ENDPOINT}/users/`,
+    `${import.meta.env.VITE_BACKEND_API_ENDPOINT}/users/`,
     {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -68,7 +68,9 @@ export const likeSchoolById = async ipeds_unitid => {
   const user = await firebaseAuth.currentUser
   const token = await user.getIdToken(true)
   const { data } = await axios.get(
-    `${process.env.REACT_APP_BACKEND_API_ENDPOINT}/users/like?ipeds_unitid=${ipeds_unitid}`,
+    `${
+      import.meta.env.VITE_BACKEND_API_ENDPOINT
+    }/users/like?ipeds_unitid=${ipeds_unitid}`,
     {
       headers: { Authorization: `Bearer ${token}` },
     }
@@ -80,7 +82,9 @@ export const unlikeSchoolById = async ipeds_unitid => {
   const user = await firebaseAuth.currentUser
   const token = await user.getIdToken()
   const { data } = await axios.get(
-    `${process.env.REACT_APP_BACKEND_API_ENDPOINT}/users/unlike?ipeds_unitid=${ipeds_unitid}`,
+    `${
+      import.meta.env.VITE_BACKEND_API_ENDPOINT
+    }/users/unlike?ipeds_unitid=${ipeds_unitid}`,
     {
       headers: { Authorization: `Bearer ${token}` },
     }

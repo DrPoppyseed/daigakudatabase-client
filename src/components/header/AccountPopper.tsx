@@ -9,11 +9,11 @@ import {
   Typography,
 } from '@mui/material'
 import { Link as RouterLink } from 'react-router-dom'
-import React, { useContext, FC } from 'react'
+import React, { FC, useContext } from 'react'
 import { useMutation, useQueryClient } from 'react-query'
 import { FormattedMessage } from 'react-intl'
-import { signOut } from '../../hooks/useAuth'
-import { AuthContext } from '../../contexts/AuthContext'
+import { signOut } from '@/hooks/useAuth'
+import { AuthContext } from '@/contexts/AuthContext'
 
 export interface AccountPopperProps {
   open: boolean

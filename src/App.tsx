@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import loadable from '@loadable/component'
 import { Container, styled } from '@mui/material'
+import { Theme } from '@mui/system'
 import { AuthContext } from './contexts/AuthContext'
 
 import Header from './components/header/Header'
@@ -36,7 +37,7 @@ const App = () => {
   )
 }
 
-const AppContainer = styled(Container)(({ theme }) => ({
+const AppContainer = styled(Container)(({ theme }: { theme: Theme }) => ({
   paddingTop: theme.spacing(14),
   [theme.breakpoints.down('lg')]: {
     paddingRight: 0,

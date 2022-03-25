@@ -1,6 +1,7 @@
 import { styled, Typography } from '@mui/material'
 import React, { FC } from 'react'
 import { FormattedMessage } from 'react-intl'
+import { Theme } from '@mui/system'
 import D3TestscoresGraph from './D3TestscoresGraph'
 import D3TuitionGraph from './D3TuitionGraph'
 import NoDataText from './NoDataText'
@@ -57,7 +58,7 @@ const TuitionAndTestscoresGraph: FC<TuitionAndTestscoresGraphProps> = ({
   </Root>
 )
 
-const Root = styled('div')(({ theme }) => ({
+const Root = styled('div')(({ theme }: { theme: Theme }) => ({
   display: 'flex',
   padding: theme.spacing(0.5),
   height: 210,

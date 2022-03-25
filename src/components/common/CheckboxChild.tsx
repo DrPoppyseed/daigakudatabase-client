@@ -15,7 +15,7 @@ const CheckboxChild: FC<CheckboxChildProps> = ({
   name,
   checked,
   onChange,
-  className = '',
+  className,
 }) => (
   <FormControlLabel
     label={
@@ -28,7 +28,7 @@ const CheckboxChild: FC<CheckboxChildProps> = ({
         name={name}
         checked={checked}
         onChange={onChange}
-        className={className}
+        className={className ?? ''}
       />
     }
   />

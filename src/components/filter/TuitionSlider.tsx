@@ -1,14 +1,14 @@
 import React from 'react'
 import { Box, Slider, Typography } from '@mui/material'
 import { FormattedMessage } from 'react-intl'
-import formatMoney from '../../util/formatMoney'
-import { useAppDispatch, useAppSelector } from '../../hooks/useFilter'
-import { setTuitionRange } from '../../features/filterSlice'
-import { TuitionRange } from '../../types/TuitionRange'
+import formatMoney from '@/util/formatMoney'
+import { useAppDispatch, useAppSelector } from '@/hooks/useFilter'
+import { setTuitionRange } from '@/features/filterSlice'
+import { TuitionRange } from '@/types/TuitionRange'
 import {
   DEFAULT_TUITION_RANGE_HIGH,
   DEFAULT_TUITION_RANGE_LOW,
-} from '../../util/constants'
+} from '@/util/constants'
 
 const TuitionSlider = () => {
   const tuitionRange = useAppSelector(state => state.filter.tuitionRange)
@@ -37,7 +37,7 @@ const TuitionSlider = () => {
       </Typography>
       <Slider
         value={tuitionRange}
-        onChange={handleTuitionRange}
+        onChange={(_, range) => handleTuitionRange(_, range as TuitionRange)}
         aria-labelledby='tuition range slider'
         min={DEFAULT_TUITION_RANGE_LOW}
         step={100}

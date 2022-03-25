@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as d3 from 'd3'
-import { useD3 } from '../../../hooks/useD3'
+import { useD3 } from '@/hooks/useD3'
 import './D3StudentsGraphStyles.css'
 
 const D3StudentsGraph = props => {
