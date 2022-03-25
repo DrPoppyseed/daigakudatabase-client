@@ -29,11 +29,6 @@
       "pnpm run format"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pnpm run pre-commit"
-    }
-  },
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}"
