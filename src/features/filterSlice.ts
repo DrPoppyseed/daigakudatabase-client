@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Defaults } from '../util/constants'
-import { SATRange } from '../types/SATRange'
-import { TuitionRange } from '../types/TuitionRange'
-import { Filter } from '../types/Filter'
+import { Defaults } from '@/util/constants'
+import { SATRange } from '@/types/SATRange'
+import { TuitionRange } from '@/types/TuitionRange'
+import { Filter } from '@/types/Filter'
 
 export const initialFilterState: Filter = {
   state: '',

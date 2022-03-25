@@ -1,8 +1,8 @@
 import { Button } from '@mui/material'
 import React from 'react'
 import { FormattedMessage } from 'react-intl'
-import { useAppDispatch, useAppSelector } from '../../hooks/useFilter'
-import { setParams } from '../../features/paramsSlice'
+import { useAppDispatch, useAppSelector } from '@/hooks/useFilter'
+import { setParams } from '@/features/paramsSlice'
 
 const SearchButton = () => {
   const filter = useAppSelector(state => state.filter)

@@ -15,34 +15,34 @@ const Footer = loadable(() => import('./components/common/Footer'))
 const NoMatch = loadable(() => import('./components/common/NotFoundPage'))
 
 const App = () => {
-	const { globalLoading, currentPath } = useContext(AuthContext)
+  const { globalLoading, currentPath } = useContext(AuthContext)
 
-	const isNotAuth = !currentPath.match(/(auth\/signin|auth\/signup)/)
+  const isNotAuth = !currentPath.match(/(auth\/signin|auth\/signup)/)
 
-	return !globalLoading ? (
-		<>
-			{isNotAuth && <Header />}
-			<AppContainer>
-				<Routes>
-					<Route path='/' element={<Home />} />
-					<Route path='/auth/signin' element={<SignIn />} />
-					<Route path='/auth/signup' element={<SignUp />} />
-					<Route element={<NoMatch />} />
-				</Routes>
-			</AppContainer>
-			{isNotAuth && <Footer />}
-		</>
-	) : (
-		<PageLoading />
-	)
+  return !globalLoading ? (
+    <>
+      {isNotAuth && <Header />}
+      <AppContainer>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/auth/signin' element={<SignIn />} />
+          <Route path='/auth/signup' element={<SignUp />} />
+          <Route element={<NoMatch />} />
+        </Routes>
+      </AppContainer>
+      {isNotAuth && <Footer />}
+    </>
+  ) : (
+    <PageLoading />
+  )
 }
 
 const AppContainer = styled(Container)(({ theme }: { theme: Theme }) => ({
-	paddingTop: theme.spacing(14),
-	[theme.breakpoints.down('lg')]: {
-		paddingRight: 0,
-		paddingLeft: 0,
-	},
+  paddingTop: theme.spacing(14),
+  [theme.breakpoints.down('lg')]: {
+    paddingRight: 0,
+    paddingLeft: 0,
+  },
 }))
 
 export default App

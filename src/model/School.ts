@@ -1,4 +1,4 @@
-import { KeyValueObject } from '../types/common'
+import { KeyValueObject } from '@/types/common'
 
 export type School = KeyValueObject
 

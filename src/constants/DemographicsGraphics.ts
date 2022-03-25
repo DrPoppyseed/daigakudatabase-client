@@ -1,4 +1,4 @@
-import { GraphicsObject } from '../types/common'
+import { GraphicsObject } from '@/types/common'
 
 export const DemographicsGraphics: GraphicsObject = {
   white: {
