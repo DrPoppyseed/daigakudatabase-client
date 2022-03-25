@@ -8,16 +8,13 @@ import { join } from 'path'
 
 const shouldAnalyze = process.env.ANALYZE
 
-const chunkify = (id: string) => {
-  if (id.includes('node_modules')) {
-    if (id.includes('@mui')) return 'vendor_mui'
-    if (id.includes('firebase')) return 'vendor_firebase'
-    if (id.includes('react-redux')) return 'vendor_react-redux'
-    if (id.includes('react')) return 'vendor_react'
-    if (id.includes('react-dom')) return 'vendor_react-dom'
-    return 'vendor'
-  }
-}
+// const chunkify = (id: string) => {
+//   if (id.includes('node_modules')) {
+//     if (id.includes('firebase')) return 'vendor_firebase'
+//     if (id.includes('react-redux')) return 'vendor_react-redux'
+//     return 'vendor'
+//   }
+// }
 
 export default defineConfig({
   root: '.',
@@ -26,9 +23,6 @@ export default defineConfig({
       plugins: shouldAnalyze
         ? [visualizer({ open: true, filename: './bundle-size/bundle.html' })]
         : [],
-      output: {
-        manualChunks: chunkify,
-      },
     },
     sourcemap: !!shouldAnalyze,
     outDir: join(__dirname, './build/'),
