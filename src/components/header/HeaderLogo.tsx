@@ -14,7 +14,7 @@ const HeaderLogo = () => (
     }}
   >
     <img
-      src='/assets/logo.png'
+      src='assets/logo.png'
       alt='logo'
       style={{
         height: '40px',

@@ -10,7 +10,7 @@ export type SchoolsResponse = {
 export const schoolsAPI = createApi({
   reducerPath: 'schoolsAPI',
   baseQuery: fetchBaseQuery({
-    baseUrl: `${process.env.REACT_APP_BACKEND_API_ENDPOINT}`,
+    baseUrl: `${import.meta.env.VITE_BACKEND_API_ENDPOINT}`,
     prepareHeaders: async headers => {
       const user = await firebaseAuth.currentUser
       const token = await user?.getIdToken(true)

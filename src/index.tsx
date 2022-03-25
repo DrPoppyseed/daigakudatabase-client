@@ -6,13 +6,12 @@ import { Provider as ReduxStore } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
-import { IntlProvider } from 'react-intl'
-import { AuthProvider } from './contexts/AuthContext'
-import { store } from './store'
+import { AuthProvider } from '@/contexts/AuthContext'
+import { store } from '@/store'
 
-import App from './App'
-import theme from './config/muiTheme'
-import { browserLocale, messages } from './config/i18n'
+import App from '@/App'
+import theme from '@/config/muiTheme'
+import { I18nProvider } from '@/config/i18nProvider'
 
 // TODO: deprecate react-query and migrate to rtk-query
 const queryClient = new QueryClient({
@@ -31,13 +30,9 @@ ReactDOM.render(
           <StyledEngineProvider injectFirst>
             <ThemeProvider theme={theme}>
               <CssBaseline />
-              <IntlProvider
-                locale={browserLocale}
-                messages={messages[browserLocale]}
-                defaultLocale='en'
-              >
+              <I18nProvider>
                 <App />
-              </IntlProvider>
+              </I18nProvider>
               <ReactQueryDevtools />
             </ThemeProvider>
           </StyledEngineProvider>

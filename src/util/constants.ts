@@ -1,6 +1,6 @@
-import { SATRange } from '../types/SATRange'
-import { TuitionRange } from '../types/TuitionRange'
-import { GraphicsObject } from '../types/common'
+import { SATRange } from '@/types/SATRange'
+import { TuitionRange } from '@/types/TuitionRange'
+import { GraphicsObject } from '@/types/common'
 
 export const DEFAULT_SAT_RANGE_LOW = 600
 export const DEFAULT_SAT_RANGE_HIGH = 1600
