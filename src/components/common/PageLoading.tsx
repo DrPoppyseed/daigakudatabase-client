@@ -1,5 +1,4 @@
-import { styled, Typography } from '@mui/material'
-import { InfinitySpin } from 'react-loader-spinner'
+import { styled, Typography, CircularProgress } from '@mui/material'
 import React from 'react'
 import { FormattedMessage } from 'react-intl'
 
@@ -8,7 +7,7 @@ const PageLoading = () => (
     <Typography sx={{ marginBottom: 2 }}>
       <FormattedMessage id='page_loading.message' />
     </Typography>
-    <InfinitySpin color='#2196f3' width='100' />
+    <CircularProgress />
   </LoadingContainer>
 )
 

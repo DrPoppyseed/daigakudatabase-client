@@ -1,6 +1,5 @@
-import React, { useContext } from 'react'
+import React, { lazy, Suspense, useContext } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import loadable from '@loadable/component'
 import { Container, styled } from '@mui/material'
 import { Theme } from '@mui/system'
 import { AuthContext } from './contexts/AuthContext'
@@ -9,10 +8,10 @@ import Header from './components/header/Header'
 import Home from './components/home/HomePage'
 import PageLoading from './components/common/PageLoading'
 
-const SignIn = loadable(() => import('./components/auth/SignInPage'))
-const SignUp = loadable(() => import('./components/auth/SignUpPage'))
-const Footer = loadable(() => import('./components/common/Footer'))
-const NoMatch = loadable(() => import('./components/common/NotFoundPage'))
+const SignIn = lazy(() => import('./components/auth/SignInPage'))
+const SignUp = lazy(() => import('./components/auth/SignUpPage'))
+const Footer = lazy(() => import('./components/common/Footer'))
+const NoMatch = lazy(() => import('./components/common/NotFoundPage'))
 
 const App = () => {
   const { globalLoading, currentPath } = useContext(AuthContext)
@@ -20,7 +19,7 @@ const App = () => {
   const isNotAuth = !currentPath.match(/(auth\/signin|auth\/signup)/)
 
   return !globalLoading ? (
-    <>
+    <Suspense fallback={<div />}>
       {isNotAuth && <Header />}
       <AppContainer>
         <Routes>
@@ -31,7 +30,7 @@ const App = () => {
         </Routes>
       </AppContainer>
       {isNotAuth && <Footer />}
-    </>
+    </Suspense>
   ) : (
     <PageLoading />
   )

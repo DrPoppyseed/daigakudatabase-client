@@ -8,6 +8,19 @@ import { join } from 'path'
 
 const shouldAnalyze = process.env.ANALYZE
 
+const chunkify = (id: string) => {
+  if (id.includes('node_modules')) {
+    if (id.includes('@firebase')) {
+      return 'vendor_firebase'
+    }
+    if (id.includes('@mui')) {
+      return 'vendor_mui'
+    }
+
+    return 'vendor' // all other package goes here
+  }
+}
+
 export default defineConfig({
   root: '.',
   build: {
