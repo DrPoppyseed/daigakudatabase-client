@@ -1,24 +1,24 @@
 # dependencies
-/node_modules
+**/node_modules
 
 # testing
-/coverage
+**/coverage
 
 # production
-/build
+**/build
 
 # machine specific
 **/.DS_Store
 
 # environment variables and keys
-.env
-.env.production
+**/.env
+**/.env.production
 
 # dev environment
 .idea
 .vscode
 
 # hosting
-firebase-debug.log
-.firebaserc
-.firebase
+**/firebase-debug.log
+**/.firebaserc
+**/.firebase
