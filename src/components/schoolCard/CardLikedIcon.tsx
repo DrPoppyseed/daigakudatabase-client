@@ -3,10 +3,9 @@ import {
   Star as StarIcon,
   StarBorder as StarBorderIcon,
 } from '@mui/icons-material'
-import React, { useState, useContext, FC, useEffect } from 'react'
-import { useMutation } from 'react-query'
-import { AuthContext } from '../../contexts/AuthContext'
-import { likeSchoolById, unlikeSchoolById } from '../../hooks/useAuth'
+import React, { useState, useContext, FC } from 'react'
+import { AuthContext } from '@/contexts/AuthContext'
+// import { likeSchoolById, unlikeSchoolById } from '@/hooks/useAuth'
 
 export interface CardLikedIconProps {
   unitid: string
@@ -18,25 +17,25 @@ const CardLikedIcon: FC<CardLikedIconProps> = ({ unitid, isLiked }) => {
 
   const authContext = useContext(AuthContext)
 
-  const onClickLike = useMutation(likeSchoolById, {
-    onSuccess: () => {
-      setIsCardLiked(true)
-    },
-  })
-  const onClickUnlike = useMutation(unlikeSchoolById, {
-    onSuccess: () => {
-      setIsCardLiked(false)
-    },
-  })
+  // const onClickLike = useMutation(likeSchoolById, {
+  //   onSuccess: () => {
+  //     setIsCardLiked(true)
+  //   },
+  // })
+  // const onClickUnlike = useMutation(unlikeSchoolById, {
+  //   onSuccess: () => {
+  //     setIsCardLiked(false)
+  //   },
+  // })
 
   const handleLikeClick = () => {
     setIsCardLiked(prevIsCardLiked => !prevIsCardLiked)
   }
 
-  useEffect(() => {
-    if (isCardLiked) onClickLike.mutate(unitid)
-    else onClickUnlike.mutate(unitid)
-  }, [unitid, isCardLiked, onClickLike, onClickUnlike])
+  // useEffect(() => {
+  //   if (isCardLiked) onClickLike.mutate(unitid)
+  //   else onClickUnlike.mutate(unitid)
+  // }, [unitid, isCardLiked, onClickLike, onClickUnlike])
 
   return authContext.user.uid ? (
     isCardLiked ? (

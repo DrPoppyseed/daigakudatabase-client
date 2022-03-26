@@ -1,4 +1,4 @@
-import { SUPPORTED_LOCALES } from '../constants/SupportedLocales'
+import { SUPPORTED_LOCALES } from '@/constants/SupportedLocales'
 
 export type KeyValueObject = { [key: string]: any }
 

@@ -1,5 +1,5 @@
 import { DEFAULT_SAT_RANGE_HIGH, DEFAULT_SAT_RANGE_LOW } from './constants'
-import { Params } from '../types/Params'
+import { Params } from '@/types/Params'
 
 const queryParamsBuilder = ({
   filter: {

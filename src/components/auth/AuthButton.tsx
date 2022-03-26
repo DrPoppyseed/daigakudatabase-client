@@ -1,7 +1,7 @@
 import { Button, CircularProgress, styled } from '@mui/material'
 import React, { FC } from 'react'
 import { FormattedMessage } from 'react-intl'
-import { MuiColor } from '../../types/mui'
+import { MuiColor } from '@/types/mui'
 
 export interface AuthButtonProps {
   color?: MuiColor

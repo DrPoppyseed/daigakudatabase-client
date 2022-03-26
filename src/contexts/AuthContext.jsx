@@ -1,6 +1,7 @@
 import React, { useEffect, useState, createContext } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { firebaseAuth } from '@/config/firebase'
+import firebaseApp from '../config/firebase'
+import { getAuth, onAuthStateChanged } from 'firebase/auth'
 
 const AuthContext = createContext()
 
@@ -18,10 +19,11 @@ const AuthProvider = ({ children }) => {
   }, [location])
 
   useEffect(() => {
-    firebaseAuth.onAuthStateChanged(result => {
-      if (result) {
-        if (result.uid !== user.uid) {
-          setUser(result)
+    const auth = getAuth(firebaseApp)
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        if (user.uid !== user.uid) {
+          setUser(user)
           setGlobalLoading(false)
 
           if (currentPath.match(/(auth\/signin|auth\/signup)/)) {

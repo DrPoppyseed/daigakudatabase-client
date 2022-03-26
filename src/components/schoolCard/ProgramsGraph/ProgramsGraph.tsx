@@ -1,6 +1,6 @@
 import React, { useState, FC } from 'react'
 import { List, ListItem, Typography } from '@mui/material'
-import { KeyValueObject } from '../../../types/common'
+import { KeyValueObject } from '@/types/common'
 import useStyles from './ProgramsGraphStyles'
 import D3ProgramsGraph from './D3ProgramsGraph'
 

@@ -1,42 +1,40 @@
 import React, { useState } from 'react'
-import { useMutation } from 'react-query'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { Link as RouterLink } from 'react-router-dom'
 import { Checkbox, FormControlLabel, Link, Typography } from '@mui/material'
-import { signUpWithEmail } from '../../hooks/useAuth'
-import { AuthContext } from '../../contexts/AuthContext'
+import { useSignUpWithEmail } from '@/hooks/useAuth'
+import { AuthContext } from '@/contexts/AuthContext'
 import AuthPasswordField from './AuthPasswordField'
 import AuthBottomText from './AuthBottomText'
 import AuthPageContainer from './AuthPageContainer'
 import AuthButton from './AuthButton'
 import AuthEmailField from './AuthEmailField'
-import { SignUpForm } from '../../types/SignUpForm'
+import { SignUpForm } from '@/types/SignUpForm'
 
 const SignUp = () => {
   const { register, handleSubmit, reset } = useForm<SignUpForm>()
-  const [isLoading, setIsLoading] = useState(false)
+  // const [isLoading, setIsLoading] = useState(false)
   const [isLegalChecked, setIsLegalChecked] = useState(false)
-  const { setUser } = React.useContext(AuthContext)
+  const { signUpWithEmail, isLoading } = useSignUpWithEmail()
 
-  const useSignUpWithEmail = useMutation(signUpWithEmail, {
-    onSuccess: data => {
-      reset()
-      setIsLoading(false)
-      setUser(data)
-    },
-    onError: () => {
-      reset()
-      setIsLoading(false)
-    },
-  })
+  // const useSignUpWithEmail = useMutation(signUpWithEmail, {
+  //   onSuccess: data => {
+  //     reset()
+  //     setIsLoading(false)
+  //     setUser(data)
+  //   },
+  //   onError: () => {
+  //     reset()
+  //     setIsLoading(false)
+  //   },
+  // })
 
   const handleChange = () => {
     setIsLegalChecked(prevIsLegalChecked => !prevIsLegalChecked)
   }
 
   const onSubmit: SubmitHandler<SignUpForm> = data => {
-    setIsLoading(true)
-    if (isLegalChecked) useSignUpWithEmail.mutate(data)
+    if (isLegalChecked) signUpWithEmail(data)
   }
 
   return (

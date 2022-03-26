@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Params } from '../types/Params'
+import { Params } from '@/types/Params'
 import { initialFilterState } from './filterSlice'
-import { SortByTypes } from '../types/SortByTypes'
+import { SortByTypes } from '@/types/SortByTypes'
 
 export const initialParamsState: Params = {
   filter: initialFilterState,

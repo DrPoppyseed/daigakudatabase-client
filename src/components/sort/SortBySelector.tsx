@@ -1,10 +1,10 @@
 import { MenuItem, Select, SelectChangeEvent, styled } from '@mui/material'
 import { FormattedMessage } from 'react-intl'
 import React from 'react'
-import { SortTypes } from '../../util/constants'
-import { useAppDispatch, useAppSelector } from '../../hooks/useFilter'
-import { changeSortBy } from '../../features/paramsSlice'
-import { SortByTypes } from '../../types/SortByTypes'
+import { SortTypes } from '@/util/constants'
+import { useAppDispatch, useAppSelector } from '@/hooks/useFilter'
+import { changeSortBy } from '@/features/paramsSlice'
+import { SortByTypes } from '@/types/SortByTypes'
 
 const SortBySelector = () => {
   const params = useAppSelector(state => state.params)

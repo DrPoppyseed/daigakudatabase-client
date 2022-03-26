@@ -10,7 +10,7 @@ import {
 import { FormattedMessage } from 'react-intl'
 import FlexGrow from '../common/FlexGrow'
 import SortBySelector from './SortBySelector'
-import { useAppSelector } from '../../hooks/useFilter'
+import { useAppSelector } from '@/hooks/useFilter'
 
 interface SortByBoxProps {
   data: any

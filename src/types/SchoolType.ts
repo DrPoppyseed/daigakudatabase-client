@@ -1,4 +1,4 @@
-import { Defaults } from '../util/constants'
+import { Defaults } from '@/util/constants'
 
 export type SchoolType = {
   fourYear: boolean

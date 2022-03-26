@@ -1,35 +1,20 @@
-import React, { useContext, useState } from 'react'
-import { useMutation } from 'react-query'
+import React from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { signInWithEmail } from '../../hooks/useAuth'
-import { AuthContext } from '../../contexts/AuthContext'
 import AuthPasswordField from './AuthPasswordField'
 import AuthLink from './AuthLink'
 import AuthBottomText from './AuthBottomText'
 import AuthButton from './AuthButton'
 import AuthPageContainer from './AuthPageContainer'
 import AuthEmailField from './AuthEmailField'
-import { SignInForm } from '../../types/SignInForm'
+import { SignInForm } from '@/types/SignInForm'
+import { useSignInWithEmail } from '@/hooks/useAuth'
 
 const SignIn = () => {
-  const { register, handleSubmit, reset } = useForm<SignInForm>()
-  const { setUser } = useContext(AuthContext)
-  const [isLoading, setIsLoading] = useState(false)
+  const { register, handleSubmit } = useForm<SignInForm>()
+  const { signInWithEmail, isLoading } = useSignInWithEmail()
 
-  const useSignInWithEmail = useMutation(signInWithEmail, {
-    onSuccess: data => {
-      reset()
-      setIsLoading(false)
-      setUser({ isSignedIn: true, profile: data })
-    },
-    onError: () => {
-      reset()
-      setIsLoading(false)
-    },
-  })
-
-  const onSubmit: SubmitHandler<SignInForm> = data => {
-    useSignInWithEmail.mutate(data)
+  const onSubmit: SubmitHandler<SignInForm> = async data => {
+    await signInWithEmail(data)
   }
 
   return (

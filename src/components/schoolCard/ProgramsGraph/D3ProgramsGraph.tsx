@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { FC } from 'react'
-import { useD3 } from '../../../hooks/useD3'
+import { useD3 } from '@/hooks/useD3'
 import './D3ProgramsGraphStyles.css'
 import D3ProgramsGraphCore from './D3ProgramsGraphCore'
 

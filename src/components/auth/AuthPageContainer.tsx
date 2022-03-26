@@ -1,13 +1,11 @@
 import { Paper, styled, Typography } from '@mui/material'
 import React, { FC } from 'react'
 import { FormattedMessage } from 'react-intl'
-import { useMutation } from 'react-query'
 import AuthLink from './AuthLink'
 import FlexGrow from '../common/FlexGrow'
-import { signInWithGoogle } from '../../hooks/useAuth'
+import { useSignInWithGoogle } from '@/hooks/useAuth'
 import AuthSocialButton from './AuthSocialButton'
 import PaddedDivider from '../common/PaddedDivider'
-import { AuthContext } from '../../contexts/AuthContext'
 
 export interface AuthPageContainerProps {
   pageTitleMessageId: string
@@ -17,13 +15,7 @@ const AuthPageContainer: FC<AuthPageContainerProps> = ({
   children,
   pageTitleMessageId,
 }) => {
-  const { setUser } = React.useContext(AuthContext)
-
-  const useSignInWithGoogle = useMutation(signInWithGoogle, {
-    onSuccess: data => {
-      setUser(data)
-    },
-  })
+  const { authenticateWithGoogle } = useSignInWithGoogle()
 
   return (
     <PageContainer>
@@ -34,7 +26,7 @@ const AuthPageContainer: FC<AuthPageContainerProps> = ({
         <Body>
           <AuthSocialButton
             buttonLabelMessageId='auth.social_button.button_label.google'
-            onButtonClick={useSignInWithGoogle.mutate}
+            onButtonClick={authenticateWithGoogle}
           />
           <PaddedDivider />
           {children}

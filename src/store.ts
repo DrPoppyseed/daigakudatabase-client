@@ -1,16 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit'
 import filterReducer from './features/filterSlice'
 import paramsReducer from './features/paramsSlice'
-import { schoolsAPI } from './features/schoolsAPISlice'
+import api from './features/apiSlice'
 
 export const store = configureStore({
   reducer: {
     filter: filterReducer,
     params: paramsReducer,
-    [schoolsAPI.reducerPath]: schoolsAPI.reducer,
+    [api.reducerPath]: api.reducer,
   },
   middleware: getDefaultMiddleware => {
-    return getDefaultMiddleware().concat(schoolsAPI.middleware)
+    return getDefaultMiddleware().concat(api.middleware)
   },
 })
 

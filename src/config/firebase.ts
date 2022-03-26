@@ -1,6 +1,5 @@
-import firebase from 'firebase/compat/app'
-import 'firebase/compat/auth'
-import 'firebase/compat/analytics'
+import { initializeApp } from 'firebase/app'
+import { GoogleAuthProvider } from 'firebase/auth'
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_API_KEY,
@@ -11,10 +10,7 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_APP_ID,
 }
 
-firebase.initializeApp(firebaseConfig)
+const firebaseApp = initializeApp(firebaseConfig)
 
-const analytics = firebase.analytics()
-analytics.logEvent('notification_received')
-
-export const googleProvider = new firebase.auth.GoogleAuthProvider()
-export const firebaseAuth = firebase.auth()
+export const googleProvider = new GoogleAuthProvider()
+export default firebaseApp

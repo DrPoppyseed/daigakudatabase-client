@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as d3 from 'd3'
 
-export const useD3 = (renderChartFn, deps) => {
+export const useD3 = (renderChartFn: any, deps: any[]) => {
   const ref = React.useRef(null)
 
   React.useEffect(() => {

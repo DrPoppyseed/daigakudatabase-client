@@ -9,11 +9,9 @@ import {
   Typography,
 } from '@mui/material'
 import { Link as RouterLink } from 'react-router-dom'
-import React, { FC, useContext } from 'react'
-import { useMutation, useQueryClient } from 'react-query'
+import React, { FC } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { signOut } from '@/hooks/useAuth'
-import { AuthContext } from '@/contexts/AuthContext'
 
 export interface AccountPopperProps {
   open: boolean
@@ -26,9 +24,6 @@ const AccountPopper: FC<AccountPopperProps> = ({
   setOpen,
   anchorRef,
 }) => {
-  const queryClient = useQueryClient()
-  const { setUser } = useContext(AuthContext)
-
   const handleClose = () => {
     setOpen(false)
   }
@@ -39,15 +34,6 @@ const AccountPopper: FC<AccountPopperProps> = ({
       setOpen(false)
     }
   }
-
-  const useSignOutOnClick = useMutation(signOut, {
-    onSuccess: async () => {
-      setUser({ uid: '' })
-      await queryClient.invalidateQueries('schools')
-      await queryClient.invalidateQueries('schoolPage')
-      localStorage.clear()
-    },
-  })
 
   return (
     <Popper
@@ -85,7 +71,7 @@ const AccountPopper: FC<AccountPopperProps> = ({
                     </Link>
                   </Typography>
                 </MenuItem>
-                <MenuItem onClick={() => useSignOutOnClick.mutate()}>
+                <MenuItem onClick={signOut}>
                   <Typography variant='body2'>
                     <FormattedMessage id='header.account_popper.menu_item.signout' />
                   </Typography>

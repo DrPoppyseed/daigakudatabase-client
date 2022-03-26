@@ -7,9 +7,9 @@ import {
   SelectChangeEvent,
 } from '@mui/material'
 import { FormattedMessage } from 'react-intl'
-import { States } from '../../constants/States'
-import { useAppDispatch, useAppSelector } from '../../hooks/useFilter'
-import { setState } from '../../features/filterSlice'
+import { States } from '@/constants/States'
+import { useAppDispatch, useAppSelector } from '@/hooks/useFilter'
+import { setState } from '@/features/filterSlice'
 
 const StateSelector = () => {
   const state = useAppSelector(_state => _state.filter.state)
