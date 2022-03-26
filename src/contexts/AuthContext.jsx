@@ -7,9 +7,9 @@ const AuthContext = createContext()
 
 const AuthProvider = ({ children }) => {
   const navigate = useNavigate()
+  const location = useLocation()
   const [globalLoading, setGlobalLoading] = useState(true)
   const [currentPath, setCurrentPath] = useState('')
-  const location = useLocation()
   const [user, setUser] = useState({
     uid: '',
   })
