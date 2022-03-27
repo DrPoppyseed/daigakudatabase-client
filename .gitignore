@@ -1,4 +1,5 @@
 # dependencies
+**/.pnpm-store
 **/node_modules
 
 # testing
@@ -17,6 +18,9 @@
 # dev environment
 .idea
 .vscode
+
+# log files
+**/.pnpm-debug.log
 
 # hosting
 **/firebase-debug.log

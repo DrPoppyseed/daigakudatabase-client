@@ -14,7 +14,11 @@
     "build": "vite build",
     "test": "jest --watchAll=false",
     "test:watch": "jest",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "analyze": "ANALYZE=true pnpm build",
+    "lint": "eslint 'src/**/*.{ js,jsx,ts,tsx }'",
+    "lint:fix": "eslint --fix 'src/**/*.{ js,jsx,ts,tsx }'",
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,md,json}' --config ../../.prettierrc"
   },
   "jest": {
     "collectCoverageFrom": [

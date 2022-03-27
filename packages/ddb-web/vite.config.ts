@@ -6,7 +6,7 @@ import { visualizer } from 'rollup-plugin-visualizer'
 import react from '@vitejs/plugin-react'
 import { join } from 'path'
 
-const shouldAnalyze = process.env.ANALYZE
+const shouldAnalyze = !!process.env.ANALYZE
 const rollupPlugins = shouldAnalyze
   ? [
       visualizer({
@@ -38,7 +38,7 @@ export default defineConfig({
         manualChunks: chunkify,
       },
     },
-    sourcemap: !!shouldAnalyze,
+    sourcemap: shouldAnalyze,
     outDir: 'build',
   },
   server: {

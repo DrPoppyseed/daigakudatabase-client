@@ -1,5 +1,7 @@
 {
   "env": {
+    "node": true,
+    "commonjs": true,
     "browser": true,
     "es2021": true
   },
@@ -51,6 +53,8 @@
     "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/no-unused-expressions": "warn",
     "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/no-var-requires": "warn",
+    "@typescript-eslint/ban-ts-comment": "off",
     "jsx-a11y/no-noninteractive-element-interactions": "warn",
     "jsx-a11y/click-events-have-key-events": "warn",
     "jsx-a11y/label-has-associated-control": "warn",
