@@ -13,9 +13,9 @@ DaigakuDatabase uses esbuild and pnpm to achieve lightning fast build times for 
 
 | tech                                 | purpose | notes |
 |--------------------------------------|---|------|
-| [vite](https://github.com/vitejs/vite)                                 | React / Typescript build tool for [ ddb-web ](https://github.com/DrPoppyseed/daigakudatabase/tree/to-monorepo/packages/ddb-web). | -    |
-| [etsc](https://github.com/a7ul/esbuild-node-tsc)                                 | tsc but with esbuild. Typescript transpiler for [ ddb-api ](https://github.com/DrPoppyseed/daigakudatabase/tree/to-monorepo/packages/ddb-api) express app. | -    |
-| [pnpm](https://github.com/pnpm/pnpm) | Package manager / monorepo workspace manager | -    |
+| [vite](https://github.com/vitejs/vite)                                 | React / Typescript build tool for [ ddb-web ](https://github.com/DrPoppyseed/daigakudatabase/tree/to-monorepo/packages/ddb-web). | [10-20x faster than CRA](https://www.darraghoriordan.com/2021/05/16/migrating-from-create-react-app-to-vite/#:~:text=Vite%20is%2010%2D20%20times,t%20type%20check%20your%20code.)    |
+| [etsc](https://github.com/a7ul/esbuild-node-tsc)                                 | tsc but with esbuild. Typescript transpiler for [ ddb-api ](https://github.com/DrPoppyseed/daigakudatabase/tree/to-monorepo/packages/ddb-api) express app. | [3-9x faster than tsc](https://datastation.multiprocess.io/blog/2021-11-13-benchmarking-esbuild-swc-typescript-babel.html)    |
+| [pnpm](https://github.com/pnpm/pnpm) | Package manager / monorepo workspace manager | [faster than yarn](https://pnpm.io/benchmarks)    |
 
 ## Layout
 
