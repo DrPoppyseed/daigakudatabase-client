@@ -17,6 +17,14 @@ DaigakuDatabase uses esbuild and pnpm to achieve lightning fast build times for 
 | [etsc](https://github.com/a7ul/esbuild-node-tsc)                                 | tsc but with esbuild. Typescript transpiler for [ ddb-api ](https://github.com/DrPoppyseed/daigakudatabase/tree/to-monorepo/packages/ddb-api) express app. | -    |
 | [pnpm](https://github.com/pnpm/pnpm) | Package manager / monorepo workspace manager | -    |
 
+## Layout
+
+| name                                                                                              | description |
+|---------------------------------------------------------------------------------------------------|---|
+| [ ddb-web ](https://github.com/DrPoppyseed/daigakudatabase/tree/to-monorepo/packages/ddb-web)     | react frontend |
+| [ ddb-api ](https://github.com/DrPoppyseed/daigakudatabase/tree/to-monorepo/packages/ddb-api)     | express api |
+| [ddb-entity](https://github.com/DrPoppyseed/daigakudatabase/tree/to-monorepo/packages/ddb-entity) | where all the shared types are stored |
+
 ## Motivation
 
 I first created the bulk of the website in spring 2021 as a project to learn web development and data visualization.
