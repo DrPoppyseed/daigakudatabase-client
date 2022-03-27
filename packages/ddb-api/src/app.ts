@@ -6,11 +6,11 @@ import cookieParser from 'cookie-parser'
 import admin from 'firebase-admin'
 import rateLimit from 'express-rate-limit'
 import cors from 'cors'
-import mongodb from '../config/mongodb'
-import routes from './routes'
+import mongodb from './config/mongodb'
+import routes from './routes/routes'
 import handleError from './middleware/handleError'
 import morganLogger from './middleware/morganLogger'
-import logger from '../config/logger'
+import logger from './config/logger'
 
 dotenv.config()
 
@@ -19,8 +19,8 @@ const app = express()
 app.use(helmet())
 app.set('trust proxy', 1)
 const limiter = rateLimit({
-  windowMs: parseInt(process.env.RATE_LIMIT_WINDOW as string),
-  max: parseInt(process.env.RATE_LIMIT_MAX as string),
+  windowMs: parseInt(process.env.RATE_LIMIT_WINDOW as string, 10),
+  max: parseInt(process.env.RATE_LIMIT_MAX as string, 10),
 })
 app.use(limiter)
 

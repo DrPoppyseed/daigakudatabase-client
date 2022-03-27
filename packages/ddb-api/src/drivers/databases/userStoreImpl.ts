@@ -1,4 +1,4 @@
-import { model, Schema, Document } from 'mongoose'
+import { Document, model, Schema } from 'mongoose'
 import { User } from '../../models/User'
 
 const UserSchema = new Schema<User & Document>(
@@ -35,12 +35,12 @@ const UserSchema = new Schema<User & Document>(
         userId: Schema.Types.ObjectId,
       },
     },
-    personalAppState: {
-      theme: {
-        type: Number,
-        required: true,
-      },
-    },
+    // personalAppState: {
+    //   theme: {
+    //     type: Number,
+    //     required: true,
+    //   },
+    // },
     likedSchools: [String],
   },
   { timestamps: true }

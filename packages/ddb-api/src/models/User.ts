@@ -4,7 +4,7 @@ export type User = {
   emailVerified: boolean
   thumbnail: string
   profile: UserProfile
-  personalAppState: AppState
+  // personalAppState: AppState
   likedSchools: string[]
 }
 

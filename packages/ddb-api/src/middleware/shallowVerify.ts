@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express'
-import { ForbiddenError } from '../../utils/error'
+import { ForbiddenError } from '../utils/error'
 
 export const shallowVerify = (
   req: Request,

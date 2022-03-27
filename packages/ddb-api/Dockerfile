@@ -88,4 +88,4 @@ FROM base as prod
 COPY --from=pre-prod /app/build /app
 HEALTHCHECK CMD curl http://127.0.0.1/ || exit 1
 ENTRYPOINT ["/tini", "--"]
-CMD ["node", "/server/server.js"]
+CMD ["node", "/server.js"]

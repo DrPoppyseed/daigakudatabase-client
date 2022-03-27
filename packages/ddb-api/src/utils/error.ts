@@ -1,3 +1,4 @@
+/* eslint-disable max-classes-per-file */
 import {
   BAD_REQUEST_ERROR_MESSAGE,
   BAD_VALUE_ERROR_MESSAGE,
@@ -8,35 +9,35 @@ import {
 import { toNumberIfNumeric } from './common'
 
 export class SyntheticError extends Error {
+  private errorStatusCode: number
+
+  private errorMessage: string
+
   constructor(statusCode: number, message: string) {
     super(message)
     this.name = this.constructor.name
-    this._statusCode = this.initStatusCode(statusCode)
-    this._message = this.initMessage(message)
+    this.errorStatusCode = SyntheticError.initStatusCode(statusCode)
+    this.errorMessage = SyntheticError.initMessage(message)
     Error.captureStackTrace(this, this.constructor)
   }
 
-  private _statusCode: number
-
   get statusCode() {
-    return this._statusCode
+    return this.errorStatusCode
   }
 
   set statusCode(value: string | number) {
-    this._statusCode = toNumberIfNumeric(value) || 500
+    this.statusCode = toNumberIfNumeric(value) || 500
   }
-
-  private _message: string
 
   set message(value: string) {
-    this._message = value
+    this.errorMessage = value
   }
 
-  initStatusCode(value: string | number): number {
+  static initStatusCode = (value: string | number): number => {
     return toNumberIfNumeric(value) || 500
   }
 
-  initMessage(value: string): string {
+  static initMessage = (value: string): string => {
     return value || INTERNAL_SERVER_ERROR_MESSAGE
   }
 }

@@ -1,5 +1,4 @@
 import { NextFunction, Request, Response } from 'express'
-
 import admin from 'firebase-admin'
 
 const authenticateJWT = (req: Request, res: Response, next: NextFunction) => {

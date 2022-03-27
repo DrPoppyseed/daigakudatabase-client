@@ -1,6 +1,6 @@
 import express from 'express'
-import UserSchoolLikeController from '../../core/controllers/userSchoolLikeController'
-import UserSchoolLikeImpl from '../../drivers/databaseImpls/userSchoolLikeImpl'
+import UserSchoolLikeController from '../adapters/controllers/userSchoolLikeController'
+import UserSchoolLikeImpl from '../drivers/databases/userSchoolLikeStoreImpl'
 
 const userRouter = express.Router()
 

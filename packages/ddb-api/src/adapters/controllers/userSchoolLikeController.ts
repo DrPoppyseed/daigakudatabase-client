@@ -1,11 +1,12 @@
-import { Request, Response, NextFunction } from 'express'
-import GetUserSchoolLikesUsecaseImpl from '../usecaseImpls/getUserSchoolLikesUsecaseImpl'
-import GetUserSchoolLikesUsecase from '../usecases/getUserSchoolLikesUsecase'
-import { MongooseStore } from '../../drivers/database/mongooseStore'
-import { UserSchoolLike } from '../../models/UserSchoolLike'
-import UserSchoolLikesRepositoryImpl from '../../adapters/respositoryImpls/userSchoolLikeRepositoryImpl'
-import { InternalError } from '../../utils/error'
+import { NextFunction, Request, Response } from 'express'
 import logger from '../../config/logger'
+import { UserSchoolLike } from '../../models/UserSchoolLike'
+import { MongooseStore } from '../../types/MongooseStore'
+import { InternalError } from '../../utils/error'
+import UserSchoolLikesRepositoryImpl from '../respositories/userSchoolLikeRepository'
+import GetUserSchoolLikesUsecaseImpl, {
+  GetUserSchoolLikesUsecase,
+} from '../usecases/getUserSchoolLikesUsecase'
 
 export default class UserSchoolLikeController {
   private getUserSchoolLikesUsecase: GetUserSchoolLikesUsecase

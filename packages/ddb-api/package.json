@@ -3,7 +3,7 @@
   "author": "Haruki Jay Shimada",
   "version": "0.3.0",
   "description": "⛏ Active development branch of DaigakuDatabase.com API",
-  "main": "build/server/server.js",
+  "main": "build/server.js",
   "license": "MIT",
   "repository": {
     "url": "https://github.com/DrPoppyseed/daigakudatabase-api",
@@ -18,7 +18,7 @@
     "test": "pnpm jest",
     "build": "pnpm run lint:fix && etsc -p ./tsconfig.build.json",
     "start": "nodemon",
-    "launch": "node ./build/server/server.js",
+    "launch": "node ./build/server.js",
     "lint": "eslint 'src/**/*.{ js,jsx,ts,tsx }'",
     "lint:fix": "eslint --fix '**/src/**/*.{ js,jsx,ts,tsx }'",
     "format": "prettier --write './**/*.{js,ts,md,json}' --config ../../.prettierrc"
@@ -30,6 +30,17 @@
     "collectCoverageFrom": [
       "<rootDir>/src/**/*.ts"
     ]
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src"
+    ],
+    "ignore": [
+      "tests"
+    ],
+    "ext": "ts,mjs,js,json",
+    "exec": "etsc && node ./build/server.js",
+    "legacyWatch": true
   },
   "dependencies": {
     "@firebase/app-compat": "^0.1.21",
