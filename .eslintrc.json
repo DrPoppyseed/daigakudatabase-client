@@ -6,14 +6,14 @@
     "es2021": true
   },
   "extends": [
-    "prettier",
-    "airbnb",
-    "airbnb-typescript",
     "eslint:recommended",
     "plugin:import/recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:prettier/recommended"
+    "airbnb",
+    "airbnb-typescript",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -28,9 +28,13 @@
     "react",
     "react-hooks",
     "import",
-    "prettier",
     "@typescript-eslint"
   ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "rules": {
     "import/order": "warn",
     "import/prefer-default-export": "off",

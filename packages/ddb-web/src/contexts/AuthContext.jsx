@@ -1,7 +1,7 @@
 import React, { useEffect, useState, createContext } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import firebaseApp from '../config/firebase'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
+import firebaseApp from '../config/firebase'
 
 const AuthContext = createContext()
 

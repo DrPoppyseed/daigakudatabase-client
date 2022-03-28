@@ -11,7 +11,5 @@ export default class RemoveUserSchoolLikeFromUserUsecaseImpl
 {
   constructor(private readonly userRepository: UserRepository) {}
 
-  call = (userSchoolLike: UserSchoolLike): Promise<User | null> => {
-    return this.userRepository.removeUserSchoolLike(userSchoolLike)
-  }
+  call = (userSchoolLike: UserSchoolLike): Promise<User | null> => this.userRepository.removeUserSchoolLike(userSchoolLike)
 }

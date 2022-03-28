@@ -19,8 +19,8 @@
     "build": "pnpm run lint:fix && etsc -p ./tsconfig.build.json",
     "start": "nodemon",
     "launch": "node ./build/server.js",
-    "lint": "eslint 'src/**/*.{ js,jsx,ts,tsx }'",
-    "lint:fix": "eslint --fix '**/src/**/*.{ js,jsx,ts,tsx }'",
+    "lint": "eslint --ext .js,.ts src/",
+    "lint:fix": "eslint --fix --ext .js,.ts src/",
     "format": "prettier --write './**/*.{js,ts,md,json}' --config ../../.prettierrc"
   },
   "jest": {

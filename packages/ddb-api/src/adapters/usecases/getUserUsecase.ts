@@ -8,7 +8,5 @@ export interface GetUserUsecase {
 export default class GetUserUsecaseImpl implements GetUserUsecase {
   constructor(private readonly userRepository: UserRepository) {}
 
-  call = (userId: string): Promise<User | null> => {
-    return this.userRepository.getUser(userId)
-  }
+  call = (userId: string): Promise<User | null> => this.userRepository.getUser(userId)
 }

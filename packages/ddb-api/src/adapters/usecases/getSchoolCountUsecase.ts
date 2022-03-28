@@ -10,7 +10,5 @@ export default class GetSchoolCountUsecaseImpl
 {
   constructor(private readonly schoolsRepository: SchoolsRepository) {}
 
-  call = (filter: KeyValueObject): Promise<number> => {
-    return this.schoolsRepository.getSchoolCount(filter)
-  }
+  call = (filter: KeyValueObject): Promise<number> => this.schoolsRepository.getSchoolCount(filter)
 }

@@ -129,9 +129,7 @@ const D3StudentsGraph = props => {
         )
         .call(text => text.append('tspan'))
         .attr('y', '.4em')
-        .text(d => {
-          return d.data.ja === '男性' ? '男' : '女'
-        })
+        .text(d => d.data.ja === '男性' ? '男' : '女')
 
       svg
         .selectAll('allPolylines')

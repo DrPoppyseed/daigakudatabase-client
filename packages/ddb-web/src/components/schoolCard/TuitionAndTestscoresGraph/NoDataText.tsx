@@ -2,15 +2,13 @@ import { styled, Typography } from '@mui/material'
 import React from 'react'
 import { FormattedMessage } from 'react-intl'
 
-const NoDataText = () => {
-  return (
+const NoDataText = () => (
     <Root>
       <Typography variant='caption'>
         <FormattedMessage id='school_card.datacard.tuition_and_testscores_graph.no_data_text.label' />
       </Typography>
     </Root>
   )
-}
 
 const Root = styled('div')(() => ({
   display: 'flex',

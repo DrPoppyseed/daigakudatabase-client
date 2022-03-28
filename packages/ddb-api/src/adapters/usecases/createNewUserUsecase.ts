@@ -8,7 +8,5 @@ export interface CreateNewUserUsecase {
 export default class CreateNewUserUsecaseImpl implements CreateNewUserUsecase {
   constructor(private readonly userRepository: UserRepository) {}
 
-  call = async (user: Partial<User>): Promise<User | null> => {
-    return this.userRepository.createNewUser(user)
-  }
+  call = async (user: Partial<User>): Promise<User | null> => this.userRepository.createNewUser(user)
 }

@@ -9,9 +9,7 @@ export const store = configureStore({
     params: paramsReducer,
     [api.reducerPath]: api.reducer,
   },
-  middleware: getDefaultMiddleware => {
-    return getDefaultMiddleware().concat(api.middleware)
-  },
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(api.middleware),
 })
 
 export type AppDispatch = typeof store.dispatch

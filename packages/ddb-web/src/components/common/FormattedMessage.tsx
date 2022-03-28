@@ -9,7 +9,7 @@ interface FormattedMessageProps {
   children?: () => ReactNode
 }
 
-export const FormattedMessage = (props: FormattedMessageProps) => {
+export const FormattedMessage = (props: FormattedMessageProps) => 
   // @ts-ignore
-  return <ReactFormattedMessage {...props} />
-}
+   <ReactFormattedMessage {...props} />
+

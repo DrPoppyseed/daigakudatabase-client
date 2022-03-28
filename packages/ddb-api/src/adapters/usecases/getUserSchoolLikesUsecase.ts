@@ -12,7 +12,5 @@ export default class GetUserSchoolLikesUsecaseImpl
     private readonly userSchoolLikesRepository: UserSchoolLikeRepository
   ) {}
 
-  call = async (userId: string): Promise<UserSchoolLike[] | null> => {
-    return this.userSchoolLikesRepository.getUserSchoolLike(userId)
-  }
+  call = async (userId: string): Promise<UserSchoolLike[] | null> => this.userSchoolLikesRepository.getUserSchoolLike(userId)
 }

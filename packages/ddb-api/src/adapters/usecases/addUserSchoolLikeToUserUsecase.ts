@@ -11,7 +11,5 @@ export default class AddUserSchoolLikeToUserUsecaseImpl
 {
   constructor(private readonly userRepository: UserRepository) {}
 
-  call = (userSchoolLike: UserSchoolLike): Promise<User | null> => {
-    return this.userRepository.addUserSchoolLike(userSchoolLike)
-  }
+  call = (userSchoolLike: UserSchoolLike): Promise<User | null> => this.userRepository.addUserSchoolLike(userSchoolLike)
 }

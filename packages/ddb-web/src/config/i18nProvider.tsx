@@ -16,8 +16,7 @@ const messages: {
   ja: messagesJA,
 }
 
-export const I18nProvider: FC = ({ children }) => {
-  return (
+export const I18nProvider: FC = ({ children }) => (
     <IntlProvider
       locale={browserLocale}
       messages={messages[browserLocale]}
@@ -26,4 +25,3 @@ export const I18nProvider: FC = ({ children }) => {
       {children}
     </IntlProvider>
   )
-}

@@ -9,8 +9,7 @@ import {
 import { toNumberIfNumeric } from './common'
 
 export class SyntheticError extends Error {
-  private errorStatusCode: number
-
+  private readonly errorStatusCode: number
   private errorMessage: string
 
   constructor(statusCode: number, message: string) {
@@ -33,13 +32,11 @@ export class SyntheticError extends Error {
     this.errorMessage = value
   }
 
-  static initStatusCode = (value: string | number): number => {
-    return toNumberIfNumeric(value) || 500
-  }
+  static initStatusCode = (value: string | number): number =>
+    toNumberIfNumeric(value) || 500
 
-  static initMessage = (value: string): string => {
-    return value || INTERNAL_SERVER_ERROR_MESSAGE
-  }
+  static initMessage = (value: string): string =>
+    value || INTERNAL_SERVER_ERROR_MESSAGE
 }
 
 export class ResourceNotFoundError extends SyntheticError {
@@ -86,6 +83,4 @@ export class BadValueError extends SyntheticError {
 export const getMessage = (
   message: string | undefined,
   defaultMessage: string
-): string => {
-  return message === undefined ? defaultMessage : message
-}
+): string => (message === undefined ? defaultMessage : message)

@@ -2,8 +2,7 @@ import React from 'react'
 import SortByBoxSkeleton from '../sort/SortByBoxSkeleton'
 import HomeSchoolCardSkeleton from '../schoolCard/HomeSchoolCardSkeleton'
 
-const HomePageCardListSkeleton = () => {
-  return (
+const HomePageCardListSkeleton = () => (
     <div>
       <SortByBoxSkeleton />
       {[
@@ -22,6 +21,5 @@ const HomePageCardListSkeleton = () => {
       ))}
     </div>
   )
-}
 
 export default HomePageCardListSkeleton

@@ -21,37 +21,29 @@ export interface UserRepository {
 export default class UserRepositoryImpl implements UserRepository {
   constructor(private readonly userStore: MongooseStore<User>) {}
 
-  createNewUser = (user: Partial<User>): Promise<User | null> => {
-    return this.userStore.create(user)
-  }
+  createNewUser = (user: Partial<User>): Promise<User | null> => this.userStore.create(user)
 
-  getUser = (userId: string): Promise<User | null> => {
-    return this.userStore.findOne({ userId }).exec()
-  }
+  getUser = (userId: string): Promise<User | null> => this.userStore.findOne({ userId }).exec()
 
   addUserSchoolLike = ({
     userId,
     ipeds_unitid,
-  }: UserSchoolLike): Promise<User | null> => {
-    return this.userStore
+  }: UserSchoolLike): Promise<User | null> => this.userStore
       .findOneAndUpdate(
         { userId },
         { $push: { likedSchools: ipeds_unitid } },
         { new: true, upsert: true }
       )
       .exec()
-  }
 
   removeUserSchoolLike = ({
     userId,
     ipeds_unitid,
-  }: UserSchoolLike): Promise<User | null> => {
-    return this.userStore
+  }: UserSchoolLike): Promise<User | null> => this.userStore
       .findOneAndUpdate(
         { userId },
         { $pull: { likedSchools: ipeds_unitid } },
         { new: true, upsert: true }
       )
       .exec()
-  }
 }

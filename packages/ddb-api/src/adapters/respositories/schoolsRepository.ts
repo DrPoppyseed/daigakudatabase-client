@@ -15,9 +15,8 @@ export interface SchoolsRepository {
 export default class SchoolsRepositoryImpl implements SchoolsRepository {
   constructor(private readonly schoolStore: MongooseStore<School>) {}
 
-  public getSchoolCount = (filter: KeyValueObject): Promise<number> => {
-    return this.schoolStore.find(filter).countDocuments().exec()
-  }
+  public getSchoolCount = (filter: KeyValueObject): Promise<number> =>
+    this.schoolStore.find(filter).countDocuments().exec()
 
   public getSchoolPaginated(
     filter: KeyValueObject,

@@ -5,9 +5,7 @@ const morganLogger = morgan(
   ':method :url :status :res[content-length] - :response-time ms',
   {
     stream: {
-      write: (message: any) => {
-        return logger.http(message.trim())
-      },
+      write: (message: any) => logger.http(message.trim()),
     },
   }
 )

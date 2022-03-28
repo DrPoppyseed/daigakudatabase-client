@@ -69,17 +69,11 @@ const D3TuitionGraph = props => {
       .join('rect')
       .attr('opacity', 0.5)
       .attr('x', 1)
-      .attr('transform', function (d) {
-        return `translate(${
+      .attr('transform', (d) => `translate(${
           x(d.x0) + margin.left
-        }, ${y(d.length) + margin.top})`
-      })
-      .attr('width', function (d) {
-        return x(d.x1) - x(d.x0) - 2
-      })
-      .attr('height', function (d) {
-        return height - y(d.length)
-      })
+        }, ${y(d.length) + margin.top})`)
+      .attr('width', (d) => x(d.x1) - x(d.x0) - 2)
+      .attr('height', (d) => height - y(d.length))
       .style('fill', '#69b3a2')
 
     const pathLine = svg

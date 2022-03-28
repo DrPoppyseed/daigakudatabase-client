@@ -2,6 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@babel/core': ^7.17.8
+  '@typescript-eslint': link:prettier/@typescript-eslint
   '@typescript-eslint/eslint-plugin': ^5.16.0
   '@typescript-eslint/parser': ^5.16.0
   eslint: ^8.11.0
@@ -22,6 +23,7 @@ specifiers:
 
 devDependencies:
   '@babel/core': 7.17.8
+  '@typescript-eslint': link:prettier/@typescript-eslint
   '@typescript-eslint/eslint-plugin': 5.16.0_4df62b6e125e6f18efee2d013b4a9d80
   '@typescript-eslint/parser': 5.16.0_eslint@8.12.0+typescript@4.6.3
   eslint: 8.12.0

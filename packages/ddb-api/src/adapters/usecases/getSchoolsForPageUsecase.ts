@@ -25,10 +25,8 @@ export default class GetSchoolsForPageUsecaseImpl
     filter: KeyValueObject,
     sort: KeyValueObject,
     { page, schoolsPerPage }: { page: number; schoolsPerPage?: number }
-  ): Promise<School[] | null> => {
-    return this.schoolsRepository.getSchoolPaginated(filter, sort, {
+  ): Promise<School[] | null> => this.schoolsRepository.getSchoolPaginated(filter, sort, {
       page,
       schoolsPerPage,
     })
-  }
 }

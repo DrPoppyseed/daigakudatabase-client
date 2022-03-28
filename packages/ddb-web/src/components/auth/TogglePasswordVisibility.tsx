@@ -10,8 +10,7 @@ export interface TogglePasswordVisibilityProps {
 const TogglePasswordVisibility: FC<TogglePasswordVisibilityProps> = ({
   showPassword,
   handleClickShowPassword,
-}) => {
-  return (
+}) => (
     <InputAdornment position='end'>
       <IconButton
         aria-label='Toggle password visibility'
@@ -22,6 +21,5 @@ const TogglePasswordVisibility: FC<TogglePasswordVisibilityProps> = ({
       </IconButton>
     </InputAdornment>
   )
-}
 
 export default TogglePasswordVisibility

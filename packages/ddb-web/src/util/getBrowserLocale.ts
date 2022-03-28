@@ -5,9 +5,7 @@
 import { SupportedLocale } from '@/types/common'
 import { SUPPORTED_LOCALES } from '@/constants/SupportedLocales'
 
-const isSupportedLocale = (locale: string): boolean => {
-  return SUPPORTED_LOCALES.includes(locale)
-}
+const isSupportedLocale = (locale: string): boolean => SUPPORTED_LOCALES.includes(locale)
 
 const getBrowserLocale = (): SupportedLocale => {
   const defaultLocale = 'en'

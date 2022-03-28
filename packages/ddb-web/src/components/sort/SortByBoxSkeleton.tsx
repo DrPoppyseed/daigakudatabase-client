@@ -2,8 +2,7 @@ import React from 'react'
 import { Card, Skeleton, styled } from '@mui/material'
 import FlexGrow from '../common/FlexGrow'
 
-const SortByBoxSkeleton = () => {
-  return (
+const SortByBoxSkeleton = () => (
     <CardContainer>
       <HitsContainer>
         <Skeleton
@@ -28,7 +27,6 @@ const SortByBoxSkeleton = () => {
       />
     </CardContainer>
   )
-}
 
 const CardContainer = styled(Card)(({ theme }) => ({
   marginBottom: theme.spacing(2),

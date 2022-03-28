@@ -11,17 +11,17 @@
   "scripts": {
     "start": "pnpm recursive run start",
     "test": "pnpm recursive run test",
-    "lint": "pnpm recursive run lint",
-    "lint:fix": "pnpm recursive run lint:fix",
+    "lint": "eslint --ext .ts,.tsx packages/**/src/",
+    "lint:fix": "eslint --fix --ext .ts,.tsx packages/**/src/",
     "format": "pnpm recursive run format",
     "build": "pnpm recursive run build",
     "pre-commit": "lint-staged",
     "prepare": "husky install"
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx}": [
-      "pnpm run format",
-      "pnpm run lint:fix"
+    "**/*.{ ts,tsx }": [
+      "pnpm run lint:fix",
+      "pnpm run format"
     ]
   },
   "engines": {
@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
+    "@typescript-eslint": "link:prettier/@typescript-eslint",
     "@typescript-eslint/eslint-plugin": "^5.16.0",
     "@typescript-eslint/parser": "^5.16.0",
     "eslint": "^8.11.0",

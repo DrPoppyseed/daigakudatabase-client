@@ -15,10 +15,8 @@ export default class CreateNewUserSchoolLikeUsecaseImpl
     private readonly userSchoolLikeRepository: UserSchoolLikeRepository
   ) {}
 
-  call = ({ userId, ipeds_unitid }: UserSchoolLike) => {
-    return this.userSchoolLikeRepository.createNewUserSchoolLike({
+  call = ({ userId, ipeds_unitid }: UserSchoolLike) => this.userSchoolLikeRepository.createNewUserSchoolLike({
       userId,
       ipeds_unitid,
     })
-  }
 }

@@ -14,8 +14,7 @@ const D3GraphTab: FC<D3GraphTabProps> = ({
   handleActiveGraphChange,
   tabNumber,
   messageId,
-}) => {
-  return (
+}) => (
     <Tab
       sx={{
         color: activeGraph === 0 ? 'palette.primary' : 'inherit',
@@ -25,7 +24,6 @@ const D3GraphTab: FC<D3GraphTabProps> = ({
       <FormattedMessage id={messageId} />
     </Tab>
   )
-}
 
 const Tab = styled('button')(() => ({
   backgroundColor: 'white',
