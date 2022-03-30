@@ -9,4 +9,6 @@ const schoolsController = new SchoolsController(schoolsStoreImpl)
 
 schoolsRouter.get('/', authenticateJWT, schoolsController.getSchools)
 
+schoolsRouter.get('/:ff_name', authenticateJWT, schoolsController.getSchool)
+
 export default schoolsRouter

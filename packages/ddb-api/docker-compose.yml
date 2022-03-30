@@ -8,7 +8,7 @@ services:
         - NODE_ENV=development
         - PORT=8080
       target: dev
-    command: sh -c "pnpm install && pnpm start"
+    command: sh -c "pnpm install && nodemon"
     env_file: .env
     image: ddb-api:dev
     platform: linux/x86_64

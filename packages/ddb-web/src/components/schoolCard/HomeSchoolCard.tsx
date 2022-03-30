@@ -12,6 +12,7 @@ export interface HomeSchoolCardProps {
 
 const HomeSchoolCard: FC<HomeSchoolCardProps> = ({
   general: {
+    ff_name,
     name_en,
     education,
     campus,
@@ -29,7 +30,7 @@ const HomeSchoolCard: FC<HomeSchoolCardProps> = ({
         <CardLikedIcon unitid={ipeds_unitid} isLiked={isLiked} />
         <Typography variant='h6'>{name_en}</Typography>
       </TitleContainer>
-      <LearnMoreButton />
+      <LearnMoreButton unitid={ff_name} />
     </TitleBlock>
     <BodyBlock>
       <Datacards

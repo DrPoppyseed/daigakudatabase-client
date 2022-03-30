@@ -25,7 +25,7 @@ const api = createApi({
       query: (queryParams: string) => `/schools?${queryParams}`,
     }),
     getSchool: builder.query<School, string>({
-      query: (schoolId: string) => `/schools/${schoolId}`,
+      query: (ff_name: string) => `/schools/${ff_name}`,
     }),
     getSchoolMajorsQuery: builder.query<School, string>({
       query: (schoolId: string) => `/schools/${schoolId}/majors`,
@@ -66,6 +66,7 @@ const api = createApi({
 
 export const {
   useGetSchoolsQuery,
+  useGetSchoolQuery,
   useGetSchoolsWithFilterMutation,
   useAuthenticateWithEmailMutation,
   useAuthenticateWithGoogleMutation,
