@@ -8,9 +8,9 @@ services:
         - NODE_ENV=development
         - PORT=8080
       target: dev
-    command: pnpm start
+    command: sh -c "pnpm install && pnpm start"
     env_file: .env
-    image: daigakudatabase-api:dev
+    image: ddb-api:dev
     platform: linux/x86_64
     ports:
       - 8080:8080

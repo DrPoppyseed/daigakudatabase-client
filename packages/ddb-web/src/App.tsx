@@ -5,7 +5,7 @@ import { Theme } from '@mui/system'
 import { AuthContext } from './contexts/AuthContext'
 
 import Header from './components/header/Header'
-import Home from './components/home/HomePage'
+import Home from './pages/home/HomePage'
 import PageLoading from './components/common/PageLoading'
 
 const SignIn = lazy(() => import('./components/auth/SignInPage'))
