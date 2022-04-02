@@ -1,5 +1,5 @@
-import { Schema, Document, model } from 'mongoose'
-import { School } from '../../models/Schools'
+import { Document, model, Schema } from 'mongoose'
+import { School } from '../../../../ddb-shared/models/Schools'
 
 const SchoolsSchema = new Schema<School & Document>({
   general: {

@@ -1,11 +1,14 @@
 import { getAuth } from 'firebase/auth'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { School } from '@/model/School'
-import { User } from '@/model/User'
+import { User, School } from '@/models'
 
 export type SchoolsResponse = {
-  totalSchoolsCount: number
+  totalSchoolsFound: number
   schools: School[]
+}
+
+export type SchoolResponse = {
+  school: School
 }
 
 const api = createApi({
@@ -21,10 +24,10 @@ const api = createApi({
   }),
   endpoints: builder => ({
     // schools endpoint
-    getSchools: builder.query<School, string>({
+    getSchools: builder.query<SchoolsResponse, string>({
       query: (queryParams: string) => `/schools?${queryParams}`,
     }),
-    getSchool: builder.query<School, string>({
+    getSchool: builder.query<SchoolResponse, string>({
       query: (ff_name: string) => `/schools/${ff_name}`,
     }),
     getSchoolMajorsQuery: builder.query<School, string>({

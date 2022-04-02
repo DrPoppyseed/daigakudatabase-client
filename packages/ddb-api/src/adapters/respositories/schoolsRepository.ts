@@ -1,4 +1,4 @@
-import { School } from '../../models/Schools'
+import { School } from '../../../../ddb-shared/models/Schools'
 import { KeyValueObject } from '../../types/common'
 import { MongooseStore } from '../../types/MongooseStore'
 

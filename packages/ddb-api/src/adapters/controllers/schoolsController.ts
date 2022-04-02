@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from 'express'
 import queryString from 'query-string'
+import { School } from '@/models'
 import logger from '../../config/logger'
 import UserSchoolLikeImpl from '../../drivers/databases/userSchoolLikeStoreImpl'
-import { School } from '../../models/Schools'
 import { KeyValueObject } from '../../types/common'
 import { MongooseStore } from '../../types/MongooseStore'
 import { InternalError } from '../../utils/error'
@@ -189,9 +189,10 @@ export default class SchoolsController {
     res: Response,
     next: NextFunction
   ) => {
-    const ff_name = req.params.unitid as string
+    const ff_name = req.params.ff_name as string
     try {
       const school = await this.getSchoolUsecase.call(ff_name)
+      logger.info(school)
       res.status(200).json({ message: 'school fetched', school })
     } catch (error) {
       logger.error(error)

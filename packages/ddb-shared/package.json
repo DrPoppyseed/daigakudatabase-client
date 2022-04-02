@@ -1,0 +1,16 @@
+{
+  "name": "daigakudatabase/ddb-shared",
+  "author": "Haruki Jay Shimada",
+  "version": "0.3.0",
+  "description": "Shared types and functions go here.",
+  "license": "MIT",
+  "repository":{
+    "url": "https://github.com/DrPoppyseed/daigakudatabase",
+    "type": "git"
+  },
+  "packageManager": "pnpm@6.32.3",
+  "engines": {
+    "node": ">= 16.0",
+    "pnpm": ">= 6.0"
+  }
+}

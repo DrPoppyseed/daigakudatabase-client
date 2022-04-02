@@ -1,5 +1,5 @@
-import { User } from '../../models/User'
-import { UserSchoolLike } from '../../models/UserSchoolLike'
+import { User } from '../../../../ddb-shared/models/User'
+import { UserSchoolLike } from '../../../../ddb-shared/models/UserSchoolLike'
 import { UserRepository } from '../respositories/userRepository'
 
 export interface AddUserSchoolLikeToUserUsecase {
@@ -11,5 +11,6 @@ export default class AddUserSchoolLikeToUserUsecaseImpl
 {
   constructor(private readonly userRepository: UserRepository) {}
 
-  call = (userSchoolLike: UserSchoolLike): Promise<User | null> => this.userRepository.addUserSchoolLike(userSchoolLike)
+  call = (userSchoolLike: UserSchoolLike): Promise<User | null> =>
+    this.userRepository.addUserSchoolLike(userSchoolLike)
 }

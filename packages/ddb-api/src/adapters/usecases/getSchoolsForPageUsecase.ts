@@ -1,4 +1,4 @@
-import { School } from '../../models/Schools'
+import { School } from '../../../../ddb-shared/models/Schools'
 import { KeyValueObject } from '../../types/common'
 import { SchoolsRepository } from '../respositories/schoolsRepository'
 
@@ -25,7 +25,8 @@ export default class GetSchoolsForPageUsecaseImpl
     filter: KeyValueObject,
     sort: KeyValueObject,
     { page, schoolsPerPage }: { page: number; schoolsPerPage?: number }
-  ): Promise<School[] | null> => this.schoolsRepository.getSchoolPaginated(filter, sort, {
+  ): Promise<School[] | null> =>
+    this.schoolsRepository.getSchoolPaginated(filter, sort, {
       page,
       schoolsPerPage,
     })

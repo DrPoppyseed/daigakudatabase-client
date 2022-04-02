@@ -1,5 +1,5 @@
-import { model, Schema, Document } from 'mongoose'
-import { Major } from '../../models/Majors'
+import { Document, model, Schema } from 'mongoose'
+import { Major } from '../../../../ddb-shared/models/Majors'
 
 const MajorsSchema = new Schema<Major & Document>({
   uuid: String,

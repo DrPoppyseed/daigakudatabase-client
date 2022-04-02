@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express'
 import logger from '../../config/logger'
-import { UserSchoolLike } from '../../models/UserSchoolLike'
+import { UserSchoolLike } from '../../../../ddb-shared/models/UserSchoolLike'
 import { MongooseStore } from '../../types/MongooseStore'
 import { InternalError } from '../../utils/error'
 import UserSchoolLikesRepositoryImpl from '../respositories/userSchoolLikeRepository'

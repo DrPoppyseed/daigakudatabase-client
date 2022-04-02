@@ -1,4 +1,4 @@
-import { User } from '../../models/User'
+import { User } from '../../../../ddb-shared/models/User'
 import { UserRepository } from '../respositories/userRepository'
 
 export interface GetUserUsecase {
@@ -8,5 +8,6 @@ export interface GetUserUsecase {
 export default class GetUserUsecaseImpl implements GetUserUsecase {
   constructor(private readonly userRepository: UserRepository) {}
 
-  call = (userId: string): Promise<User | null> => this.userRepository.getUser(userId)
+  call = (userId: string): Promise<User | null> =>
+    this.userRepository.getUser(userId)
 }

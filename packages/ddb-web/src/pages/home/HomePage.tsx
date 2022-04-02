@@ -8,7 +8,6 @@ import MetaTitle from '../../components/common/MetaTitle'
 import { PageMetaTitles } from '@/util/constants'
 import { useGetSchoolsQuery } from '@/features/apiSlice'
 import queryParamsBuilder from '@/util/queryParamsBuilder'
-import { School } from '@/model/School'
 import ScrollTopFab from '../../components/common/ScrollTopFab'
 import SortByBox from '../../components/sort/SortByBox'
 import NoSchoolsFound from './NoSchoolsFound'
@@ -23,8 +22,8 @@ const Home = () => {
     queryParamsBuilder(params)
   )
 
-  const mapSchools = (schools: School[]) =>
-    schools.map(school => (
+  const mapSchools = (schools: any) =>
+    schools.map((school: any) => (
       <HomeSchoolCard key={school.ipeds_unitid} general={school} />
     ))
 

@@ -9,7 +9,7 @@
     "jsx": "react-jsx",
     "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*", "../ddb-shared/*"]
     }
   },
   "include": ["src", "vite.config.ts"]

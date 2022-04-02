@@ -6,7 +6,7 @@
   "main": "build/server.js",
   "license": "MIT",
   "repository": {
-    "url": "https://github.com/DrPoppyseed/daigakudatabase-api",
+    "url": "https://github.com/DrPoppyseed/daigakudatabase",
     "type": "git"
   },
   "packageManager": "pnpm@6.32.3",

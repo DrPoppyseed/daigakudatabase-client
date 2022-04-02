@@ -1,4 +1,4 @@
-import { School } from '../../models/Schools'
+import { School } from '../../../../ddb-shared/models/Schools'
 import { SchoolsRepository } from '../respositories/schoolsRepository'
 
 export interface GetSchoolUsecase {

@@ -1,4 +1,4 @@
-import { UserSchoolLike } from '../../models/UserSchoolLike'
+import { UserSchoolLike } from '../../../../ddb-shared/models/UserSchoolLike'
 import { UserSchoolLikeRepository } from '../respositories/userSchoolLikeRepository'
 
 export interface CreateNewUserSchoolLikeUsecase {
@@ -15,7 +15,8 @@ export default class CreateNewUserSchoolLikeUsecaseImpl
     private readonly userSchoolLikeRepository: UserSchoolLikeRepository
   ) {}
 
-  call = ({ userId, ipeds_unitid }: UserSchoolLike) => this.userSchoolLikeRepository.createNewUserSchoolLike({
+  call = ({ userId, ipeds_unitid }: UserSchoolLike) =>
+    this.userSchoolLikeRepository.createNewUserSchoolLike({
       userId,
       ipeds_unitid,
     })

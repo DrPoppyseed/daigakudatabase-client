@@ -4,10 +4,6 @@ import { useLocation } from 'react-router-dom'
 import { Box, Skeleton } from '@mui/material'
 import { styled } from '@mui/system'
 
-// import Overview from './Overview/Overview'
-// import PageTop from './PageTop/PageTop'
-// import Majors from './Majors/Majors'
-// import Apply from './Apply/Apply'
 import { useGetSchoolQuery } from '@/features/apiSlice'
 
 const SchoolPage = () => {

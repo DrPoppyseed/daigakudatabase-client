@@ -1,4 +1,4 @@
-import { UserSchoolLike } from '../../models/UserSchoolLike'
+import { UserSchoolLike } from '../../../../ddb-shared/models/UserSchoolLike'
 import { MongooseStore } from '../../types/MongooseStore'
 
 export interface UserSchoolLikeRepository {
@@ -22,12 +22,14 @@ export default class UserSchoolLikesRepositoryImpl
     private readonly userSchoolLikeStore: MongooseStore<UserSchoolLike>
   ) {}
 
-  getUserSchoolLike = (userId: string): Promise<UserSchoolLike[] | null> => this.userSchoolLikeStore.find({ user_id: userId }).exec()
+  getUserSchoolLike = (userId: string): Promise<UserSchoolLike[] | null> =>
+    this.userSchoolLikeStore.find({ user_id: userId }).exec()
 
   createNewUserSchoolLike = ({
     userId,
     ipeds_unitid,
-  }: UserSchoolLike): Promise<UserSchoolLike | null> => this.userSchoolLikeStore.create({ userId, ipeds_unitid })
+  }: UserSchoolLike): Promise<UserSchoolLike | null> =>
+    this.userSchoolLikeStore.create({ userId, ipeds_unitid })
 
   deleteUserSchoolLike = async ({
     userId,

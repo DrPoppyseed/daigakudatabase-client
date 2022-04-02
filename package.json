@@ -8,6 +8,11 @@
     "url": "https://github.com/DrPoppyseed/daigakudatabase-client",
     "type": "git"
   },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
   "scripts": {
     "start": "pnpm recursive run start",
     "test": "pnpm recursive run test",
