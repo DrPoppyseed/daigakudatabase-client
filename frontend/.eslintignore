@@ -1,0 +1,14 @@
+# build files
+build
+public
+
+# dependencies
+node_modules
+
+# ignore js, jsx files
+**/*.js
+**/*.jsx
+
+# cache
+.firebase
+

@@ -1,6 +1,11 @@
 {
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "isolatedModules": true,
     "module": "esnext",
+    "noEmit": true,
     "target": "esnext",
     "outDir": "build",
     "sourceMap": true,
