@@ -41,6 +41,14 @@
       "pnpm run format"
     ]
   },
+  "prettier": {
+    "singleQuote": true,
+    "arrowParens": "avoid",
+    "semi": false,
+    "useTabs": false,
+    "tabWidth": 2,
+    "jsxSingleQuote": true
+  },
   "browserslist": {
     "production": [
       ">0.2%",

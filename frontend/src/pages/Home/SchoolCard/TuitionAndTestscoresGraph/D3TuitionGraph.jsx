@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as d3 from 'd3'
 import { useD3 } from '@/hooks/useD3'
-import data from '../../../data/tuition.json'
+import data from '@/data/tuition.json'
 
 const D3TuitionGraph = props => {
   const {

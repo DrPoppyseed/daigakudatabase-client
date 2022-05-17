@@ -2,10 +2,10 @@ import { Paper, styled, Typography } from '@mui/material'
 import React, { FC } from 'react'
 import { FormattedMessage } from 'react-intl'
 import AuthLink from './AuthLink'
-import FlexGrow from '../shared/FlexGrow'
+import FlexGrow from '@/components/shared/FlexGrow'
 import { useSignInWithGoogle } from '@/hooks/useAuth'
 import AuthSocialButton from './AuthSocialButton'
-import PaddedDivider from '../shared/PaddedDivider'
+import PaddedDivider from '@/components/shared/PaddedDivider'
 
 export interface AuthPageContainerProps {
   pageTitleMessageId: string

@@ -1,6 +1,6 @@
 import React from 'react'
-import SortByBoxSkeleton from '../sort/SortByBoxSkeleton'
-import HomeSchoolCardSkeleton from '../SchoolCard/HomeSchoolCardSkeleton'
+import SortByBoxSkeleton from './SortByBoxSkeleton'
+import HomeSchoolCardSkeleton from './SchoolCard/HomeSchoolCardSkeleton'
 
 const HomePageCardListSkeleton = () => (
     <div>

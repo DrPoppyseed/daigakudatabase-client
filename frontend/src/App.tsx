@@ -4,14 +4,14 @@ import { Container, styled } from '@mui/material'
 import { Theme } from '@mui/system'
 import { AuthContext } from './contexts/AuthContext'
 
-import Header from './pages/Header/Header'
+import Header from '@/components/Header/Header'
 import Home from './pages/Home/HomePage'
-import PageLoading from './pages/shared/PageLoading'
+import PageLoading from '@/components/shared/PageLoading'
 
 const SignIn = lazy(() => import('./pages/Auth/SignInPage'))
 const SignUp = lazy(() => import('./pages/Auth/SignUpPage'))
-const Footer = lazy(() => import('./pages/shared/Footer'))
-const NoMatch = lazy(() => import('./pages/shared/NotFoundPage'))
+const Footer = lazy(() => import('./components/shared/Footer'))
+const NoMatch = lazy(() => import('./components/shared/NotFoundPage'))
 
 const App = () => {
   const { globalLoading, currentPath } = useContext(AuthContext)

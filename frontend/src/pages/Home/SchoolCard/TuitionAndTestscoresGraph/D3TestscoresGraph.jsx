@@ -1,10 +1,10 @@
 import * as React from 'react'
 import * as d3 from 'd3'
 import { useD3 } from '@/hooks/useD3'
-import data from '../../../data/admissionScores.json'
+import data from '@/data/admissionScores.json'
 import './D3TestscoresGraphStyles.css'
 
-const D3TestscoresViz = props => {
+const D3TestScoresViz = props => {
   const {
     height: _height,
     width: _width,
@@ -185,4 +185,4 @@ const D3TestscoresViz = props => {
   )
 }
 
-export default D3TestscoresViz
+export default D3TestScoresViz

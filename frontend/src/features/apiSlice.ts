@@ -1,7 +1,7 @@
 import { getAuth } from 'firebase/auth'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { School } from '@/model/School'
-import { User } from '@/model/User'
+import { School } from '@/types/School'
+import { User } from '@/types/User'
 
 export type SchoolsResponse = {
   totalSchoolsCount: number

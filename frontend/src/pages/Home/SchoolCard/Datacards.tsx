@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { styled, Typography } from '@mui/material'
 import { FormattedMessage } from 'react-intl'
 import DatacardSection from './DatacardSection'
-import formatMoney from '../../util/formatMoney'
+import formatMoney from '@/util/formatMoney'
 
 export interface DatacardsProps {
   campus: any
