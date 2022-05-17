@@ -11,19 +11,10 @@ https://user-images.githubusercontent.com/44737273/157153881-482a6a64-823b-4174-
 
 DaigakuDatabase uses esbuild and pnpm to achieve lightning fast build times for Typescript and React.
 
-| tech                                 | purpose | notes |
-|--------------------------------------|---|------|
-| [vite](https://github.com/vitejs/vite)                                 | React / Typescript build tool for [ ddb-web ](https://github.com/DrPoppyseed/daigakudatabase/tree/to-monorepo/packages/ddb-web). | [10-20x faster than CRA](https://www.darraghoriordan.com/2021/05/16/migrating-from-create-react-app-to-vite/#:~:text=Vite%20is%2010%2D20%20times,t%20type%20check%20your%20code.)    |
-| [etsc](https://github.com/a7ul/esbuild-node-tsc)                                 | tsc but with esbuild. Typescript transpiler for [ ddb-api ](https://github.com/DrPoppyseed/daigakudatabase/tree/to-monorepo/packages/ddb-api) express app. | [3-9x faster than tsc](https://datastation.multiprocess.io/blog/2021-11-13-benchmarking-esbuild-swc-typescript-babel.html)    |
-| [pnpm](https://github.com/pnpm/pnpm) | Package manager / monorepo workspace manager | [faster than yarn](https://pnpm.io/benchmarks)    |
-
-## Layout
-
-| name                                                                                              | description |
-|---------------------------------------------------------------------------------------------------|---|
-| [ ddb-web ](https://github.com/DrPoppyseed/daigakudatabase/tree/to-monorepo/packages/ddb-web)     | react frontend |
-| [ ddb-api ](https://github.com/DrPoppyseed/daigakudatabase/tree/to-monorepo/packages/ddb-api)     | express api |
-| [ddb-entity](https://github.com/DrPoppyseed/daigakudatabase/tree/to-monorepo/packages/ddb-entity) | where all the shared types are stored |
+| tech                                 | purpose                                                                  | notes |
+|--------------------------------------|--------------------------------------------------------------------------|------|
+| [vite](https://github.com/vitejs/vite)                                 | React / Typescript build tool for the frontend.                          | [10-20x faster than CRA](https://www.darraghoriordan.com/2021/05/16/migrating-from-create-react-app-to-vite/#:~:text=Vite%20is%2010%2D20%20times,t%20type%20check%20your%20code.)    |
+| [etsc](https://github.com/a7ul/esbuild-node-tsc)                                 | tsc but with esbuild. Typescript transpiler for the backend express app. | [3-9x faster than tsc](https://datastation.multiprocess.io/blog/2021-11-13-benchmarking-esbuild-swc-typescript-babel.html)    |
 
 ## Motivation
 
@@ -38,12 +29,6 @@ for both the api and the frontend, and faster page loads.
 You can see the ongoing tasks for the codebase
 from [this trello board](https://trello.com/invite/b/vETEHdNh/a0825ebb890d9ff6e35b8bbc6170dc83/daigaku-database)
 .
-
-## Environments
-
-- The active dev branch is hosted on [daigakudatabase-dev.netlify.app](https://daigakudatabase-dev.netlify.app/)
-- The production branch [no-images-setup](https://github.com/DrPoppyseed/daigakudatabase-client/tree/no-images-setup)
-  is hosted on [daigakudatabase.com](https://daigakudatabase.com)
 
 ## Contact
 
