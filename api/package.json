@@ -1,5 +1,5 @@
 {
-  "name": "daigakudatabase/ddb-api",
+  "name": "daigakudatabase/backend",
   "author": "Haruki Jay Shimada",
   "version": "0.3.0",
   "description": "⛏ Active development branch of DaigakuDatabase.com API",
@@ -21,7 +21,7 @@
     "launch": "node ./build/server.js",
     "lint": "eslint --ext .js,.ts src/",
     "lint:fix": "eslint --fix --ext .js,.ts src/",
-    "format": "prettier --write './**/*.{js,ts,md,json}' --config ../../.prettierrc"
+    "format": "prettier --write './**/*.{js,ts,md,json}'"
   },
   "jest": {
     "preset": "ts-jest",
@@ -41,6 +41,14 @@
     "ext": "ts,mjs,js,json",
     "exec": "etsc && node ./build/server.js",
     "legacyWatch": true
+  },
+  "prettier": {
+    "singleQuote": true,
+    "arrowParens": "avoid",
+    "semi": false,
+    "useTabs": false,
+    "tabWidth": 2,
+    "jsxSingleQuote": true
   },
   "dependencies": {
     "@firebase/app-compat": "^0.1.21",

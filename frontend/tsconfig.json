@@ -10,6 +10,17 @@
     "skipLibCheck": true,
     "module": "esnext",
     "strict": true,
-    "noEmit": true
-  }
+    "noEmit": true,
+    "outDir": "./build",
+    "allowJs": true,
+    "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "types": ["vite/client", "node", "jest"],
+    "jsx": "react-jsx",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["src", "vite.config.ts"]
 }
