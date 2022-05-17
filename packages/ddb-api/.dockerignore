@@ -1,0 +1,18 @@
+# dependencies
+/node_modules
+.pnpm-store
+
+# testing
+/coverage
+
+# build files
+/build
+
+# environment variables
+.env
+
+# machine
+**/.DS_Store
+
+# workstation
+.idea

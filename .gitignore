@@ -1,24 +1,28 @@
 # dependencies
-/node_modules
+**/.pnpm-store
+**/node_modules
 
 # testing
-/coverage
+**/coverage
 
 # production
-/build
+**/build
 
 # machine specific
 **/.DS_Store
 
 # environment variables and keys
-.env
-.env.production
+**/.env
+**/.env.production
 
 # dev environment
 .idea
 .vscode
 
+# log files
+**/.pnpm-debug.log
+
 # hosting
-firebase-debug.log
-.firebaserc
-.firebase
+**/firebase-debug.log
+**/.firebaserc
+**/.firebase

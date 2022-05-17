@@ -1,5 +1,21 @@
-/node_modules
-/public
-.yarn
-/**/*.js
-/**/*.jsx
+# build files
+**/build
+**/dist
+
+# test coverages
+**/coverage
+
+# dependecies
+**/node_modules
+**/.pnpm-store
+
+# static files and assets
+**/public
+
+# choose to ignore js/jsx files because they are under migration
+**/**/*.js
+**/**/*.jsx
+
+## package specific files
+# ddb-api
+**/ddb-api/jest-mongodb-config.json

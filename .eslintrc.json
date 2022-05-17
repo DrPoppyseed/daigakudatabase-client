@@ -1,16 +1,19 @@
 {
   "env": {
+    "node": true,
+    "commonjs": true,
     "browser": true,
     "es2021": true
   },
   "extends": [
-    "airbnb",
-    "prettier",
     "eslint:recommended",
-    "airbnb-typescript",
+    "plugin:import/recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:prettier/recommended"
+    "airbnb",
+    "airbnb-typescript",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -21,7 +24,17 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "plugins": ["react", "react-hooks", "prettier", "@typescript-eslint"],
+  "plugins": [
+    "react",
+    "react-hooks",
+    "import",
+    "@typescript-eslint"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "rules": {
     "import/order": "warn",
     "import/prefer-default-export": "off",
@@ -36,6 +49,7 @@
     "no-unused-expressions": "warn",
     "no-unused-vars": "warn",
     "no-restricted-exports": "off",
+    "no-bitwise": "warn",
     "react/jsx-no-constructed-context-values": "warn",
     "react/jsx-props-no-spreading": "off",
     "react/no-this-in-sfc": "warn",
@@ -51,6 +65,10 @@
     "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/no-unused-expressions": "warn",
     "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/no-var-requires": "warn",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/naming-convention": "warn",
+    "@typescript-eslint/lines-between-class-members": "off",
     "jsx-a11y/no-noninteractive-element-interactions": "warn",
     "jsx-a11y/click-events-have-key-events": "warn",
     "jsx-a11y/label-has-associated-control": "warn",
