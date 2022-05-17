@@ -7,7 +7,7 @@ const HeaderLogo = () => (
     component={RouterLink}
     to='/'
     sx={{
-      color: 'palette.common.black',
+      color: 'palette.shared.black',
       textDecoration: 'none',
       display: 'flex',
       alignItems: 'center',

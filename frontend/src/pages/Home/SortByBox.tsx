@@ -1,14 +1,8 @@
 import React, { FC } from 'react'
-import {
-  Card,
-  FormControl,
-  InputLabel,
-  styled,
-  Typography,
-} from '@mui/material'
+import { Card, FormControl, InputLabel, styled, Typography } from '@mui/material'
 
 import { FormattedMessage } from 'react-intl'
-import FlexGrow from '../common/FlexGrow'
+import FlexGrow from '../shared/FlexGrow'
 import SortBySelector from './SortBySelector'
 import { useAppSelector } from '@/hooks/useFilter'
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, Skeleton, styled } from '@mui/material'
-import FlexGrow from '../common/FlexGrow'
+import FlexGrow from '../shared/FlexGrow'
 
 const SortByBoxSkeleton = () => (
     <CardContainer>
