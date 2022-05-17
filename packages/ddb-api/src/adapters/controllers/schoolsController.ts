@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from 'express'
 import queryString from 'query-string'
+import { School } from '@/models'
 import logger from '../../config/logger'
 import UserSchoolLikeImpl from '../../drivers/databases/userSchoolLikeStoreImpl'
-import { School } from '../../models/Schools'
 import { KeyValueObject } from '../../types/common'
 import { MongooseStore } from '../../types/MongooseStore'
 import { InternalError } from '../../utils/error'
@@ -13,10 +13,14 @@ import GetSchoolCountUsecaseImpl, {
 import GetSchoolsForPageUsecaseImpl, {
   GetSchoolsForPageUsecase,
 } from '../usecases/getSchoolsForPageUsecase'
+import GetSchoolUsecaseImpl, {
+  GetSchoolUsecase,
+} from '../usecases/getSchoolUsecase'
 
 export default class SchoolsController {
   private getSchoolCountUsecase: GetSchoolCountUsecase
   private getSchoolsForPageUsecase: GetSchoolsForPageUsecase
+  private getSchoolUsecase: GetSchoolUsecase
 
   constructor(schoolStore: MongooseStore<School>) {
     const schoolsRepository = new SchoolsRepositoryImpl(schoolStore)
@@ -27,6 +31,7 @@ export default class SchoolsController {
     this.getSchoolsForPageUsecase = new GetSchoolsForPageUsecaseImpl(
       schoolsRepository
     )
+    this.getSchoolUsecase = new GetSchoolUsecaseImpl(schoolsRepository)
   }
 
   private static schoolFilterBuilder = (
@@ -173,6 +178,22 @@ export default class SchoolsController {
         totalSchoolsFound,
         schools,
       })
+    } catch (error) {
+      logger.error(error)
+      next(new InternalError())
+    }
+  }
+
+  public getSchool = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) => {
+    const ff_name = req.params.ff_name as string
+    try {
+      const school = await this.getSchoolUsecase.call(ff_name)
+      logger.info(school)
+      res.status(200).json({ message: 'school fetched', school })
     } catch (error) {
       logger.error(error)
       next(new InternalError())

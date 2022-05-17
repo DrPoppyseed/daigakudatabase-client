@@ -1,4 +1,4 @@
-import { School } from '../../models/Schools'
+import { School } from '../../../../ddb-shared/models/Schools'
 import { KeyValueObject } from '../../types/common'
 import { MongooseStore } from '../../types/MongooseStore'
 
@@ -10,6 +10,8 @@ export interface SchoolsRepository {
     sort: KeyValueObject,
     { page, schoolsPerPage }: { page: number; schoolsPerPage?: number }
   ) => Promise<School[] | null>
+
+  getSchool: (unitid: string) => Promise<School | null>
 }
 
 export default class SchoolsRepositoryImpl implements SchoolsRepository {
@@ -31,4 +33,7 @@ export default class SchoolsRepositoryImpl implements SchoolsRepository {
       .limit(validSchoolsPerPage)
       .exec()
   }
+
+  public getSchool = (ff_name: string): Promise<School | null> =>
+    this.schoolStore.findOne({ 'general.ff_name': ff_name }).exec()
 }

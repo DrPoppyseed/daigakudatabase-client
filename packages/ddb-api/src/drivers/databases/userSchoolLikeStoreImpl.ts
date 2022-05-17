@@ -1,5 +1,5 @@
 import { Document, model, Schema } from 'mongoose'
-import { UserSchoolLike } from '../../models/UserSchoolLike'
+import { UserSchoolLike } from '../../../../ddb-shared/models/UserSchoolLike'
 
 const UserSchoolLikeSchema = new Schema<UserSchoolLike & Document>(
   {

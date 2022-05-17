@@ -1,4 +1,4 @@
-import { UserSchoolLike } from '../../models/UserSchoolLike'
+import { UserSchoolLike } from '../../../../ddb-shared/models/UserSchoolLike'
 import { UserSchoolLikeRepository } from '../respositories/userSchoolLikeRepository'
 
 export interface GetUserSchoolLikesUsecase {
@@ -12,5 +12,6 @@ export default class GetUserSchoolLikesUsecaseImpl
     private readonly userSchoolLikesRepository: UserSchoolLikeRepository
   ) {}
 
-  call = async (userId: string): Promise<UserSchoolLike[] | null> => this.userSchoolLikesRepository.getUserSchoolLike(userId)
+  call = async (userId: string): Promise<UserSchoolLike[] | null> =>
+    this.userSchoolLikesRepository.getUserSchoolLike(userId)
 }

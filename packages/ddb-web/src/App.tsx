@@ -5,11 +5,12 @@ import { Theme } from '@mui/system'
 import { AuthContext } from './contexts/AuthContext'
 
 import Header from './components/header/Header'
-import Home from './components/home/HomePage'
+import Home from './pages/home/HomePage'
 import PageLoading from './components/common/PageLoading'
 
 const SignIn = lazy(() => import('./components/auth/SignInPage'))
 const SignUp = lazy(() => import('./components/auth/SignUpPage'))
+const SchoolPage = lazy(() => import('./pages/school/SchoolPage'))
 const Footer = lazy(() => import('./components/common/Footer'))
 const NoMatch = lazy(() => import('./components/common/NotFoundPage'))
 
@@ -24,8 +25,9 @@ const App = () => {
       <AppContainer>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/auth/signin' element={<SignIn />} />
-          <Route path='/auth/signup' element={<SignUp />} />
+          <Route path='auth/signin' element={<SignIn />} />
+          <Route path='auth/signup' element={<SignUp />} />
+          <Route path=':schoolId' element={<SchoolPage />} />
           <Route element={<NoMatch />} />
         </Routes>
       </AppContainer>

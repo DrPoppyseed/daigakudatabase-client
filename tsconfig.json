@@ -11,5 +11,11 @@
     "module": "esnext",
     "strict": true,
     "noEmit": true
-  }
+  },
+  "exclude": ["packages/**/tests/**", "packages/**/build/**"],
+  "references": [
+    {
+      "path": "./packages/ddb-shared"
+    }
+  ]
 }

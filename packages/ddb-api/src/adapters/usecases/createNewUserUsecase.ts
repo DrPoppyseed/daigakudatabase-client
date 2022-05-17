@@ -1,4 +1,4 @@
-import { User } from '../../models/User'
+import { User } from '../../../../ddb-shared/models/User'
 import { UserRepository } from '../respositories/userRepository'
 
 export interface CreateNewUserUsecase {
@@ -8,5 +8,6 @@ export interface CreateNewUserUsecase {
 export default class CreateNewUserUsecaseImpl implements CreateNewUserUsecase {
   constructor(private readonly userRepository: UserRepository) {}
 
-  call = async (user: Partial<User>): Promise<User | null> => this.userRepository.createNewUser(user)
+  call = async (user: Partial<User>): Promise<User | null> =>
+    this.userRepository.createNewUser(user)
 }

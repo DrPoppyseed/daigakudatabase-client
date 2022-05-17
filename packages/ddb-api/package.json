@@ -6,7 +6,7 @@
   "main": "build/server.js",
   "license": "MIT",
   "repository": {
-    "url": "https://github.com/DrPoppyseed/daigakudatabase-api",
+    "url": "https://github.com/DrPoppyseed/daigakudatabase",
     "type": "git"
   },
   "packageManager": "pnpm@6.32.3",
@@ -17,7 +17,7 @@
   "scripts": {
     "test": "pnpm jest",
     "build": "pnpm run lint:fix && etsc -p ./tsconfig.build.json",
-    "start": "nodemon",
+    "start": "docker-compose up",
     "launch": "node ./build/server.js",
     "lint": "eslint --ext .js,.ts src/",
     "lint:fix": "eslint --fix --ext .js,.ts src/",

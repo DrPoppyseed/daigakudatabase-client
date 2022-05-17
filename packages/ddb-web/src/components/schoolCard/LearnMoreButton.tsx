@@ -1,11 +1,15 @@
 import { Button, styled } from '@mui/material'
 import { Link } from 'react-router-dom'
-import React from 'react'
+import React, { FC } from 'react'
 import { FormattedMessage } from 'react-intl'
 
-const LearnMoreButton = () => (
+interface Props {
+  unitid: string
+}
+
+const LearnMoreButton: FC<Props> = ({ unitid }) => (
   <ButtonContainer variant='contained' disableElevation>
-    <ButtonLink to='#'>
+    <ButtonLink to={unitid}>
       <FormattedMessage id='school_card.datacard.learn_more_button.label' />
     </ButtonLink>
   </ButtonContainer>

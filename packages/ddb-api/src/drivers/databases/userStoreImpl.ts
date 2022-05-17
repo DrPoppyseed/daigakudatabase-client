@@ -1,5 +1,5 @@
 import { Document, model, Schema } from 'mongoose'
-import { User } from '../../models/User'
+import { User } from '../../../../ddb-shared/models/User'
 
 const UserSchema = new Schema<User & Document>(
   {

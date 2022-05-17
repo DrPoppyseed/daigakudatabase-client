@@ -1,5 +1,5 @@
-import { User } from '../../models/User'
-import { UserSchoolLike } from '../../models/UserSchoolLike'
+import { User } from '../../../../ddb-shared/models/User'
+import { UserSchoolLike } from '../../../../ddb-shared/models/UserSchoolLike'
 import { UserRepository } from '../respositories/userRepository'
 
 export interface RemoveUserSchoolLikeFromUserUsecase {
@@ -11,5 +11,6 @@ export default class RemoveUserSchoolLikeFromUserUsecaseImpl
 {
   constructor(private readonly userRepository: UserRepository) {}
 
-  call = (userSchoolLike: UserSchoolLike): Promise<User | null> => this.userRepository.removeUserSchoolLike(userSchoolLike)
+  call = (userSchoolLike: UserSchoolLike): Promise<User | null> =>
+    this.userRepository.removeUserSchoolLike(userSchoolLike)
 }
