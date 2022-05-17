@@ -16,7 +16,7 @@ const AuthLink: FC<AuthLinkProps> = ({ to, text, type = 'default' }) => (
       sx={
         type === 'legal'
           ? {
-              color: 'palette.common.black',
+              color: 'palette.shared.black',
               paddingLeft: 2,
               opacity: 0.5,
             }

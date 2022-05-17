@@ -13,7 +13,7 @@ it('shows circular progress on load', () => {
       labelMessageId='auth.auth_button.button_label.signin'
     />
   )
-  expect(getByTestId('auth-button-progress'))
+  expect(getByTestId('Auth-button-progress'))
 })
 
 it('show text when not loading', () => {

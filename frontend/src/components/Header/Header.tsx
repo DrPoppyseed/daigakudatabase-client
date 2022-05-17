@@ -3,7 +3,7 @@ import { AppBar, Box, Toolbar } from '@mui/material'
 import { styled } from '@mui/system'
 import { AuthContext } from '@/contexts/AuthContext'
 import HeaderLogo from './HeaderLogo'
-import FlexGrow from '../common/FlexGrow'
+import FlexGrow from '../shared/FlexGrow'
 import AuthButtonsBlock from './AuthButtonsBlock'
 import AccountBlock from './AccountBlock'
 

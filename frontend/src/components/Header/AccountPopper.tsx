@@ -1,13 +1,4 @@
-import {
-  ClickAwayListener,
-  Grow,
-  Link,
-  MenuItem,
-  MenuList,
-  Paper,
-  Popper,
-  Typography,
-} from '@mui/material'
+import { ClickAwayListener, Grow, Link, MenuItem, MenuList, Paper, Popper, Typography } from '@mui/material'
 import { Link as RouterLink } from 'react-router-dom'
 import React, { FC } from 'react'
 import { FormattedMessage } from 'react-intl'
@@ -64,7 +55,7 @@ const AccountPopper: FC<AccountPopperProps> = ({
                       to='/account'
                       component={RouterLink}
                       sx={{
-                        color: 'palette.common.black',
+                        color: 'palette.shared.black',
                       }}
                     >
                       <FormattedMessage id='header.account_popper.menu_item.profile' />

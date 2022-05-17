@@ -3,7 +3,7 @@ import { FormControl, FormGroup, FormLabel } from '@mui/material'
 import { FormattedMessage } from 'react-intl'
 import { useAppDispatch, useAppSelector } from '@/hooks/useFilter'
 import { setSchoolType } from '@/features/filterSlice'
-import CheckboxChild from '../common/CheckboxChild'
+import CheckboxChild from '../shared/CheckboxChild'
 
 const SchoolTypeCheckboxes = () => {
   const schoolType = useAppSelector(state => state.filter.schoolType)
