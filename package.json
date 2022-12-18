@@ -14,15 +14,15 @@
     "lint": "eslint --ext .ts,.tsx packages/**/src/",
     "lint:fix": "eslint --fix --ext .ts,.tsx packages/**/src/",
     "format": "pnpm recursive run format",
-    "build": "pnpm recursive run build",
-    "pre-commit": "lint-staged",
-    "prepare": "husky install"
+    "build": "pnpm recursive run build"
   },
-  "lint-staged": {
-    "**/*.{ ts,tsx }": [
-      "pnpm run lint:fix",
-      "pnpm run format"
-    ]
+  "prettier": {
+    "singleQuote": true,
+    "arrowParens": "avoid",
+    "semi": false,
+    "useTabs": false,
+    "tabWidth": 2,
+    "jsxSingleQuote": true
   },
   "engines": {
     "node": ">=16.0.0",

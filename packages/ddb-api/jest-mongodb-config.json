@@ -1,8 +1,0 @@
-{
-  "mongodbMemoryServerOptions": {
-    "instance": {
-      "dbName": "jest"
-    },
-    "autoStart": false
-  }
-}
