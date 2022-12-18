@@ -26,6 +26,3 @@ build
 firebase-debug.log
 .firebaserc
 .firebase
-
-.env
-!.env.test

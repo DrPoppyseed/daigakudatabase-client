@@ -1,25 +1,11 @@
-version: '2.4'
+version: '3'
 
 services:
   app:
+    env_file:
+      - .env
     build:
       context: .
-      args:
-        - NODE_ENV=development
-        - PORT=8080
-      target: dev
-    command: pnpm start
-    env_file: .env
-    image: daigakudatabase-api:dev
-    platform: linux/x86_64
+      dockerfile: Dockerfile
     ports:
-      - 8080:8080
-    volumes:
-      - .:/app
-      - ./package.json:/app/package.json
-    environment:
-      - NODE_ENV=development
-      - PORT=8080
-
-volumes:
-  notused:
+      - "8090:8090"
